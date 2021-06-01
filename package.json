@@ -1,0 +1,18 @@
+{
+    "name": "create-app",
+    "description": "Generate a new app",
+    "version": "0.0.1",
+    "keywords": [],
+    "author": "Paul Heintzelman",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/pheintzelman/create-app"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "bin": {
+        "create-app": "./cli.js"
+    }
+}

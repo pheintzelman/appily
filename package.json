@@ -1,7 +1,7 @@
 {
   "name": "create-app",
   "description": "Generate a new app",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "keywords": [],
   "author": "Paul Heintzelman",
   "license": "MIT",
@@ -14,5 +14,9 @@
   },
   "bin": {
     "create-app": "./src/cli/cli.js"
+  },
+  "dependencies": {
+    "pino": "^6.11.3",
+    "pino-pretty": "^5.0.2"
   }
 }

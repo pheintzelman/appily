@@ -1,15 +1,20 @@
 #!/usr/bin/env node
 const { readConfig } = require('./readConfig');
+const { createApp } = require('../create/createApp');
+const { logger, logLevel } = require('../logger');
 
 const [, , ...args] = process.argv;
 
 async function main() {
-  try {
-    const config = await readConfig(args[0]);
-    console.log(config);
-  } catch (error) {
-    console.log(error);
-  }
+  logger.level = logLevel.trace;
+  const config = await readConfig(args[0]);
+  await createApp(config);
+  logger.trace({ config });
 }
 
-main();
+main()
+  .then(() => process.exit(0))
+  .catch((error) => {
+    logger.error(error);
+    process.exit(1);
+  });

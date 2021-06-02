@@ -76,3 +76,4 @@ _later_
 - other compoient libaries
 - support native apps/desktop
 - storybook
+- app overwrite check

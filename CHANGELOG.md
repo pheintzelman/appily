@@ -1,3 +1,8 @@
+v. 0.0.3
+
+- Create dir
+- Add Pino logger
+
 v. 0.0.2
 
 - Read Json config

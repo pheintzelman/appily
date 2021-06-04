@@ -1,3 +1,7 @@
+v. 0.0.4
+
+- Added template engine
+
 v. 0.0.3
 
 - Create dir

@@ -1,1 +1,1 @@
-module.exports = { DefaultAppName: 'app' };
+module.exports = { DefaultAppName: 'app', TemplateExt: '.mustache' };

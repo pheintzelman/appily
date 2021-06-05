@@ -1,8 +1,8 @@
-const fsModule = require('fs');
+import fsModule from 'fs';
 const fs = fsModule.promises;
-const { DefaultAppName } = require('../constants');
-const { logger } = require('../logger');
-const { dirExists } = require('../lib/file');
+import { DefaultAppName } from '../constants.js';
+import { logger } from '../logger.js';
+import { dirExists } from '../lib/file.js';
 
 // If the dir already exists append the next number
 async function getDirName(name, count = 0) {
@@ -15,7 +15,7 @@ async function getDirName(name, count = 0) {
   return dir;
 }
 
-async function createDir(config) {
+export async function createDir(config) {
   const name = config.name ?? DefaultAppName;
   const dir = await getDirName(name);
 
@@ -23,5 +23,3 @@ async function createDir(config) {
   logger.debug(`Dir created: ${dir}`);
   return dir;
 }
-
-module.exports = { createDir };

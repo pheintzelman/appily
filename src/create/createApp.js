@@ -1,9 +1,7 @@
-const { createDir } = require('./createDir');
-const { renderTemplate } = require('./renderTemplate');
+import { createDir } from './createDir.js';
+import { renderTemplate } from './renderTemplate.js';
 
-async function createApp(config) {
+export async function createApp(config) {
   const dir = await createDir(config);
   await renderTemplate(config, dir);
 }
-
-module.exports = { createApp };

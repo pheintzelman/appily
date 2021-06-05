@@ -1,4 +1,4 @@
-const fsModule = require("fs");
+import fsModule from 'fs';
 const fs = fsModule.promises;
 
 const FileOk = fsModule.constants.F_OK;
@@ -13,9 +13,7 @@ async function fileExists(path) {
   return true;
 }
 
-async function readConfig(path) {
+export async function readConfig(path) {
   await fileExists(path);
   return await readJsonFile(path);
 }
-
-module.exports = { readConfig };

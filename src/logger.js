@@ -1,8 +1,9 @@
-const pino = require('pino');
-const logger = pino({
+import pino from 'pino';
+
+export const logger = pino({
   prettyPrint: {
     levelFirst: true
   }
 });
 
-module.exports = { logger, logLevel: logger.levels.values };
+export const logLevel = logger.levels.values;

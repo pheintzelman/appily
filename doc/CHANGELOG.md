@@ -1,3 +1,7 @@
+v. 0.0.5
+
+- Switch to es6 modules
+
 v. 0.0.4
 
 - Added template engine

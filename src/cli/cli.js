@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-const { readConfig } = require('./readConfig');
-const { createApp } = require('../create/createApp');
-const { logger, logLevel } = require('../logger');
+import { readConfig } from './readConfig.js';
+import { createApp } from '../create/createApp.js';
+import { logger, logLevel } from '../logger.js';
 
 const [, , ...args] = process.argv;
 

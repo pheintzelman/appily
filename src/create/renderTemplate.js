@@ -1,10 +1,14 @@
-const fsModule = require('fs');
+import fsModule from 'fs';
 const fs = fsModule.promises;
-const path = require('path');
-const { logger } = require('../logger');
-const { dirExists } = require('../lib/file');
-const { renderFile } = require('./renderFile');
-const { TemplateExt } = require('../constants');
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { logger } from '../logger.js';
+import { dirExists } from '../lib/file.js';
+import { renderFile } from './renderFile.js';
+import { TemplateExt } from '../constants.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 async function copyFile({ src, dest, viewModel }) {
   const isTemplateFile = src.includes(TemplateExt);
@@ -25,7 +29,7 @@ async function copyTemplate({ src, dest, viewModel }) {
     await fs.mkdir(dest);
   }
 
-  for (entry of entries) {
+  for (const entry of entries) {
     const srcPath = path.join(src, entry.name);
     const destPath = path.join(dest, entry.name);
     if (entry.isDirectory()) {
@@ -36,7 +40,7 @@ async function copyTemplate({ src, dest, viewModel }) {
   }
 }
 
-async function renderTemplate(config, dest) {
+export async function renderTemplate(config, dest) {
   const { template } = config;
   const templateDir = path.resolve(__dirname, `../templates/${template}`);
   const src = path.join(templateDir, 'app');
@@ -44,5 +48,3 @@ async function renderTemplate(config, dest) {
 
   await copyTemplate({ src, dest, viewModel });
 }
-
-module.exports = { renderTemplate };

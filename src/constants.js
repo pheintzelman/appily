@@ -1,1 +1,2 @@
-module.exports = { DefaultAppName: 'app', TemplateExt: '.mustache' };
+export const DefaultAppName = 'app';
+export const TemplateExt = '.mustache';

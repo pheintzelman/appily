@@ -1,7 +1,7 @@
-const fsModule = require('fs');
+import fsModule from 'fs';
 const fs = fsModule.promises;
 
-async function dirExists(dir) {
+export async function dirExists(dir) {
   try {
     await fs.access(dir);
     return true;
@@ -9,5 +9,3 @@ async function dirExists(dir) {
     return false;
   }
 }
-
-module.exports = { dirExists };

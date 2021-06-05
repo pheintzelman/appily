@@ -1,7 +1,7 @@
 {
   "name": "create-app",
   "description": "Generate a new app",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "keywords": [],
   "author": "Paul Heintzelman",
   "license": "MIT",
@@ -9,6 +9,7 @@
     "type": "git",
     "url": "git://github.com/pheintzelman/create-app"
   },
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

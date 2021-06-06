@@ -1,7 +1,7 @@
-import { createDir } from './createDir.js';
-import { renderTemplate } from './renderTemplate.js';
+import { createRootDir } from './createRootDir.js';
+import { runDirectives } from './runDirectives.js';
 
 export async function createApp(config) {
-  const dir = await createDir(config);
-  await renderTemplate(config, dir);
+  const dir = await createRootDir(config);
+  await runDirectives(config, dir);
 }

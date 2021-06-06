@@ -2,7 +2,9 @@
   "name": "test",
   "version": "0.0.1",
   "options": {
+    "ui": ["vanilla"],
     "api": [],
     "db": []
-  }
+  },
+  "directives": [{ "ui:vanilla": { "copy": { "src": "app", "dest": "" } } }]
 }

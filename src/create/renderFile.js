@@ -14,5 +14,5 @@ export async function renderFile({ src, dest: destIn, viewModel }) {
   const dest = renameDest(destIn);
 
   await fs.writeFile(dest, file, 'utf8');
-  logger.info(`File rendered: ${dest}`);
+  logger.debug(`File rendered: ${dest}`);
 }

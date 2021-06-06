@@ -1,5 +1,6 @@
 v. 0.0.5
 
+- Improved the docs
 - Switch to es6 modules
 
 v. 0.0.4

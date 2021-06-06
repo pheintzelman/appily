@@ -1,3 +1,7 @@
+v. 0.0.6
+
+- Added template directives
+
 v. 0.0.5
 
 - Improved the docs

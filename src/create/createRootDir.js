@@ -15,7 +15,7 @@ async function getDirName(name, count = 0) {
   return dir;
 }
 
-export async function createDir(config) {
+export async function createRootDir(config) {
   const name = config.name ?? DefaultAppName;
   const dir = await getDirName(name);
 

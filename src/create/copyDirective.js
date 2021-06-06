@@ -1,14 +1,10 @@
 import fsModule from 'fs';
 const fs = fsModule.promises;
 import path from 'path';
-import { fileURLToPath } from 'url';
 import { logger } from '../logger.js';
 import { dirExists } from '../lib/file.js';
 import { renderFile } from './renderFile.js';
 import { TemplateExt } from '../constants.js';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 async function copyFile({ src, dest, viewModel }) {
   const isTemplateFile = src.includes(TemplateExt);
@@ -20,7 +16,7 @@ async function copyFile({ src, dest, viewModel }) {
   logger.debug(`File copied: ${dest}`);
 }
 
-async function copyTemplate({ src, dest, viewModel }) {
+export async function copyDir({ src, dest, viewModel }) {
   logger.trace({ msg: 'copyDir', src, dest });
 
   const entries = await fs.readdir(src, { withFileTypes: true });
@@ -33,18 +29,13 @@ async function copyTemplate({ src, dest, viewModel }) {
     const srcPath = path.join(src, entry.name);
     const destPath = path.join(dest, entry.name);
     if (entry.isDirectory()) {
-      await copyDir(srcPath, destPath);
+      await copyDir({ src: srcPath, dest: destPath, viewModel });
     } else {
       await copyFile({ src: srcPath, dest: destPath, viewModel });
     }
   }
 }
 
-export async function renderTemplate(config, dest) {
-  const { template } = config;
-  const templateDir = path.resolve(__dirname, `../templates/${template}`);
-  const src = path.join(templateDir, 'app');
-  const viewModel = { appName: config.name };
-
-  await copyTemplate({ src, dest, viewModel });
+export async function copyDirective({ src, dest, viewModel }) {
+  return await copyDir({ src, dest, viewModel });
 }

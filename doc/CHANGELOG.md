@@ -1,6 +1,7 @@
 v. 0.0.6
 
 - Added template directives
+- Added tests
 
 v. 0.0.5
 

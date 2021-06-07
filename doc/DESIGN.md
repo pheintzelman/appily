@@ -2,7 +2,7 @@
 
 1. Deliver value early
 2. Generate code people would write
-3. Favor modifiability over dry, avoid coupling between models this allows users to easly modify the application. e.g. a compoinet per model is better than a single "magic" component
+3. Favor modifiability over dry, avoid coupling between models this allows users to easly modify the application. e.g. a component per model is better than a single "magic" component
 4. Be opinionated
 5. Don't cover all usecases
 6. Support templating to increase flexibility
@@ -34,7 +34,7 @@ Here is an example Model
 ```js
 { Dog: {
   name: 'String',
-  breed: 'Breed'
+  breed: 'Breed',
   weight: {type: 'Number', unit: 'lbs'},
   owner: 'Person'
 }}
@@ -46,9 +46,9 @@ Example of the model View:
 
 ```
 name: Spot
-<breed>
+<link to=breed />
 weight: 120 lbs
-<owner>
+<link to=owner />
 ```
 
 If a model has a collection of models than its children are also displayed.

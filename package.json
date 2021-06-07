@@ -11,7 +11,22 @@
   },
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --experimental-vm-modules node_modules/.bin/jest --coverage",
+    "coverage": "open ./tests/coverage/lcov-report/index.html"
+  },
+  "jest": {
+    "testEnvironment": "jest-environment-node",
+    "transform": {},
+    "testMatch": [
+      "**/*.test.js"
+    ],
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/*.test.js",
+      "!**/templates/**",
+      "!**/tests/**"
+    ],
+    "coverageDirectory": "./tests/coverage"
   },
   "bin": {
     "create-app": "./src/cli/cli.js"
@@ -20,5 +35,9 @@
     "mustache": "^4.2.0",
     "pino": "^6.11.3",
     "pino-pretty": "^5.0.2"
+  },
+  "devDependencies": {
+    "jest": "^27.0.4",
+    "open": "^8.2.0"
   }
 }

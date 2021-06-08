@@ -5,7 +5,8 @@ _alpha 0.1_
 - Generate basic UI
   - View a model
   - Add/Edit a model
-  - View collection of models
+  - View collection of model
+- indexeddb
 
 _alpha 0.2_
 

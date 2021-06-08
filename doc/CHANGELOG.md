@@ -1,3 +1,7 @@
+v. 0.0.7
+
+- Add react base
+
 v. 0.0.6
 
 - Added template directives

@@ -45,3 +45,4 @@ Aim for progressive development with something useful asap See the [road map](./
 - add github test badge
 - add github test action (pipeline)
 - validate config
+- single model app

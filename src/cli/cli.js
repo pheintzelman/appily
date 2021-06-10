@@ -1,13 +1,17 @@
 #!/usr/bin/env node
+import { handleArgs } from './handleArgs.js';
 import { readConfig } from './readConfig.js';
 import { createApp } from '../create/createApp.js';
 import { logger, logLevel } from '../logger.js';
 
-const [, , ...args] = process.argv;
+const argv = handleArgs;
 
 async function main() {
-  logger.level = logLevel.trace;
-  const config = await readConfig(args[0]);
+  if (argv.v) {
+    logger.level = logLevel.trace;
+  }
+
+  const config = await readConfig(argv.configfile);
   logger.trace({ config });
   await createApp(config);
 }

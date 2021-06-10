@@ -8,6 +8,7 @@ Generate an application form a simple json configuration. Perfect for MVP's and 
 1. clone repo
 2. $ yarn install
 3. $ yarn link
+4. node 14.x
 ```
 
 ## Usage

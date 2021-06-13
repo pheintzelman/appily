@@ -1,11 +1,15 @@
 import fsModule from 'fs';
 const fs = fsModule.promises;
 import mustache from 'mustache';
-import { logger } from '../logger.js';
-import { TemplateExt } from '../constants.js';
+import { logger } from '../../logger.js';
+import { TemplateExt } from '../../constants.js';
 
 function renameDest(dest) {
   return dest.replace(TemplateExt, '');
+}
+
+export function renderFileName(fileName, viewModel) {
+  return mustache.render(fileName, viewModel);
 }
 
 export async function renderFile({ src, dest: destIn, viewModel }) {

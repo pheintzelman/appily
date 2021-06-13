@@ -18,7 +18,8 @@
     "testEnvironment": "jest-environment-node",
     "transform": {},
     "testMatch": [
-      "**/*.test.js"
+      "**/*.test.js",
+      "!**/templates/**"
     ],
     "collectCoverageFrom": [
       "**/*.{js,jsx}",

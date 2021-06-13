@@ -3,7 +3,8 @@ import { fileURLToPath } from 'url';
 import { Directive, ManifestoFileName } from '../constants.js';
 import { kvp } from '../lib/kvp.js';
 import { readJsonFile } from '../lib/file.js';
-import { copyDirective } from './copyDirective.js';
+import { copyDirective } from './directives/copyDirective.js';
+import { loopDirective } from './directives/loopDirective.js';
 import { getViewModel } from './getViewModel.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -52,6 +53,14 @@ export async function runDirectives(config, dir) {
       const src = path.join(templateDir, directive.value.src);
       const dest = path.join(dir, directive.value.dest);
       await copyDirective({ src, dest, viewModel });
+    }
+
+    if (directive.key === Directive.Loop) {
+      const src = path.join(templateDir, directive.value.src);
+      const dest = path.join(dir, directive.value.dest);
+      const { property } = directive.value;
+
+      await loopDirective({ property, src, dest, viewModel });
     }
   }
 }

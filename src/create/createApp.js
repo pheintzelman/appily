@@ -1,4 +1,4 @@
-import { createRootDir } from './createRootDir.js';
+import { createRootDir } from './file/createRootDir.js';
 import { runDirectives } from './runDirectives.js';
 
 export async function createApp(config) {

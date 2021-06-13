@@ -23,7 +23,7 @@ export function VideoGameForm() {
   }
 
   return (
-    <Container maxWidth="sm" className="{{pascalModelName}}Form">
+    <Container maxWidth="sm" className="{{modelNamePascal}}Form">
       <h1>{{ modelName }}</h1>
       <form noValidate autoComplete="off">
         <TextField

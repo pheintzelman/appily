@@ -4,8 +4,8 @@ function preprocessModel([modelName, model]) {
   return {
     properties: model,
     modelName,
-    pascalModelName: pascalCase(modelName),
-    camelModelName: camelCase(modelName)
+    modelNamePascal: pascalCase(modelName),
+    modelNameCamel: camelCase(modelName)
   };
 }
 

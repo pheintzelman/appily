@@ -12,18 +12,18 @@ Array [
         "dir": "tests/app/video-game-app",
         "models": Array [
           Object {
-            "camelModelName": "videoGame",
             "modelName": "Video Game",
-            "pascalModelName": "VideoGame",
+            "modelNameCamel": "videoGame",
+            "modelNamePascal": "VideoGame",
             "properties": Object {
               "Title": "String",
               "Year Published": "String",
             },
           },
           Object {
-            "camelModelName": "publisher",
             "modelName": "Publisher",
-            "pascalModelName": "Publisher",
+            "modelNameCamel": "publisher",
+            "modelNamePascal": "Publisher",
             "properties": Object {
               "Name": "String",
             },

@@ -7,6 +7,35 @@ Array [
   },
   Object {
     "TRACE": Object {
+      "viewModel": Object {
+        "appName": "video-game-app",
+        "dir": "tests/app/video-game-app",
+        "models": Array [
+          Object {
+            "camelModelName": "videoGame",
+            "modelName": "Video Game",
+            "pascalModelName": "VideoGame",
+            "properties": Object {
+              "Title": "String",
+              "Year Published": "String",
+            },
+          },
+          Object {
+            "camelModelName": "publisher",
+            "modelName": "Publisher",
+            "pascalModelName": "Publisher",
+            "properties": Object {
+              "Name": "String",
+            },
+          },
+        ],
+        "templateName": "react-app",
+        "templateVersion": "0.0.1",
+      },
+    },
+  },
+  Object {
+    "TRACE": Object {
       "dest": "tests/app/video-game-app",
       "msg": "copyDir",
       "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/base",
@@ -83,36 +112,6 @@ Array [
   },
   Object {
     "DEBUG": "File copied: tests/app/video-game-app/src/setupTests.js",
-  },
-  Object {
-    "INFO": Object {
-      "loopDirective": [Function],
-      "viewModel": Object {
-        "appName": "video-game-app",
-        "dir": "tests/app/video-game-app",
-        "models": Array [
-          Object {
-            "camelModelName": "videoGame",
-            "modelName": "Video Game",
-            "pascalModelName": "VideoGame",
-            "properties": Object {
-              "Title": "String",
-              "Year Published": "String",
-            },
-          },
-          Object {
-            "camelModelName": "publisher",
-            "modelName": "Publisher",
-            "pascalModelName": "Publisher",
-            "properties": Object {
-              "Name": "String",
-            },
-          },
-        ],
-        "templateName": "react-app",
-        "templateVersion": "0.0.1",
-      },
-    },
   },
   Object {
     "TRACE": Object {

@@ -2,7 +2,6 @@ import { copyDir } from '../file/copyDir.js';
 import { logger } from '../../logger.js';
 
 export async function loopDirective({ property, src, dest, viewModel }) {
-  logger.info({ loopDirective, viewModel });
   if (!Array.isArray(viewModel[property])) {
     return;
   }

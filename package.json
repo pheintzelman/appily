@@ -1,7 +1,7 @@
 {
   "name": "create-app",
   "description": "Generate a new app",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "keywords": [],
   "author": "Paul Heintzelman",
   "license": "MIT",

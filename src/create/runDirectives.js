@@ -1,6 +1,7 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { Directive, ManifestoFileName } from '../constants.js';
+import { logger } from '../logger.js';
 import { kvp } from '../lib/kvp.js';
 import { readJsonFile } from '../lib/file.js';
 import { copyDirective } from './directives/copyDirective.js';
@@ -47,6 +48,8 @@ export async function runDirectives(config, dir) {
   const viewModel = getViewModel({ config, manifesto, dir });
   const selectedOptions = getSelectedOptions(manifesto, config);
   const directives = getDirectives(manifesto, selectedOptions).map(kvp);
+
+  logger.trace({ viewModel });
 
   for (const directive of directives) {
     if (directive.key === Directive.Copy) {

@@ -1,3 +1,7 @@
+v. 0.0.8
+
+- Add loop directive
+
 v. 0.0.7
 
 - Add react base

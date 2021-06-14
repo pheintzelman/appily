@@ -6,5 +6,16 @@
     "api": [],
     "db": []
   },
-  "directives": [{ "ui:react": { "copy": { "src": "reactBase", "dest": "" } } }]
+  "directives": [
+    { "ui:react": { "copy": { "src": "react/base", "dest": "" } } },
+    {
+      "ui:react": {
+        "loop": {
+          "property": "models",
+          "src": "react/loop",
+          "dest": "src/components"
+        }
+      }
+    }
+  ]
 }

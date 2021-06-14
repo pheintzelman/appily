@@ -7,6 +7,17 @@ Array [
   },
   Object {
     "TRACE": Object {
+      "viewModel": Object {
+        "appName": "test-app",
+        "dir": "tests/app/test-app",
+        "models": Array [],
+        "templateName": "test",
+        "templateVersion": "0.0.1",
+      },
+    },
+  },
+  Object {
+    "TRACE": Object {
       "dest": "tests/app/test-app",
       "msg": "copyDir",
       "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/test/app",

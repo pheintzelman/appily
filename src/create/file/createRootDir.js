@@ -1,9 +1,9 @@
 import fsModule from 'fs';
 const fs = fsModule.promises;
 import path from 'path';
-import { DefaultAppName } from '../constants.js';
-import { logger } from '../logger.js';
-import { dirExists } from '../lib/file.js';
+import { DefaultAppName } from '../../constants.js';
+import { logger } from '../../logger.js';
+import { dirExists } from '../../lib/file.js';
 
 // If the dir already exists append the next number
 async function getRootDirName(baseDir, name, count = 0) {

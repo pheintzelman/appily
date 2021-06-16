@@ -4,14 +4,14 @@ import { readConfig } from './readConfig.js';
 import { createApp } from '../create/createApp.js';
 import { logger, logLevel } from '../logger.js';
 
-const argv = handleArgs;
+const argv = handleArgs(process.argv);
 
 async function main() {
   if (argv.v) {
     logger.level = logLevel.trace;
   }
 
-  const config = await readConfig(argv.configfile);
+  const config = await readConfig(argv.configFile);
   logger.trace({ config });
   await createApp(config);
 }

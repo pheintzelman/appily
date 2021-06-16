@@ -4,11 +4,19 @@ Generate an application form a simple json configuration. Perfect for MVP's and 
 
 ## Getting started
 
+## Environment Requirements
+
+```
+1. Yarn
+2. Node >= 14.x
+```
+
+## Install
+
 ```
 1. clone repo
 2. $ yarn install
 3. $ yarn link
-4. node 14.x
 ```
 
 ## Usage

@@ -1,4 +1,5 @@
 {
   "name": "test-app",
+  "dir": "./tests/manual/",
   "template": "test"
 }

@@ -2,7 +2,7 @@ import fsModule from 'fs';
 const fs = fsModule.promises;
 import path from 'path';
 import { logger } from '../../logger.js';
-import { dirExists } from '../../lib/file.js';
+import { dirExists, mkdirAsyncSafe } from '../../lib/file.js';
 import { renderFile, renderFileName } from '../file/renderFile.js';
 import { TemplateExt } from '../../constants.js';
 
@@ -20,10 +20,7 @@ export async function copyDir({ src, dest, viewModel }) {
   logger.trace({ msg: 'copyDir', src, dest });
 
   const entries = await fs.readdir(src, { withFileTypes: true });
-
-  if (!(await dirExists(dest))) {
-    await fs.mkdir(dest);
-  }
+  await mkdirAsyncSafe(dest);
 
   for (const entry of entries) {
     const srcPath = path.join(src, entry.name);

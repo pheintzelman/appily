@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "options": {
     "ui": ["react"],
-    "api": [],
+    "api": ["stub"],
     "db": []
   },
   "directives": [
@@ -14,6 +14,15 @@
           "property": "models",
           "src": "react/loop",
           "dest": "src/components"
+        }
+      }
+    },
+    {
+      "api:stub": {
+        "loop": {
+          "property": "models",
+          "src": "api/stub/api",
+          "dest": "src/api"
         }
       }
     }

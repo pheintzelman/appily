@@ -1,11 +1,39 @@
-import { pascalCase, camelCase } from '../lib/case.js';
+import util from 'util';
+import { pascalCase, camelCase, getVariations } from '../lib/case.js';
+
+function getDefaultState(properties) {
+  return properties.reduce((acc, { propertyNameCamel }) => {
+    return { ...acc, [propertyNameCamel]: '' };
+  }, {});
+}
+
+function typeFlags(type) {
+  return { isString: type === 'String', isBoolean: type === 'Boolean' };
+}
+
+function preprocessProperty([propertyName, property]) {
+  return {
+    ...getVariations('propertyName', propertyName),
+    type: property,
+    ...typeFlags(property)
+  };
+}
+
+function preprocessProperties(properties) {
+  if (!properties) {
+    return [];
+  }
+
+  return Object.entries(properties).map(preprocessProperty);
+}
 
 function preprocessModel([modelName, model]) {
+  const properties = preprocessProperties(model);
+
   return {
-    properties: model,
-    modelName,
-    modelNamePascal: pascalCase(modelName),
-    modelNameCamel: camelCase(modelName)
+    properties,
+    defaultState: util.inspect(getDefaultState(properties)),
+    ...getVariations('modelName', modelName)
   };
 }
 

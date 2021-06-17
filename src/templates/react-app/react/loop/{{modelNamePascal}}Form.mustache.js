@@ -22,22 +22,22 @@ export function {{modelNamePascal}}Form() {
   }
 
   return (
-    <Container maxWidth="sm" className="{{modelNamePascal}}Form">
+    <Container maxWidth="sm" className="Container {{modelNamePascal}}Form">
       <h1>{{ modelName }}</h1>
       <form noValidate autoComplete="off">
         {{#properties}}
-          {{#isString}}
-          <TextField
-            className="TextField"
-            id="{{modelNameCamel}}Form{{propertyNamePascal}}"
-            label="{{propertyName}}"
-            value={{=<% %>=}}{<%modelNameCamel%>.<%propertyNameCamel%>}<%={{ }}=%>
-            onChange={handleChange('{{propertyNameCamel}}')}
-            variant="filled"
-            fullWidth
-            disabled={isLoading}
-          />
-          {{/isString}}
+        {{#isString}}
+        <TextField
+          className="TextField"
+          id="{{modelNameCamel}}Form{{propertyNamePascal}}"
+          label="{{propertyName}}"
+          value={{=<% %>=}}{<%modelNameCamel%>.<%propertyNameCamel%>}<%={{ }}=%>
+          onChange={handleChange('{{propertyNameCamel}}')}
+          variant="filled"
+          fullWidth
+          disabled={isLoading}
+        />
+        {{/isString}}
         {{/properties}}
 
         <Button

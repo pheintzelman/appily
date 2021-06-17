@@ -60,3 +60,4 @@ Aim for progressive development with something useful asap See the [road map](./
 - fix dirname test error, move dirname/filename code to its own file and exclude that file from test coverage
 - add test for missing coverage
 - make log tests order independent
+- try to fix nested app issue (apps don't run from manual folder)

@@ -1,5 +1,5 @@
 import util from 'util';
-import { pascalCase, camelCase, getVariations } from '../lib/case.js';
+import { getVariations } from '../lib/case.js';
 
 function getDefaultState(properties) {
   return properties.reduce((acc, { propertyNameCamel }) => {

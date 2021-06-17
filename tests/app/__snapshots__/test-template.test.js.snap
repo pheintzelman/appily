@@ -31,6 +31,12 @@ Array [
     },
   },
   Object {
+    "TRACE": Object {
+      "dest": "tests/app/test-app/UI",
+      "msg": "mkdir",
+    },
+  },
+  Object {
     "DEBUG": "File rendered: tests/app/test-app/UI/index.html",
   },
   Object {

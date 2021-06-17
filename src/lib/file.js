@@ -18,7 +18,7 @@ export async function dirExists(dir) {
 
 async function mkdirAsyncSafeHelper(dir) {
   if (!(await dirExists(dir))) {
-    logger.info({ msg: 'mkdir', dest: dir });
+    logger.trace({ msg: 'mkdir', dest: dir });
     return await fs.mkdir(dir);
   }
 }

@@ -1,58 +1,50 @@
 import { useState } from 'react';
 import { Button, Container, TextField } from '@material-ui/core';
-import { addVideoGame } from '../api/videoGame';
-import './VideoGameForm.scss';
+import { add{{modelNamePascal}} } from '../api/{{modelNameCamel}}';
 
-export function VideoGameForm() {
+export function {{modelNamePascal}}Form() {
   const cta = 'Add';
-  const [videoGame, setVideoGame] = useState({ title: '', yearPublished: '' });
+  const [{{modelNameCamel}}, set{{modelNamePascal}}] = useState({{{defaultState}}});
   const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (field) => (event) => {
-    const updatedVideoGame = { ...videoGame, [field]: event.target.value };
-    setVideoGame(updatedVideoGame);
-    console.log(updatedVideoGame);
+    const updated{{modelNamePascal}} = { ...{{modelNameCamel}}, [field]: event.target.value };
+    set{{modelNamePascal}}(updated{{modelNamePascal}});
+    console.log(updated{{modelNamePascal}});
   };
 
-  function add(videoGame) {
+  function add({{modelNameCamel}}) {
     return async (event) => {
       setIsLoading(true);
-      await addVideoGame(videoGame);
+      await add{{modelNamePascal}}({{modelNameCamel}});
       setIsLoading(false);
     };
   }
 
   return (
-    <Container maxWidth="sm" className="{{modelNamePascal}}Form">
+    <Container maxWidth="sm" className="Container {{modelNamePascal}}Form">
       <h1>{{ modelName }}</h1>
       <form noValidate autoComplete="off">
+        {{#properties}}
+        {{#isString}}
         <TextField
           className="TextField"
-          id="videoGameFormTitle"
-          label="Title"
-          value={videoGame.title}
-          onChange={handleChange('title')}
+          id="{{modelNameCamel}}Form{{propertyNamePascal}}"
+          label="{{propertyName}}"
+          value={{=<% %>=}}{<%modelNameCamel%>.<%propertyNameCamel%>}<%={{ }}=%>
+          onChange={handleChange('{{propertyNameCamel}}')}
           variant="filled"
           fullWidth
           disabled={isLoading}
         />
-
-        <TextField
-          className="TextField"
-          id="videoGameFormYearPublished"
-          label="Year Published"
-          value={videoGame.yearPublished}
-          onChange={handleChange('yearPublished')}
-          variant="filled"
-          fullWidth
-          disabled={isLoading}
-        />
+        {{/isString}}
+        {{/properties}}
 
         <Button
           className="cta"
-          id="videoGameFormCta"
+          id="{{modelNameCamel}}FormCta"
           color="primary"
-          onClick={add(videoGame)}
+          onClick={add({{modelNameCamel}})}
           disabled={isLoading}
         >
           {cta}

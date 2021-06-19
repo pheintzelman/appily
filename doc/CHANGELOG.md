@@ -1,10 +1,18 @@
+v. 0.0.9
+
+- react-app template: Basic add model view
+- react-app template: Routing
+- react-app template: Improved styling
+- react-app template: Stub api support
+
 v. 0.0.8
 
 - Add loop directive
+- Add verbose cli option
 
 v. 0.0.7
 
-- Add react base
+- react-app template: React base
 
 v. 0.0.6
 

@@ -18,3 +18,11 @@ export function camelCase(string) {
     )
     .join('');
 }
+
+export function getVariations(name, string) {
+  return {
+    [name]: string,
+    [`${name}Pascal`]: pascalCase(string),
+    [`${name}Camel`]: camelCase(string)
+  };
+}

@@ -2,3 +2,5 @@ node_modules
 coverage
 .DS_Store
 test-app*
+video-game-app*
+!video-game-app-config.json

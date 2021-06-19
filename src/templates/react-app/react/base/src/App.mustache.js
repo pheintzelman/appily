@@ -1,14 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Home } from './components/Home';
+{{#models}}
+import { {{modelNamePascal}}Form } from './components/{{modelNamePascal}}Form';
+{{/models}}
+import './App.scss';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Welcome to {{ appName }}!</p>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+        {{#models}}
+          <Route path="/{{modelNamePascal}}">
+            <{{modelNamePascal}}Form />
+          </Route>
+          {{/models}}
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

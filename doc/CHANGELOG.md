@@ -1,3 +1,7 @@
+v. 0.0.10
+
+- Improved docs
+
 v. 0.0.9
 
 - react-app template: Basic add model view

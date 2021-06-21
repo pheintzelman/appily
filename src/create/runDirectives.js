@@ -6,6 +6,7 @@ import { kvp } from '../lib/kvp.js';
 import { readJsonFile } from '../lib/file.js';
 import { copyDirective } from './directives/copyDirective.js';
 import { loopDirective } from './directives/loopDirective.js';
+import { viewModelDirective } from './directives/viewModelDirective.js';
 import { getViewModel } from './getViewModel.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -41,16 +42,7 @@ async function readManifesto(templateDir) {
   return await readJsonFile(manifestoPath);
 }
 
-export async function runDirectives(config, dir) {
-  const { template } = config;
-  const templateDir = path.resolve(__dirname, `../templates/${template}`);
-  const manifesto = await readManifesto(templateDir);
-  const viewModel = getViewModel({ config, manifesto, dir });
-  const selectedOptions = getSelectedOptions(manifesto, config);
-  const directives = getDirectives(manifesto, selectedOptions).map(kvp);
-
-  logger.trace({ viewModel });
-
+async function runFileDirectives({ directives, templateDir, dir, viewModel }) {
   for (const directive of directives) {
     if (directive.key === Directive.Copy) {
       const src = path.join(templateDir, directive.value.src);
@@ -66,4 +58,29 @@ export async function runDirectives(config, dir) {
       await loopDirective({ property, src, dest, viewModel });
     }
   }
+}
+
+function runViewModelDirectives({ directives, initialViewModel }) {
+  let viewModel = initialViewModel;
+  for (const directive of directives) {
+    if (directive.key === Directive.ViewModel) {
+      const property = directive.value;
+      viewModel = viewModelDirective({ property, viewModel });
+    }
+  }
+
+  return viewModel;
+}
+
+export async function runDirectives(config, dir) {
+  const { template } = config;
+  const templateDir = path.resolve(__dirname, `../templates/${template}`);
+  const manifesto = await readManifesto(templateDir);
+  const selectedOptions = getSelectedOptions(manifesto, config);
+  const directives = getDirectives(manifesto, selectedOptions).map(kvp);
+  const initialViewModel = getViewModel({ config, manifesto, dir });
+  const viewModel = runViewModelDirectives({ directives, initialViewModel });
+  logger.trace({ viewModel });
+
+  await runFileDirectives({ directives, templateDir, dir, viewModel });
 }

@@ -4,7 +4,7 @@
   "options": {
     "ui": ["react"],
     "api": ["stub"],
-    "db": []
+    "db": ["none", "indexedDB"]
   },
   "directives": [
     { "ui:react": { "copy": { "src": "react/base", "dest": "" } } },
@@ -24,6 +24,11 @@
           "src": "api/stub/api",
           "dest": "src/api"
         }
+      }
+    },
+    {
+      "db:indexedDB": {
+        "viewModel": { "packages": [{ "package": "idb", "version": "^6.1.2" }] }
       }
     }
   ]

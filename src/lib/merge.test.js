@@ -50,4 +50,22 @@ describe('merge', () => {
       animals: { cats: { marcus: { weight: 40 } }, monkeys: 1 }
     });
   });
+
+  test('should merge deep array', () => {
+    const actual = merge(
+      {
+        apples: 1,
+        animals: { cats: { marcus: { toys: ['sqeaky cheese'] } }, monkeys: 1 }
+      },
+      { animals: { cats: { marcus: { toys: ['mouse'] } } } }
+    );
+
+    expect(actual).toStrictEqual({
+      apples: 1,
+      animals: {
+        cats: { marcus: { toys: ['sqeaky cheese', 'mouse'] } },
+        monkeys: 1
+      }
+    });
+  });
 });

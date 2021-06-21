@@ -8,6 +8,7 @@ import { copyDirective } from './directives/copyDirective.js';
 import { loopDirective } from './directives/loopDirective.js';
 import { viewModelDirective } from './directives/viewModelDirective.js';
 import { getViewModel } from './getViewModel.js';
+import { access } from 'fs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -61,15 +62,14 @@ async function runFileDirectives({ directives, templateDir, dir, viewModel }) {
 }
 
 function runViewModelDirectives({ directives, initialViewModel }) {
-  let viewModel = initialViewModel;
-  for (const directive of directives) {
+  return directives.reduce((viewModel, directive) => {
     if (directive.key === Directive.ViewModel) {
       const property = directive.value;
-      viewModel = viewModelDirective({ property, viewModel });
+      return viewModelDirective({ property, viewModel });
     }
-  }
 
-  return viewModel;
+    return viewModel;
+  }, initialViewModel);
 }
 
 export async function runDirectives(config, dir) {

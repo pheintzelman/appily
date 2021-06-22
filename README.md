@@ -108,9 +108,8 @@ Aim for progressive development with something useful asap See the [road map](./
 
 ## Todo
 
-- npm directive
-- verbose option
-- add .create-app file with template name, version and the cofig
+- add support for indexedDB
+- add .create-app file with template name, version and the config
 - add github test badge
 - add github test action (pipeline)
 - validate config

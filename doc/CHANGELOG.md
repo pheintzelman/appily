@@ -1,6 +1,7 @@
 v. 0.0.10
 
 - Improved docs
+- Added viewModel directive
 
 v. 0.0.9
 
@@ -11,8 +12,8 @@ v. 0.0.9
 
 v. 0.0.8
 
-- Add loop directive
-- Add verbose cli option
+- Added loop directive
+- Added verbose cli option
 
 v. 0.0.7
 

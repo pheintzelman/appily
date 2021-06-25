@@ -1,3 +1,7 @@
+v. 0.0.11
+
+- indexedDb support
+
 v. 0.0.10
 
 - Improved docs

@@ -3,11 +3,11 @@ import {
   removeDir,
   getSanpshotTestCasesSync
 } from './helpers/snapshot-helpers.js';
-import { captureLog } from './helpers/captureLog.js';
+import { captureLog } from './helpers/log.js';
 
 const config = {
   dir: 'tests/app',
-  name: 'test-app',
+  name: 'Test App',
   template: 'test'
 };
 

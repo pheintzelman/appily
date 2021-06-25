@@ -7,8 +7,10 @@ import { captureLog, sortLog } from './helpers/log.js';
 
 const config = {
   dir: 'tests/app',
-  name: 'Video Game App',
+  name: 'Video Game App IndexedDB',
   template: 'react-app',
+  api: 'indexedDB',
+  db: 'indexedDB',
   models: {
     'Video Game': {
       Title: 'String',
@@ -25,7 +27,9 @@ captureLog(log);
 await createApp(config);
 
 describe('React template', () => {
-  const testCases = getSanpshotTestCasesSync('tests/app/video-game-app');
+  const testCases = getSanpshotTestCasesSync(
+    'tests/app/video-game-app-indexedDB'
+  );
 
   test.each(testCases)(
     '$dir should match snapshot',
@@ -39,6 +43,6 @@ describe('React template', () => {
   });
 
   afterAll(async () => {
-    await removeDir('tests/app/video-game-app');
+    await removeDir('tests/app/video-game-app-indexedDB');
   });
 });

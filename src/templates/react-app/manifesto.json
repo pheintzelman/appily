@@ -1,9 +1,9 @@
 {
   "name": "react-app",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "options": {
     "ui": ["react"],
-    "api": ["stub"],
+    "api": ["stub", "indexedDB"],
     "db": ["none", "indexedDB"]
   },
   "directives": [
@@ -23,6 +23,29 @@
           "property": "models",
           "src": "api/stub/api",
           "dest": "src/api"
+        }
+      }
+    },
+    {
+      "api:indexedDB": {
+        "loop": {
+          "property": "models",
+          "src": "api/indexedDb/api",
+          "dest": "src/api"
+        }
+      }
+    },
+    {
+      "db:indexedDB": {
+        "copy": { "src": "db/indexedDb/db", "dest": "src/db" }
+      }
+    },
+    {
+      "db:indexedDB": {
+        "loop": {
+          "property": "models",
+          "src": "db/indexedDb/loop",
+          "dest": "src/db"
         }
       }
     },

@@ -10,7 +10,7 @@ export function Home() {
         <ListItem button component={Link} to="/{{modelNamePascal}}">
           <ListItemText primary="{{modelName}}" />
         </ListItem>
-        {{/models}}
+      {{/models}}
       </List>
     </Container>
   );

@@ -1,0 +1,5 @@
+{
+  template: "{{templateName}}",
+  version: "{{templateVersion}}"
+  config: {{{configString}}}
+}

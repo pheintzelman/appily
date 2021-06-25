@@ -4,6 +4,7 @@ import path from 'path';
 import { DefaultAppName } from '../../constants.js';
 import { logger } from '../../logger.js';
 import { dirExists } from '../../lib/file.js';
+import { snakeCase } from '../../lib/case.js';
 
 // If the dir already exists append the next number
 async function getRootDirName(baseDir, name, count = 0) {
@@ -18,7 +19,7 @@ async function getRootDirName(baseDir, name, count = 0) {
 }
 
 export async function createRootDir(config) {
-  const name = config.name ?? DefaultAppName;
+  const name = snakeCase(config.name) ?? DefaultAppName;
   const baseDir = config.dir ?? '';
   const rootDir = await getRootDirName(baseDir, name);
 

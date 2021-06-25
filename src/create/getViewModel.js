@@ -47,10 +47,11 @@ function preprocessModels({ config, manifesto, dir }) {
 
 export function getViewModel({ config, manifesto, dir }) {
   return {
-    appName: config.name,
+    ...getVariations('appName', config.name),
     dir,
     templateName: manifesto.name,
     templateVersion: manifesto.version,
-    models: preprocessModels({ config, manifesto, dir })
+    models: preprocessModels({ config, manifesto, dir }),
+    configString: JSON.stringify(config, null, 2)
   };
 }

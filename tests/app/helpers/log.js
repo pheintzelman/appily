@@ -20,3 +20,18 @@ export function captureLog(log) {
   const mockFatal = jest.spyOn(logger, 'fatal');
   mockFatal.mockImplementation((msg) => log.push({ FATAL: msg }));
 }
+
+// Sorting the log is needed, to make test consistent
+// TODO makes this handle object/object
+export function sortLog(log) {
+  return log.sort((logItem1, logItem2) => {
+    const [key1, value1] = Object.entries(logItem1)[0];
+    const [key2, value2] = Object.entries(logItem2)[0];
+
+    if (value1 === value2) {
+      return 0;
+    }
+
+    return value1 > value2 ? 1 : -1;
+  });
+}

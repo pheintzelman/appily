@@ -1,11 +1,17 @@
 import { validateConfig } from './validateConfig';
 import { captureLog } from '../../tests/helpers/captureLog.js';
+import {
+  ConfigIsEmpty,
+  ConfigPropertyNotSupported,
+  TemplateOptionNotSupported,
+  TypeNotSupported
+} from '../constants/messages';
 
 describe('validateConfig', () => {
   test('should throw error if config is null', () => {
     expect(() => {
       validateConfig(null);
-    }).toThrow('Config is empty or undefined');
+    }).toThrow(ConfigIsEmpty());
   });
 
   describe('validateConfigProperties', () => {
@@ -14,7 +20,7 @@ describe('validateConfig', () => {
       validateConfig({ cookie: 'chocolate chip' }, {});
       expect(log).toStrictEqual([
         {
-          WARN: '"cookie" is not a supported config property'
+          WARN: ConfigPropertyNotSupported('cookie')
         }
       ]);
     });
@@ -26,7 +32,7 @@ describe('validateConfig', () => {
       validateConfig({ ui: 'chocolate chip' }, { options: { ui: [] } });
       expect(log).toStrictEqual([
         {
-          WARN: '"ui:chocolate chip" is not a supported template option'
+          WARN: TemplateOptionNotSupported('ui', 'chocolate chip')
         }
       ]);
     });
@@ -38,7 +44,7 @@ describe('validateConfig', () => {
       validateConfig({ models: { Car: { Make: 'Honda' } } }, {});
       expect(log).toStrictEqual([
         {
-          WARN: '"Car" : "Make" is not a supported type (Honda)'
+          WARN: TypeNotSupported('Car', 'Make', 'Honda')
         }
       ]);
     });

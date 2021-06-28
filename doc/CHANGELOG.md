@@ -1,6 +1,7 @@
 v. 0.0.11
 
 - indexedDb support
+- Added config validation
 
 v. 0.0.10
 

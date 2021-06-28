@@ -3,7 +3,7 @@ import {
   removeDir,
   getSanpshotTestCasesSync
 } from './helpers/snapshot-helpers.js';
-import { captureLog } from './helpers/log.js';
+import { captureLog, sortLog } from '../helpers/log.js';
 
 const config = {
   dir: 'tests/app',
@@ -11,8 +11,7 @@ const config = {
   template: 'test'
 };
 
-let log = [];
-captureLog(log);
+const log = captureLog();
 await createApp(config);
 
 describe('Test template', () => {
@@ -26,7 +25,7 @@ describe('Test template', () => {
   );
 
   test('should match logs', () => {
-    expect(log).toMatchSnapshot();
+    expect(sortLog(log)).toMatchSnapshot();
   });
 
   afterAll(async () => {

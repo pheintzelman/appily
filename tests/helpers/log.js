@@ -1,7 +1,9 @@
 import { jest } from '@jest/globals';
-import { logger } from '../../../src/logger.js';
+import { logger } from '../../src/logger.js';
 
-export function captureLog(log) {
+export function captureLog() {
+  const log = [];
+
   const mockTrace = jest.spyOn(logger, 'trace');
   mockTrace.mockImplementation((msg) => log.push({ TRACE: msg }));
 
@@ -19,6 +21,8 @@ export function captureLog(log) {
 
   const mockFatal = jest.spyOn(logger, 'fatal');
   mockFatal.mockImplementation((msg) => log.push({ FATAL: msg }));
+
+  return log;
 }
 
 // Sorting the log is needed, to make test consistent

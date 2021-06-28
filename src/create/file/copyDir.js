@@ -4,7 +4,7 @@ import path from 'path';
 import { logger } from '../../logger.js';
 import { dirExists, mkdirAsyncSafe } from '../../lib/file.js';
 import { renderFile, renderFileName } from '../file/renderFile.js';
-import { TemplateExt } from '../../constants.js';
+import { TemplateExt } from '../../constants/constants.js';
 
 async function copyFile({ src, dest, viewModel }) {
   const isTemplateFile = src.includes(TemplateExt);

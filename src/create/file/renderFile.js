@@ -2,7 +2,7 @@ import fsModule from 'fs';
 const fs = fsModule.promises;
 import mustache from 'mustache';
 import { logger } from '../../logger.js';
-import { TemplateExt } from '../../constants.js';
+import { TemplateExt } from '../../constants/constants.js';
 
 function renameDest(dest) {
   return dest.replace(TemplateExt, '');

@@ -1,5 +1,5 @@
 {
-  "name": "{{AppNameSnake}}",
+  "name": "{{appNameSnake}}",
   "version": "{{templateVersion}}",
   "private": true,
   "dependencies": {

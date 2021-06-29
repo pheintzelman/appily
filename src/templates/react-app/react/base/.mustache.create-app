@@ -1,5 +1,5 @@
 {
   template: "{{templateName}}",
-  version: "{{templateVersion}}"
+  version: "{{templateVersion}}",
   config: {{{configString}}}
 }

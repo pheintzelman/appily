@@ -6,6 +6,32 @@ Array [
     "DEBUG": "Dir created: tests/app/test-app",
   },
   Object {
+    "DEBUG": "File copied: tests/app/test-app/helloWorld.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/test-app/UI/index.html",
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/test-app/UI",
+      "msg": "mkdir",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/test-app/UI",
+      "msg": "copyDir",
+      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/test/app/UI",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/test-app",
+      "msg": "copyDir",
+      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/test/app",
+    },
+  },
+  Object {
     "TRACE": Object {
       "viewModel": Object {
         "appName": "Test App",
@@ -23,32 +49,6 @@ Array [
         "templateVersion": "0.0.1",
       },
     },
-  },
-  Object {
-    "TRACE": Object {
-      "dest": "tests/app/test-app",
-      "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/test/app",
-    },
-  },
-  Object {
-    "TRACE": Object {
-      "dest": "tests/app/test-app/UI",
-      "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/test/app/UI",
-    },
-  },
-  Object {
-    "TRACE": Object {
-      "dest": "tests/app/test-app/UI",
-      "msg": "mkdir",
-    },
-  },
-  Object {
-    "DEBUG": "File rendered: tests/app/test-app/UI/index.html",
-  },
-  Object {
-    "DEBUG": "File copied: tests/app/test-app/helloWorld.js",
   },
 ]
 `;

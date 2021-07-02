@@ -288,7 +288,7 @@ Array [
 exports[`React template tests/app/video-game-app-indexedDB/.create-app should match snapshot 1`] = `
 "{
   template: \\"react-app\\",
-  version: \\"0.1.1\\"
+  version: \\"0.1.1\\",
   config: {
   \\"dir\\": \\"tests/app\\",
   \\"name\\": \\"Video Game App IndexedDB\\",
@@ -384,7 +384,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 exports[`React template tests/app/video-game-app-indexedDB/package.json should match snapshot 1`] = `
 "{
-  \\"name\\": \\"\\",
+  \\"name\\": \\"video-game-app-indexeddb\\",
   \\"version\\": \\"0.1.1\\",
   \\"private\\": true,
   \\"dependencies\\": {

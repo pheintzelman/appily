@@ -1,5 +1,5 @@
 import { validateConfig } from './validateConfig';
-import { captureLog } from '../../tests/helpers/captureLog.js';
+import { captureLog } from '../../tests/helpers/log.js';
 import {
   ConfigIsEmpty,
   ConfigPropertyNotSupported,

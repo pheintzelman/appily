@@ -3,7 +3,7 @@ import {
   removeDir,
   getSanpshotTestCasesSync
 } from './helpers/snapshot-helpers.js';
-import { captureLog, sortLog } from './helpers/log.js';
+import { captureLog, sortLog } from '../helpers/log.js';
 
 const config = {
   dir: 'tests/app',
@@ -20,8 +20,7 @@ const config = {
   }
 };
 
-let log = [];
-captureLog(log);
+const log = captureLog();
 await createApp(config);
 
 describe('React template', () => {

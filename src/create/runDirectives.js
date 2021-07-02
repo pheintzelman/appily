@@ -1,17 +1,11 @@
 import path from 'path';
-import { fileURLToPath } from 'url';
-import { Directive, ManifestoFileName } from '../constants.js';
+import { Directive } from '../constants/constants.js';
 import { logger } from '../logger.js';
 import { kvp } from '../lib/kvp.js';
-import { readJsonFile } from '../lib/file.js';
 import { copyDirective } from './directives/copyDirective.js';
 import { loopDirective } from './directives/loopDirective.js';
 import { viewModelDirective } from './directives/viewModelDirective.js';
 import { getViewModel } from './getViewModel.js';
-import { access } from 'fs';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 function getDirectives(manifesto, selectedOptions) {
   const { directives } = manifesto;
@@ -36,11 +30,6 @@ function getSelectedOptions(manifesto, config) {
         return `${key}:${value[0]}`;
       }
     });
-}
-
-async function readManifesto(templateDir) {
-  const manifestoPath = path.join(templateDir, ManifestoFileName);
-  return await readJsonFile(manifestoPath);
 }
 
 async function runFileDirectives({ directives, templateDir, dir, viewModel }) {
@@ -72,10 +61,7 @@ function runViewModelDirectives({ directives, initialViewModel }) {
   }, initialViewModel);
 }
 
-export async function runDirectives(config, dir) {
-  const { template } = config;
-  const templateDir = path.resolve(__dirname, `../templates/${template}`);
-  const manifesto = await readManifesto(templateDir);
+export async function runDirectives({ config, dir, manifesto, templateDir }) {
   const selectedOptions = getSelectedOptions(manifesto, config);
   const directives = getDirectives(manifesto, selectedOptions).map(kvp);
   const initialViewModel = getViewModel({ config, manifesto, dir });

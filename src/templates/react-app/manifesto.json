@@ -6,6 +6,7 @@
     "api": ["stub", "indexedDB"],
     "db": ["none", "indexedDB"]
   },
+  "allowedTypes": ["String"],
   "directives": [
     { "ui:react": { "copy": { "src": "react/base", "dest": "" } } },
     {

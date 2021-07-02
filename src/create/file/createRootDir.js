@@ -1,7 +1,7 @@
 import fsModule from 'fs';
 const fs = fsModule.promises;
 import path from 'path';
-import { DefaultAppName } from '../../constants.js';
+import { DefaultAppName } from '../../constants/constants.js';
 import { logger } from '../../logger.js';
 import { dirExists } from '../../lib/file.js';
 import { snakeCase } from '../../lib/case.js';

@@ -8,7 +8,15 @@ Array [
   Object {
     "TRACE": Object {
       "viewModel": Object {
-        "appName": "test-app",
+        "appName": "Test App",
+        "appNameCamel": "testApp",
+        "appNamePascal": "TestApp",
+        "appNameSnake": "test-app",
+        "configString": "{
+  \\"dir\\": \\"tests/app\\",
+  \\"name\\": \\"Test App\\",
+  \\"template\\": \\"test\\"
+}",
         "dir": "tests/app/test-app",
         "models": Array [],
         "templateName": "test",
@@ -48,7 +56,7 @@ Array [
 exports[`Test template tests/app/test-app/UI/index.html should match snapshot 1`] = `
 "<html>
   <body>
-    <h1>Welcome to test-app!</h1>
+    <h1>Welcome to Test App!</h1>
   </body>
 </html>
 "

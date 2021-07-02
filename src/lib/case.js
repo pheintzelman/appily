@@ -19,10 +19,18 @@ export function camelCase(string) {
     .join('');
 }
 
+export function snakeCase(string) {
+  return string
+    .split(' ')
+    .map((part) => part.toLowerCase())
+    .join('-');
+}
+
 export function getVariations(name, string) {
   return {
     [name]: string,
     [`${name}Pascal`]: pascalCase(string),
-    [`${name}Camel`]: camelCase(string)
+    [`${name}Camel`]: camelCase(string),
+    [`${name}Snake`]: snakeCase(string)
   };
 }

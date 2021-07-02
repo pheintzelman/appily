@@ -1,16 +1,27 @@
 import { getViewModel } from './getViewModel';
 
+const configString = `{
+  "name": "Test Config",
+  "models": {
+    "Animal": null
+  }
+}`;
+
 describe('getViewModel', () => {
   test('should handle model with no properties', () => {
     const config = {
-      name: 'test-config',
+      name: 'Test Config',
       models: {
         Animal: null
       }
     };
 
     const expected = {
-      appName: 'test-config',
+      appName: 'Test Config',
+      appNameCamel: 'testConfig',
+      appNamePascal: 'TestConfig',
+      appNameSnake: 'test-config',
+      configString,
       dir: undefined,
       models: [
         {
@@ -18,6 +29,7 @@ describe('getViewModel', () => {
           modelName: 'Animal',
           modelNameCamel: 'animal',
           modelNamePascal: 'Animal',
+          modelNameSnake: 'animal',
           properties: []
         }
       ],

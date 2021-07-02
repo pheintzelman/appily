@@ -3,150 +3,186 @@
 exports[`React template should match logs 1`] = `
 Array [
   Object {
-    "DEBUG": "Dir created: tests/app/video-game-app",
+    "DEBUG": "Dir created: tests/app/video-game-app-indexeddb",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app/README.md",
+    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/README.md",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app/public/favicon.ico",
+    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/public/favicon.ico",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app/public/index.html",
+    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/public/index.html",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app/public/logo192.png",
+    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/public/logo192.png",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app/public/logo512.png",
+    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/public/logo512.png",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app/public/manifest.json",
+    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/public/manifest.json",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app/public/robots.txt",
+    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/public/robots.txt",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app/src/App.scss",
+    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/App.scss",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app/src/index.css",
+    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/index.css",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app/src/index.js",
+    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/index.js",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app/src/logo.svg",
+    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/logo.svg",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app/src/reportWebVitals.js",
+    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/reportWebVitals.js",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app/src/setupTests.js",
+    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/setupTests.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app/.create-app",
+    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/.create-app",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app/package.json",
+    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/package.json",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app/src/App.js",
+    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/App.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app/src/App.test.js",
+    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/App.test.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app/src/api/publisher.js",
+    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/api/publisher.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app/src/api/videoGame.js",
+    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/api/videoGame.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app/src/components/Home.js",
+    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/components/Home.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app/src/components/PublisherForm.js",
+    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/components/PublisherForm.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app/src/components/VideoGameForm.js",
+    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/components/VideoGameForm.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/db/db.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/db/publisher.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/db/videoGame.js",
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app/src/api",
+      "dest": "tests/app/video-game-app-indexeddb/src/db",
+      "msg": "copyDir",
+      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/db/indexedDb/loop",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/video-game-app-indexeddb/src/db",
+      "msg": "copyDir",
+      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/db/indexedDb/loop",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/video-game-app-indexeddb/src/db",
       "msg": "mkdir",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app/src/api",
+      "dest": "tests/app/video-game-app-indexeddb/src/db",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/api/stub/api",
+      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/db/indexedDb/db",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app/src/api",
-      "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/api/stub/api",
+      "dest": "tests/app/video-game-app-indexeddb/src/api",
+      "msg": "mkdir",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app/src/components",
+      "dest": "tests/app/video-game-app-indexeddb/src/api",
+      "msg": "copyDir",
+      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/api/indexedDb/api",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/video-game-app-indexeddb/src/api",
+      "msg": "copyDir",
+      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/api/indexedDb/api",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/video-game-app-indexeddb/src/components",
       "msg": "copyDir",
       "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/loop",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app/src/components",
+      "dest": "tests/app/video-game-app-indexeddb/src/components",
       "msg": "copyDir",
       "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/loop",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app/src/components",
+      "dest": "tests/app/video-game-app-indexeddb/src/components",
       "msg": "mkdir",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app/src/components",
+      "dest": "tests/app/video-game-app-indexeddb/src/components",
       "msg": "copyDir",
       "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/base/src/components",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app/src",
+      "dest": "tests/app/video-game-app-indexeddb/src",
       "msg": "mkdir",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app/src",
+      "dest": "tests/app/video-game-app-indexeddb/src",
       "msg": "copyDir",
       "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/base/src",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app/public",
+      "dest": "tests/app/video-game-app-indexeddb/public",
       "msg": "mkdir",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app/public",
+      "dest": "tests/app/video-game-app-indexeddb/public",
       "msg": "copyDir",
       "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/base/public",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app",
+      "dest": "tests/app/video-game-app-indexeddb",
       "msg": "copyDir",
       "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/base",
     },
@@ -154,14 +190,16 @@ Array [
   Object {
     "TRACE": Object {
       "viewModel": Object {
-        "appName": "Video Game App",
-        "appNameCamel": "videoGameApp",
-        "appNamePascal": "VideoGameApp",
-        "appNameSnake": "video-game-app",
+        "appName": "Video Game App IndexedDB",
+        "appNameCamel": "videoGameAppIndexeddb",
+        "appNamePascal": "VideoGameAppIndexeddb",
+        "appNameSnake": "video-game-app-indexeddb",
         "configString": "{
   \\"dir\\": \\"tests/app\\",
-  \\"name\\": \\"Video Game App\\",
+  \\"name\\": \\"Video Game App IndexedDB\\",
   \\"template\\": \\"react-app\\",
+  \\"api\\": \\"indexedDB\\",
+  \\"db\\": \\"indexedDB\\",
   \\"models\\": {
     \\"Video Game\\": {
       \\"Title\\": \\"String\\",
@@ -172,7 +210,7 @@ Array [
     }
   }
 }",
-        "dir": "tests/app/video-game-app",
+        "dir": "tests/app/video-game-app-indexeddb",
         "models": Array [
           Object {
             "defaultState": "{ title: '', yearPublished: '' }",
@@ -220,22 +258,43 @@ Array [
             ],
           },
         ],
+        "packages": Array [
+          Object {
+            "package": "idb",
+            "version": "^6.1.2",
+          },
+        ],
         "templateName": "react-app",
         "templateVersion": "0.1.1",
+      },
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "msg": "Add to view model",
+      "property": Object {
+        "packages": Array [
+          Object {
+            "package": "idb",
+            "version": "^6.1.2",
+          },
+        ],
       },
     },
   },
 ]
 `;
 
-exports[`React template tests/app/video-game-app/.create-app should match snapshot 1`] = `
+exports[`React template tests/app/video-game-app-indexedDB/.create-app should match snapshot 1`] = `
 "{
   template: \\"react-app\\",
   version: \\"0.1.1\\"
   config: {
   \\"dir\\": \\"tests/app\\",
-  \\"name\\": \\"Video Game App\\",
+  \\"name\\": \\"Video Game App IndexedDB\\",
   \\"template\\": \\"react-app\\",
+  \\"api\\": \\"indexedDB\\",
+  \\"db\\": \\"indexedDB\\",
   \\"models\\": {
     \\"Video Game\\": {
       \\"Title\\": \\"String\\",
@@ -249,7 +308,7 @@ exports[`React template tests/app/video-game-app/.create-app should match snapsh
 }"
 `;
 
-exports[`React template tests/app/video-game-app/README.md should match snapshot 1`] = `
+exports[`React template tests/app/video-game-app-indexedDB/README.md should match snapshot 1`] = `
 "# Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -323,7 +382,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 "
 `;
 
-exports[`React template tests/app/video-game-app/package.json should match snapshot 1`] = `
+exports[`React template tests/app/video-game-app-indexedDB/package.json should match snapshot 1`] = `
 "{
   \\"name\\": \\"\\",
   \\"version\\": \\"0.1.1\\",
@@ -338,6 +397,7 @@ exports[`React template tests/app/video-game-app/package.json should match snaps
     \\"react-dom\\": \\"^17.0.2\\",
     \\"react-router-dom\\": \\"^5.2.0\\",
     \\"react-scripts\\": \\"4.0.3\\",
+    \\"idb\\": \\"^6.1.2\\",
     \\"web-vitals\\": \\"^1.1.2\\"
   },
   \\"scripts\\": {
@@ -368,7 +428,7 @@ exports[`React template tests/app/video-game-app/package.json should match snaps
 "
 `;
 
-exports[`React template tests/app/video-game-app/public/favicon.ico should match snapshot 1`] = `
+exports[`React template tests/app/video-game-app-indexedDB/public/favicon.ico should match snapshot 1`] = `
 "         �  F          )         9  5  @@     �  n  �PNG
 
    
@@ -397,7 +457,7 @@ eiy��P����򒧡���,S]U��V��֔��Z��o���x
 -�>ۋ���Xբ�}ߨ���;��N��v���θ�1 ����O@&v/��_��\\\\��\\\\�.��+0�;!f����%� JY�O�'/�]_�;��'\\"&N�n	aQ�^ �cx�A��    IEND�B\`�"
 `;
 
-exports[`React template tests/app/video-game-app/public/index.html should match snapshot 1`] = `
+exports[`React template tests/app/video-game-app-indexedDB/public/index.html should match snapshot 1`] = `
 "<!DOCTYPE html>
 <html lang=\\"en\\">
   <head>
@@ -444,7 +504,7 @@ exports[`React template tests/app/video-game-app/public/index.html should match 
 "
 `;
 
-exports[`React template tests/app/video-game-app/public/logo192.png should match snapshot 1`] = `
+exports[`React template tests/app/video-game-app-indexedDB/public/logo192.png should match snapshot 1`] = `
 "�PNG
 
    
@@ -487,7 +547,7 @@ B8�0�=֑)C�z�@�G *�,��<��H���]������
 w�����(3?}�N��S��<�)Oy�S�k�	��2�$��    IEND�B\`�"
 `;
 
-exports[`React template tests/app/video-game-app/public/logo512.png should match snapshot 1`] = `
+exports[`React template tests/app/video-game-app-indexedDB/public/logo512.png should match snapshot 1`] = `
 "�PNG
 
    
@@ -574,7 +634,7 @@ v��Rt(h���v'9�BX�,~��t��؃/%Y�bX���o�
 ��4+\\"L#��^׉��%�0rx�>��yd�'�frN��$���e4�P0;��4p��Kyё涼z�[�:��0J�0��Y̄#�絉 �7��qWd5&}����8W���ɁnM��l����w�I4uͻ���u�����o�;7N<���6ˋ�F��?=ũyWG�0���h�'�����/n�ub��OI��w�OG��>b�4^-A��jq�������n�sY�e�ğ�����K{pH     ��k_�                  n]������    IEND�B\`�"
 `;
 
-exports[`React template tests/app/video-game-app/public/manifest.json should match snapshot 1`] = `
+exports[`React template tests/app/video-game-app-indexedDB/public/manifest.json should match snapshot 1`] = `
 "{
   \\"short_name\\": \\"React App\\",
   \\"name\\": \\"Create React App Sample\\",
@@ -603,14 +663,14 @@ exports[`React template tests/app/video-game-app/public/manifest.json should mat
 "
 `;
 
-exports[`React template tests/app/video-game-app/public/robots.txt should match snapshot 1`] = `
+exports[`React template tests/app/video-game-app-indexedDB/public/robots.txt should match snapshot 1`] = `
 "# https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Disallow:
 "
 `;
 
-exports[`React template tests/app/video-game-app/src/App.js should match snapshot 1`] = `
+exports[`React template tests/app/video-game-app-indexedDB/src/App.js should match snapshot 1`] = `
 "import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Home } from './components/Home';
 import { VideoGameForm } from './components/VideoGameForm';
@@ -641,7 +701,7 @@ export default App;
 "
 `;
 
-exports[`React template tests/app/video-game-app/src/App.scss should match snapshot 1`] = `
+exports[`React template tests/app/video-game-app-indexedDB/src/App.scss should match snapshot 1`] = `
 ".App {
   .TextField {
     margin-bottom: 20px;
@@ -665,50 +725,56 @@ exports[`React template tests/app/video-game-app/src/App.scss should match snaps
 "
 `;
 
-exports[`React template tests/app/video-game-app/src/App.test.js should match snapshot 1`] = `
+exports[`React template tests/app/video-game-app-indexedDB/src/App.test.js should match snapshot 1`] = `
 "import { render, screen } from '@testing-library/react';
 import App from './App';
 
 test('renders welcome message', () => {
   render(<App />);
-  const welcomeElement = screen.getByText(/Welcome to Video Game App!/i);
+  const welcomeElement = screen.getByText(/Welcome to Video Game App IndexedDB!/i);
   expect(welcomeElement).toBeInTheDocument();
 });
 "
 `;
 
-exports[`React template tests/app/video-game-app/src/api/publisher.js should match snapshot 1`] = `
-"function sleep(ms) {
+exports[`React template tests/app/video-game-app-indexedDB/src/api/publisher.js should match snapshot 1`] = `
+"import { add } from '../db/publisher';
+
+function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 export async function addPublisher(publisher) {
   await sleep(1000);
-  throw Error('Not implemented');
+  const record = await add(publisher);
+  console.log({ record });
 }
 "
 `;
 
-exports[`React template tests/app/video-game-app/src/api/videoGame.js should match snapshot 1`] = `
-"function sleep(ms) {
+exports[`React template tests/app/video-game-app-indexedDB/src/api/videoGame.js should match snapshot 1`] = `
+"import { add } from '../db/videoGame';
+
+function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 export async function addVideoGame(videoGame) {
   await sleep(1000);
-  throw Error('Not implemented');
+  const record = await add(videoGame);
+  console.log({ record });
 }
 "
 `;
 
-exports[`React template tests/app/video-game-app/src/components/Home.js should match snapshot 1`] = `
+exports[`React template tests/app/video-game-app-indexedDB/src/components/Home.js should match snapshot 1`] = `
 "import { Container, List, ListItem, ListItemText } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
 export function Home() {
   return (
     <Container maxWidth=\\"sm\\" className=\\"Container Home\\">
-      <h1>Welcome to Video Game App!</h1>
+      <h1>Welcome to Video Game App IndexedDB!</h1>
       <List component=\\"nav\\">
         <ListItem button component={Link} to=\\"/VideoGame\\">
           <ListItemText primary=\\"Video Game\\" />
@@ -723,7 +789,7 @@ export function Home() {
 "
 `;
 
-exports[`React template tests/app/video-game-app/src/components/PublisherForm.js should match snapshot 1`] = `
+exports[`React template tests/app/video-game-app-indexedDB/src/components/PublisherForm.js should match snapshot 1`] = `
 "import { useState } from 'react';
 import { Button, Container, TextField } from '@material-ui/core';
 import { addPublisher } from '../api/publisher';
@@ -778,7 +844,7 @@ export function PublisherForm() {
 "
 `;
 
-exports[`React template tests/app/video-game-app/src/components/VideoGameForm.js should match snapshot 1`] = `
+exports[`React template tests/app/video-game-app-indexedDB/src/components/VideoGameForm.js should match snapshot 1`] = `
 "import { useState } from 'react';
 import { Button, Container, TextField } from '@material-ui/core';
 import { addVideoGame } from '../api/videoGame';
@@ -843,7 +909,88 @@ export function VideoGameForm() {
 "
 `;
 
-exports[`React template tests/app/video-game-app/src/index.css should match snapshot 1`] = `
+exports[`React template tests/app/video-game-app-indexedDB/src/db/db.js should match snapshot 1`] = `
+"import { openDB } from \\"idb\\";
+
+export async function connect() {
+  return openDB(\\"db\\", 1, {
+    upgrade(db) {
+      db.createObjectStore(\\"VideoGame\\", {
+        keyPath: \\"id\\",
+        autoIncrement: true,
+      });
+
+      db.createObjectStore(\\"Publisher\\", {
+        keyPath: \\"id\\",
+        autoIncrement: true,
+      });
+
+    },
+  });
+}
+
+export async function get(store, key) {
+  const db = await connect();
+  return db.get(store, key);
+}
+
+export async function add(store, value) {
+  const db = await connect();
+  return db.add(store, value);
+}
+
+export async function set(store, key, value) {
+  const db = await connect();
+  return db.put(store, value, key);
+}
+
+export async function deleteRecord(store, key) {
+  const db = await connect();
+  return db.delete(store, key);
+}
+
+export async function getAll(store) {
+  const db = await connect();
+  const keys = db.getAllKeys(store);
+
+  const promises = keys.map((key) => get(key));
+
+  return Promise.all(promises);
+}
+
+export function withStore(store) {
+  return {
+    get: async (key) => await get(store, key),
+    add: async (value) => await add(store, value),
+    set: async (key, value) => await set(store, value, key),
+    deleteRecord: async (key) => await deleteRecord(store, key),
+    getAll: async () => await getAll(store),
+  };
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app-indexedDB/src/db/publisher.js should match snapshot 1`] = `
+"import { withStore } from './db';
+const { add, get, set, deleteRecord, getAll } = withStore(
+  'Publisher'
+);
+
+export { get, add, set, deleteRecord, getAll };
+"
+`;
+
+exports[`React template tests/app/video-game-app-indexedDB/src/db/videoGame.js should match snapshot 1`] = `
+"import { withStore } from './db';
+const { add, get, set, deleteRecord, getAll } = withStore(
+  'VideoGame'
+);
+
+export { get, add, set, deleteRecord, getAll };
+"
+`;
+
+exports[`React template tests/app/video-game-app-indexedDB/src/index.css should match snapshot 1`] = `
 "body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -861,7 +1008,7 @@ code {
 "
 `;
 
-exports[`React template tests/app/video-game-app/src/index.js should match snapshot 1`] = `
+exports[`React template tests/app/video-game-app-indexedDB/src/index.js should match snapshot 1`] = `
 "import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -882,9 +1029,9 @@ reportWebVitals();
 "
 `;
 
-exports[`React template tests/app/video-game-app/src/logo.svg should match snapshot 1`] = `"<svg xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 841.9 595.3\\"><g fill=\\"#61DAFB\\"><path d=\\"M666.3 296.5c0-32.5-40.7-63.3-103.1-82.4 14.4-63.6 8-114.2-20.2-130.4-6.5-3.8-14.1-5.6-22.4-5.6v22.3c4.6 0 8.3.9 11.4 2.6 13.6 7.8 19.5 37.5 14.9 75.7-1.1 9.4-2.9 19.3-5.1 29.4-19.6-4.8-41-8.5-63.5-10.9-13.5-18.5-27.5-35.3-41.6-50 32.6-30.3 63.2-46.9 84-46.9V78c-27.5 0-63.5 19.6-99.9 53.6-36.4-33.8-72.4-53.2-99.9-53.2v22.3c20.7 0 51.4 16.5 84 46.6-14 14.7-28 31.4-41.3 49.9-22.6 2.4-44 6.1-63.6 11-2.3-10-4-19.7-5.2-29-4.7-38.2 1.1-67.9 14.6-75.8 3-1.8 6.9-2.6 11.5-2.6V78.5c-8.4 0-16 1.8-22.6 5.6-28.1 16.2-34.4 66.7-19.9 130.1-62.2 19.2-102.7 49.9-102.7 82.3 0 32.5 40.7 63.3 103.1 82.4-14.4 63.6-8 114.2 20.2 130.4 6.5 3.8 14.1 5.6 22.5 5.6 27.5 0 63.5-19.6 99.9-53.6 36.4 33.8 72.4 53.2 99.9 53.2 8.4 0 16-1.8 22.6-5.6 28.1-16.2 34.4-66.7 19.9-130.1 62-19.1 102.5-49.9 102.5-82.3zm-130.2-66.7c-3.7 12.9-8.3 26.2-13.5 39.5-4.1-8-8.4-16-13.1-24-4.6-8-9.5-15.8-14.4-23.4 14.2 2.1 27.9 4.7 41 7.9zm-45.8 106.5c-7.8 13.5-15.8 26.3-24.1 38.2-14.9 1.3-30 2-45.2 2-15.1 0-30.2-.7-45-1.9-8.3-11.9-16.4-24.6-24.2-38-7.6-13.1-14.5-26.4-20.8-39.8 6.2-13.4 13.2-26.8 20.7-39.9 7.8-13.5 15.8-26.3 24.1-38.2 14.9-1.3 30-2 45.2-2 15.1 0 30.2.7 45 1.9 8.3 11.9 16.4 24.6 24.2 38 7.6 13.1 14.5 26.4 20.8 39.8-6.3 13.4-13.2 26.8-20.7 39.9zm32.3-13c5.4 13.4 10 26.8 13.8 39.8-13.1 3.2-26.9 5.9-41.2 8 4.9-7.7 9.8-15.6 14.4-23.7 4.6-8 8.9-16.1 13-24.1zM421.2 430c-9.3-9.6-18.6-20.3-27.8-32 9 .4 18.2.7 27.5.7 9.4 0 18.7-.2 27.8-.7-9 11.7-18.3 22.4-27.5 32zm-74.4-58.9c-14.2-2.1-27.9-4.7-41-7.9 3.7-12.9 8.3-26.2 13.5-39.5 4.1 8 8.4 16 13.1 24 4.7 8 9.5 15.8 14.4 23.4zM420.7 163c9.3 9.6 18.6 20.3 27.8 32-9-.4-18.2-.7-27.5-.7-9.4 0-18.7.2-27.8.7 9-11.7 18.3-22.4 27.5-32zm-74 58.9c-4.9 7.7-9.8 15.6-14.4 23.7-4.6 8-8.9 16-13 24-5.4-13.4-10-26.8-13.8-39.8 13.1-3.1 26.9-5.8 41.2-7.9zm-90.5 125.2c-35.4-15.1-58.3-34.9-58.3-50.6 0-15.7 22.9-35.6 58.3-50.6 8.6-3.7 18-7 27.7-10.1 5.7 19.6 13.2 40 22.5 60.9-9.2 20.8-16.6 41.1-22.2 60.6-9.9-3.1-19.3-6.5-28-10.2zM310 490c-13.6-7.8-19.5-37.5-14.9-75.7 1.1-9.4 2.9-19.3 5.1-29.4 19.6 4.8 41 8.5 63.5 10.9 13.5 18.5 27.5 35.3 41.6 50-32.6 30.3-63.2 46.9-84 46.9-4.5-.1-8.3-1-11.3-2.7zm237.2-76.2c4.7 38.2-1.1 67.9-14.6 75.8-3 1.8-6.9 2.6-11.5 2.6-20.7 0-51.4-16.5-84-46.6 14-14.7 28-31.4 41.3-49.9 22.6-2.4 44-6.1 63.6-11 2.3 10.1 4.1 19.8 5.2 29.1zm38.5-66.7c-8.6 3.7-18 7-27.7 10.1-5.7-19.6-13.2-40-22.5-60.9 9.2-20.8 16.6-41.1 22.2-60.6 9.9 3.1 19.3 6.5 28.1 10.2 35.4 15.1 58.3 34.9 58.3 50.6-.1 15.7-23 35.6-58.4 50.6zM320.8 78.4z\\"/><circle cx=\\"420.9\\" cy=\\"296.5\\" r=\\"45.7\\"/><path d=\\"M520.5 78.1z\\"/></g></svg>"`;
+exports[`React template tests/app/video-game-app-indexedDB/src/logo.svg should match snapshot 1`] = `"<svg xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 841.9 595.3\\"><g fill=\\"#61DAFB\\"><path d=\\"M666.3 296.5c0-32.5-40.7-63.3-103.1-82.4 14.4-63.6 8-114.2-20.2-130.4-6.5-3.8-14.1-5.6-22.4-5.6v22.3c4.6 0 8.3.9 11.4 2.6 13.6 7.8 19.5 37.5 14.9 75.7-1.1 9.4-2.9 19.3-5.1 29.4-19.6-4.8-41-8.5-63.5-10.9-13.5-18.5-27.5-35.3-41.6-50 32.6-30.3 63.2-46.9 84-46.9V78c-27.5 0-63.5 19.6-99.9 53.6-36.4-33.8-72.4-53.2-99.9-53.2v22.3c20.7 0 51.4 16.5 84 46.6-14 14.7-28 31.4-41.3 49.9-22.6 2.4-44 6.1-63.6 11-2.3-10-4-19.7-5.2-29-4.7-38.2 1.1-67.9 14.6-75.8 3-1.8 6.9-2.6 11.5-2.6V78.5c-8.4 0-16 1.8-22.6 5.6-28.1 16.2-34.4 66.7-19.9 130.1-62.2 19.2-102.7 49.9-102.7 82.3 0 32.5 40.7 63.3 103.1 82.4-14.4 63.6-8 114.2 20.2 130.4 6.5 3.8 14.1 5.6 22.5 5.6 27.5 0 63.5-19.6 99.9-53.6 36.4 33.8 72.4 53.2 99.9 53.2 8.4 0 16-1.8 22.6-5.6 28.1-16.2 34.4-66.7 19.9-130.1 62-19.1 102.5-49.9 102.5-82.3zm-130.2-66.7c-3.7 12.9-8.3 26.2-13.5 39.5-4.1-8-8.4-16-13.1-24-4.6-8-9.5-15.8-14.4-23.4 14.2 2.1 27.9 4.7 41 7.9zm-45.8 106.5c-7.8 13.5-15.8 26.3-24.1 38.2-14.9 1.3-30 2-45.2 2-15.1 0-30.2-.7-45-1.9-8.3-11.9-16.4-24.6-24.2-38-7.6-13.1-14.5-26.4-20.8-39.8 6.2-13.4 13.2-26.8 20.7-39.9 7.8-13.5 15.8-26.3 24.1-38.2 14.9-1.3 30-2 45.2-2 15.1 0 30.2.7 45 1.9 8.3 11.9 16.4 24.6 24.2 38 7.6 13.1 14.5 26.4 20.8 39.8-6.3 13.4-13.2 26.8-20.7 39.9zm32.3-13c5.4 13.4 10 26.8 13.8 39.8-13.1 3.2-26.9 5.9-41.2 8 4.9-7.7 9.8-15.6 14.4-23.7 4.6-8 8.9-16.1 13-24.1zM421.2 430c-9.3-9.6-18.6-20.3-27.8-32 9 .4 18.2.7 27.5.7 9.4 0 18.7-.2 27.8-.7-9 11.7-18.3 22.4-27.5 32zm-74.4-58.9c-14.2-2.1-27.9-4.7-41-7.9 3.7-12.9 8.3-26.2 13.5-39.5 4.1 8 8.4 16 13.1 24 4.7 8 9.5 15.8 14.4 23.4zM420.7 163c9.3 9.6 18.6 20.3 27.8 32-9-.4-18.2-.7-27.5-.7-9.4 0-18.7.2-27.8.7 9-11.7 18.3-22.4 27.5-32zm-74 58.9c-4.9 7.7-9.8 15.6-14.4 23.7-4.6 8-8.9 16-13 24-5.4-13.4-10-26.8-13.8-39.8 13.1-3.1 26.9-5.8 41.2-7.9zm-90.5 125.2c-35.4-15.1-58.3-34.9-58.3-50.6 0-15.7 22.9-35.6 58.3-50.6 8.6-3.7 18-7 27.7-10.1 5.7 19.6 13.2 40 22.5 60.9-9.2 20.8-16.6 41.1-22.2 60.6-9.9-3.1-19.3-6.5-28-10.2zM310 490c-13.6-7.8-19.5-37.5-14.9-75.7 1.1-9.4 2.9-19.3 5.1-29.4 19.6 4.8 41 8.5 63.5 10.9 13.5 18.5 27.5 35.3 41.6 50-32.6 30.3-63.2 46.9-84 46.9-4.5-.1-8.3-1-11.3-2.7zm237.2-76.2c4.7 38.2-1.1 67.9-14.6 75.8-3 1.8-6.9 2.6-11.5 2.6-20.7 0-51.4-16.5-84-46.6 14-14.7 28-31.4 41.3-49.9 22.6-2.4 44-6.1 63.6-11 2.3 10.1 4.1 19.8 5.2 29.1zm38.5-66.7c-8.6 3.7-18 7-27.7 10.1-5.7-19.6-13.2-40-22.5-60.9 9.2-20.8 16.6-41.1 22.2-60.6 9.9 3.1 19.3 6.5 28.1 10.2 35.4 15.1 58.3 34.9 58.3 50.6-.1 15.7-23 35.6-58.4 50.6zM320.8 78.4z\\"/><circle cx=\\"420.9\\" cy=\\"296.5\\" r=\\"45.7\\"/><path d=\\"M520.5 78.1z\\"/></g></svg>"`;
 
-exports[`React template tests/app/video-game-app/src/reportWebVitals.js should match snapshot 1`] = `
+exports[`React template tests/app/video-game-app-indexedDB/src/reportWebVitals.js should match snapshot 1`] = `
 "const reportWebVitals = onPerfEntry => {
   if (onPerfEntry && onPerfEntry instanceof Function) {
     import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
@@ -901,7 +1048,7 @@ export default reportWebVitals;
 "
 `;
 
-exports[`React template tests/app/video-game-app/src/setupTests.js should match snapshot 1`] = `
+exports[`React template tests/app/video-game-app-indexedDB/src/setupTests.js should match snapshot 1`] = `
 "// jest-dom adds custom jest matchers for asserting on DOM nodes.
 // allows you to do things like:
 // expect(element).toHaveTextContent(/react/i)

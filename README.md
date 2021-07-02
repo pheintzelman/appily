@@ -108,8 +108,7 @@ Aim for progressive development with something useful asap See the [road map](./
 
 ## Todo
 
-- add support for indexedDB
-- add .create-app file with template name, version and the config
+- add model view
 - add github test badge
 - add github test action (pipeline)
 - validate config
@@ -117,7 +116,6 @@ Aim for progressive development with something useful asap See the [road map](./
 - add options cli option, print out options from manfesto
 - fix dirname test error, move dirname/filename code to its own file and exclude that file from test coverage
 - add test for missing coverage
-- make log tests order independent
 - try to fix nested app issue (apps don't run from manual folder)
 - Make docs easier to understand
-- Add support for indexedDb
+- Fix tabing in .create-app

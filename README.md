@@ -69,14 +69,14 @@ config.json
 
 ### Template
 
-Each template has its own set of options fpr ui, api and db, which change how the app is constucted.
+Each template has its own set of options for ui, api and db, which change how the app is constucted.
 
 **react-app**
 | Property | options | Default |
 | ------------- | ------------- | -----
 | ui | react | react
-| api | stub | stub
-| db | | |
+| api | indexedDB, stub | indexedDB
+| db | indexedDB, none | indexedDB
 
 _more options coming_
 
@@ -108,6 +108,7 @@ Aim for progressive development with something useful asap See the [road map](./
 
 ## Todo
 
+- support multiple types
 - add model view
 - add github test badge
 - add github test action (pipeline)

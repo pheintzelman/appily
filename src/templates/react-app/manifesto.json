@@ -3,8 +3,8 @@
   "version": "0.1.1",
   "options": {
     "ui": ["react"],
-    "api": ["stub", "indexedDB"],
-    "db": ["none", "indexedDB"]
+    "api": ["indexedDB", "stub"],
+    "db": ["indexedDB", "none"]
   },
   "allowedTypes": ["String"],
   "directives": [

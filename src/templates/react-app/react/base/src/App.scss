@@ -12,9 +12,26 @@
     display: block;
   }
 
+  .loading {
+    height: 150px;
+  }
+
   .Container {
     background-color: white;
     padding: 30px;
     margin-top: 40px;
+    min-height: 350px;
+    border-radius: 5px;
+    border: solid 1px #ccc;
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+
+      .headerIcon {
+        height: 48px;
+        margin-top: 18px;
+      }
+    }
   }
 }

@@ -249,6 +249,11 @@ exports[`React template tests/app/video-game-app/.create-app should match snapsh
 }"
 `;
 
+exports[`React template tests/app/video-game-app/.gitignore should match snapshot 1`] = `
+"node_modules
+.DS_Store"
+`;
+
 exports[`React template tests/app/video-game-app/README.md should match snapshot 1`] = `
 "# Getting Started with Create React App
 
@@ -723,6 +728,261 @@ export function Home() {
 "
 `;
 
+exports[`React template tests/app/video-game-app/src/components/Publisher/AddPublisher.js should match snapshot 1`] = `
+"import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { addPublisher } from '../../api/publisher';
+import { PublisherForm } from './PublisherForm';
+
+export function AddPublisher() {
+  const [processing, setProcessing] = useState(false);
+  const history = useHistory();
+
+  async function add(publisher) {
+    setProcessing(true);
+    const id = await addPublisher(publisher);
+    setProcessing(false);
+    history.push(\`/publisher/\${id}\`);
+  }
+
+  return <PublisherForm ctaLabel=\\"Add\\" cta={add} processing={processing} />;
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app/src/components/Publisher/EditPublisher.js should match snapshot 1`] = `
+"import { useState, useEffect } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
+import { getPublisher, updatePublisher } from '../../api/publisher';
+import { PublisherForm } from './PublisherForm';
+
+export function EditPublisher() {
+  const [publisher, setPublisher] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [processing, setProcessing] = useState(false);
+
+  const history = useHistory();
+  const { id: stringId } = useParams();
+  const id = parseInt(stringId);
+
+  useEffect(() => {
+    get(id);
+  }, [id]);
+
+  async function get(id) {
+    setIsLoading(true);
+    const publisher = await getPublisher(id);
+    console.log({ publisher });
+    setPublisher(publisher);
+    setIsLoading(false);
+  }
+
+  async function save(publisher) {
+    setProcessing(true);
+    await updatePublisher(publisher);
+    setProcessing(false);
+    history.push(\`/publisher/\${id}\`);
+  }
+
+  return (
+    <PublisherForm
+      ctaLabel=\\"Save\\"
+      cta={save}
+      isLoading={isLoading}
+      processing={processing}
+      publisher={publisher}
+    />
+  );
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app/src/components/Publisher/Publisher.js should match snapshot 1`] = `
+"import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
+import { Container, CircularProgress, IconButton } from '@material-ui/core';
+import EditIcon from '@material-ui/icons/Edit';
+import { Center } from '../common/Center';
+import { getPublisher } from '../../api/publisher';
+
+function loading() {
+  return (
+    <Container maxWidth=\\"sm\\" className=\\"Container Publisher\\">
+      <h1>Publisher</h1>
+      <Center className=\\"loading\\">
+        <CircularProgress />
+      </Center>
+    </Container>
+  );
+}
+
+function publisherNotFound() {
+  return (
+    <Container maxWidth=\\"sm\\" className=\\"Container Publisher\\">
+      <h1>Publisher</h1>
+      <h2>Not found</h2>
+    </Container>
+  );
+}
+
+export function Publisher() {
+  const [publisher, setPublisher] = useState({ name: '' });
+  const [isLoading, setIsLoading] = useState(true);
+  const { id: stringId } = useParams();
+  const id = parseInt(stringId);
+
+  useEffect(() => {
+    get(id);
+  }, [id]);
+
+  async function get(id) {
+    setIsLoading(true);
+    const publisher = await getPublisher(id);
+    console.log({ publisher });
+    setPublisher(publisher);
+    setIsLoading(false);
+  }
+
+  if (isLoading) {
+    return loading();
+  }
+
+  if (!publisher) {
+    return publisherNotFound();
+  }
+
+  return (
+    <Container maxWidth=\\"sm\\" className=\\"Container Publisher\\">
+      <div className=\\"header\\">
+        <h1>Publisher</h1>
+        <div className=\\"headerIcon\\">
+          <IconButton
+            aria-label=\\"edit\\"
+            component={RouterLink}
+            to={\`edit/\${id}\`}
+          >
+            <EditIcon />
+          </IconButton>
+        </div>
+      </div>
+
+      <div>Name: {publisher.name}</div>
+    </Container>
+  );
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app/src/components/Publisher/PublisherForm.js should match snapshot 1`] = `
+"import { useState, useEffect } from 'react';
+import {
+  Button,
+  Container,
+  TextField,
+  CircularProgress
+} from '@material-ui/core';
+import { Center } from '../common/Center';
+
+function loading() {
+  return (
+    <Container maxWidth=\\"sm\\" className=\\"Container Publisher\\">
+      <h1>Publisher</h1>
+      <Center className=\\"loading\\">
+        <CircularProgress />
+      </Center>
+    </Container>
+  );
+}
+
+export function PublisherForm({
+  publisher: initialState,
+  ctaLabel,
+  cta,
+  isLoading,
+  processing
+}) {
+  const [publisher, setPublisher] = useState(
+    initialState ?? { name: '' }
+  );
+
+  useEffect(() => {
+    if (initialState) {
+      setPublisher(initialState);
+    }
+  }, [initialState]);
+
+  const handleChange = (field) => (event) => {
+    const updatedPublisher = { ...publisher, [field]: event.target.value };
+    setPublisher(updatedPublisher);
+    console.log(updatedPublisher);
+  };
+
+  function handleCta(cta, publisher) {
+    return async (event) => {
+      await cta(publisher);
+    };
+  }
+
+  if (isLoading) {
+    return loading();
+  }
+
+  return (
+    <Container maxWidth=\\"sm\\" className=\\"Container PublisherForm\\">
+      <h1>Publisher</h1>
+      <form noValidate autoComplete=\\"off\\">
+        <TextField
+          className=\\"TextField\\"
+          id=\\"publisherFormName\\"
+          label=\\"Name\\"
+          value={publisher.name}
+          onChange={handleChange('name')}
+          variant=\\"filled\\"
+          fullWidth
+          disabled={processing}
+        />
+
+        <Button
+          className=\\"cta\\"
+          id=\\"publisherFormCta\\"
+          color=\\"primary\\"
+          onClick={handleCta(cta, publisher)}
+          disabled={processing}
+        >
+          {ctaLabel}
+        </Button>
+      </form>
+    </Container>
+  );
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app/src/components/Publisher/PublisherRouter.js should match snapshot 1`] = `
+"import { Switch, Route } from 'react-router-dom';
+import { EditPublisher } from './EditPublisher';
+import { Publisher } from './Publisher';
+import { AddPublisher } from './AddPublisher';
+
+export function PublisherRouter() {
+  return (
+    <Switch>
+      <Route path=\\"/Publisher/edit/:id\\">
+        <EditPublisher />
+      </Route>
+      <Route path=\\"/Publisher/:id\\">
+        <Publisher />
+      </Route>
+      <Route path=\\"/Publisher\\">
+        <AddPublisher />
+      </Route>
+    </Switch>
+  );
+}
+"
+`;
+
 exports[`React template tests/app/video-game-app/src/components/PublisherForm.js should match snapshot 1`] = `
 "import { useState } from 'react';
 import { Button, Container, TextField } from '@material-ui/core';
@@ -773,6 +1033,272 @@ export function PublisherForm() {
         </Button>
       </form>
     </Container>
+  );
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app/src/components/VideoGame/AddVideoGame.js should match snapshot 1`] = `
+"import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { addVideoGame } from '../../api/videoGame';
+import { VideoGameForm } from './VideoGameForm';
+
+export function AddVideoGame() {
+  const [processing, setProcessing] = useState(false);
+  const history = useHistory();
+
+  async function add(videoGame) {
+    setProcessing(true);
+    const id = await addVideoGame(videoGame);
+    setProcessing(false);
+    history.push(\`/videoGame/\${id}\`);
+  }
+
+  return <VideoGameForm ctaLabel=\\"Add\\" cta={add} processing={processing} />;
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app/src/components/VideoGame/EditVideoGame.js should match snapshot 1`] = `
+"import { useState, useEffect } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
+import { getVideoGame, updateVideoGame } from '../../api/videoGame';
+import { VideoGameForm } from './VideoGameForm';
+
+export function EditVideoGame() {
+  const [videoGame, setVideoGame] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [processing, setProcessing] = useState(false);
+
+  const history = useHistory();
+  const { id: stringId } = useParams();
+  const id = parseInt(stringId);
+
+  useEffect(() => {
+    get(id);
+  }, [id]);
+
+  async function get(id) {
+    setIsLoading(true);
+    const videoGame = await getVideoGame(id);
+    console.log({ videoGame });
+    setVideoGame(videoGame);
+    setIsLoading(false);
+  }
+
+  async function save(videoGame) {
+    setProcessing(true);
+    await updateVideoGame(videoGame);
+    setProcessing(false);
+    history.push(\`/videoGame/\${id}\`);
+  }
+
+  return (
+    <VideoGameForm
+      ctaLabel=\\"Save\\"
+      cta={save}
+      isLoading={isLoading}
+      processing={processing}
+      videoGame={videoGame}
+    />
+  );
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app/src/components/VideoGame/VideoGame.js should match snapshot 1`] = `
+"import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
+import { Container, CircularProgress, IconButton } from '@material-ui/core';
+import EditIcon from '@material-ui/icons/Edit';
+import { Center } from '../common/Center';
+import { getVideoGame } from '../../api/videoGame';
+
+function loading() {
+  return (
+    <Container maxWidth=\\"sm\\" className=\\"Container VideoGame\\">
+      <h1>Video Game</h1>
+      <Center className=\\"loading\\">
+        <CircularProgress />
+      </Center>
+    </Container>
+  );
+}
+
+function videoGameNotFound() {
+  return (
+    <Container maxWidth=\\"sm\\" className=\\"Container VideoGame\\">
+      <h1>Video Game</h1>
+      <h2>Not found</h2>
+    </Container>
+  );
+}
+
+export function VideoGame() {
+  const [videoGame, setVideoGame] = useState({ title: '', yearPublished: '' });
+  const [isLoading, setIsLoading] = useState(true);
+  const { id: stringId } = useParams();
+  const id = parseInt(stringId);
+
+  useEffect(() => {
+    get(id);
+  }, [id]);
+
+  async function get(id) {
+    setIsLoading(true);
+    const videoGame = await getVideoGame(id);
+    console.log({ videoGame });
+    setVideoGame(videoGame);
+    setIsLoading(false);
+  }
+
+  if (isLoading) {
+    return loading();
+  }
+
+  if (!videoGame) {
+    return videoGameNotFound();
+  }
+
+  return (
+    <Container maxWidth=\\"sm\\" className=\\"Container VideoGame\\">
+      <div className=\\"header\\">
+        <h1>Video Game</h1>
+        <div className=\\"headerIcon\\">
+          <IconButton
+            aria-label=\\"edit\\"
+            component={RouterLink}
+            to={\`edit/\${id}\`}
+          >
+            <EditIcon />
+          </IconButton>
+        </div>
+      </div>
+
+      <div>Title: {videoGame.title}</div>
+      <div>Year Published: {videoGame.yearPublished}</div>
+    </Container>
+  );
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app/src/components/VideoGame/VideoGameForm.js should match snapshot 1`] = `
+"import { useState, useEffect } from 'react';
+import {
+  Button,
+  Container,
+  TextField,
+  CircularProgress
+} from '@material-ui/core';
+import { Center } from '../common/Center';
+
+function loading() {
+  return (
+    <Container maxWidth=\\"sm\\" className=\\"Container VideoGame\\">
+      <h1>Video Game</h1>
+      <Center className=\\"loading\\">
+        <CircularProgress />
+      </Center>
+    </Container>
+  );
+}
+
+export function VideoGameForm({
+  videoGame: initialState,
+  ctaLabel,
+  cta,
+  isLoading,
+  processing
+}) {
+  const [videoGame, setVideoGame] = useState(
+    initialState ?? { title: '', yearPublished: '' }
+  );
+
+  useEffect(() => {
+    if (initialState) {
+      setVideoGame(initialState);
+    }
+  }, [initialState]);
+
+  const handleChange = (field) => (event) => {
+    const updatedVideoGame = { ...videoGame, [field]: event.target.value };
+    setVideoGame(updatedVideoGame);
+    console.log(updatedVideoGame);
+  };
+
+  function handleCta(cta, videoGame) {
+    return async (event) => {
+      await cta(videoGame);
+    };
+  }
+
+  if (isLoading) {
+    return loading();
+  }
+
+  return (
+    <Container maxWidth=\\"sm\\" className=\\"Container VideoGameForm\\">
+      <h1>Video Game</h1>
+      <form noValidate autoComplete=\\"off\\">
+        <TextField
+          className=\\"TextField\\"
+          id=\\"videoGameFormTitle\\"
+          label=\\"Title\\"
+          value={videoGame.title}
+          onChange={handleChange('title')}
+          variant=\\"filled\\"
+          fullWidth
+          disabled={processing}
+        />
+        <TextField
+          className=\\"TextField\\"
+          id=\\"videoGameFormYearPublished\\"
+          label=\\"Year Published\\"
+          value={videoGame.yearPublished}
+          onChange={handleChange('yearPublished')}
+          variant=\\"filled\\"
+          fullWidth
+          disabled={processing}
+        />
+
+        <Button
+          className=\\"cta\\"
+          id=\\"videoGameFormCta\\"
+          color=\\"primary\\"
+          onClick={handleCta(cta, videoGame)}
+          disabled={processing}
+        >
+          {ctaLabel}
+        </Button>
+      </form>
+    </Container>
+  );
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app/src/components/VideoGame/VideoGameRouter.js should match snapshot 1`] = `
+"import { Switch, Route } from 'react-router-dom';
+import { EditVideoGame } from './EditVideoGame';
+import { VideoGame } from './VideoGame';
+import { AddVideoGame } from './AddVideoGame';
+
+export function VideoGameRouter() {
+  return (
+    <Switch>
+      <Route path=\\"/VideoGame/edit/:id\\">
+        <EditVideoGame />
+      </Route>
+      <Route path=\\"/VideoGame/:id\\">
+        <VideoGame />
+      </Route>
+      <Route path=\\"/VideoGame\\">
+        <AddVideoGame />
+      </Route>
+    </Switch>
   );
 }
 "
@@ -840,6 +1366,107 @@ export function VideoGameForm() {
     </Container>
   );
 }
+"
+`;
+
+exports[`React template tests/app/video-game-app/src/components/common/Center.js should match snapshot 1`] = `
+"import \\"./Center.scss\\";
+
+export function Center(props) {
+  const classes = [props.className, \\"Center\\"].join(\\" \\");
+
+  return <div className={classes}>{props.children}</div>;
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app/src/components/common/Center.scss should match snapshot 1`] = `
+".Center {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app/src/db/db.js should match snapshot 1`] = `
+"import { openDB } from \\"idb\\";
+
+export async function connect() {
+  return openDB(\\"db\\", 1, {
+    upgrade(db) {
+      db.createObjectStore(\\"VideoGame\\", {
+        keyPath: \\"id\\",
+        autoIncrement: true,
+      });
+
+      db.createObjectStore(\\"Publisher\\", {
+        keyPath: \\"id\\",
+        autoIncrement: true,
+      });
+
+    },
+  });
+}
+
+export async function get(store, key) {
+  const db = await connect();
+  return db.get(store, key);
+}
+
+export async function add(store, value) {
+  const db = await connect();
+  return db.add(store, value);
+}
+
+export async function set(store, key, value) {
+  const db = await connect();
+  return db.put(store, value, key);
+}
+
+export async function deleteRecord(store, key) {
+  const db = await connect();
+  return db.delete(store, key);
+}
+
+export async function getAll(store) {
+  const db = await connect();
+  const keys = db.getAllKeys(store);
+
+  const promises = keys.map((key) => get(key));
+
+  return Promise.all(promises);
+}
+
+export function withStore(store) {
+  return {
+    get: async (key) => await get(store, key),
+    add: async (value) => await add(store, value),
+    set: async (key, value) => await set(store, value, key),
+    deleteRecord: async (key) => await deleteRecord(store, key),
+    getAll: async () => await getAll(store),
+  };
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app/src/db/publisher.js should match snapshot 1`] = `
+"import { withStore } from './db';
+const { add, get, set, deleteRecord, getAll } = withStore(
+  'Publisher'
+);
+
+export { get, add, set, deleteRecord, getAll };
+"
+`;
+
+exports[`React template tests/app/video-game-app/src/db/videoGame.js should match snapshot 1`] = `
+"import { withStore } from './db';
+const { add, get, set, deleteRecord, getAll } = withStore(
+  'VideoGame'
+);
+
+export { get, add, set, deleteRecord, getAll };
 "
 `;
 

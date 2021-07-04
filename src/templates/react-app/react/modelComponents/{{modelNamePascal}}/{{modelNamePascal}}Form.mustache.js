@@ -1,11 +1,39 @@
-import { useState } from 'react';
-import { Button, Container, TextField } from '@material-ui/core';
-import { add{{modelNamePascal}} } from '../api/{{modelNameCamel}}';
+import { useState, useEffect } from 'react';
+import {
+  Button,
+  Container,
+  TextField,
+  CircularProgress
+} from '@material-ui/core';
+import { Center } from '../common/Center';
 
-export function {{modelNamePascal}}Form() {
-  const cta = 'Add';
-  const [{{modelNameCamel}}, set{{modelNamePascal}}] = useState({{{defaultState}}});
-  const [isLoading, setIsLoading] = useState(false);
+function loading() {
+  return (
+    <Container maxWidth="sm" className="Container {{modelNamePascal}}">
+      <h1>{{modelName}}</h1>
+      <Center className="loading">
+        <CircularProgress />
+      </Center>
+    </Container>
+  );
+}
+
+export function {{modelNamePascal}}Form({
+  {{modelNameCamel}}: initialState,
+  ctaLabel,
+  cta,
+  isLoading,
+  processing
+}) {
+  const [{{modelNameCamel}}, set{{modelNamePascal}}] = useState(
+    initialState ?? {{{defaultState}}}
+  );
+
+  useEffect(() => {
+    if (initialState) {
+      set{{modelNamePascal}}(initialState);
+    }
+  }, [initialState]);
 
   const handleChange = (field) => (event) => {
     const updated{{modelNamePascal}} = { ...{{modelNameCamel}}, [field]: event.target.value };
@@ -13,12 +41,14 @@ export function {{modelNamePascal}}Form() {
     console.log(updated{{modelNamePascal}});
   };
 
-  function add({{modelNameCamel}}) {
+  function handleCta(cta, {{modelNameCamel}}) {
     return async (event) => {
-      setIsLoading(true);
-      await add{{modelNamePascal}}({{modelNameCamel}});
-      setIsLoading(false);
+      await cta({{modelNameCamel}});
     };
+  }
+
+  if (isLoading) {
+    return loading();
   }
 
   return (
@@ -35,7 +65,7 @@ export function {{modelNamePascal}}Form() {
           onChange={handleChange('{{propertyNameCamel}}')}
           variant="filled"
           fullWidth
-          disabled={isLoading}
+          disabled={processing}
         />
         {{/isString}}
         {{/properties}}
@@ -44,10 +74,10 @@ export function {{modelNamePascal}}Form() {
           className="cta"
           id="{{modelNameCamel}}FormCta"
           color="primary"
-          onClick={add({{modelNameCamel}})}
-          disabled={isLoading}
+          onClick={handleCta(cta, {{modelNameCamel}})}
+          disabled={processing}
         >
-          {cta}
+          {ctaLabel}
         </Button>
       </form>
     </Container>

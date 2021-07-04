@@ -1,3 +1,8 @@
+v. 0.0.12
+
+- react-app template: Basic model view
+- react-app template: Basic model edit
+
 v. 0.0.11
 
 - indexedDb support

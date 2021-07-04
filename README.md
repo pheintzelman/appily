@@ -109,7 +109,8 @@ Aim for progressive development with something useful asap See the [road map](./
 ## Todo
 
 - support multiple types
-- add model view
+- add model collection view
+- add model remove
 - add github test badge
 - add github test action (pipeline)
 - add overide cli option, for now this can just delete the existing dir

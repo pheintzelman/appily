@@ -6,6 +6,9 @@ Array [
     "DEBUG": "Dir created: tests/app/video-game-app",
   },
   Object {
+    "DEBUG": "File copied: tests/app/video-game-app/.gitignore",
+  },
+  Object {
     "DEBUG": "File copied: tests/app/video-game-app/README.md",
   },
   Object {
@@ -28,6 +31,12 @@ Array [
   },
   Object {
     "DEBUG": "File copied: tests/app/video-game-app/src/App.scss",
+  },
+  Object {
+    "DEBUG": "File copied: tests/app/video-game-app/src/components/common/Center.js",
+  },
+  Object {
+    "DEBUG": "File copied: tests/app/video-game-app/src/components/common/Center.scss",
   },
   Object {
     "DEBUG": "File copied: tests/app/video-game-app/src/index.css",
@@ -66,10 +75,73 @@ Array [
     "DEBUG": "File rendered: tests/app/video-game-app/src/components/Home.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app/src/components/PublisherForm.js",
+    "DEBUG": "File rendered: tests/app/video-game-app/src/components/Publisher/AddPublisher.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app/src/components/VideoGameForm.js",
+    "DEBUG": "File rendered: tests/app/video-game-app/src/components/Publisher/EditPublisher.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/video-game-app/src/components/Publisher/Publisher.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/video-game-app/src/components/Publisher/PublisherForm.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/video-game-app/src/components/Publisher/PublisherRouter.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/video-game-app/src/components/VideoGame/AddVideoGame.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/video-game-app/src/components/VideoGame/EditVideoGame.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/video-game-app/src/components/VideoGame/VideoGame.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/video-game-app/src/components/VideoGame/VideoGameForm.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/video-game-app/src/components/VideoGame/VideoGameRouter.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/video-game-app/src/db/db.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/video-game-app/src/db/publisher.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/video-game-app/src/db/videoGame.js",
+  },
+  Object {
+    "INFO": "Video Game App created, in dir tests/app/video-game-app",
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/video-game-app/src/db",
+      "msg": "copyDir",
+      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/db/indexedDb/loop",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/video-game-app/src/db",
+      "msg": "copyDir",
+      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/db/indexedDb/loop",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/video-game-app/src/db",
+      "msg": "mkdir",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/video-game-app/src/db",
+      "msg": "copyDir",
+      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/db/indexedDb/db",
+    },
   },
   Object {
     "TRACE": Object {
@@ -81,28 +153,67 @@ Array [
     "TRACE": Object {
       "dest": "tests/app/video-game-app/src/api",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/api/stub/api",
+      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/api/indexedDb/api",
     },
   },
   Object {
     "TRACE": Object {
       "dest": "tests/app/video-game-app/src/api",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/api/stub/api",
+      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/api/indexedDb/api",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/video-game-app/src/components/Publisher",
+      "msg": "mkdir",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/video-game-app/src/components/VideoGame",
+      "msg": "mkdir",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/video-game-app/src/components/Publisher",
+      "msg": "copyDir",
+      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/modelComponents/{{modelNamePascal}}",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/video-game-app/src/components/VideoGame",
+      "msg": "copyDir",
+      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/modelComponents/{{modelNamePascal}}",
     },
   },
   Object {
     "TRACE": Object {
       "dest": "tests/app/video-game-app/src/components",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/loop",
+      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/modelComponents",
     },
   },
   Object {
     "TRACE": Object {
       "dest": "tests/app/video-game-app/src/components",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/loop",
+      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/modelComponents",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/video-game-app/src/components/common",
+      "msg": "mkdir",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/video-game-app/src/components/common",
+      "msg": "copyDir",
+      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/base/src/components/common",
     },
   },
   Object {
@@ -220,8 +331,27 @@ Array [
             ],
           },
         ],
+        "packages": Array [
+          Object {
+            "package": "idb",
+            "version": "^6.1.2",
+          },
+        ],
         "templateName": "react-app",
-        "templateVersion": "0.1.1",
+        "templateVersion": "0.2.0",
+      },
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "msg": "Add to view model",
+      "property": Object {
+        "packages": Array [
+          Object {
+            "package": "idb",
+            "version": "^6.1.2",
+          },
+        ],
       },
     },
   },
@@ -231,7 +361,7 @@ Array [
 exports[`React template tests/app/video-game-app/.create-app should match snapshot 1`] = `
 "{
   template: \\"react-app\\",
-  version: \\"0.1.1\\",
+  version: \\"0.2.0\\",
   config: {
   \\"dir\\": \\"tests/app\\",
   \\"name\\": \\"Video Game App\\",
@@ -331,10 +461,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 exports[`React template tests/app/video-game-app/package.json should match snapshot 1`] = `
 "{
   \\"name\\": \\"video-game-app\\",
-  \\"version\\": \\"0.1.1\\",
+  \\"version\\": \\"0.2.0\\",
   \\"private\\": true,
   \\"dependencies\\": {
     \\"@material-ui/core\\": \\"^4.11.4\\",
+    \\"@material-ui/icons\\": \\"^4.11.2\\",
     \\"@testing-library/jest-dom\\": \\"^5.13.0\\",
     \\"@testing-library/react\\": \\"^11.2.7\\",
     \\"@testing-library/user-event\\": \\"^12.8.3\\",
@@ -343,6 +474,7 @@ exports[`React template tests/app/video-game-app/package.json should match snaps
     \\"react-dom\\": \\"^17.0.2\\",
     \\"react-router-dom\\": \\"^5.2.0\\",
     \\"react-scripts\\": \\"4.0.3\\",
+    \\"idb\\": \\"^6.1.2\\",
     \\"web-vitals\\": \\"^1.1.2\\"
   },
   \\"scripts\\": {
@@ -618,8 +750,8 @@ Disallow:
 exports[`React template tests/app/video-game-app/src/App.js should match snapshot 1`] = `
 "import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Home } from './components/Home';
-import { VideoGameForm } from './components/VideoGameForm';
-import { PublisherForm } from './components/PublisherForm';
+import { VideoGameRouter } from './components/VideoGame/VideoGameRouter';
+import { PublisherRouter } from './components/Publisher/PublisherRouter';
 import './App.scss';
 
 function App() {
@@ -628,10 +760,10 @@ function App() {
       <div className=\\"App\\">
         <Switch>
           <Route path=\\"/VideoGame\\">
-            <VideoGameForm />
+            <VideoGameRouter />
           </Route>
           <Route path=\\"/Publisher\\">
-            <PublisherForm />
+            <PublisherRouter />
           </Route>
           <Route path=\\"/\\">
             <Home />
@@ -661,10 +793,27 @@ exports[`React template tests/app/video-game-app/src/App.scss should match snaps
     display: block;
   }
 
+  .loading {
+    height: 150px;
+  }
+
   .Container {
     background-color: white;
     padding: 30px;
     margin-top: 40px;
+    min-height: 350px;
+    border-radius: 5px;
+    border: solid 1px #ccc;
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+
+      .headerIcon {
+        height: 48px;
+        margin-top: 18px;
+      }
+    }
   }
 }
 "
@@ -683,25 +832,59 @@ test('renders welcome message', () => {
 `;
 
 exports[`React template tests/app/video-game-app/src/api/publisher.js should match snapshot 1`] = `
-"function sleep(ms) {
+"import { add, get, set } from '../db/publisher';
+
+function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 export async function addPublisher(publisher) {
   await sleep(1000);
-  throw Error('Not implemented');
+  return await add(publisher);
+}
+
+export async function updatePublisher(id, publisher) {
+  await sleep(1000);
+  return await set(id, publisher);
+}
+
+export async function getPublisher(id) {
+  await sleep(1000);
+
+  if (!id) {
+    return null;
+  }
+
+  return await get(id);
 }
 "
 `;
 
 exports[`React template tests/app/video-game-app/src/api/videoGame.js should match snapshot 1`] = `
-"function sleep(ms) {
+"import { add, get, set } from '../db/videoGame';
+
+function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 export async function addVideoGame(videoGame) {
   await sleep(1000);
-  throw Error('Not implemented');
+  return await add(videoGame);
+}
+
+export async function updateVideoGame(id, videoGame) {
+  await sleep(1000);
+  return await set(id, videoGame);
+}
+
+export async function getVideoGame(id) {
+  await sleep(1000);
+
+  if (!id) {
+    return null;
+  }
+
+  return await get(id);
 }
 "
 `;
@@ -983,61 +1166,6 @@ export function PublisherRouter() {
 "
 `;
 
-exports[`React template tests/app/video-game-app/src/components/PublisherForm.js should match snapshot 1`] = `
-"import { useState } from 'react';
-import { Button, Container, TextField } from '@material-ui/core';
-import { addPublisher } from '../api/publisher';
-
-export function PublisherForm() {
-  const cta = 'Add';
-  const [publisher, setPublisher] = useState({ name: '' });
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleChange = (field) => (event) => {
-    const updatedPublisher = { ...publisher, [field]: event.target.value };
-    setPublisher(updatedPublisher);
-    console.log(updatedPublisher);
-  };
-
-  function add(publisher) {
-    return async (event) => {
-      setIsLoading(true);
-      await addPublisher(publisher);
-      setIsLoading(false);
-    };
-  }
-
-  return (
-    <Container maxWidth=\\"sm\\" className=\\"Container PublisherForm\\">
-      <h1>Publisher</h1>
-      <form noValidate autoComplete=\\"off\\">
-        <TextField
-          className=\\"TextField\\"
-          id=\\"publisherFormName\\"
-          label=\\"Name\\"
-          value={publisher.name}
-          onChange={handleChange('name')}
-          variant=\\"filled\\"
-          fullWidth
-          disabled={isLoading}
-        />
-
-        <Button
-          className=\\"cta\\"
-          id=\\"publisherFormCta\\"
-          color=\\"primary\\"
-          onClick={add(publisher)}
-          disabled={isLoading}
-        >
-          {cta}
-        </Button>
-      </form>
-    </Container>
-  );
-}
-"
-`;
-
 exports[`React template tests/app/video-game-app/src/components/VideoGame/AddVideoGame.js should match snapshot 1`] = `
 "import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
@@ -1299,71 +1427,6 @@ export function VideoGameRouter() {
         <AddVideoGame />
       </Route>
     </Switch>
-  );
-}
-"
-`;
-
-exports[`React template tests/app/video-game-app/src/components/VideoGameForm.js should match snapshot 1`] = `
-"import { useState } from 'react';
-import { Button, Container, TextField } from '@material-ui/core';
-import { addVideoGame } from '../api/videoGame';
-
-export function VideoGameForm() {
-  const cta = 'Add';
-  const [videoGame, setVideoGame] = useState({ title: '', yearPublished: '' });
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleChange = (field) => (event) => {
-    const updatedVideoGame = { ...videoGame, [field]: event.target.value };
-    setVideoGame(updatedVideoGame);
-    console.log(updatedVideoGame);
-  };
-
-  function add(videoGame) {
-    return async (event) => {
-      setIsLoading(true);
-      await addVideoGame(videoGame);
-      setIsLoading(false);
-    };
-  }
-
-  return (
-    <Container maxWidth=\\"sm\\" className=\\"Container VideoGameForm\\">
-      <h1>Video Game</h1>
-      <form noValidate autoComplete=\\"off\\">
-        <TextField
-          className=\\"TextField\\"
-          id=\\"videoGameFormTitle\\"
-          label=\\"Title\\"
-          value={videoGame.title}
-          onChange={handleChange('title')}
-          variant=\\"filled\\"
-          fullWidth
-          disabled={isLoading}
-        />
-        <TextField
-          className=\\"TextField\\"
-          id=\\"videoGameFormYearPublished\\"
-          label=\\"Year Published\\"
-          value={videoGame.yearPublished}
-          onChange={handleChange('yearPublished')}
-          variant=\\"filled\\"
-          fullWidth
-          disabled={isLoading}
-        />
-
-        <Button
-          className=\\"cta\\"
-          id=\\"videoGameFormCta\\"
-          color=\\"primary\\"
-          onClick={add(videoGame)}
-          disabled={isLoading}
-        >
-          {cta}
-        </Button>
-      </form>
-    </Container>
   );
 }
 "

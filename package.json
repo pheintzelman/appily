@@ -26,6 +26,7 @@
       "!**/*.test.js",
       "!**/templates/**",
       "!**/tests/**",
+      "!**/tools/**",
       "!**/getTemplateDir.js"
     ],
     "coverageDirectory": "./tests/coverage"

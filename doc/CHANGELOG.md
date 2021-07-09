@@ -2,10 +2,11 @@ v. 0.0.12
 
 - react-app template: Basic model view
 - react-app template: Basic model edit
+- react-app template: Added app bar and menu
 
 v. 0.0.11
 
-- indexedDb support
+- react-app template: IndexedDb support
 - Added config validation
 
 v. 0.0.10

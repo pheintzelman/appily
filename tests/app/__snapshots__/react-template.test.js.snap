@@ -37,6 +37,12 @@ Array [
   },
   Object {
     "DEBUG": "File copied: tests/app/video-game-app/src/components/common/Center.scss",
+  }
+  Object {
+    "DEBUG": "File copied: tests/app/video-game-app/src/components/App/Drawer.scss",
+  },
+  Object {
+    "DEBUG": "File copied: tests/app/video-game-app/src/components/App/Header.scss",
   },
   Object {
     "DEBUG": "File copied: tests/app/video-game-app/src/index.css",
@@ -70,6 +76,12 @@ Array [
   },
   Object {
     "DEBUG": "File rendered: tests/app/video-game-app/src/api/videoGame.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/video-game-app/src/components/App/Drawer.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/video-game-app/src/components/App/Header.js",
   },
   Object {
     "DEBUG": "File rendered: tests/app/video-game-app/src/components/Home.js",
@@ -214,6 +226,19 @@ Array [
       "dest": "tests/app/video-game-app/src/components/common",
       "msg": "copyDir",
       "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/base/src/components/common",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/video-game-app/src/components/App",
+      "msg": "mkdir",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/video-game-app/src/components/App",
+      "msg": "copyDir",
+      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/base/src/components/App",
     },
   },
   Object {
@@ -752,12 +777,16 @@ exports[`React template tests/app/video-game-app/src/App.js should match snapsho
 import { Home } from './components/Home';
 import { VideoGameRouter } from './components/VideoGame/VideoGameRouter';
 import { PublisherRouter } from './components/Publisher/PublisherRouter';
+import { VideoGameForm } from './components/VideoGameForm';
+import { PublisherForm } from './components/PublisherForm';
+import { Header } from \\"./components/App/Header\\";
 import './App.scss';
 
 function App() {
   return (
     <Router>
       <div className=\\"App\\">
+        <Header />
         <Switch>
           <Route path=\\"/VideoGame\\">
             <VideoGameRouter />
@@ -885,6 +914,175 @@ export async function getVideoGame(id) {
   }
 
   return await get(id);
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app/src/components/App/Drawer.js should match snapshot 1`] = `
+"import { Link } from 'react-router-dom';
+import {
+  Drawer as MaterialDrawer,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemIcon,
+  IconButton,
+  Divider
+} from '@material-ui/core';
+import { ChevronLeft as ChevronLeftIcon, Home as HomeIcon } from '@material-ui/icons';
+import './Drawer.scss';
+
+export function Drawer(props) {
+  const { open, handleClose } = props;
+
+  return (
+    <div className=\\"Drawer\\">
+      <MaterialDrawer
+        className=\\"drawer\\"
+        variant=\\"persistent\\"
+        anchor=\\"left\\"
+        open={open}
+        classes={{
+          paper: 'drawerPaper'
+        }}
+      >
+        <div className=\\"drawerHeader\\">
+          <IconButton onClick={handleClose}>
+            <ChevronLeftIcon />
+          </IconButton>
+        </div>
+        <Divider />
+        <List>
+          <ListItem button key={'Home'} component={Link} to=\\"/\\">
+            <ListItemIcon>
+              <HomeIcon />
+            </ListItemIcon>
+            <ListItemText primary={'Home'} />
+          </ListItem>
+        </List>
+        <Divider />
+        <List>
+          <ListItem button component={Link} to=\\"/VideoGame\\">
+            <ListItemText primary=\\"Video Game\\" />
+          </ListItem>
+          <ListItem button component={Link} to=\\"/Publisher\\">
+            <ListItemText primary=\\"Publisher\\" />
+          </ListItem>
+        </List>
+      </MaterialDrawer>
+    </div>
+  );
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app/src/components/App/Drawer.scss should match snapshot 1`] = `
+"$drawerWidth: 240px;
+
+.Drawer {
+  .drawer {
+    width: $drawerWidth;
+    flex-shrink: 0;
+  }
+
+  .drawerPaper {
+    width: $drawerWidth;
+  }
+
+  .drawerHeader {
+    display: flex;
+    align-items: center;
+    padding: 0px 8px;
+    min-height: 64px;
+    justify-content: flex-end;
+  }
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app/src/components/App/Header.js should match snapshot 1`] = `
+"import React from 'react';
+import clsx from 'clsx';
+import {
+  CssBaseline,
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton
+} from '@material-ui/core';
+import { Menu as MenuIcon } from '@material-ui/icons';
+import { Drawer } from './Drawer';
+import './Header.scss';
+
+export function Header() {
+  const [open, setOpen] = React.useState(false);
+
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
+
+  return (
+    <div className=\\"Header\\">
+      <CssBaseline />
+      <AppBar
+        position=\\"fixed\\"
+        className={clsx('appBar', {
+          appBarShift: open
+        })}
+      >
+        <Toolbar>
+          <IconButton
+            color=\\"inherit\\"
+            aria-label=\\"open drawer\\"
+            onClick={handleDrawerOpen}
+            edge=\\"start\\"
+            className={clsx('menuButton', open && 'hide')}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant=\\"h6\\" noWrap>
+            Video Game App
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Drawer open={open} handleClose={handleDrawerClose} />
+    </div>
+  );
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app/src/components/App/Header.scss should match snapshot 1`] = `
+"$drawerWidth: 240px;
+$appBarHeight: 64px;
+
+.Header {
+  display: flex;
+  height: $appBarHeight;
+
+  .appBar {
+    transition: margin 195ms cubic-bezier(0.4, 0, 0.6, 1) 0ms,
+      width 195ms cubic-bezier(0.4, 0, 0.6, 1) 0ms;
+  }
+
+  .appBarShift {
+    width: calc(100% - #{$drawerWidth});
+    transition: margin 225ms cubic-bezier(0, 0, 0.2, 1) 0ms,
+      width 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+    margin-left: $drawerWidth;
+  }
+
+  .menuButton {
+    margin-right: 16px;
+  }
+
+  .hide {
+    display: none;
+  }
 }
 "
 `;

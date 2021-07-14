@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Home } from './components/Home';
 {{#models}}
-import { {{modelNamePascal}}Form } from './components/{{modelNamePascal}}Form';
+import { {{modelNamePascal}}Router } from './components/{{modelNamePascal}}/{{modelNamePascal}}Router';
 {{/models}}
 import './App.scss';
 
@@ -12,7 +12,7 @@ function App() {
         <Switch>
         {{#models}}
           <Route path="/{{modelNamePascal}}">
-            <{{modelNamePascal}}Form />
+            <{{modelNamePascal}}Router />
           </Route>
           {{/models}}
           <Route path="/">

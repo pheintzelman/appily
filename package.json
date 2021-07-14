@@ -1,7 +1,7 @@
 {
   "name": "create-app",
   "description": "Generate a new app",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "keywords": [],
   "author": "Paul Heintzelman",
   "license": "MIT",
@@ -26,6 +26,7 @@
       "!**/*.test.js",
       "!**/templates/**",
       "!**/tests/**",
+      "!**/tools/**",
       "!**/getTemplateDir.js"
     ],
     "coverageDirectory": "./tests/coverage"

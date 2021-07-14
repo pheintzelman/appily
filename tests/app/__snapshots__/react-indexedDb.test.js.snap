@@ -6,6 +6,9 @@ Array [
     "DEBUG": "Dir created: tests/app/video-game-app-indexeddb",
   },
   Object {
+    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/.gitignore",
+  },
+  Object {
     "DEBUG": "File copied: tests/app/video-game-app-indexeddb/README.md",
   },
   Object {
@@ -28,6 +31,12 @@ Array [
   },
   Object {
     "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/App.scss",
+  },
+  Object {
+    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/components/common/Center.js",
+  },
+  Object {
+    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/components/common/Center.scss",
   },
   Object {
     "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/index.css",
@@ -66,10 +75,34 @@ Array [
     "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/components/Home.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/components/PublisherForm.js",
+    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/components/Publisher/AddPublisher.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/components/VideoGameForm.js",
+    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/components/Publisher/EditPublisher.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/components/Publisher/Publisher.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/components/Publisher/PublisherForm.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/components/Publisher/PublisherRouter.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/components/VideoGame/AddVideoGame.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/components/VideoGame/EditVideoGame.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/components/VideoGame/VideoGame.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/components/VideoGame/VideoGameForm.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/components/VideoGame/VideoGameRouter.js",
   },
   Object {
     "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/db/db.js",
@@ -79,6 +112,9 @@ Array [
   },
   Object {
     "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/db/videoGame.js",
+  },
+  Object {
+    "INFO": "Video Game App IndexedDB created, in dir tests/app/video-game-app-indexeddb",
   },
   Object {
     "TRACE": Object {
@@ -129,16 +165,55 @@ Array [
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app-indexeddb/src/components",
+      "dest": "tests/app/video-game-app-indexeddb/src/components/Publisher",
+      "msg": "mkdir",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/video-game-app-indexeddb/src/components/VideoGame",
+      "msg": "mkdir",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/video-game-app-indexeddb/src/components/Publisher",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/loop",
+      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/modelComponents/{{modelNamePascal}}",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/video-game-app-indexeddb/src/components/VideoGame",
+      "msg": "copyDir",
+      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/modelComponents/{{modelNamePascal}}",
     },
   },
   Object {
     "TRACE": Object {
       "dest": "tests/app/video-game-app-indexeddb/src/components",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/loop",
+      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/modelComponents",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/video-game-app-indexeddb/src/components",
+      "msg": "copyDir",
+      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/modelComponents",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/video-game-app-indexeddb/src/components/common",
+      "msg": "mkdir",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/video-game-app-indexeddb/src/components/common",
+      "msg": "copyDir",
+      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/base/src/components/common",
     },
   },
   Object {
@@ -265,7 +340,7 @@ Array [
           },
         ],
         "templateName": "react-app",
-        "templateVersion": "0.1.1",
+        "templateVersion": "0.2.0",
       },
     },
   },
@@ -288,7 +363,7 @@ Array [
 exports[`React template tests/app/video-game-app-indexedDB/.create-app should match snapshot 1`] = `
 "{
   template: \\"react-app\\",
-  version: \\"0.1.1\\",
+  version: \\"0.2.0\\",
   config: {
   \\"dir\\": \\"tests/app\\",
   \\"name\\": \\"Video Game App IndexedDB\\",
@@ -306,6 +381,11 @@ exports[`React template tests/app/video-game-app-indexedDB/.create-app should ma
   }
 }
 }"
+`;
+
+exports[`React template tests/app/video-game-app-indexedDB/.gitignore should match snapshot 1`] = `
+"node_modules
+.DS_Store"
 `;
 
 exports[`React template tests/app/video-game-app-indexedDB/README.md should match snapshot 1`] = `
@@ -385,10 +465,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 exports[`React template tests/app/video-game-app-indexedDB/package.json should match snapshot 1`] = `
 "{
   \\"name\\": \\"video-game-app-indexeddb\\",
-  \\"version\\": \\"0.1.1\\",
+  \\"version\\": \\"0.2.0\\",
   \\"private\\": true,
   \\"dependencies\\": {
     \\"@material-ui/core\\": \\"^4.11.4\\",
+    \\"@material-ui/icons\\": \\"^4.11.2\\",
     \\"@testing-library/jest-dom\\": \\"^5.13.0\\",
     \\"@testing-library/react\\": \\"^11.2.7\\",
     \\"@testing-library/user-event\\": \\"^12.8.3\\",
@@ -673,8 +754,8 @@ Disallow:
 exports[`React template tests/app/video-game-app-indexedDB/src/App.js should match snapshot 1`] = `
 "import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Home } from './components/Home';
-import { VideoGameForm } from './components/VideoGameForm';
-import { PublisherForm } from './components/PublisherForm';
+import { VideoGameRouter } from './components/VideoGame/VideoGameRouter';
+import { PublisherRouter } from './components/Publisher/PublisherRouter';
 import './App.scss';
 
 function App() {
@@ -683,10 +764,10 @@ function App() {
       <div className=\\"App\\">
         <Switch>
           <Route path=\\"/VideoGame\\">
-            <VideoGameForm />
+            <VideoGameRouter />
           </Route>
           <Route path=\\"/Publisher\\">
-            <PublisherForm />
+            <PublisherRouter />
           </Route>
           <Route path=\\"/\\">
             <Home />
@@ -716,10 +797,27 @@ exports[`React template tests/app/video-game-app-indexedDB/src/App.scss should m
     display: block;
   }
 
+  .loading {
+    height: 150px;
+  }
+
   .Container {
     background-color: white;
     padding: 30px;
     margin-top: 40px;
+    min-height: 350px;
+    border-radius: 5px;
+    border: solid 1px #ccc;
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+
+      .headerIcon {
+        height: 48px;
+        margin-top: 18px;
+      }
+    }
   }
 }
 "
@@ -738,7 +836,7 @@ test('renders welcome message', () => {
 `;
 
 exports[`React template tests/app/video-game-app-indexedDB/src/api/publisher.js should match snapshot 1`] = `
-"import { add } from '../db/publisher';
+"import { add, get, set } from '../db/publisher';
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -746,14 +844,28 @@ function sleep(ms) {
 
 export async function addPublisher(publisher) {
   await sleep(1000);
-  const record = await add(publisher);
-  console.log({ record });
+  return await add(publisher);
+}
+
+export async function updatePublisher(id, publisher) {
+  await sleep(1000);
+  return await set(id, publisher);
+}
+
+export async function getPublisher(id) {
+  await sleep(1000);
+
+  if (!id) {
+    return null;
+  }
+
+  return await get(id);
 }
 "
 `;
 
 exports[`React template tests/app/video-game-app-indexedDB/src/api/videoGame.js should match snapshot 1`] = `
-"import { add } from '../db/videoGame';
+"import { add, get, set } from '../db/videoGame';
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -761,8 +873,22 @@ function sleep(ms) {
 
 export async function addVideoGame(videoGame) {
   await sleep(1000);
-  const record = await add(videoGame);
-  console.log({ record });
+  return await add(videoGame);
+}
+
+export async function updateVideoGame(id, videoGame) {
+  await sleep(1000);
+  return await set(id, videoGame);
+}
+
+export async function getVideoGame(id) {
+  await sleep(1000);
+
+  if (!id) {
+    return null;
+  }
+
+  return await get(id);
 }
 "
 `;
@@ -789,15 +915,189 @@ export function Home() {
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/components/PublisherForm.js should match snapshot 1`] = `
+exports[`React template tests/app/video-game-app-indexedDB/src/components/Publisher/AddPublisher.js should match snapshot 1`] = `
 "import { useState } from 'react';
-import { Button, Container, TextField } from '@material-ui/core';
-import { addPublisher } from '../api/publisher';
+import { useHistory } from 'react-router-dom';
+import { addPublisher } from '../../api/publisher';
+import { PublisherForm } from './PublisherForm';
 
-export function PublisherForm() {
-  const cta = 'Add';
+export function AddPublisher() {
+  const [processing, setProcessing] = useState(false);
+  const history = useHistory();
+
+  async function add(publisher) {
+    setProcessing(true);
+    const id = await addPublisher(publisher);
+    setProcessing(false);
+    history.push(\`/publisher/\${id}\`);
+  }
+
+  return <PublisherForm ctaLabel=\\"Add\\" cta={add} processing={processing} />;
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app-indexedDB/src/components/Publisher/EditPublisher.js should match snapshot 1`] = `
+"import { useState, useEffect } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
+import { getPublisher, updatePublisher } from '../../api/publisher';
+import { PublisherForm } from './PublisherForm';
+
+export function EditPublisher() {
+  const [publisher, setPublisher] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [processing, setProcessing] = useState(false);
+
+  const history = useHistory();
+  const { id: stringId } = useParams();
+  const id = parseInt(stringId);
+
+  useEffect(() => {
+    get(id);
+  }, [id]);
+
+  async function get(id) {
+    setIsLoading(true);
+    const publisher = await getPublisher(id);
+    console.log({ publisher });
+    setPublisher(publisher);
+    setIsLoading(false);
+  }
+
+  async function save(publisher) {
+    setProcessing(true);
+    await updatePublisher(publisher);
+    setProcessing(false);
+    history.push(\`/publisher/\${id}\`);
+  }
+
+  return (
+    <PublisherForm
+      ctaLabel=\\"Save\\"
+      cta={save}
+      isLoading={isLoading}
+      processing={processing}
+      publisher={publisher}
+    />
+  );
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app-indexedDB/src/components/Publisher/Publisher.js should match snapshot 1`] = `
+"import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
+import { Container, CircularProgress, IconButton } from '@material-ui/core';
+import EditIcon from '@material-ui/icons/Edit';
+import { Center } from '../common/Center';
+import { getPublisher } from '../../api/publisher';
+
+function loading() {
+  return (
+    <Container maxWidth=\\"sm\\" className=\\"Container Publisher\\">
+      <h1>Publisher</h1>
+      <Center className=\\"loading\\">
+        <CircularProgress />
+      </Center>
+    </Container>
+  );
+}
+
+function publisherNotFound() {
+  return (
+    <Container maxWidth=\\"sm\\" className=\\"Container Publisher\\">
+      <h1>Publisher</h1>
+      <h2>Not found</h2>
+    </Container>
+  );
+}
+
+export function Publisher() {
   const [publisher, setPublisher] = useState({ name: '' });
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const { id: stringId } = useParams();
+  const id = parseInt(stringId);
+
+  useEffect(() => {
+    get(id);
+  }, [id]);
+
+  async function get(id) {
+    setIsLoading(true);
+    const publisher = await getPublisher(id);
+    console.log({ publisher });
+    setPublisher(publisher);
+    setIsLoading(false);
+  }
+
+  if (isLoading) {
+    return loading();
+  }
+
+  if (!publisher) {
+    return publisherNotFound();
+  }
+
+  return (
+    <Container maxWidth=\\"sm\\" className=\\"Container Publisher\\">
+      <div className=\\"header\\">
+        <h1>Publisher</h1>
+        <div className=\\"headerIcon\\">
+          <IconButton
+            aria-label=\\"edit\\"
+            component={RouterLink}
+            to={\`edit/\${id}\`}
+          >
+            <EditIcon />
+          </IconButton>
+        </div>
+      </div>
+
+      <div>Name: {publisher.name}</div>
+    </Container>
+  );
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app-indexedDB/src/components/Publisher/PublisherForm.js should match snapshot 1`] = `
+"import { useState, useEffect } from 'react';
+import {
+  Button,
+  Container,
+  TextField,
+  CircularProgress
+} from '@material-ui/core';
+import { Center } from '../common/Center';
+
+function loading() {
+  return (
+    <Container maxWidth=\\"sm\\" className=\\"Container Publisher\\">
+      <h1>Publisher</h1>
+      <Center className=\\"loading\\">
+        <CircularProgress />
+      </Center>
+    </Container>
+  );
+}
+
+export function PublisherForm({
+  publisher: initialState,
+  ctaLabel,
+  cta,
+  isLoading,
+  processing
+}) {
+  const [publisher, setPublisher] = useState(
+    initialState ?? { name: '' }
+  );
+
+  useEffect(() => {
+    if (initialState) {
+      setPublisher(initialState);
+    }
+  }, [initialState]);
 
   const handleChange = (field) => (event) => {
     const updatedPublisher = { ...publisher, [field]: event.target.value };
@@ -805,12 +1105,14 @@ export function PublisherForm() {
     console.log(updatedPublisher);
   };
 
-  function add(publisher) {
+  function handleCta(cta, publisher) {
     return async (event) => {
-      setIsLoading(true);
-      await addPublisher(publisher);
-      setIsLoading(false);
+      await cta(publisher);
     };
+  }
+
+  if (isLoading) {
+    return loading();
   }
 
   return (
@@ -825,17 +1127,17 @@ export function PublisherForm() {
           onChange={handleChange('name')}
           variant=\\"filled\\"
           fullWidth
-          disabled={isLoading}
+          disabled={processing}
         />
 
         <Button
           className=\\"cta\\"
           id=\\"publisherFormCta\\"
           color=\\"primary\\"
-          onClick={add(publisher)}
-          disabled={isLoading}
+          onClick={handleCta(cta, publisher)}
+          disabled={processing}
         >
-          {cta}
+          {ctaLabel}
         </Button>
       </form>
     </Container>
@@ -844,15 +1146,214 @@ export function PublisherForm() {
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/components/VideoGameForm.js should match snapshot 1`] = `
-"import { useState } from 'react';
-import { Button, Container, TextField } from '@material-ui/core';
-import { addVideoGame } from '../api/videoGame';
+exports[`React template tests/app/video-game-app-indexedDB/src/components/Publisher/PublisherRouter.js should match snapshot 1`] = `
+"import { Switch, Route } from 'react-router-dom';
+import { EditPublisher } from './EditPublisher';
+import { Publisher } from './Publisher';
+import { AddPublisher } from './AddPublisher';
 
-export function VideoGameForm() {
-  const cta = 'Add';
+export function PublisherRouter() {
+  return (
+    <Switch>
+      <Route path=\\"/Publisher/edit/:id\\">
+        <EditPublisher />
+      </Route>
+      <Route path=\\"/Publisher/:id\\">
+        <Publisher />
+      </Route>
+      <Route path=\\"/Publisher\\">
+        <AddPublisher />
+      </Route>
+    </Switch>
+  );
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app-indexedDB/src/components/VideoGame/AddVideoGame.js should match snapshot 1`] = `
+"import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { addVideoGame } from '../../api/videoGame';
+import { VideoGameForm } from './VideoGameForm';
+
+export function AddVideoGame() {
+  const [processing, setProcessing] = useState(false);
+  const history = useHistory();
+
+  async function add(videoGame) {
+    setProcessing(true);
+    const id = await addVideoGame(videoGame);
+    setProcessing(false);
+    history.push(\`/videoGame/\${id}\`);
+  }
+
+  return <VideoGameForm ctaLabel=\\"Add\\" cta={add} processing={processing} />;
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app-indexedDB/src/components/VideoGame/EditVideoGame.js should match snapshot 1`] = `
+"import { useState, useEffect } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
+import { getVideoGame, updateVideoGame } from '../../api/videoGame';
+import { VideoGameForm } from './VideoGameForm';
+
+export function EditVideoGame() {
+  const [videoGame, setVideoGame] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [processing, setProcessing] = useState(false);
+
+  const history = useHistory();
+  const { id: stringId } = useParams();
+  const id = parseInt(stringId);
+
+  useEffect(() => {
+    get(id);
+  }, [id]);
+
+  async function get(id) {
+    setIsLoading(true);
+    const videoGame = await getVideoGame(id);
+    console.log({ videoGame });
+    setVideoGame(videoGame);
+    setIsLoading(false);
+  }
+
+  async function save(videoGame) {
+    setProcessing(true);
+    await updateVideoGame(videoGame);
+    setProcessing(false);
+    history.push(\`/videoGame/\${id}\`);
+  }
+
+  return (
+    <VideoGameForm
+      ctaLabel=\\"Save\\"
+      cta={save}
+      isLoading={isLoading}
+      processing={processing}
+      videoGame={videoGame}
+    />
+  );
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app-indexedDB/src/components/VideoGame/VideoGame.js should match snapshot 1`] = `
+"import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
+import { Container, CircularProgress, IconButton } from '@material-ui/core';
+import EditIcon from '@material-ui/icons/Edit';
+import { Center } from '../common/Center';
+import { getVideoGame } from '../../api/videoGame';
+
+function loading() {
+  return (
+    <Container maxWidth=\\"sm\\" className=\\"Container VideoGame\\">
+      <h1>Video Game</h1>
+      <Center className=\\"loading\\">
+        <CircularProgress />
+      </Center>
+    </Container>
+  );
+}
+
+function videoGameNotFound() {
+  return (
+    <Container maxWidth=\\"sm\\" className=\\"Container VideoGame\\">
+      <h1>Video Game</h1>
+      <h2>Not found</h2>
+    </Container>
+  );
+}
+
+export function VideoGame() {
   const [videoGame, setVideoGame] = useState({ title: '', yearPublished: '' });
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const { id: stringId } = useParams();
+  const id = parseInt(stringId);
+
+  useEffect(() => {
+    get(id);
+  }, [id]);
+
+  async function get(id) {
+    setIsLoading(true);
+    const videoGame = await getVideoGame(id);
+    console.log({ videoGame });
+    setVideoGame(videoGame);
+    setIsLoading(false);
+  }
+
+  if (isLoading) {
+    return loading();
+  }
+
+  if (!videoGame) {
+    return videoGameNotFound();
+  }
+
+  return (
+    <Container maxWidth=\\"sm\\" className=\\"Container VideoGame\\">
+      <div className=\\"header\\">
+        <h1>Video Game</h1>
+        <div className=\\"headerIcon\\">
+          <IconButton
+            aria-label=\\"edit\\"
+            component={RouterLink}
+            to={\`edit/\${id}\`}
+          >
+            <EditIcon />
+          </IconButton>
+        </div>
+      </div>
+
+      <div>Title: {videoGame.title}</div>
+      <div>Year Published: {videoGame.yearPublished}</div>
+    </Container>
+  );
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app-indexedDB/src/components/VideoGame/VideoGameForm.js should match snapshot 1`] = `
+"import { useState, useEffect } from 'react';
+import {
+  Button,
+  Container,
+  TextField,
+  CircularProgress
+} from '@material-ui/core';
+import { Center } from '../common/Center';
+
+function loading() {
+  return (
+    <Container maxWidth=\\"sm\\" className=\\"Container VideoGame\\">
+      <h1>Video Game</h1>
+      <Center className=\\"loading\\">
+        <CircularProgress />
+      </Center>
+    </Container>
+  );
+}
+
+export function VideoGameForm({
+  videoGame: initialState,
+  ctaLabel,
+  cta,
+  isLoading,
+  processing
+}) {
+  const [videoGame, setVideoGame] = useState(
+    initialState ?? { title: '', yearPublished: '' }
+  );
+
+  useEffect(() => {
+    if (initialState) {
+      setVideoGame(initialState);
+    }
+  }, [initialState]);
 
   const handleChange = (field) => (event) => {
     const updatedVideoGame = { ...videoGame, [field]: event.target.value };
@@ -860,12 +1361,14 @@ export function VideoGameForm() {
     console.log(updatedVideoGame);
   };
 
-  function add(videoGame) {
+  function handleCta(cta, videoGame) {
     return async (event) => {
-      setIsLoading(true);
-      await addVideoGame(videoGame);
-      setIsLoading(false);
+      await cta(videoGame);
     };
+  }
+
+  if (isLoading) {
+    return loading();
   }
 
   return (
@@ -880,7 +1383,7 @@ export function VideoGameForm() {
           onChange={handleChange('title')}
           variant=\\"filled\\"
           fullWidth
-          disabled={isLoading}
+          disabled={processing}
         />
         <TextField
           className=\\"TextField\\"
@@ -890,21 +1393,65 @@ export function VideoGameForm() {
           onChange={handleChange('yearPublished')}
           variant=\\"filled\\"
           fullWidth
-          disabled={isLoading}
+          disabled={processing}
         />
 
         <Button
           className=\\"cta\\"
           id=\\"videoGameFormCta\\"
           color=\\"primary\\"
-          onClick={add(videoGame)}
-          disabled={isLoading}
+          onClick={handleCta(cta, videoGame)}
+          disabled={processing}
         >
-          {cta}
+          {ctaLabel}
         </Button>
       </form>
     </Container>
   );
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app-indexedDB/src/components/VideoGame/VideoGameRouter.js should match snapshot 1`] = `
+"import { Switch, Route } from 'react-router-dom';
+import { EditVideoGame } from './EditVideoGame';
+import { VideoGame } from './VideoGame';
+import { AddVideoGame } from './AddVideoGame';
+
+export function VideoGameRouter() {
+  return (
+    <Switch>
+      <Route path=\\"/VideoGame/edit/:id\\">
+        <EditVideoGame />
+      </Route>
+      <Route path=\\"/VideoGame/:id\\">
+        <VideoGame />
+      </Route>
+      <Route path=\\"/VideoGame\\">
+        <AddVideoGame />
+      </Route>
+    </Switch>
+  );
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app-indexedDB/src/components/common/Center.js should match snapshot 1`] = `
+"import \\"./Center.scss\\";
+
+export function Center(props) {
+  const classes = [props.className, \\"Center\\"].join(\\" \\");
+
+  return <div className={classes}>{props.children}</div>;
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app-indexedDB/src/components/common/Center.scss should match snapshot 1`] = `
+".Center {
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 "
 `;

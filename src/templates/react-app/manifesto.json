@@ -1,10 +1,10 @@
 {
   "name": "react-app",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "options": {
     "ui": ["react"],
-    "api": ["stub", "indexedDB"],
-    "db": ["none", "indexedDB"]
+    "api": ["indexedDB", "stub"],
+    "db": ["indexedDB", "none"]
   },
   "allowedTypes": ["String"],
   "directives": [
@@ -13,7 +13,7 @@
       "ui:react": {
         "loop": {
           "property": "models",
-          "src": "react/loop",
+          "src": "react/modelComponents",
           "dest": "src/components"
         }
       }

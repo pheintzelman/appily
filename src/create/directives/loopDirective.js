@@ -1,4 +1,10 @@
-import { copyDir } from '../file/copyDir.js';
+import * as copyDirModule from '../file/copyDir.js';
+
+// Needed because es6 doesn't allow re-writing modules
+let { copyDir } = copyDirModule;
+export function mockDependencies(mockedModule) {
+  ({ copyDir } = mockedModule ?? copyDirModule);
+}
 
 export async function loopDirective({ property, src, dest, viewModel }) {
   if (!Array.isArray(viewModel[property])) {

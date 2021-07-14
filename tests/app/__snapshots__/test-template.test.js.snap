@@ -12,6 +12,9 @@ Array [
     "DEBUG": "File rendered: tests/app/test-app/UI/index.html",
   },
   Object {
+    "INFO": "Test App created, in dir tests/app/test-app",
+  },
+  Object {
     "TRACE": Object {
       "dest": "tests/app/test-app/UI",
       "msg": "mkdir",

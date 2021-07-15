@@ -182,19 +182,6 @@ Array [
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app-indexeddb/src/components/App",
-      "msg": "mkdir",
-    },
-  },
-  Object {
-    "TRACE": Object {
-      "dest": "tests/app/video-game-app-indexeddb/src/components/App",
-      "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/base/src/components/App",
-    },
-  },
-  Object {
-    "TRACE": Object {
       "dest": "tests/app/video-game-app-indexeddb/src/components",
       "msg": "copyDir",
       "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/base/src/components",

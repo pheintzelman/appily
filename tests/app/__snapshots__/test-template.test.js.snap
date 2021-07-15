@@ -3,16 +3,23 @@
 exports[`Test template should match logs 1`] = `
 Array [
   Object {
-    "DEBUG": "Dir created: tests/app/test-app",
-  },
-  Object {
-    "DEBUG": "File copied: tests/app/test-app/helloWorld.js",
-  },
-  Object {
-    "DEBUG": "File rendered: tests/app/test-app/UI/index.html",
-  },
-  Object {
-    "INFO": "Test App created, in dir tests/app/test-app",
+    "TRACE": Object {
+      "viewModel": Object {
+        "appName": "Test App",
+        "appNameCamel": "testApp",
+        "appNamePascal": "TestApp",
+        "appNameSnake": "test-app",
+        "configString": "{
+  \\"dir\\": \\"tests/app\\",
+  \\"name\\": \\"Test App\\",
+  \\"template\\": \\"test\\"
+}",
+        "dir": "tests/app/test-app",
+        "models": Array [],
+        "templateName": "test",
+        "templateVersion": "0.0.1",
+      },
+    },
   },
   Object {
     "TRACE": Object {
@@ -35,23 +42,16 @@ Array [
     },
   },
   Object {
-    "TRACE": Object {
-      "viewModel": Object {
-        "appName": "Test App",
-        "appNameCamel": "testApp",
-        "appNamePascal": "TestApp",
-        "appNameSnake": "test-app",
-        "configString": "{
-  \\"dir\\": \\"tests/app\\",
-  \\"name\\": \\"Test App\\",
-  \\"template\\": \\"test\\"
-}",
-        "dir": "tests/app/test-app",
-        "models": Array [],
-        "templateName": "test",
-        "templateVersion": "0.0.1",
-      },
-    },
+    "INFO": "Test App created, in dir tests/app/test-app",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/test-app/UI/index.html",
+  },
+  Object {
+    "DEBUG": "File copied: tests/app/test-app/helloWorld.js",
+  },
+  Object {
+    "DEBUG": "Dir created: tests/app/test-app",
   },
 ]
 `;

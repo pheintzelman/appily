@@ -109,7 +109,7 @@ Aim for progressive development with something useful asap See the [road map](./
 ## Todo
 
 - support multiple types
-  -- switch boolean type to checkbox // or add support for both
+  -- switch boolean type to checkbox
   -- add type support to model view
 - add model collection view
 - add model remove

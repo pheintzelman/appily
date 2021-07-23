@@ -5,8 +5,9 @@ import {
   CircularProgress
 } from '@material-ui/core';
 import { Center } from '../common/Center';
-import { StringEdit } from '../types/StringEdit';
-import { BooleanEdit } from '../types/BooleanEdit';
+{{#formImports}}
+import { {{component}} } from '../types/{{component}}';
+{{/formImports}}
 
 function loading() {
   return (
@@ -58,8 +59,7 @@ export function {{modelNamePascal}}Form({
       <h1>{{ modelName }}</h1>
       <form noValidate autoComplete="off">
         {{#properties}}
-        {{#isString}}
-        <StringEdit
+        <{{component}}
           id="{{modelNameCamel}}Form{{propertyNamePascal}}"
           label="{{propertyName}}"
           value={{=<% %>=}}{<%modelNameCamel%>.<%propertyNameCamel%>}<%={{ }}=%>
@@ -67,20 +67,8 @@ export function {{modelNamePascal}}Form({
           onChange={handleChange}
           disabled={processing}
         />
-        {{/isString}}
 
-        {{#isBoolean}}     
-        <BooleanEdit 
-          id="{{modelNameCamel}}Form{{propertyNamePascal}}"
-          value={{=<% %>=}}{<%modelNameCamel%>.<%propertyNameCamel%>}<%={{ }}=%>
-          label="{{propertyName}}"
-          field="{{propertyNameCamel}}"
-          onChange={handleChange}
-          disabled={processing}
-        />
-        {{/isBoolean}}
         {{/properties}}
-
         <Button
           className="cta"
           id="{{modelNameCamel}}FormCta"

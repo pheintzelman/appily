@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react';
 import {
   Button,
   Container,
-  TextField,
   CircularProgress
 } from '@material-ui/core';
 import { Center } from '../common/Center';
+import { StringEdit } from '../types/StringEdit';
+import { BooleanEdit } from '../types/BooleanEdit';
 
 function loading() {
   return (
@@ -35,8 +36,8 @@ export function {{modelNamePascal}}Form({
     }
   }, [initialState]);
 
-  const handleChange = (field) => (event) => {
-    const updated{{modelNamePascal}} = { ...{{modelNameCamel}}, [field]: event.target.value };
+  const handleChange = (field, value) => {
+    const updated{{modelNamePascal}} = { ...{{modelNameCamel}}, [field]: value };
     set{{modelNamePascal}}(updated{{modelNamePascal}});
     console.log(updated{{modelNamePascal}});
   };
@@ -46,6 +47,7 @@ export function {{modelNamePascal}}Form({
       await cta({{modelNameCamel}});
     };
   }
+
 
   if (isLoading) {
     return loading();
@@ -57,17 +59,26 @@ export function {{modelNamePascal}}Form({
       <form noValidate autoComplete="off">
         {{#properties}}
         {{#isString}}
-        <TextField
-          className="TextField"
+        <StringEdit
           id="{{modelNameCamel}}Form{{propertyNamePascal}}"
           label="{{propertyName}}"
           value={{=<% %>=}}{<%modelNameCamel%>.<%propertyNameCamel%>}<%={{ }}=%>
-          onChange={handleChange('{{propertyNameCamel}}')}
-          variant="filled"
-          fullWidth
+          field="{{propertyNameCamel}}"
+          onChange={handleChange}
           disabled={processing}
         />
         {{/isString}}
+
+        {{#isBoolean}}     
+        <BooleanEdit 
+          id="{{modelNameCamel}}Form{{propertyNamePascal}}"
+          value={{=<% %>=}}{<%modelNameCamel%>.<%propertyNameCamel%>}<%={{ }}=%>
+          label="{{propertyName}}"
+          field="{{propertyNameCamel}}"
+          onChange={handleChange}
+          disabled={processing}
+        />
+        {{/isBoolean}}
         {{/properties}}
 
         <Button

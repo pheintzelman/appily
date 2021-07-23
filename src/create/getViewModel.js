@@ -1,9 +1,10 @@
 import util from 'util';
 import { getVariations } from '../lib/case.js';
+import { getDefaultValueForType } from './viewModel/getDefaultValueForType';
 
 function getDefaultState(properties) {
-  return properties.reduce((acc, { propertyNameCamel }) => {
-    return { ...acc, [propertyNameCamel]: '' };
+  return properties.reduce((acc, { propertyNameCamel, type }) => {
+    return { ...acc, [propertyNameCamel]: getDefaultValueForType(type) };
   }, {});
 }
 

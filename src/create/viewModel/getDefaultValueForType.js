@@ -1,4 +1,4 @@
-import { Type } from '../../constants/constants';
+import { Type } from '../../constants/constants.js';
 
 const defaultValues = {
   [Type.Boolean]: true,

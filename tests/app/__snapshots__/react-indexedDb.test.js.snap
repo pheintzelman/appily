@@ -28,6 +28,14 @@ Array [
         "dir": "tests/app/video-game-app-indexeddb",
         "models": Array [
           Object {
+            "componentImports": Array [
+              Object {
+                "component": Object {
+                  "edit": "StringEdit",
+                  "view": "StringView",
+                },
+              },
+            ],
             "defaultState": "{ title: '', yearPublished: '' }",
             "modelName": "Video Game",
             "modelNameCamel": "videoGame",
@@ -35,6 +43,10 @@ Array [
             "modelNameSnake": "video-game",
             "properties": Array [
               Object {
+                "component": Object {
+                  "edit": "StringEdit",
+                  "view": "StringView",
+                },
                 "isBoolean": false,
                 "isString": true,
                 "propertyName": "Title",
@@ -44,6 +56,10 @@ Array [
                 "type": "String",
               },
               Object {
+                "component": Object {
+                  "edit": "StringEdit",
+                  "view": "StringView",
+                },
                 "isBoolean": false,
                 "isString": true,
                 "propertyName": "Year Published",
@@ -55,6 +71,14 @@ Array [
             ],
           },
           Object {
+            "componentImports": Array [
+              Object {
+                "component": Object {
+                  "edit": "StringEdit",
+                  "view": "StringView",
+                },
+              },
+            ],
             "defaultState": "{ name: '' }",
             "modelName": "Publisher",
             "modelNameCamel": "publisher",
@@ -62,6 +86,10 @@ Array [
             "modelNameSnake": "publisher",
             "properties": Array [
               Object {
+                "component": Object {
+                  "edit": "StringEdit",
+                  "view": "StringView",
+                },
                 "isBoolean": false,
                 "isString": true,
                 "propertyName": "Name",
@@ -80,13 +108,19 @@ Array [
           },
         ],
         "templateName": "react-app",
-        "templateVersion": "0.2.0",
+        "templateVersion": "0.3.0",
       },
     },
   },
   Object {
     "TRACE": Object {
       "dest": "tests/app/video-game-app-indexeddb/src/db",
+      "msg": "mkdir",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/video-game-app-indexeddb/src/components/types",
       "msg": "mkdir",
     },
   },
@@ -164,6 +198,13 @@ Array [
       "dest": "tests/app/video-game-app-indexeddb/src/components",
       "msg": "copyDir",
       "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/modelComponents",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/video-game-app-indexeddb/src/components/types",
+      "msg": "copyDir",
+      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/base/src/components/types",
     },
   },
   Object {
@@ -341,6 +382,18 @@ Array [
     "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/index.css",
   },
   Object {
+    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/components/types/StringView.js",
+  },
+  Object {
+    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/components/types/StringEdit.js",
+  },
+  Object {
+    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/components/types/BooleanView.js",
+  },
+  Object {
+    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/components/types/BooleanEdit.js",
+  },
+  Object {
     "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/components/common/Center.scss",
   },
   Object {
@@ -388,7 +441,7 @@ Array [
 exports[`React template tests/app/video-game-app-indexedDB/.create-app should match snapshot 1`] = `
 "{
   template: \\"react-app\\",
-  version: \\"0.2.0\\",
+  version: \\"0.3.0\\",
   config: {
   \\"dir\\": \\"tests/app\\",
   \\"name\\": \\"Video Game App IndexedDB\\",
@@ -490,7 +543,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 exports[`React template tests/app/video-game-app-indexedDB/package.json should match snapshot 1`] = `
 "{
   \\"name\\": \\"video-game-app-indexeddb\\",
-  \\"version\\": \\"0.2.0\\",
+  \\"version\\": \\"0.3.0\\",
   \\"private\\": true,
   \\"dependencies\\": {
     \\"@material-ui/core\\": \\"^4.11.4\\",
@@ -1188,6 +1241,7 @@ import { Container, CircularProgress, IconButton } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import { Center } from '../common/Center';
 import { getPublisher } from '../../api/publisher';
+import { StringView } from '../types/StringView';
 
 function loading() {
   return (
@@ -1250,11 +1304,10 @@ export function Publisher() {
         </div>
       </div>
 
-      <div>Name: {publisher.name}</div>
+      <StringView label=\\"Name\\" value={publisher.name} />
     </Container>
   );
-}
-"
+}"
 `;
 
 exports[`React template tests/app/video-game-app-indexedDB/src/components/Publisher/PublisherForm.js should match snapshot 1`] = `
@@ -1262,10 +1315,10 @@ exports[`React template tests/app/video-game-app-indexedDB/src/components/Publis
 import {
   Button,
   Container,
-  TextField,
   CircularProgress
 } from '@material-ui/core';
 import { Center } from '../common/Center';
+import { StringEdit } from '../types/StringEdit';
 
 function loading() {
   return (
@@ -1295,8 +1348,8 @@ export function PublisherForm({
     }
   }, [initialState]);
 
-  const handleChange = (field) => (event) => {
-    const updatedPublisher = { ...publisher, [field]: event.target.value };
+  const handleChange = (field, value) => {
+    const updatedPublisher = { ...publisher, [field]: value };
     setPublisher(updatedPublisher);
     console.log(updatedPublisher);
   };
@@ -1307,6 +1360,7 @@ export function PublisherForm({
     };
   }
 
+
   if (isLoading) {
     return loading();
   }
@@ -1315,14 +1369,12 @@ export function PublisherForm({
     <Container maxWidth=\\"sm\\" className=\\"Container PublisherForm\\">
       <h1>Publisher</h1>
       <form noValidate autoComplete=\\"off\\">
-        <TextField
-          className=\\"TextField\\"
+        <StringEdit
           id=\\"publisherFormName\\"
           label=\\"Name\\"
           value={publisher.name}
-          onChange={handleChange('name')}
-          variant=\\"filled\\"
-          fullWidth
+          field=\\"name\\"
+          onChange={handleChange}
           disabled={processing}
         />
 
@@ -1443,6 +1495,7 @@ import { Container, CircularProgress, IconButton } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import { Center } from '../common/Center';
 import { getVideoGame } from '../../api/videoGame';
+import { StringView } from '../types/StringView';
 
 function loading() {
   return (
@@ -1505,12 +1558,11 @@ export function VideoGame() {
         </div>
       </div>
 
-      <div>Title: {videoGame.title}</div>
-      <div>Year Published: {videoGame.yearPublished}</div>
+      <StringView label=\\"Title\\" value={videoGame.title} />
+      <StringView label=\\"Year Published\\" value={videoGame.yearPublished} />
     </Container>
   );
-}
-"
+}"
 `;
 
 exports[`React template tests/app/video-game-app-indexedDB/src/components/VideoGame/VideoGameForm.js should match snapshot 1`] = `
@@ -1518,10 +1570,10 @@ exports[`React template tests/app/video-game-app-indexedDB/src/components/VideoG
 import {
   Button,
   Container,
-  TextField,
   CircularProgress
 } from '@material-ui/core';
 import { Center } from '../common/Center';
+import { StringEdit } from '../types/StringEdit';
 
 function loading() {
   return (
@@ -1551,8 +1603,8 @@ export function VideoGameForm({
     }
   }, [initialState]);
 
-  const handleChange = (field) => (event) => {
-    const updatedVideoGame = { ...videoGame, [field]: event.target.value };
+  const handleChange = (field, value) => {
+    const updatedVideoGame = { ...videoGame, [field]: value };
     setVideoGame(updatedVideoGame);
     console.log(updatedVideoGame);
   };
@@ -1563,6 +1615,7 @@ export function VideoGameForm({
     };
   }
 
+
   if (isLoading) {
     return loading();
   }
@@ -1571,24 +1624,21 @@ export function VideoGameForm({
     <Container maxWidth=\\"sm\\" className=\\"Container VideoGameForm\\">
       <h1>Video Game</h1>
       <form noValidate autoComplete=\\"off\\">
-        <TextField
-          className=\\"TextField\\"
+        <StringEdit
           id=\\"videoGameFormTitle\\"
           label=\\"Title\\"
           value={videoGame.title}
-          onChange={handleChange('title')}
-          variant=\\"filled\\"
-          fullWidth
+          field=\\"title\\"
+          onChange={handleChange}
           disabled={processing}
         />
-        <TextField
-          className=\\"TextField\\"
+
+        <StringEdit
           id=\\"videoGameFormYearPublished\\"
           label=\\"Year Published\\"
           value={videoGame.yearPublished}
-          onChange={handleChange('yearPublished')}
-          variant=\\"filled\\"
-          fullWidth
+          field=\\"yearPublished\\"
+          onChange={handleChange}
           disabled={processing}
         />
 
@@ -1648,6 +1698,85 @@ exports[`React template tests/app/video-game-app-indexedDB/src/components/common
   align-items: center;
   display: flex;
   justify-content: center;
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app-indexedDB/src/components/types/BooleanEdit.js should match snapshot 1`] = `
+"import { FormControlLabel, Checkbox } from '@material-ui/core';
+
+const handleChange = (field, update) => (event) => {
+  const value = event.target.checked;
+  return update(field, value);
+};
+
+export function BooleanEdit({ id, label, value, field, onChange, disabled }) {
+  return (
+    <FormControlLabel
+      control={<Checkbox checked={value} color=\\"primary\\" />}
+      id={id}
+      label={label}
+      disabled={disabled}
+      onChange={handleChange(field, onChange)}
+    />
+  );
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app-indexedDB/src/components/types/BooleanView.js should match snapshot 1`] = `
+"import CheckIcon from \\"@material-ui/icons/Check\\";
+
+function getIcon(value) {
+  if (value) {
+    return <CheckIcon color=\\"primary\\" style={{ fontSize: 12 }} />;
+  }
+
+  return \\"-\\";
+}
+
+export function BooleanView({ label, value }) {
+  return (
+    <div>
+      {label}: {getIcon(value)}
+    </div>
+  );
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app-indexedDB/src/components/types/StringEdit.js should match snapshot 1`] = `
+"import { TextField } from '@material-ui/core';
+
+const handleChange = (field, update) => (event) => {
+  const value = event.target.value;
+  return update(field, value);
+};
+
+export function StringEdit({ id, label, value, field, onChange, disabled }) {
+  return (
+    <TextField
+      className=\\"TextField\\"
+      id={id}
+      label={label}
+      value={value}
+      onChange={handleChange(field, onChange)}
+      variant=\\"filled\\"
+      fullWidth
+      disabled={disabled}
+    />
+  );
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app-indexedDB/src/components/types/StringView.js should match snapshot 1`] = `
+"export function StringView({ label, value }) {
+  return (
+    <div>
+      {label}: {value}
+    </div>
+  );
 }
 "
 `;

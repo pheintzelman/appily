@@ -25,6 +25,7 @@ describe('getViewModel', () => {
       dir: undefined,
       models: [
         {
+          componentImports: [],
           defaultState: '{}',
           modelName: 'Animal',
           modelNameCamel: 'animal',

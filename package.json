@@ -1,7 +1,7 @@
 {
   "name": "create-app",
   "description": "Generate a new app",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "keywords": [],
   "author": "Paul Heintzelman",
   "license": "MIT",
@@ -12,6 +12,7 @@
   "type": "module",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/.bin/jest --coverage",
+    "test:windows": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
     "coverage": "open ./tests/coverage/lcov-report/index.html"
   },
   "jest": {

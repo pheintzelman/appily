@@ -119,3 +119,4 @@ Aim for progressive development with something useful asap See the [road map](./
 - Make docs easier to understand
 - Fix tabing in .create-app
 - remove component logic from view model
+- rebrand

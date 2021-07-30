@@ -13,7 +13,7 @@ function App() {
         <Header />
         <Switch>
         {{#models}}
-          <Route path="/{{modelNamePascal}}">
+          <Route path={["/{{modelNamePascal}}", "/{{pluralModelNamePascal}}"]}>
             <{{modelNamePascal}}Router />
           </Route>
           {{/models}}

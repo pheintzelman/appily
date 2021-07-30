@@ -1,16 +1,20 @@
-import { AllowedConfigProperties } from '../constants/constants.js';
+import { AllowedConfigProperties } from '../../constants/constants.js';
 import {
   ConfigIsEmpty,
   ConfigPropertyNotSupported,
   TemplateOptionNotSupported,
   TypeNotSupported
-} from '../constants/messages.js';
-import { logger } from '../logger.js';
+} from '../../constants/messages.js';
+import { logger } from '../../logger.js';
 
-function validateModelProperties({ modelName, model, allowedTypes }) {
-  Object.entries(model).forEach(([propertyName, property]) => {
-    if (!allowedTypes.includes(property)) {
-      logger.warn(TypeNotSupported(modelName, propertyName, property));
+function validateModelProperties({
+  modelName,
+  model: { properties },
+  allowedTypes
+}) {
+  Object.entries(properties).forEach(([propertyName, { type }]) => {
+    if (!allowedTypes.includes(type)) {
+      logger.warn(TypeNotSupported(modelName, propertyName, type));
     }
   });
 }

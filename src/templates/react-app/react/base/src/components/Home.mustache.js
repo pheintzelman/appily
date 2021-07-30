@@ -7,8 +7,8 @@ export function Home() {
       <h1>Welcome to {{ appName }}!</h1>
       <List component="nav">
       {{#models}}
-        <ListItem button component={Link} to="/{{modelNamePascal}}">
-          <ListItemText primary="{{modelName}}" />
+        <ListItem button component={Link} to="/{{pluralModelNamePascal}}">
+          <ListItemText primary="{{pluralModelName}}" />
         </ListItem>
       {{/models}}
       </List>

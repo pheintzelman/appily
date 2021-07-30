@@ -1,4 +1,4 @@
-import { add, get, set } from '../db/{{modelNameCamel}}';
+import { add, get, set, getAll } from '../db/{{modelNameCamel}}';
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -22,4 +22,10 @@ export async function get{{modelNamePascal}}(id) {
   }
 
   return await get(id);
+}
+
+export async function get{{pluralModelNamePascal}}() {
+  await sleep(1000);
+
+  return await getAll();
 }

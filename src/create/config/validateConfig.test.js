@@ -1,11 +1,11 @@
 import { validateConfig } from './validateConfig';
-import { captureLog } from '../../tests/helpers/log.js';
+import { captureLog } from '../../../tests/helpers/log.js';
 import {
   ConfigIsEmpty,
   ConfigPropertyNotSupported,
   TemplateOptionNotSupported,
   TypeNotSupported
-} from '../constants/messages';
+} from '../../constants/messages';
 
 describe('validateConfig', () => {
   test('should throw error if config is null', () => {

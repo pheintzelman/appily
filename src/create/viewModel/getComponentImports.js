@@ -10,7 +10,7 @@ function getTypes(properties) {
   return removeDuplicates(types);
 }
 
-export function getFormImports(properties) {
+export function getComponentImports(properties) {
   const types = getTypes(properties);
   return types.map((type) => ({
     component: mapTypeToComponent(type)

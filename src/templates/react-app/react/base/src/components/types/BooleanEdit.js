@@ -1,4 +1,4 @@
-import { FormControlLabel, Switch } from '@material-ui/core';
+import { FormControlLabel, Checkbox } from '@material-ui/core';
 
 const handleChange = (field, update) => (event) => {
   const value = event.target.checked;
@@ -8,13 +8,11 @@ const handleChange = (field, update) => (event) => {
 export function BooleanEdit({ id, label, value, field, onChange, disabled }) {
   return (
     <FormControlLabel
+      control={<Checkbox checked={value} color="primary" />}
       id={id}
-      checked={value}
-      control={<Switch color="primary" />}
       label={label}
-      labelPlacement="start"
-      onChange={handleChange(field, onChange)}
       disabled={disabled}
+      onChange={handleChange(field, onChange)}
     />
   );
 }

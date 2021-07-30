@@ -5,9 +5,9 @@ import {
   CircularProgress
 } from '@material-ui/core';
 import { Center } from '../common/Center';
-{{#formImports}}
-import { {{component}} } from '../types/{{component}}';
-{{/formImports}}
+{{#componentImports}}
+import { {{component.edit}} } from '../types/{{component.edit}}';
+{{/componentImports}}
 
 function loading() {
   return (
@@ -59,7 +59,7 @@ export function {{modelNamePascal}}Form({
       <h1>{{ modelName }}</h1>
       <form noValidate autoComplete="off">
         {{#properties}}
-        <{{component}}
+        <{{component.edit}}
           id="{{modelNameCamel}}Form{{propertyNamePascal}}"
           label="{{propertyName}}"
           value={{=<% %>=}}{<%modelNameCamel%>.<%propertyNameCamel%>}<%={{ }}=%>

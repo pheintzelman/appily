@@ -1,8 +1,8 @@
 import { Type } from '../../constants/constants.js';
 
 const typeComponentMapper = {
-  [Type.Boolean]: 'BooleanEdit',
-  [Type.String]: 'StringEdit'
+  [Type.Boolean]: { edit: 'BooleanEdit', view: 'BooleanView' },
+  [Type.String]: { edit: 'StringEdit', view: 'StringView' }
 };
 
 export function mapTypeToComponent(type) {
@@ -10,5 +10,5 @@ export function mapTypeToComponent(type) {
     return typeComponentMapper[type];
   }
 
-  return 'StringEdit';
+  return typeComponentMapper[Type.String];
 }

@@ -1,12 +1,12 @@
 {
   "name": "react-app",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "options": {
     "ui": ["react"],
     "api": ["indexedDB", "stub"],
     "db": ["indexedDB", "none"]
   },
-  "allowedTypes": ["String"],
+  "allowedTypes": ["String", "Boolean"],
   "directives": [
     { "ui:react": { "copy": { "src": "react/base", "dest": "" } } },
     {

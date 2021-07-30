@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import {
   Button,
   Container,
-  TextField,
   CircularProgress
 } from '@material-ui/core';
 import { Center } from '../common/Center';
+{{#componentImports}}
+import { {{component.edit}} } from '../types/{{component.edit}}';
+{{/componentImports}}
 
 function loading() {
   return (
@@ -35,8 +37,8 @@ export function {{modelNamePascal}}Form({
     }
   }, [initialState]);
 
-  const handleChange = (field) => (event) => {
-    const updated{{modelNamePascal}} = { ...{{modelNameCamel}}, [field]: event.target.value };
+  const handleChange = (field, value) => {
+    const updated{{modelNamePascal}} = { ...{{modelNameCamel}}, [field]: value };
     set{{modelNamePascal}}(updated{{modelNamePascal}});
     console.log(updated{{modelNamePascal}});
   };
@@ -47,6 +49,7 @@ export function {{modelNamePascal}}Form({
     };
   }
 
+
   if (isLoading) {
     return loading();
   }
@@ -56,20 +59,16 @@ export function {{modelNamePascal}}Form({
       <h1>{{ modelName }}</h1>
       <form noValidate autoComplete="off">
         {{#properties}}
-        {{#isString}}
-        <TextField
-          className="TextField"
+        <{{component.edit}}
           id="{{modelNameCamel}}Form{{propertyNamePascal}}"
           label="{{propertyName}}"
           value={{=<% %>=}}{<%modelNameCamel%>.<%propertyNameCamel%>}<%={{ }}=%>
-          onChange={handleChange('{{propertyNameCamel}}')}
-          variant="filled"
-          fullWidth
+          field="{{propertyNameCamel}}"
+          onChange={handleChange}
           disabled={processing}
         />
-        {{/isString}}
-        {{/properties}}
 
+        {{/properties}}
         <Button
           className="cta"
           id="{{modelNameCamel}}FormCta"

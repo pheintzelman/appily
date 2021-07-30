@@ -1,21 +1,26 @@
 import util from 'util';
 import { getVariations } from '../lib/case.js';
+import { Type } from '../constants/constants.js';
+import { getDefaultValueForType } from './viewModel/getDefaultValueForType.js';
+import { mapTypeToComponent } from './viewModel/mapTypeToComponent.js';
+import { getComponentImports } from './viewModel/getComponentImports.js';
 
 function getDefaultState(properties) {
-  return properties.reduce((acc, { propertyNameCamel }) => {
-    return { ...acc, [propertyNameCamel]: '' };
+  return properties.reduce((acc, { propertyNameCamel, type }) => {
+    return { ...acc, [propertyNameCamel]: getDefaultValueForType(type) };
   }, {});
 }
 
 function typeFlags(type) {
-  return { isString: type === 'String', isBoolean: type === 'Boolean' };
+  return { isString: type === Type.String, isBoolean: type === Type.Boolean };
 }
 
 function preprocessProperty([propertyName, property]) {
   return {
     ...getVariations('propertyName', propertyName),
     type: property,
-    ...typeFlags(property)
+    ...typeFlags(property),
+    component: mapTypeToComponent(property)
   };
 }
 
@@ -33,7 +38,8 @@ function preprocessModel([modelName, model]) {
   return {
     properties,
     defaultState: util.inspect(getDefaultState(properties)),
-    ...getVariations('modelName', modelName)
+    ...getVariations('modelName', modelName),
+    componentImports: getComponentImports(properties)
   };
 }
 

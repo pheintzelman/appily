@@ -108,7 +108,6 @@ Aim for progressive development with something useful asap See the [road map](./
 
 ## Todo
 
-- support multiple types
 - add model collection view
 - add model remove
 - add github test badge
@@ -119,3 +118,5 @@ Aim for progressive development with something useful asap See the [road map](./
 - try to fix nested app issue (apps don't run from manual folder)
 - Make docs easier to understand
 - Fix tabing in .create-app
+- remove component logic from view model
+- rebrand

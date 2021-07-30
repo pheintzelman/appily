@@ -11,3 +11,7 @@ export const AllowedConfigProperties = [
   'api',
   'db'
 ];
+export const Type = {
+  Boolean: 'Boolean',
+  String: 'String'
+};

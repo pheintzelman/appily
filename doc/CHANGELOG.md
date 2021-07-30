@@ -1,3 +1,8 @@
+v. 0.0.13
+
+- Support multiple types
+- react-app template: Support multiple types
+
 v. 0.0.12
 
 - react-app template: Basic model view

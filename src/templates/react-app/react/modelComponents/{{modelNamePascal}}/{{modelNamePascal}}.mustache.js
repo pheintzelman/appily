@@ -5,6 +5,9 @@ import { Container, CircularProgress, IconButton } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import { Center } from '../common/Center';
 import { get{{modelNamePascal}} } from '../../api/{{modelNameCamel}}';
+{{#componentImports}}
+import { {{component.view}} } from '../types/{{component.view}}';
+{{/componentImports}}
 
 function loading() {
   return (
@@ -68,9 +71,7 @@ export function {{modelNamePascal}}() {
       </div>
 
       {{#properties}}
-      {{#isString}}
-      <div>{{propertyName}}: {{=<% %>=}}{<%modelNameCamel%>.<%propertyNameCamel%>}<%={{ }}=%></div>
-      {{/isString}}
+      <{{component.view}} label="{{propertyName}}" value={{=<% %>=}}{<%modelNameCamel%>.<%propertyNameCamel%>}<%={{ }}=%> />
       {{/properties}}
     </Container>
   );

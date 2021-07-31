@@ -15,11 +15,21 @@ Array [
   \\"template\\": \\"react-app\\",
   \\"models\\": {
     \\"Video Game\\": {
-      \\"Title\\": \\"String\\",
-      \\"Year Published\\": \\"String\\"
+      \\"properties\\": {
+        \\"Title\\": {
+          \\"type\\": \\"String\\"
+        },
+        \\"Year Published\\": {
+          \\"type\\": \\"String\\"
+        }
+      }
     },
     \\"Publisher\\": {
-      \\"Name\\": \\"String\\"
+      \\"properties\\": {
+        \\"Name\\": {
+          \\"type\\": \\"String\\"
+        }
+      }
     }
   }
 }",
@@ -39,13 +49,19 @@ Array [
             "modelNameCamel": "videoGame",
             "modelNamePascal": "VideoGame",
             "modelNameSnake": "video-game",
+            "pluralModelName": "Video Game Collection",
+            "pluralModelNameCamel": "videoGameCollection",
+            "pluralModelNamePascal": "VideoGameCollection",
+            "pluralModelNameSnake": "video-game-collection",
             "properties": Array [
               Object {
                 "component": Object {
                   "edit": "StringEdit",
                   "view": "StringView",
                 },
+                "hide": false,
                 "isBoolean": false,
+                "isPrimary": true,
                 "isString": true,
                 "propertyName": "Title",
                 "propertyNameCamel": "title",
@@ -58,7 +74,9 @@ Array [
                   "edit": "StringEdit",
                   "view": "StringView",
                 },
+                "hide": false,
                 "isBoolean": false,
+                "isPrimary": false,
                 "isString": true,
                 "propertyName": "Year Published",
                 "propertyNameCamel": "yearPublished",
@@ -82,13 +100,19 @@ Array [
             "modelNameCamel": "publisher",
             "modelNamePascal": "Publisher",
             "modelNameSnake": "publisher",
+            "pluralModelName": "Publisher Collection",
+            "pluralModelNameCamel": "publisherCollection",
+            "pluralModelNamePascal": "PublisherCollection",
+            "pluralModelNameSnake": "publisher-collection",
             "properties": Array [
               Object {
                 "component": Object {
                   "edit": "StringEdit",
                   "view": "StringView",
                 },
+                "hide": false,
                 "isBoolean": false,
+                "isPrimary": true,
                 "isString": true,
                 "propertyName": "Name",
                 "propertyNameCamel": "name",
@@ -107,6 +131,34 @@ Array [
         ],
         "templateName": "react-app",
         "templateVersion": "0.3.0",
+      },
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "normalizedConfig": Object {
+        "dir": "tests/app",
+        "models": Object {
+          "Publisher": Object {
+            "properties": Object {
+              "Name": Object {
+                "type": "String",
+              },
+            },
+          },
+          "Video Game": Object {
+            "properties": Object {
+              "Title": Object {
+                "type": "String",
+              },
+              "Year Published": Object {
+                "type": "String",
+              },
+            },
+          },
+        },
+        "name": "Video Game App",
+        "template": "react-app",
       },
     },
   },
@@ -314,6 +366,9 @@ Array [
     "DEBUG": "File rendered: tests/app/video-game-app/src/components/VideoGame/VideoGameForm.js",
   },
   Object {
+    "DEBUG": "File rendered: tests/app/video-game-app/src/components/VideoGame/VideoGameCollection.js",
+  },
+  Object {
     "DEBUG": "File rendered: tests/app/video-game-app/src/components/VideoGame/VideoGame.js",
   },
   Object {
@@ -327,6 +382,9 @@ Array [
   },
   Object {
     "DEBUG": "File rendered: tests/app/video-game-app/src/components/Publisher/PublisherForm.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/video-game-app/src/components/Publisher/PublisherCollection.js",
   },
   Object {
     "DEBUG": "File rendered: tests/app/video-game-app/src/components/Publisher/Publisher.js",
@@ -446,11 +504,21 @@ exports[`React template tests/app/video-game-app/.create-app should match snapsh
   \\"template\\": \\"react-app\\",
   \\"models\\": {
     \\"Video Game\\": {
-      \\"Title\\": \\"String\\",
-      \\"Year Published\\": \\"String\\"
+      \\"properties\\": {
+        \\"Title\\": {
+          \\"type\\": \\"String\\"
+        },
+        \\"Year Published\\": {
+          \\"type\\": \\"String\\"
+        }
+      }
     },
     \\"Publisher\\": {
-      \\"Name\\": \\"String\\"
+      \\"properties\\": {
+        \\"Name\\": {
+          \\"type\\": \\"String\\"
+        }
+      }
     }
   }
 }
@@ -543,6 +611,7 @@ exports[`React template tests/app/video-game-app/package.json should match snaps
   \\"private\\": true,
   \\"dependencies\\": {
     \\"@material-ui/core\\": \\"^4.11.4\\",
+    \\"@material-ui/data-grid\\": \\"^4.0.0-alpha.33\\",
     \\"@material-ui/icons\\": \\"^4.11.2\\",
     \\"@testing-library/jest-dom\\": \\"^5.13.0\\",
     \\"@testing-library/react\\": \\"^11.2.7\\",
@@ -839,10 +908,10 @@ function App() {
       <div className=\\"App\\">
         <Header />
         <Switch>
-          <Route path=\\"/VideoGame\\">
+          <Route path={[\\"/VideoGame\\", \\"/VideoGameCollection\\"]}>
             <VideoGameRouter />
           </Route>
-          <Route path=\\"/Publisher\\">
+          <Route path={[\\"/Publisher\\", \\"/PublisherCollection\\"]}>
             <PublisherRouter />
           </Route>
           <Route path=\\"/\\">
@@ -864,10 +933,6 @@ exports[`React template tests/app/video-game-app/src/App.scss should match snaps
     margin-bottom: 20px;
   }
 
-  h1 {
-    margin-bottom: 30px;
-  }
-
   .cta {
     margin-left: auto;
     display: block;
@@ -879,7 +944,6 @@ exports[`React template tests/app/video-game-app/src/App.scss should match snaps
 
   .Container {
     background-color: white;
-    padding: 30px;
     margin-top: 40px;
     min-height: 350px;
     border-radius: 5px;
@@ -888,11 +952,26 @@ exports[`React template tests/app/video-game-app/src/App.scss should match snaps
     .header {
       display: flex;
       justify-content: space-between;
+      padding: 1.5rem;
 
       .headerIcon {
         height: 48px;
         margin-top: 18px;
       }
+    }
+
+    &.Collection {
+      padding: 0;
+    }
+
+    .datagrid {
+      min-height: 400px;
+    }
+  }
+
+  .View {
+    .body {
+      font-size: 1.4rem;
     }
   }
 }
@@ -912,7 +991,7 @@ test('renders welcome message', () => {
 `;
 
 exports[`React template tests/app/video-game-app/src/api/publisher.js should match snapshot 1`] = `
-"import { add, get, set } from '../db/publisher';
+"import { add, get, set, getAll } from '../db/publisher';
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -937,11 +1016,17 @@ export async function getPublisher(id) {
 
   return await get(id);
 }
+
+export async function getPublisherCollection() {
+  await sleep(1000);
+
+  return await getAll();
+}
 "
 `;
 
 exports[`React template tests/app/video-game-app/src/api/videoGame.js should match snapshot 1`] = `
-"import { add, get, set } from '../db/videoGame';
+"import { add, get, set, getAll } from '../db/videoGame';
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -965,6 +1050,12 @@ export async function getVideoGame(id) {
   }
 
   return await get(id);
+}
+
+export async function getVideoGameCollection() {
+  await sleep(1000);
+
+  return await getAll();
 }
 "
 `;
@@ -1013,11 +1104,11 @@ export function Drawer(props) {
         </List>
         <Divider />
         <List>
-          <ListItem button component={Link} to=\\"/VideoGame\\">
-            <ListItemText primary=\\"Video Game\\" />
+          <ListItem button component={Link} to=\\"/VideoGameCollection\\">
+            <ListItemText primary=\\"Video Game Collection\\" />
           </ListItem>
-          <ListItem button component={Link} to=\\"/Publisher\\">
-            <ListItemText primary=\\"Publisher\\" />
+          <ListItem button component={Link} to=\\"/PublisherCollection\\">
+            <ListItemText primary=\\"Publisher Collection\\" />
           </ListItem>
         </List>
       </MaterialDrawer>
@@ -1147,11 +1238,11 @@ export function Home() {
     <Container maxWidth=\\"sm\\" className=\\"Container Home\\">
       <h1>Welcome to Video Game App!</h1>
       <List component=\\"nav\\">
-        <ListItem button component={Link} to=\\"/VideoGame\\">
-          <ListItemText primary=\\"Video Game\\" />
+        <ListItem button component={Link} to=\\"/VideoGameCollection\\">
+          <ListItemText primary=\\"Video Game Collection\\" />
         </ListItem>
-        <ListItem button component={Link} to=\\"/Publisher\\">
-          <ListItemText primary=\\"Publisher\\" />
+        <ListItem button component={Link} to=\\"/PublisherCollection\\">
+          <ListItemText primary=\\"Publisher Collection\\" />
         </ListItem>
       </List>
     </Container>
@@ -1306,6 +1397,92 @@ export function Publisher() {
 }"
 `;
 
+exports[`React template tests/app/video-game-app/src/components/Publisher/PublisherCollection.js should match snapshot 1`] = `
+"import { useState, useEffect } from \\"react\\";
+import { Link } from \\"react-router-dom\\";
+import { Container, CircularProgress } from \\"@material-ui/core\\";
+import { Center } from \\"../common/Center\\";
+import { getPublisherCollection } from \\"../../api/publisher\\";
+import { DataGrid } from \\"@material-ui/data-grid\\";
+
+function loading() {
+  return (
+    <Container
+      maxWidth=\\"sm\\"
+      className=\\"Container Collection PublisherCollection\\"
+    >
+      <div className=\\"header\\">
+        <h1>Publisher Collection</h1>
+      </div>
+      <Center className=\\"loading\\">
+        <CircularProgress />
+      </Center>
+    </Container>
+  );
+}
+
+function getColumns() {
+  return [
+    {
+      field: \\"name\\",
+      headerName: \\"Name\\",
+      flex: 1,
+      renderCell: ({ row: publisher }) => {
+        return (
+          <Link to={\`/publisher/\${publisher.id}\`}>
+            {publisher.name !== \\"\\" ? publisher.name : \\"--\\"}
+          </Link>
+        );
+      },
+    },
+  ];
+}
+
+export function PublisherCollection() {
+  const [publisherCollection, setPublisherCollection] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    getAll();
+  }, []);
+
+  async function getAll() {
+    setIsLoading(true);
+    const publisherCollection = await getPublisherCollection();
+    console.log({publisherCollection});
+    setPublisherCollection(publisherCollection);
+    setIsLoading(false);
+  }
+
+  if (isLoading) {
+    return loading();
+  }
+
+  return (
+    <Container
+      maxWidth=\\"sm\\"
+      className=\\"Container Collection PublisherCollection\\"
+    >
+      <div className=\\"header\\">
+        <h1>Publisher Collection</h1>
+      </div>
+
+      <div style={{ display: \\"flex\\", height: \\"100%\\" }}>
+        <div className=\\"test\\" style={{ flexGrow: 1 }}>
+          <DataGrid
+            columns={getColumns()}
+            rows={publisherCollection}
+            className=\\"datagrid\\"
+            disableSelectionOnClick
+          />
+        </div>
+      </div>
+    </Container>
+  );
+}
+"
+`;
+
 exports[`React template tests/app/video-game-app/src/components/Publisher/PublisherForm.js should match snapshot 1`] = `
 "import { useState, useEffect } from 'react';
 import {
@@ -1395,10 +1572,14 @@ exports[`React template tests/app/video-game-app/src/components/Publisher/Publis
 import { EditPublisher } from './EditPublisher';
 import { Publisher } from './Publisher';
 import { AddPublisher } from './AddPublisher';
+import { PublisherCollection } from \\"./PublisherCollection\\";
 
 export function PublisherRouter() {
   return (
     <Switch>
+      <Route path=\\"/PublisherCollection\\">
+        <PublisherCollection />
+      </Route>
       <Route path=\\"/Publisher/edit/:id\\">
         <EditPublisher />
       </Route>
@@ -1561,6 +1742,98 @@ export function VideoGame() {
 }"
 `;
 
+exports[`React template tests/app/video-game-app/src/components/VideoGame/VideoGameCollection.js should match snapshot 1`] = `
+"import { useState, useEffect } from \\"react\\";
+import { Link } from \\"react-router-dom\\";
+import { Container, CircularProgress } from \\"@material-ui/core\\";
+import { Center } from \\"../common/Center\\";
+import { getVideoGameCollection } from \\"../../api/videoGame\\";
+import { DataGrid } from \\"@material-ui/data-grid\\";
+
+function loading() {
+  return (
+    <Container
+      maxWidth=\\"sm\\"
+      className=\\"Container Collection VideoGameCollection\\"
+    >
+      <div className=\\"header\\">
+        <h1>Video Game Collection</h1>
+      </div>
+      <Center className=\\"loading\\">
+        <CircularProgress />
+      </Center>
+    </Container>
+  );
+}
+
+function getColumns() {
+  return [
+    {
+      field: \\"title\\",
+      headerName: \\"Title\\",
+      flex: 1,
+      renderCell: ({ row: videoGame }) => {
+        return (
+          <Link to={\`/videoGame/\${videoGame.id}\`}>
+            {videoGame.title !== \\"\\" ? videoGame.title : \\"--\\"}
+          </Link>
+        );
+      },
+    },
+    {
+      field: \\"yearPublished\\",
+      headerName: \\"Year Published\\",
+      hide: false,
+      flex: 1,
+    },
+  ];
+}
+
+export function VideoGameCollection() {
+  const [videoGameCollection, setVideoGameCollection] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    getAll();
+  }, []);
+
+  async function getAll() {
+    setIsLoading(true);
+    const videoGameCollection = await getVideoGameCollection();
+    console.log({videoGameCollection});
+    setVideoGameCollection(videoGameCollection);
+    setIsLoading(false);
+  }
+
+  if (isLoading) {
+    return loading();
+  }
+
+  return (
+    <Container
+      maxWidth=\\"sm\\"
+      className=\\"Container Collection VideoGameCollection\\"
+    >
+      <div className=\\"header\\">
+        <h1>Video Game Collection</h1>
+      </div>
+
+      <div style={{ display: \\"flex\\", height: \\"100%\\" }}>
+        <div className=\\"test\\" style={{ flexGrow: 1 }}>
+          <DataGrid
+            columns={getColumns()}
+            rows={videoGameCollection}
+            className=\\"datagrid\\"
+            disableSelectionOnClick
+          />
+        </div>
+      </div>
+    </Container>
+  );
+}
+"
+`;
+
 exports[`React template tests/app/video-game-app/src/components/VideoGame/VideoGameForm.js should match snapshot 1`] = `
 "import { useState, useEffect } from 'react';
 import {
@@ -1659,10 +1932,14 @@ exports[`React template tests/app/video-game-app/src/components/VideoGame/VideoG
 import { EditVideoGame } from './EditVideoGame';
 import { VideoGame } from './VideoGame';
 import { AddVideoGame } from './AddVideoGame';
+import { VideoGameCollection } from \\"./VideoGameCollection\\";
 
 export function VideoGameRouter() {
   return (
     <Switch>
+      <Route path=\\"/VideoGameCollection\\">
+        <VideoGameCollection />
+      </Route>
       <Route path=\\"/VideoGame/edit/:id\\">
         <EditVideoGame />
       </Route>
@@ -1819,9 +2096,9 @@ export async function deleteRecord(store, key) {
 
 export async function getAll(store) {
   const db = await connect();
-  const keys = db.getAllKeys(store);
+  const keys = await db.getAllKeys(store);
 
-  const promises = keys.map((key) => get(key));
+  const promises = keys.map((key) => get(store, key));
 
   return Promise.all(promises);
 }

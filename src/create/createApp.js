@@ -18,7 +18,7 @@ export async function createApp(config) {
   const manifesto = await readManifesto(templateDir);
 
   const normalizedConfig = normalizeConfig(config);
-  logger.info({ normalizedConfig });
+  logger.trace({ normalizedConfig });
   await validateConfig(normalizedConfig, manifesto);
   const dir = await createRootDir(normalizedConfig);
   await runDirectives({

@@ -3,14 +3,14 @@ import { Home } from './components/Home';
 {{#models}}
 import { {{modelNamePascal}}Router } from './components/{{modelNamePascal}}/{{modelNamePascal}}Router';
 {{/models}}
-import { Header } from "./components/App/Header";
+import { AppHeader } from "./components/App/AppHeader";
 import './App.scss';
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Header />
+        <AppHeader />
         <Switch>
         {{#models}}
           <Route path={["/{{modelNamePascal}}", "/{{pluralModelNamePascal}}"]}>

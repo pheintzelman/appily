@@ -1,0 +1,10 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem;
+
+  .headerIcon {
+    height: 48px;
+    margin-top: 18px;
+  }
+}

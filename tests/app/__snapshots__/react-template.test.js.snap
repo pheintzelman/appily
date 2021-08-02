@@ -399,10 +399,10 @@ Array [
     "DEBUG": "File rendered: tests/app/video-game-app/src/components/Home.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app/src/components/App/Header.js",
+    "DEBUG": "File rendered: tests/app/video-game-app/src/components/App/Drawer.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app/src/components/App/Drawer.js",
+    "DEBUG": "File rendered: tests/app/video-game-app/src/components/App/AppHeader.js",
   },
   Object {
     "DEBUG": "File rendered: tests/app/video-game-app/src/api/videoGame.js",
@@ -450,16 +450,22 @@ Array [
     "DEBUG": "File copied: tests/app/video-game-app/src/components/types/BooleanEdit.js",
   },
   Object {
+    "DEBUG": "File copied: tests/app/video-game-app/src/components/common/Header.scss",
+  },
+  Object {
+    "DEBUG": "File copied: tests/app/video-game-app/src/components/common/Header.js",
+  },
+  Object {
     "DEBUG": "File copied: tests/app/video-game-app/src/components/common/Center.scss",
   },
   Object {
     "DEBUG": "File copied: tests/app/video-game-app/src/components/common/Center.js",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app/src/components/App/Header.scss",
+    "DEBUG": "File copied: tests/app/video-game-app/src/components/App/Drawer.scss",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app/src/components/App/Drawer.scss",
+    "DEBUG": "File copied: tests/app/video-game-app/src/components/App/AppHeader.scss",
   },
   Object {
     "DEBUG": "File copied: tests/app/video-game-app/src/App.scss",
@@ -899,14 +905,14 @@ exports[`React template tests/app/video-game-app/src/App.js should match snapsho
 import { Home } from './components/Home';
 import { VideoGameRouter } from './components/VideoGame/VideoGameRouter';
 import { PublisherRouter } from './components/Publisher/PublisherRouter';
-import { Header } from \\"./components/App/Header\\";
+import { AppHeader } from \\"./components/App/AppHeader\\";
 import './App.scss';
 
 function App() {
   return (
     <Router>
       <div className=\\"App\\">
-        <Header />
+        <AppHeader />
         <Switch>
           <Route path={[\\"/VideoGame\\", \\"/VideoGameCollection\\"]}>
             <VideoGameRouter />
@@ -948,6 +954,7 @@ exports[`React template tests/app/video-game-app/src/App.scss should match snaps
     min-height: 350px;
     border-radius: 5px;
     border: solid 1px #ccc;
+    padding: 0;
 
     .header {
       display: flex;
@@ -960,8 +967,8 @@ exports[`React template tests/app/video-game-app/src/App.scss should match snaps
       }
     }
 
-    &.Collection {
-      padding: 0;
+    .containerContent {
+      padding: 0px 2rem 2rem 2rem;
     }
 
     .datagrid {
@@ -1060,6 +1067,93 @@ export async function getVideoGameCollection() {
 "
 `;
 
+exports[`React template tests/app/video-game-app/src/components/App/AppHeader.js should match snapshot 1`] = `
+"import React from 'react';
+import clsx from 'clsx';
+import {
+  CssBaseline,
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton
+} from '@material-ui/core';
+import { Menu as MenuIcon } from '@material-ui/icons';
+import { Drawer } from './Drawer';
+import './AppHeader.scss';
+
+export function AppHeader() {
+  const [open, setOpen] = React.useState(false);
+
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
+
+  return (
+    <div className=\\"AppHeader\\">
+      <CssBaseline />
+      <AppBar
+        position=\\"fixed\\"
+        className={clsx('appBar', {
+          appBarShift: open
+        })}
+      >
+        <Toolbar>
+          <IconButton
+            color=\\"inherit\\"
+            aria-label=\\"open drawer\\"
+            onClick={handleDrawerOpen}
+            edge=\\"start\\"
+            className={clsx('menuButton', open && 'hide')}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant=\\"h6\\" noWrap>
+            Video Game App
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Drawer open={open} handleClose={handleDrawerClose} />
+    </div>
+  );
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app/src/components/App/AppHeader.scss should match snapshot 1`] = `
+"$drawerWidth: 240px;
+$appBarHeight: 64px;
+
+.AppHeader {
+  display: flex;
+  height: $appBarHeight;
+
+  .appBar {
+    transition: margin 195ms cubic-bezier(0.4, 0, 0.6, 1) 0ms,
+      width 195ms cubic-bezier(0.4, 0, 0.6, 1) 0ms;
+  }
+
+  .appBarShift {
+    width: calc(100% - #{$drawerWidth});
+    transition: margin 225ms cubic-bezier(0, 0, 0.2, 1) 0ms,
+      width 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+    margin-left: $drawerWidth;
+  }
+
+  .menuButton {
+    margin-right: 16px;
+  }
+
+  .hide {
+    display: none;
+  }
+}
+"
+`;
+
 exports[`React template tests/app/video-game-app/src/components/App/Drawer.js should match snapshot 1`] = `
 "import { Link } from 'react-router-dom';
 import {
@@ -1142,109 +1236,25 @@ exports[`React template tests/app/video-game-app/src/components/App/Drawer.scss 
 "
 `;
 
-exports[`React template tests/app/video-game-app/src/components/App/Header.js should match snapshot 1`] = `
-"import React from 'react';
-import clsx from 'clsx';
-import {
-  CssBaseline,
-  AppBar,
-  Toolbar,
-  Typography,
-  IconButton
-} from '@material-ui/core';
-import { Menu as MenuIcon } from '@material-ui/icons';
-import { Drawer } from './Drawer';
-import './Header.scss';
-
-export function Header() {
-  const [open, setOpen] = React.useState(false);
-
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
-
-  return (
-    <div className=\\"Header\\">
-      <CssBaseline />
-      <AppBar
-        position=\\"fixed\\"
-        className={clsx('appBar', {
-          appBarShift: open
-        })}
-      >
-        <Toolbar>
-          <IconButton
-            color=\\"inherit\\"
-            aria-label=\\"open drawer\\"
-            onClick={handleDrawerOpen}
-            edge=\\"start\\"
-            className={clsx('menuButton', open && 'hide')}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant=\\"h6\\" noWrap>
-            Video Game App
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Drawer open={open} handleClose={handleDrawerClose} />
-    </div>
-  );
-}
-"
-`;
-
-exports[`React template tests/app/video-game-app/src/components/App/Header.scss should match snapshot 1`] = `
-"$drawerWidth: 240px;
-$appBarHeight: 64px;
-
-.Header {
-  display: flex;
-  height: $appBarHeight;
-
-  .appBar {
-    transition: margin 195ms cubic-bezier(0.4, 0, 0.6, 1) 0ms,
-      width 195ms cubic-bezier(0.4, 0, 0.6, 1) 0ms;
-  }
-
-  .appBarShift {
-    width: calc(100% - #{$drawerWidth});
-    transition: margin 225ms cubic-bezier(0, 0, 0.2, 1) 0ms,
-      width 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;
-    margin-left: $drawerWidth;
-  }
-
-  .menuButton {
-    margin-right: 16px;
-  }
-
-  .hide {
-    display: none;
-  }
-}
-"
-`;
-
 exports[`React template tests/app/video-game-app/src/components/Home.js should match snapshot 1`] = `
 "import { Container, List, ListItem, ListItemText } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import { Header } from \\"./common/Header\\";
 
 export function Home() {
   return (
     <Container maxWidth=\\"sm\\" className=\\"Container Home\\">
-      <h1>Welcome to Video Game App!</h1>
-      <List component=\\"nav\\">
-        <ListItem button component={Link} to=\\"/VideoGameCollection\\">
-          <ListItemText primary=\\"Video Game Collection\\" />
-        </ListItem>
-        <ListItem button component={Link} to=\\"/PublisherCollection\\">
-          <ListItemText primary=\\"Publisher Collection\\" />
-        </ListItem>
-      </List>
+       <Header title=\\"Welcome to Video Game App!\\"/>
+       <div className=\\"containerContent\\">
+        <List component=\\"nav\\">
+          <ListItem button component={Link} to=\\"/VideoGameCollection\\">
+            <ListItemText primary=\\"Video Game Collection\\" />
+          </ListItem>
+          <ListItem button component={Link} to=\\"/PublisherCollection\\">
+            <ListItemText primary=\\"Publisher Collection\\" />
+          </ListItem>
+        </List>
+      </div>
     </Container>
   );
 }
@@ -1329,11 +1339,12 @@ import EditIcon from '@material-ui/icons/Edit';
 import { Center } from '../common/Center';
 import { getPublisher } from '../../api/publisher';
 import { StringView } from '../types/StringView';
+import { Header } from \\"../../components/common/Header\\";
 
 function loading() {
   return (
     <Container maxWidth=\\"sm\\" className=\\"Container Publisher\\">
-      <h1>Publisher</h1>
+      <Header title=\\"Publisher\\"/>
       <Center className=\\"loading\\">
         <CircularProgress />
       </Center>
@@ -1344,7 +1355,7 @@ function loading() {
 function publisherNotFound() {
   return (
     <Container maxWidth=\\"sm\\" className=\\"Container Publisher\\">
-      <h1>Publisher</h1>
+      <Header title=\\"Publisher\\"/>
       <h2>Not found</h2>
     </Container>
   );
@@ -1376,22 +1387,14 @@ export function Publisher() {
     return publisherNotFound();
   }
 
+  const headerIcon = {Icon: EditIcon, to:\`edit/\${id}\`, label:\\"edit\\"};
+
   return (
     <Container maxWidth=\\"sm\\" className=\\"Container Publisher\\">
-      <div className=\\"header\\">
-        <h1>Publisher</h1>
-        <div className=\\"headerIcon\\">
-          <IconButton
-            aria-label=\\"edit\\"
-            component={RouterLink}
-            to={\`edit/\${id}\`}
-          >
-            <EditIcon />
-          </IconButton>
-        </div>
+      <Header title=\\"Publisher\\" icon={headerIcon}/>
+      <div className=\\"containerContent\\">
+        <StringView label=\\"Name\\" value={publisher.name} />
       </div>
-
-      <StringView label=\\"Name\\" value={publisher.name} />
     </Container>
   );
 }"
@@ -1401,9 +1404,11 @@ exports[`React template tests/app/video-game-app/src/components/Publisher/Publis
 "import { useState, useEffect } from \\"react\\";
 import { Link } from \\"react-router-dom\\";
 import { Container, CircularProgress } from \\"@material-ui/core\\";
+import AddIcon from '@material-ui/icons/Add';
 import { Center } from \\"../common/Center\\";
 import { getPublisherCollection } from \\"../../api/publisher\\";
 import { DataGrid } from \\"@material-ui/data-grid\\";
+import { Header } from \\"../../components/common/Header\\";
 
 function loading() {
   return (
@@ -1411,9 +1416,7 @@ function loading() {
       maxWidth=\\"sm\\"
       className=\\"Container Collection PublisherCollection\\"
     >
-      <div className=\\"header\\">
-        <h1>Publisher Collection</h1>
-      </div>
+      <Header title=\\"Publisher Collection\\"/>
       <Center className=\\"loading\\">
         <CircularProgress />
       </Center>
@@ -1458,15 +1461,14 @@ export function PublisherCollection() {
     return loading();
   }
 
+  const headerIcon = { Icon: AddIcon, to: \\"Publisher\\", label: \\"add\\" };
+
   return (
     <Container
       maxWidth=\\"sm\\"
       className=\\"Container Collection PublisherCollection\\"
     >
-      <div className=\\"header\\">
-        <h1>Publisher Collection</h1>
-      </div>
-
+      <Header title=\\"Publisher Collection\\" icon={headerIcon}/>
       <div style={{ display: \\"flex\\", height: \\"100%\\" }}>
         <div className=\\"test\\" style={{ flexGrow: 1 }}>
           <DataGrid
@@ -1492,11 +1494,12 @@ import {
 } from '@material-ui/core';
 import { Center } from '../common/Center';
 import { StringEdit } from '../types/StringEdit';
+import { Header } from \\"../../components/common/Header\\";
 
 function loading() {
   return (
     <Container maxWidth=\\"sm\\" className=\\"Container Publisher\\">
-      <h1>Publisher</h1>
+      <Header title=\\"Publisher\\" />
       <Center className=\\"loading\\">
         <CircularProgress />
       </Center>
@@ -1540,27 +1543,29 @@ export function PublisherForm({
 
   return (
     <Container maxWidth=\\"sm\\" className=\\"Container PublisherForm\\">
-      <h1>Publisher</h1>
-      <form noValidate autoComplete=\\"off\\">
-        <StringEdit
-          id=\\"publisherFormName\\"
-          label=\\"Name\\"
-          value={publisher.name}
-          field=\\"name\\"
-          onChange={handleChange}
-          disabled={processing}
-        />
+      <Header title=\\"Publisher\\" />
+      <div className=\\"containerContent\\">
+        <form noValidate autoComplete=\\"off\\">
+          <StringEdit
+            id=\\"publisherFormName\\"
+            label=\\"Name\\"
+            value={publisher.name}
+            field=\\"name\\"
+            onChange={handleChange}
+            disabled={processing}
+          />
 
-        <Button
-          className=\\"cta\\"
-          id=\\"publisherFormCta\\"
-          color=\\"primary\\"
-          onClick={handleCta(cta, publisher)}
-          disabled={processing}
-        >
-          {ctaLabel}
-        </Button>
-      </form>
+          <Button
+            className=\\"cta\\"
+            id=\\"publisherFormCta\\"
+            color=\\"primary\\"
+            onClick={handleCta(cta, publisher)}
+            disabled={processing}
+          >
+            {ctaLabel}
+          </Button>
+        </form>
+      </div>
     </Container>
   );
 }
@@ -1673,11 +1678,12 @@ import EditIcon from '@material-ui/icons/Edit';
 import { Center } from '../common/Center';
 import { getVideoGame } from '../../api/videoGame';
 import { StringView } from '../types/StringView';
+import { Header } from \\"../../components/common/Header\\";
 
 function loading() {
   return (
     <Container maxWidth=\\"sm\\" className=\\"Container VideoGame\\">
-      <h1>Video Game</h1>
+      <Header title=\\"Video Game\\"/>
       <Center className=\\"loading\\">
         <CircularProgress />
       </Center>
@@ -1688,7 +1694,7 @@ function loading() {
 function videoGameNotFound() {
   return (
     <Container maxWidth=\\"sm\\" className=\\"Container VideoGame\\">
-      <h1>Video Game</h1>
+      <Header title=\\"Video Game\\"/>
       <h2>Not found</h2>
     </Container>
   );
@@ -1720,23 +1726,15 @@ export function VideoGame() {
     return videoGameNotFound();
   }
 
+  const headerIcon = {Icon: EditIcon, to:\`edit/\${id}\`, label:\\"edit\\"};
+
   return (
     <Container maxWidth=\\"sm\\" className=\\"Container VideoGame\\">
-      <div className=\\"header\\">
-        <h1>Video Game</h1>
-        <div className=\\"headerIcon\\">
-          <IconButton
-            aria-label=\\"edit\\"
-            component={RouterLink}
-            to={\`edit/\${id}\`}
-          >
-            <EditIcon />
-          </IconButton>
-        </div>
+      <Header title=\\"Video Game\\" icon={headerIcon}/>
+      <div className=\\"containerContent\\">
+        <StringView label=\\"Title\\" value={videoGame.title} />
+        <StringView label=\\"Year Published\\" value={videoGame.yearPublished} />
       </div>
-
-      <StringView label=\\"Title\\" value={videoGame.title} />
-      <StringView label=\\"Year Published\\" value={videoGame.yearPublished} />
     </Container>
   );
 }"
@@ -1746,9 +1744,11 @@ exports[`React template tests/app/video-game-app/src/components/VideoGame/VideoG
 "import { useState, useEffect } from \\"react\\";
 import { Link } from \\"react-router-dom\\";
 import { Container, CircularProgress } from \\"@material-ui/core\\";
+import AddIcon from '@material-ui/icons/Add';
 import { Center } from \\"../common/Center\\";
 import { getVideoGameCollection } from \\"../../api/videoGame\\";
 import { DataGrid } from \\"@material-ui/data-grid\\";
+import { Header } from \\"../../components/common/Header\\";
 
 function loading() {
   return (
@@ -1756,9 +1756,7 @@ function loading() {
       maxWidth=\\"sm\\"
       className=\\"Container Collection VideoGameCollection\\"
     >
-      <div className=\\"header\\">
-        <h1>Video Game Collection</h1>
-      </div>
+      <Header title=\\"Video Game Collection\\"/>
       <Center className=\\"loading\\">
         <CircularProgress />
       </Center>
@@ -1809,15 +1807,14 @@ export function VideoGameCollection() {
     return loading();
   }
 
+  const headerIcon = { Icon: AddIcon, to: \\"VideoGame\\", label: \\"add\\" };
+
   return (
     <Container
       maxWidth=\\"sm\\"
       className=\\"Container Collection VideoGameCollection\\"
     >
-      <div className=\\"header\\">
-        <h1>Video Game Collection</h1>
-      </div>
-
+      <Header title=\\"Video Game Collection\\" icon={headerIcon}/>
       <div style={{ display: \\"flex\\", height: \\"100%\\" }}>
         <div className=\\"test\\" style={{ flexGrow: 1 }}>
           <DataGrid
@@ -1843,11 +1840,12 @@ import {
 } from '@material-ui/core';
 import { Center } from '../common/Center';
 import { StringEdit } from '../types/StringEdit';
+import { Header } from \\"../../components/common/Header\\";
 
 function loading() {
   return (
     <Container maxWidth=\\"sm\\" className=\\"Container VideoGame\\">
-      <h1>Video Game</h1>
+      <Header title=\\"Video Game\\" />
       <Center className=\\"loading\\">
         <CircularProgress />
       </Center>
@@ -1891,36 +1889,38 @@ export function VideoGameForm({
 
   return (
     <Container maxWidth=\\"sm\\" className=\\"Container VideoGameForm\\">
-      <h1>Video Game</h1>
-      <form noValidate autoComplete=\\"off\\">
-        <StringEdit
-          id=\\"videoGameFormTitle\\"
-          label=\\"Title\\"
-          value={videoGame.title}
-          field=\\"title\\"
-          onChange={handleChange}
-          disabled={processing}
-        />
+      <Header title=\\"Video Game\\" />
+      <div className=\\"containerContent\\">
+        <form noValidate autoComplete=\\"off\\">
+          <StringEdit
+            id=\\"videoGameFormTitle\\"
+            label=\\"Title\\"
+            value={videoGame.title}
+            field=\\"title\\"
+            onChange={handleChange}
+            disabled={processing}
+          />
 
-        <StringEdit
-          id=\\"videoGameFormYearPublished\\"
-          label=\\"Year Published\\"
-          value={videoGame.yearPublished}
-          field=\\"yearPublished\\"
-          onChange={handleChange}
-          disabled={processing}
-        />
+          <StringEdit
+            id=\\"videoGameFormYearPublished\\"
+            label=\\"Year Published\\"
+            value={videoGame.yearPublished}
+            field=\\"yearPublished\\"
+            onChange={handleChange}
+            disabled={processing}
+          />
 
-        <Button
-          className=\\"cta\\"
-          id=\\"videoGameFormCta\\"
-          color=\\"primary\\"
-          onClick={handleCta(cta, videoGame)}
-          disabled={processing}
-        >
-          {ctaLabel}
-        </Button>
-      </form>
+          <Button
+            className=\\"cta\\"
+            id=\\"videoGameFormCta\\"
+            color=\\"primary\\"
+            onClick={handleCta(cta, videoGame)}
+            disabled={processing}
+          >
+            {ctaLabel}
+          </Button>
+        </form>
+      </div>
     </Container>
   );
 }
@@ -1971,6 +1971,51 @@ exports[`React template tests/app/video-game-app/src/components/common/Center.sc
   align-items: center;
   display: flex;
   justify-content: center;
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app/src/components/common/Header.js should match snapshot 1`] = `
+"import { Link as RouterLink } from \\"react-router-dom\\";
+import { IconButton } from \\"@material-ui/core\\";
+import \\"./Header.scss\\";
+
+function getIcon(icon) {
+  if (!icon) {
+    return;
+  }
+  const { label, Icon, to } = icon;
+
+  return (
+    <div className=\\"headerIcon\\">
+      <IconButton aria-label={label} component={RouterLink} to={to}>
+        <Icon />
+      </IconButton>
+    </div>
+  );
+}
+
+export function Header({ title, icon }) {
+  return (
+    <div className=\\"Header\\">
+      <h1>{title}</h1>
+      {getIcon(icon)}
+    </div>
+  );
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app/src/components/common/Header.scss should match snapshot 1`] = `
+".Header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem;
+
+  .headerIcon {
+    height: 48px;
+    margin-top: 18px;
+  }
 }
 "
 `;

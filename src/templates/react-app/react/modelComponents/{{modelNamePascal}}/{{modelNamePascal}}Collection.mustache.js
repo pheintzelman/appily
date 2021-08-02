@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Container, CircularProgress } from "@material-ui/core";
+import AddIcon from '@material-ui/icons/Add';
 import { Center } from "../common/Center";
 import { get{{pluralModelNamePascal}} } from "../../api/{{modelNameCamel}}";
 import { DataGrid } from "@material-ui/data-grid";
+import { Header } from "../../components/common/Header";
 
 function loading() {
   return (
@@ -11,9 +13,7 @@ function loading() {
       maxWidth="sm"
       className="Container Collection {{modelNamePascal}}Collection"
     >
-      <div className="header">
-        <h1>{{pluralModelName}}</h1>
-      </div>
+      <Header title="{{pluralModelName}}"/>
       <Center className="loading">
         <CircularProgress />
       </Center>
@@ -72,15 +72,14 @@ export function {{modelNamePascal}}Collection() {
     return loading();
   }
 
+  const headerIcon = { Icon: AddIcon, to: "{{modelNamePascal}}", label: "add" };
+
   return (
     <Container
       maxWidth="sm"
       className="Container Collection {{modelNamePascal}}Collection"
     >
-      <div className="header">
-        <h1>{{pluralModelName}}</h1>
-      </div>
-
+      <Header title="{{pluralModelName}}" icon={headerIcon}/>
       <div style={{=<% %>=}}{{ display: "flex", height: "100%" }}<%={{ }}=%>>
         <div className="test" style={{=<% %>=}}{{ flexGrow: 1 }}<%={{ }}=%>>
           <DataGrid

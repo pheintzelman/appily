@@ -1342,8 +1342,7 @@ export function EditPublisher() {
 exports[`React template tests/app/video-game-app-indexedDB/src/components/Publisher/Publisher.js should match snapshot 1`] = `
 "import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Link as RouterLink } from 'react-router-dom';
-import { Container, CircularProgress, IconButton } from '@material-ui/core';
+import { Container, CircularProgress } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import { Center } from '../common/Center';
 import { getPublisher } from '../../api/publisher';
@@ -1681,8 +1680,7 @@ export function EditVideoGame() {
 exports[`React template tests/app/video-game-app-indexedDB/src/components/VideoGame/VideoGame.js should match snapshot 1`] = `
 "import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Link as RouterLink } from 'react-router-dom';
-import { Container, CircularProgress, IconButton } from '@material-ui/core';
+import { Container, CircularProgress } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import { Center } from '../common/Center';
 import { getVideoGame } from '../../api/videoGame';

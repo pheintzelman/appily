@@ -6,7 +6,7 @@ _alpha 0.1_
   - View a model
   - Add/Edit a model
   - View collection of model
-  - remove model
+  - Remove model
 - indexeddb
 
 _alpha 0.2_

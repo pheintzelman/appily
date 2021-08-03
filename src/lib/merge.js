@@ -1,6 +1,4 @@
-function isObject(object) {
-  return object instanceof Object;
-}
+import { isObject } from './check.js';
 
 function oneIsArray(object1, object2) {
   return (

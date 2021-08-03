@@ -2,6 +2,7 @@ v. 0.0.13
 
 - Support multiple types
 - react-app template: Support multiple types
+- react-app template: Added model collection view
 
 v. 0.0.12
 

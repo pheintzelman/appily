@@ -4,9 +4,11 @@
   "template": "react-app",
   "models": {
     "Video Game": {
-      "Title": "String",
-      "Year Published": "String",
-      "Indie": "Boolean"
+      "properties": {
+        "Title": "String",
+        "Year Published": "String",
+        "Indie": "Boolean"
+      }
     },
     "Publisher": {
       "Name": "String"

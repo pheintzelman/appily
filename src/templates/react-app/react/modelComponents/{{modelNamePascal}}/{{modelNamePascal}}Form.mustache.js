@@ -8,11 +8,12 @@ import { Center } from '../common/Center';
 {{#componentImports}}
 import { {{component.edit}} } from '../types/{{component.edit}}';
 {{/componentImports}}
+import { Header } from "../../components/common/Header";
 
 function loading() {
   return (
     <Container maxWidth="sm" className="Container {{modelNamePascal}}">
-      <h1>{{modelName}}</h1>
+      <Header title="{{ modelName }}" />
       <Center className="loading">
         <CircularProgress />
       </Center>
@@ -56,29 +57,31 @@ export function {{modelNamePascal}}Form({
 
   return (
     <Container maxWidth="sm" className="Container {{modelNamePascal}}Form">
-      <h1>{{ modelName }}</h1>
-      <form noValidate autoComplete="off">
-        {{#properties}}
-        <{{component.edit}}
-          id="{{modelNameCamel}}Form{{propertyNamePascal}}"
-          label="{{propertyName}}"
-          value={{=<% %>=}}{<%modelNameCamel%>.<%propertyNameCamel%>}<%={{ }}=%>
-          field="{{propertyNameCamel}}"
-          onChange={handleChange}
-          disabled={processing}
-        />
+      <Header title="{{ modelName }}" />
+      <div className="containerContent">
+        <form noValidate autoComplete="off">
+          {{#properties}}
+          <{{component.edit}}
+            id="{{modelNameCamel}}Form{{propertyNamePascal}}"
+            label="{{propertyName}}"
+            value={{=<% %>=}}{<%modelNameCamel%>.<%propertyNameCamel%>}<%={{ }}=%>
+            field="{{propertyNameCamel}}"
+            onChange={handleChange}
+            disabled={processing}
+          />
 
-        {{/properties}}
-        <Button
-          className="cta"
-          id="{{modelNameCamel}}FormCta"
-          color="primary"
-          onClick={handleCta(cta, {{modelNameCamel}})}
-          disabled={processing}
-        >
-          {ctaLabel}
-        </Button>
-      </form>
+          {{/properties}}
+          <Button
+            className="cta"
+            id="{{modelNameCamel}}FormCta"
+            color="primary"
+            onClick={handleCta(cta, {{modelNameCamel}})}
+            disabled={processing}
+          >
+            {ctaLabel}
+          </Button>
+        </form>
+      </div>
     </Container>
   );
 }

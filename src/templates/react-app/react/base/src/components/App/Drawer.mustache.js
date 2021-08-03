@@ -42,8 +42,8 @@ export function Drawer(props) {
         <Divider />
         <List>
           {{#models}}
-          <ListItem button component={Link} to="/{{modelNamePascal}}">
-            <ListItemText primary="{{modelName}}" />
+          <ListItem button component={Link} to="/{{pluralModelNamePascal}}">
+            <ListItemText primary="{{pluralModelName}}" />
           </ListItem>
           {{/models}}
         </List>

@@ -3,7 +3,9 @@ import { getViewModel } from './getViewModel';
 const configString = `{
   "name": "Test Config",
   "models": {
-    "Animal": null
+    "Animal": {
+      "properties": null
+    }
   }
 }`;
 
@@ -12,7 +14,7 @@ describe('getViewModel', () => {
     const config = {
       name: 'Test Config',
       models: {
-        Animal: null
+        Animal: { properties: null }
       }
     };
 
@@ -31,6 +33,10 @@ describe('getViewModel', () => {
           modelNameCamel: 'animal',
           modelNamePascal: 'Animal',
           modelNameSnake: 'animal',
+          pluralModelName: 'Animal Collection',
+          pluralModelNameCamel: 'animalCollection',
+          pluralModelNamePascal: 'AnimalCollection',
+          pluralModelNameSnake: 'animal-collection',
           properties: []
         }
       ],

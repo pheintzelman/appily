@@ -36,9 +36,9 @@ export async function deleteRecord(store, key) {
 
 export async function getAll(store) {
   const db = await connect();
-  const keys = db.getAllKeys(store);
+  const keys = await db.getAllKeys(store);
 
-  const promises = keys.map((key) => get(key));
+  const promises = keys.map((key) => get(store, key));
 
   return Promise.all(promises);
 }

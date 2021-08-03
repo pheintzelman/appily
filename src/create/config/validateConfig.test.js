@@ -1,11 +1,11 @@
 import { validateConfig } from './validateConfig';
-import { captureLog } from '../../tests/helpers/log.js';
+import { captureLog } from '../../../tests/helpers/log.js';
 import {
   ConfigIsEmpty,
   ConfigPropertyNotSupported,
   TemplateOptionNotSupported,
   TypeNotSupported
-} from '../constants/messages';
+} from '../../constants/messages';
 
 describe('validateConfig', () => {
   test('should throw error if config is null', () => {
@@ -41,7 +41,10 @@ describe('validateConfig', () => {
   describe('validateModelProperties', () => {
     test('should log warning for unsupported model property type', () => {
       const log = captureLog();
-      validateConfig({ models: { Car: { Make: 'Honda' } } }, {});
+      validateConfig(
+        { models: { Car: { properties: { Make: { type: 'Honda' } } } } },
+        {}
+      );
       expect(log).toStrictEqual([
         {
           WARN: TypeNotSupported('Car', 'Make', 'Honda')

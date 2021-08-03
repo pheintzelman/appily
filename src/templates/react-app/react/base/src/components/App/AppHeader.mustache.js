@@ -9,9 +9,9 @@ import {
 } from '@material-ui/core';
 import { Menu as MenuIcon } from '@material-ui/icons';
 import { Drawer } from './Drawer';
-import './Header.scss';
+import './AppHeader.scss';
 
-export function Header() {
+export function AppHeader() {
   const [open, setOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {
@@ -23,7 +23,7 @@ export function Header() {
   };
 
   return (
-    <div className="Header">
+    <div className="AppHeader">
       <CssBaseline />
       <AppBar
         position="fixed"

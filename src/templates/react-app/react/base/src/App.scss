@@ -3,10 +3,6 @@
     margin-bottom: 20px;
   }
 
-  h1 {
-    margin-bottom: 30px;
-  }
-
   .cta {
     margin-left: auto;
     display: block;
@@ -18,20 +14,35 @@
 
   .Container {
     background-color: white;
-    padding: 30px;
     margin-top: 40px;
     min-height: 350px;
     border-radius: 5px;
     border: solid 1px #ccc;
+    padding: 0;
 
     .header {
       display: flex;
       justify-content: space-between;
+      padding: 1.5rem;
 
       .headerIcon {
         height: 48px;
         margin-top: 18px;
       }
+    }
+
+    .containerContent {
+      padding: 0px 2rem 2rem 2rem;
+    }
+
+    .datagrid {
+      min-height: 400px;
+    }
+  }
+
+  .View {
+    .body {
+      font-size: 1.4rem;
     }
   }
 }

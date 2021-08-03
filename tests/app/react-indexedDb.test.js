@@ -13,8 +13,11 @@ const config = {
   db: 'indexedDB',
   models: {
     'Video Game': {
-      Title: 'String',
-      'Year Published': 'String'
+      plural: 'Video Games',
+      properties: {
+        Title: 'String',
+        'Year Published': 'String'
+      }
     },
     Publisher: {
       Name: 'String'

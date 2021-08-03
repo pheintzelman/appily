@@ -108,7 +108,8 @@ Aim for progressive development with something useful asap See the [road map](./
 
 ## Todo
 
-- add model collection view
+- have normalize config, convert objects to arrays
+- add default value module under config
 - add model remove
 - add github test badge
 - add github test action (pipeline)

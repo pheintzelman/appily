@@ -1,13 +1,13 @@
 {
-  "name": "create-app",
+  "name": "appily",
   "description": "Generate a new app",
-  "version": "0.0.13",
+  "version": "0.0.13-prealpha",
   "keywords": [],
   "author": "Paul Heintzelman",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/pheintzelman/create-app"
+    "url": "git://github.com/pheintzelman/appily"
   },
   "type": "module",
   "scripts": {
@@ -33,7 +33,7 @@
     "coverageDirectory": "./tests/coverage"
   },
   "bin": {
-    "create-app": "./src/cli/cli.js"
+    "appily": "./src/cli/cli.js"
   },
   "dependencies": {
     "mustache": "^4.2.0",

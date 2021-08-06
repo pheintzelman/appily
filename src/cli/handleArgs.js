@@ -3,7 +3,7 @@ import { hideBin } from 'yargs/helpers';
 
 export function handleArgs(args) {
   return yargs(hideBin(args))
-    .scriptName('create-app')
+    .scriptName('appily')
     .usage('$0 <command> [args]')
     .command({
       command: '$0 <configFile>',

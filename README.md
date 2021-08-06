@@ -1,4 +1,4 @@
-# create-app
+# appily
 
 Generate an application form a simple json configuration. Perfect for MVP's and admin sites. Built on ideas from smalltalk and other data-model driven application creation.
 
@@ -31,7 +31,7 @@ See [change log](./doc/CHANGELOG.md) for more details.
 ### Usage
 
 ```bash
-$ create-app config.json
+$ appily config.json
 ```
 
 config.json
@@ -118,6 +118,6 @@ Aim for progressive development with something useful asap See the [road map](./
 - add test for missing coverage
 - try to fix nested app issue (apps don't run from manual folder)
 - Make docs easier to understand
-- Fix tabing in .create-app
+- Fix tabing in .appily
 - remove component logic from view model
 - rebrand

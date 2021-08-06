@@ -232,112 +232,112 @@ Array [
     "TRACE": Object {
       "dest": "tests/app/video-game-app-indexeddb/src/components/VideoGame",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/modelComponents/{{modelNamePascal}}",
+      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/react/modelComponents/{{modelNamePascal}}",
     },
   },
   Object {
     "TRACE": Object {
       "dest": "tests/app/video-game-app-indexeddb/src/components/Publisher",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/modelComponents/{{modelNamePascal}}",
+      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/react/modelComponents/{{modelNamePascal}}",
     },
   },
   Object {
     "TRACE": Object {
       "dest": "tests/app/video-game-app-indexeddb/src/components",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/modelComponents",
+      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/react/modelComponents",
     },
   },
   Object {
     "TRACE": Object {
       "dest": "tests/app/video-game-app-indexeddb/src/components",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/modelComponents",
+      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/react/modelComponents",
     },
   },
   Object {
     "TRACE": Object {
       "dest": "tests/app/video-game-app-indexeddb/src/components/types",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/base/src/components/types",
+      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/react/base/src/components/types",
     },
   },
   Object {
     "TRACE": Object {
       "dest": "tests/app/video-game-app-indexeddb/src/components/common",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/base/src/components/common",
+      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/react/base/src/components/common",
     },
   },
   Object {
     "TRACE": Object {
       "dest": "tests/app/video-game-app-indexeddb/src/components/App",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/base/src/components/App",
+      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/react/base/src/components/App",
     },
   },
   Object {
     "TRACE": Object {
       "dest": "tests/app/video-game-app-indexeddb/src/components",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/base/src/components",
+      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/react/base/src/components",
     },
   },
   Object {
     "TRACE": Object {
       "dest": "tests/app/video-game-app-indexeddb/src",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/base/src",
+      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/react/base/src",
     },
   },
   Object {
     "TRACE": Object {
       "dest": "tests/app/video-game-app-indexeddb/public",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/base/public",
+      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/react/base/public",
     },
   },
   Object {
     "TRACE": Object {
       "dest": "tests/app/video-game-app-indexeddb",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/react/base",
+      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/react/base",
     },
   },
   Object {
     "TRACE": Object {
       "dest": "tests/app/video-game-app-indexeddb/src/db",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/db/indexedDb/loop",
+      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/db/indexedDb/loop",
     },
   },
   Object {
     "TRACE": Object {
       "dest": "tests/app/video-game-app-indexeddb/src/db",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/db/indexedDb/loop",
+      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/db/indexedDb/loop",
     },
   },
   Object {
     "TRACE": Object {
       "dest": "tests/app/video-game-app-indexeddb/src/db",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/db/indexedDb/db",
+      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/db/indexedDb/db",
     },
   },
   Object {
     "TRACE": Object {
       "dest": "tests/app/video-game-app-indexeddb/src/api",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/api/indexedDb/api",
+      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/api/indexedDb/api",
     },
   },
   Object {
     "TRACE": Object {
       "dest": "tests/app/video-game-app-indexeddb/src/api",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/react-app/api/indexedDb/api",
+      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/api/indexedDb/api",
     },
   },
   Object {

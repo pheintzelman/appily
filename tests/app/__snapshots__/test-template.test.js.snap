@@ -42,14 +42,14 @@ Array [
     "TRACE": Object {
       "dest": "tests/app/test-app/UI",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/test/app/UI",
+      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/test/app/UI",
     },
   },
   Object {
     "TRACE": Object {
       "dest": "tests/app/test-app",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/create-app/src/templates/test/app",
+      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/test/app",
     },
   },
   Object {

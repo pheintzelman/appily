@@ -1,7 +1,7 @@
 {
   "name": "appily",
   "description": "Generate a new app",
-  "version": "0.0.13-prealpha",
+  "version": "0.0.14-prealpha",
   "keywords": [],
   "author": "Paul Heintzelman",
   "license": "MIT",
@@ -28,7 +28,8 @@
       "!**/templates/**",
       "!**/tests/**",
       "!**/tools/**",
-      "!**/getTemplateDir.js"
+      "!**/getTemplateDir.js",
+      "!**/__*__/**"
     ],
     "coverageDirectory": "./tests/coverage"
   },

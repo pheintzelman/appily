@@ -3,7 +3,6 @@ import { preprocessProperties } from './properties.js';
 import { getVariations } from '../../lib/case.js';
 import { DefaultPluralSuffix } from '../../constants/constants.js';
 import { getDefaultValueForType } from './getDefaultValueForType.js';
-import { getComponentImports } from './getComponentImports.js';
 
 function getDefaultState(properties) {
   return properties.reduce((acc, { propertyNameCamel, type }) => {
@@ -27,8 +26,7 @@ function preprocessModel([modelName, model]) {
     properties,
     defaultState: util.inspect(getDefaultState(properties)),
     ...getVariations('modelName', modelName),
-    ...getVariations('pluralModelName', pluralName),
-    componentImports: getComponentImports(properties)
+    ...getVariations('pluralModelName', pluralName)
   };
 }
 

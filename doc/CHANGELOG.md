@@ -1,3 +1,9 @@
+v. 0.0.14
+
+- rebranded from `create-app` to `appily`
+- fixed tabbing in `.appily` config file
+- removed component logic from view model
+
 v. 0.0.13
 
 - Support multiple types

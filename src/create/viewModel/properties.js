@@ -1,5 +1,4 @@
 import { getVariations } from '../../lib/case.js';
-import { mapTypeToComponent } from './mapTypeToComponent.js';
 
 function typeFlags(type) {
   return { isString: type === 'String', isBoolean: type === 'Boolean' };
@@ -14,8 +13,7 @@ function preprocessProperty([propertyName, { type }], index) {
     type,
     ...typeFlags(type),
     isPrimary,
-    hide,
-    component: mapTypeToComponent(type)
+    hide
   };
 }
 

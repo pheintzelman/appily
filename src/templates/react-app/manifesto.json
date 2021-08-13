@@ -19,6 +19,14 @@
       }
     },
     {
+      "ui:react": {
+        "viewModelTransform": {
+          "path": "./react/viewModelTransform/addComponents.js",
+          "method": "addComponents"
+        }
+      }
+    },
+    {
       "api:stub": {
         "loop": {
           "property": "models",

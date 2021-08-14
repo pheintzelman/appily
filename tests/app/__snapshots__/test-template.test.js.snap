@@ -9,12 +9,12 @@ Array [
         "appNameCamel": "testApp",
         "appNamePascal": "TestApp",
         "appNameSnake": "test-app",
-        "configString": "{
+        "configString": " {
   \\"dir\\": \\"tests/app\\",
   \\"name\\": \\"Test App\\",
   \\"template\\": \\"test\\",
   \\"models\\": {}
-}",
+ }",
         "dir": "tests/app/test-app",
         "models": Array [],
         "templateName": "test",

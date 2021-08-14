@@ -9,7 +9,7 @@ Array [
         "appNameCamel": "videoGameApp",
         "appNamePascal": "VideoGameApp",
         "appNameSnake": "video-game-app",
-        "configString": "{
+        "configString": " {
   \\"dir\\": \\"tests/app\\",
   \\"name\\": \\"Video Game App\\",
   \\"template\\": \\"react-app\\",
@@ -32,7 +32,7 @@ Array [
       }
     }
   }
-}",
+ }",
         "dir": "tests/app/video-game-app",
         "models": Array [
           Object {
@@ -348,6 +348,13 @@ Array [
     },
   },
   Object {
+    "INFO": Object {
+      "templateDir": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app",
+      "templatePath": "./react/viewModelTransform/addComponents.js",
+      "transformPath": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/react/viewModelTransform/addComponents.js",
+    },
+  },
+  Object {
     "INFO": "Video Game App created, in dir tests/app/video-game-app",
   },
   Object {
@@ -420,7 +427,7 @@ Array [
     "DEBUG": "File rendered: tests/app/video-game-app/package.json",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app/.create-app",
+    "DEBUG": "File rendered: tests/app/video-game-app/.appily",
   },
   Object {
     "DEBUG": "File copied: tests/app/video-game-app/src/setupTests.js",
@@ -500,11 +507,11 @@ Array [
 ]
 `;
 
-exports[`React template tests/app/video-game-app/.create-app should match snapshot 1`] = `
+exports[`React template tests/app/video-game-app/.appily should match snapshot 1`] = `
 "{
   template: \\"react-app\\",
   version: \\"0.3.0\\",
-  config: {
+  config:  {
   \\"dir\\": \\"tests/app\\",
   \\"name\\": \\"Video Game App\\",
   \\"template\\": \\"react-app\\",
@@ -527,7 +534,7 @@ exports[`React template tests/app/video-game-app/.create-app should match snapsh
       }
     }
   }
-}
+ }
 }"
 `;
 

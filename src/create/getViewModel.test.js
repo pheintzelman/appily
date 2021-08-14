@@ -1,13 +1,13 @@
 import { getViewModel } from './getViewModel';
 
-const configString = `{
+const configString = ` {
   "name": "Test Config",
   "models": {
     "Animal": {
       "properties": null
     }
   }
-}`;
+ }`;
 
 describe('getViewModel', () => {
   test('should handle model with no properties', () => {
@@ -27,7 +27,6 @@ describe('getViewModel', () => {
       dir: undefined,
       models: [
         {
-          componentImports: [],
           defaultState: '{}',
           modelName: 'Animal',
           modelNameCamel: 'animal',

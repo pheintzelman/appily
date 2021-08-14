@@ -9,7 +9,7 @@ Array [
         "appNameCamel": "videoGameAppIndexeddb",
         "appNamePascal": "VideoGameAppIndexeddb",
         "appNameSnake": "video-game-app-indexeddb",
-        "configString": "{
+        "configString": " {
   \\"dir\\": \\"tests/app\\",
   \\"name\\": \\"Video Game App IndexedDB\\",
   \\"template\\": \\"react-app\\",
@@ -35,7 +35,7 @@ Array [
       }
     }
   }
-}",
+ }",
         "dir": "tests/app/video-game-app-indexeddb",
         "models": Array [
           Object {
@@ -354,6 +354,13 @@ Array [
     },
   },
   Object {
+    "INFO": Object {
+      "templateDir": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app",
+      "templatePath": "./react/viewModelTransform/addComponents.js",
+      "transformPath": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/react/viewModelTransform/addComponents.js",
+    },
+  },
+  Object {
     "INFO": "Video Game App IndexedDB created, in dir tests/app/video-game-app-indexeddb",
   },
   Object {
@@ -426,7 +433,7 @@ Array [
     "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/package.json",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/.create-app",
+    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/.appily",
   },
   Object {
     "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/setupTests.js",
@@ -506,11 +513,11 @@ Array [
 ]
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/.create-app should match snapshot 1`] = `
+exports[`React template tests/app/video-game-app-indexedDB/.appily should match snapshot 1`] = `
 "{
   template: \\"react-app\\",
   version: \\"0.3.0\\",
-  config: {
+  config:  {
   \\"dir\\": \\"tests/app\\",
   \\"name\\": \\"Video Game App IndexedDB\\",
   \\"template\\": \\"react-app\\",
@@ -536,7 +543,7 @@ exports[`React template tests/app/video-game-app-indexedDB/.create-app should ma
       }
     }
   }
-}
+ }
 }"
 `;
 

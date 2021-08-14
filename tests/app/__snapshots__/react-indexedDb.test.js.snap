@@ -484,13 +484,6 @@ Array [
     },
   },
   Object {
-    "INFO": Object {
-      "templateDir": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app",
-      "templatePath": "./react/viewModelTransform/addComponents.js",
-      "transformPath": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/react/viewModelTransform/addComponents.js",
-    },
-  },
-  Object {
     "INFO": "Video Game App IndexedDB created, in dir tests/app/video-game-app-indexeddb",
   },
   Object {

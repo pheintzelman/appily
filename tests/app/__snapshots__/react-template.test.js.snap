@@ -336,6 +336,133 @@ Array [
   },
   Object {
     "TRACE": Object {
+      "msg": "View model transformed",
+      "transformedViewModel": Object {
+        "appName": "Video Game App",
+        "appNameCamel": "videoGameApp",
+        "appNamePascal": "VideoGameApp",
+        "appNameSnake": "video-game-app",
+        "configString": " {
+  \\"dir\\": \\"tests/app\\",
+  \\"name\\": \\"Video Game App\\",
+  \\"template\\": \\"react-app\\",
+  \\"models\\": {
+    \\"Video Game\\": {
+      \\"properties\\": {
+        \\"Title\\": {
+          \\"type\\": \\"String\\"
+        },
+        \\"Year Published\\": {
+          \\"type\\": \\"String\\"
+        }
+      }
+    },
+    \\"Publisher\\": {
+      \\"properties\\": {
+        \\"Name\\": {
+          \\"type\\": \\"String\\"
+        }
+      }
+    }
+  }
+ }",
+        "dir": "tests/app/video-game-app",
+        "models": Array [
+          Object {
+            "componentImports": Array [
+              Object {
+                "component": Object {
+                  "edit": "StringEdit",
+                  "view": "StringView",
+                },
+              },
+            ],
+            "defaultState": "{ title: '', yearPublished: '' }",
+            "modelName": "Video Game",
+            "modelNameCamel": "videoGame",
+            "modelNamePascal": "VideoGame",
+            "modelNameSnake": "video-game",
+            "pluralModelName": "Video Game Collection",
+            "pluralModelNameCamel": "videoGameCollection",
+            "pluralModelNamePascal": "VideoGameCollection",
+            "pluralModelNameSnake": "video-game-collection",
+            "properties": Array [
+              Object {
+                "component": Object {
+                  "edit": "StringEdit",
+                  "view": "StringView",
+                },
+                "hide": false,
+                "isBoolean": false,
+                "isPrimary": true,
+                "isString": true,
+                "propertyName": "Title",
+                "propertyNameCamel": "title",
+                "propertyNamePascal": "Title",
+                "propertyNameSnake": "title",
+                "type": "String",
+              },
+              Object {
+                "component": Object {
+                  "edit": "StringEdit",
+                  "view": "StringView",
+                },
+                "hide": false,
+                "isBoolean": false,
+                "isPrimary": false,
+                "isString": true,
+                "propertyName": "Year Published",
+                "propertyNameCamel": "yearPublished",
+                "propertyNamePascal": "YearPublished",
+                "propertyNameSnake": "year-published",
+                "type": "String",
+              },
+            ],
+          },
+          Object {
+            "componentImports": Array [
+              Object {
+                "component": Object {
+                  "edit": "StringEdit",
+                  "view": "StringView",
+                },
+              },
+            ],
+            "defaultState": "{ name: '' }",
+            "modelName": "Publisher",
+            "modelNameCamel": "publisher",
+            "modelNamePascal": "Publisher",
+            "modelNameSnake": "publisher",
+            "pluralModelName": "Publisher Collection",
+            "pluralModelNameCamel": "publisherCollection",
+            "pluralModelNamePascal": "PublisherCollection",
+            "pluralModelNameSnake": "publisher-collection",
+            "properties": Array [
+              Object {
+                "component": Object {
+                  "edit": "StringEdit",
+                  "view": "StringView",
+                },
+                "hide": false,
+                "isBoolean": false,
+                "isPrimary": true,
+                "isString": true,
+                "propertyName": "Name",
+                "propertyNameCamel": "name",
+                "propertyNamePascal": "Name",
+                "propertyNameSnake": "name",
+                "type": "String",
+              },
+            ],
+          },
+        ],
+        "templateName": "react-app",
+        "templateVersion": "0.3.0",
+      },
+    },
+  },
+  Object {
+    "TRACE": Object {
       "msg": "Add to view model",
       "property": Object {
         "packages": Array [
@@ -345,13 +472,6 @@ Array [
           },
         ],
       },
-    },
-  },
-  Object {
-    "INFO": Object {
-      "templateDir": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app",
-      "templatePath": "./react/viewModelTransform/addComponents.js",
-      "transformPath": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/react/viewModelTransform/addComponents.js",
     },
   },
   Object {

@@ -66,7 +66,6 @@ async function runViewModelDirectives({
     if (directive.key === Directive.ViewModelTransform) {
       const { path: templatePath, method } = directive.value;
       const transformPath = path.join(templateDir, templatePath);
-      logger.info({ transformPath, templateDir, templatePath });
       return await viewModelTransform({
         path: transformPath,
         method,

@@ -9,7 +9,7 @@ Array [
         "appNameCamel": "videoGameAppIndexeddb",
         "appNamePascal": "VideoGameAppIndexeddb",
         "appNameSnake": "video-game-app-indexeddb",
-        "configString": "{
+        "configString": " {
   \\"dir\\": \\"tests/app\\",
   \\"name\\": \\"Video Game App IndexedDB\\",
   \\"template\\": \\"react-app\\",
@@ -35,7 +35,7 @@ Array [
       }
     }
   }
-}",
+ }",
         "dir": "tests/app/video-game-app-indexeddb",
         "models": Array [
           Object {
@@ -342,6 +342,136 @@ Array [
   },
   Object {
     "TRACE": Object {
+      "msg": "View model transformed",
+      "transformedViewModel": Object {
+        "appName": "Video Game App IndexedDB",
+        "appNameCamel": "videoGameAppIndexeddb",
+        "appNamePascal": "VideoGameAppIndexeddb",
+        "appNameSnake": "video-game-app-indexeddb",
+        "configString": " {
+  \\"dir\\": \\"tests/app\\",
+  \\"name\\": \\"Video Game App IndexedDB\\",
+  \\"template\\": \\"react-app\\",
+  \\"api\\": \\"indexedDB\\",
+  \\"db\\": \\"indexedDB\\",
+  \\"models\\": {
+    \\"Video Game\\": {
+      \\"plural\\": \\"Video Games\\",
+      \\"properties\\": {
+        \\"Title\\": {
+          \\"type\\": \\"String\\"
+        },
+        \\"Year Published\\": {
+          \\"type\\": \\"String\\"
+        }
+      }
+    },
+    \\"Publisher\\": {
+      \\"properties\\": {
+        \\"Name\\": {
+          \\"type\\": \\"String\\"
+        }
+      }
+    }
+  }
+ }",
+        "dir": "tests/app/video-game-app-indexeddb",
+        "models": Array [
+          Object {
+            "componentImports": Array [
+              Object {
+                "component": Object {
+                  "edit": "StringEdit",
+                  "view": "StringView",
+                },
+              },
+            ],
+            "defaultState": "{ title: '', yearPublished: '' }",
+            "modelName": "Video Game",
+            "modelNameCamel": "videoGame",
+            "modelNamePascal": "VideoGame",
+            "modelNameSnake": "video-game",
+            "pluralModelName": "Video Games",
+            "pluralModelNameCamel": "videoGames",
+            "pluralModelNamePascal": "VideoGames",
+            "pluralModelNameSnake": "video-games",
+            "properties": Array [
+              Object {
+                "component": Object {
+                  "edit": "StringEdit",
+                  "view": "StringView",
+                },
+                "hide": false,
+                "isBoolean": false,
+                "isPrimary": true,
+                "isString": true,
+                "propertyName": "Title",
+                "propertyNameCamel": "title",
+                "propertyNamePascal": "Title",
+                "propertyNameSnake": "title",
+                "type": "String",
+              },
+              Object {
+                "component": Object {
+                  "edit": "StringEdit",
+                  "view": "StringView",
+                },
+                "hide": false,
+                "isBoolean": false,
+                "isPrimary": false,
+                "isString": true,
+                "propertyName": "Year Published",
+                "propertyNameCamel": "yearPublished",
+                "propertyNamePascal": "YearPublished",
+                "propertyNameSnake": "year-published",
+                "type": "String",
+              },
+            ],
+          },
+          Object {
+            "componentImports": Array [
+              Object {
+                "component": Object {
+                  "edit": "StringEdit",
+                  "view": "StringView",
+                },
+              },
+            ],
+            "defaultState": "{ name: '' }",
+            "modelName": "Publisher",
+            "modelNameCamel": "publisher",
+            "modelNamePascal": "Publisher",
+            "modelNameSnake": "publisher",
+            "pluralModelName": "Publisher Collection",
+            "pluralModelNameCamel": "publisherCollection",
+            "pluralModelNamePascal": "PublisherCollection",
+            "pluralModelNameSnake": "publisher-collection",
+            "properties": Array [
+              Object {
+                "component": Object {
+                  "edit": "StringEdit",
+                  "view": "StringView",
+                },
+                "hide": false,
+                "isBoolean": false,
+                "isPrimary": true,
+                "isString": true,
+                "propertyName": "Name",
+                "propertyNameCamel": "name",
+                "propertyNamePascal": "Name",
+                "propertyNameSnake": "name",
+                "type": "String",
+              },
+            ],
+          },
+        ],
+        "templateName": "react-app",
+        "templateVersion": "0.3.0",
+      },
+    },
+  },
+  Object {
+    "TRACE": Object {
       "msg": "Add to view model",
       "property": Object {
         "packages": Array [
@@ -426,7 +556,7 @@ Array [
     "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/package.json",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/.create-app",
+    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/.appily",
   },
   Object {
     "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/setupTests.js",
@@ -506,11 +636,11 @@ Array [
 ]
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/.create-app should match snapshot 1`] = `
+exports[`React template tests/app/video-game-app-indexedDB/.appily should match snapshot 1`] = `
 "{
   template: \\"react-app\\",
   version: \\"0.3.0\\",
-  config: {
+  config:  {
   \\"dir\\": \\"tests/app\\",
   \\"name\\": \\"Video Game App IndexedDB\\",
   \\"template\\": \\"react-app\\",
@@ -536,7 +666,7 @@ exports[`React template tests/app/video-game-app-indexedDB/.create-app should ma
       }
     }
   }
-}
+ }
 }"
 `;
 

@@ -5,6 +5,7 @@ import { kvp } from '../lib/kvp.js';
 import { copyDirective } from './directives/copyDirective.js';
 import { loopDirective } from './directives/loopDirective.js';
 import { viewModelDirective } from './directives/viewModelDirective.js';
+import { viewModelTransform } from './directives/viewModelTransform.js';
 import { getViewModel } from './getViewModel.js';
 
 function getDirectives(manifesto, selectedOptions) {
@@ -50,14 +51,29 @@ async function runFileDirectives({ directives, templateDir, dir, viewModel }) {
   }
 }
 
-function runViewModelDirectives({ directives, initialViewModel }) {
-  return directives.reduce((viewModel, directive) => {
+async function runViewModelDirectives({
+  directives,
+  templateDir,
+  initialViewModel
+}) {
+  return directives.reduce(async (viewModel, directive) => {
+    const resolvedViewModel = await viewModel;
     if (directive.key === Directive.ViewModel) {
       const property = directive.value;
-      return viewModelDirective({ property, viewModel });
+      return viewModelDirective({ property, viewModel: resolvedViewModel });
     }
 
-    return viewModel;
+    if (directive.key === Directive.ViewModelTransform) {
+      const { path: templatePath, method } = directive.value;
+      const transformPath = path.join(templateDir, templatePath);
+      return await viewModelTransform({
+        path: transformPath,
+        method,
+        viewModel: resolvedViewModel
+      });
+    }
+
+    return resolvedViewModel;
   }, initialViewModel);
 }
 
@@ -65,7 +81,11 @@ export async function runDirectives({ config, dir, manifesto, templateDir }) {
   const selectedOptions = getSelectedOptions(manifesto, config);
   const directives = getDirectives(manifesto, selectedOptions).map(kvp);
   const initialViewModel = getViewModel({ config, manifesto, dir });
-  const viewModel = runViewModelDirectives({ directives, initialViewModel });
+  const viewModel = await runViewModelDirectives({
+    directives,
+    templateDir,
+    initialViewModel
+  });
   logger.trace({ viewModel });
 
   await runFileDirectives({ directives, templateDir, dir, viewModel });

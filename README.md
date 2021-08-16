@@ -109,6 +109,7 @@ Aim for progressive development with something useful asap See the [road map](./
 ## Todo
 
 - have normalize config, convert objects to arrays
+- remove `viewModelDirective.js` (or rename to `packageDirective.js` and repurpose for packages)
 - add default value module under config
 - add model remove
 - add github test badge
@@ -117,7 +118,4 @@ Aim for progressive development with something useful asap See the [road map](./
 - add options cli option, print out options from manfesto
 - add test for missing coverage
 - try to fix nested app issue (apps don't run from manual folder)
-- Make docs easier to understand
-- Fix tabing in .appily
-- remove component logic from view model
-- rebrand
+- make docs easier to understand

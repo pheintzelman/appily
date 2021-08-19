@@ -1,14 +1,14 @@
-v. 0.0.15
+v. 0.0.15-alpha
 
-- react-app template: remove model added
+- react-app template: Added remove model
 
-v. 0.0.14
+v. 0.0.14-prealpha
 
 - rebranded from `create-app` to `appily`
 - fixed tabbing in `.appily` config file
 - removed component logic from view model
 
-v. 0.0.13
+v. 0.0.13-prealpha
 
 - Support multiple types
 - react-app template: Support multiple types

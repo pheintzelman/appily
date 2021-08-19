@@ -4,8 +4,8 @@ Generate an application form a simple json configuration. Perfect for MVP's and 
 
 ## Status
 
-Pre-alpha. Marching towards alpha.  
-Generated react app is runnable with add model instance and homepage.
+Alpha. We have met our alpha goals!  
+Appily can generated a react app that is able to perform full CRUD opperations, against indexedDb.
 
 ![First app](doc/images/first-app-2021-06-17.png)
 
@@ -21,6 +21,10 @@ See [change log](./doc/CHANGELOG.md) for more details.
 ```
 
 ### Install
+
+$ npm install appily -g
+
+### Dev Setup
 
 ```
 1. clone repo
@@ -111,7 +115,6 @@ Aim for progressive development with something useful asap See the [road map](./
 - have normalize config, convert objects to arrays
 - remove `viewModelDirective.js` (or rename to `packageDirective.js` and repurpose for packages)
 - add default value module under config
-- add model remove
 - add github test badge
 - add github test action (pipeline)
 - add overide cli option, for now this can just delete the existing dir
@@ -119,3 +122,28 @@ Aim for progressive development with something useful asap See the [road map](./
 - add test for missing coverage
 - try to fix nested app issue (apps don't run from manual folder)
 - make docs easier to understand
+- decouple getViewModel from runDirectives
+- make tests cross OS
+- get types working with collection
+- add support for nested models
+- add stubbed express api
+- add types
+  -- Number
+  -- DateTime
+  -- Enum
+  -- link
+
+# Later
+
+- add better table filter
+- add types
+  -- tags
+  -- address
+  -- phone
+  -- year
+  -- dob
+  -- date range
+  -- time
+  -- curency
+  -- quantity
+- add computed properties

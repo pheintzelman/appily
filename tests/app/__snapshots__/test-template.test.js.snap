@@ -8,6 +8,7 @@ Array [
         "appName": "Test App",
         "appNameCamel": "testApp",
         "appNamePascal": "TestApp",
+        "appNameSentenceCase": "test app",
         "appNameSnake": "test-app",
         "configString": " {
   \\"dir\\": \\"tests/app\\",

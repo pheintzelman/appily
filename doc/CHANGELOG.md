@@ -1,3 +1,7 @@
+v. 0.0.15
+
+- react-app template: remove model added
+
 v. 0.0.14
 
 - rebranded from `create-app` to `appily`

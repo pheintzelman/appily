@@ -72,14 +72,14 @@ export function {{modelNamePascal}}Collection() {
     return loading();
   }
 
-  const headerIcon = { Icon: AddIcon, to: "{{modelNamePascal}}", label: "add" };
+  const actions = [{ Icon: AddIcon, to: "{{modelNamePascal}}", label: "Add" }];
 
   return (
     <Container
       maxWidth="sm"
       className="Container Collection {{modelNamePascal}}Collection"
     >
-      <Header title="{{pluralModelName}}" icon={headerIcon}/>
+      <Header title="{{pluralModelName}}" actions={actions}/>
       <div style={{=<% %>=}}{{ display: "flex", height: "100%" }}<%={{ }}=%>>
         <div className="test" style={{=<% %>=}}{{ flexGrow: 1 }}<%={{ }}=%>>
           <DataGrid

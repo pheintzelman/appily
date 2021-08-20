@@ -8,6 +8,7 @@ Array [
         "appName": "Video Game App",
         "appNameCamel": "videoGameApp",
         "appNamePascal": "VideoGameApp",
+        "appNameSentenceCase": "video game app",
         "appNameSnake": "video-game-app",
         "configString": " {
   \\"dir\\": \\"tests/app\\",
@@ -48,11 +49,18 @@ Array [
             "modelName": "Video Game",
             "modelNameCamel": "videoGame",
             "modelNamePascal": "VideoGame",
+            "modelNameSentenceCase": "video game",
             "modelNameSnake": "video-game",
             "pluralModelName": "Video Game Collection",
             "pluralModelNameCamel": "videoGameCollection",
             "pluralModelNamePascal": "VideoGameCollection",
+            "pluralModelNameSentenceCase": "video game collection",
             "pluralModelNameSnake": "video-game-collection",
+            "primaryProperty": "Title",
+            "primaryPropertyCamel": "title",
+            "primaryPropertyPascal": "Title",
+            "primaryPropertySentenceCase": "title",
+            "primaryPropertySnake": "title",
             "properties": Array [
               Object {
                 "component": Object {
@@ -66,6 +74,7 @@ Array [
                 "propertyName": "Title",
                 "propertyNameCamel": "title",
                 "propertyNamePascal": "Title",
+                "propertyNameSentenceCase": "title",
                 "propertyNameSnake": "title",
                 "type": "String",
               },
@@ -81,6 +90,7 @@ Array [
                 "propertyName": "Year Published",
                 "propertyNameCamel": "yearPublished",
                 "propertyNamePascal": "YearPublished",
+                "propertyNameSentenceCase": "year published",
                 "propertyNameSnake": "year-published",
                 "type": "String",
               },
@@ -99,11 +109,18 @@ Array [
             "modelName": "Publisher",
             "modelNameCamel": "publisher",
             "modelNamePascal": "Publisher",
+            "modelNameSentenceCase": "publisher",
             "modelNameSnake": "publisher",
             "pluralModelName": "Publisher Collection",
             "pluralModelNameCamel": "publisherCollection",
             "pluralModelNamePascal": "PublisherCollection",
+            "pluralModelNameSentenceCase": "publisher collection",
             "pluralModelNameSnake": "publisher-collection",
+            "primaryProperty": "Name",
+            "primaryPropertyCamel": "name",
+            "primaryPropertyPascal": "Name",
+            "primaryPropertySentenceCase": "name",
+            "primaryPropertySnake": "name",
             "properties": Array [
               Object {
                 "component": Object {
@@ -117,6 +134,7 @@ Array [
                 "propertyName": "Name",
                 "propertyNameCamel": "name",
                 "propertyNamePascal": "Name",
+                "propertyNameSentenceCase": "name",
                 "propertyNameSnake": "name",
                 "type": "String",
               },
@@ -341,6 +359,7 @@ Array [
         "appName": "Video Game App",
         "appNameCamel": "videoGameApp",
         "appNamePascal": "VideoGameApp",
+        "appNameSentenceCase": "video game app",
         "appNameSnake": "video-game-app",
         "configString": " {
   \\"dir\\": \\"tests/app\\",
@@ -381,11 +400,18 @@ Array [
             "modelName": "Video Game",
             "modelNameCamel": "videoGame",
             "modelNamePascal": "VideoGame",
+            "modelNameSentenceCase": "video game",
             "modelNameSnake": "video-game",
             "pluralModelName": "Video Game Collection",
             "pluralModelNameCamel": "videoGameCollection",
             "pluralModelNamePascal": "VideoGameCollection",
+            "pluralModelNameSentenceCase": "video game collection",
             "pluralModelNameSnake": "video-game-collection",
+            "primaryProperty": "Title",
+            "primaryPropertyCamel": "title",
+            "primaryPropertyPascal": "Title",
+            "primaryPropertySentenceCase": "title",
+            "primaryPropertySnake": "title",
             "properties": Array [
               Object {
                 "component": Object {
@@ -399,6 +425,7 @@ Array [
                 "propertyName": "Title",
                 "propertyNameCamel": "title",
                 "propertyNamePascal": "Title",
+                "propertyNameSentenceCase": "title",
                 "propertyNameSnake": "title",
                 "type": "String",
               },
@@ -414,6 +441,7 @@ Array [
                 "propertyName": "Year Published",
                 "propertyNameCamel": "yearPublished",
                 "propertyNamePascal": "YearPublished",
+                "propertyNameSentenceCase": "year published",
                 "propertyNameSnake": "year-published",
                 "type": "String",
               },
@@ -432,11 +460,18 @@ Array [
             "modelName": "Publisher",
             "modelNameCamel": "publisher",
             "modelNamePascal": "Publisher",
+            "modelNameSentenceCase": "publisher",
             "modelNameSnake": "publisher",
             "pluralModelName": "Publisher Collection",
             "pluralModelNameCamel": "publisherCollection",
             "pluralModelNamePascal": "PublisherCollection",
+            "pluralModelNameSentenceCase": "publisher collection",
             "pluralModelNameSnake": "publisher-collection",
+            "primaryProperty": "Name",
+            "primaryPropertyCamel": "name",
+            "primaryPropertyPascal": "Name",
+            "primaryPropertySentenceCase": "name",
+            "primaryPropertySnake": "name",
             "properties": Array [
               Object {
                 "component": Object {
@@ -450,6 +485,7 @@ Array [
                 "propertyName": "Name",
                 "propertyNameCamel": "name",
                 "propertyNamePascal": "Name",
+                "propertyNameSentenceCase": "name",
                 "propertyNameSnake": "name",
                 "type": "String",
               },
@@ -577,10 +613,16 @@ Array [
     "DEBUG": "File copied: tests/app/video-game-app/src/components/types/BooleanEdit.js",
   },
   Object {
+    "DEBUG": "File copied: tests/app/video-game-app/src/components/common/HeaderMenu.js",
+  },
+  Object {
     "DEBUG": "File copied: tests/app/video-game-app/src/components/common/Header.scss",
   },
   Object {
     "DEBUG": "File copied: tests/app/video-game-app/src/components/common/Header.js",
+  },
+  Object {
+    "DEBUG": "File copied: tests/app/video-game-app/src/components/common/ConfirmDialog.js",
   },
   Object {
     "DEBUG": "File copied: tests/app/video-game-app/src/components/common/Center.scss",
@@ -1125,7 +1167,7 @@ test('renders welcome message', () => {
 `;
 
 exports[`React template tests/app/video-game-app/src/api/publisher.js should match snapshot 1`] = `
-"import { add, get, set, getAll } from '../db/publisher';
+"import { add, update, get, getAll, remove } from '../db/publisher';
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -1134,11 +1176,6 @@ function sleep(ms) {
 export async function addPublisher(publisher) {
   await sleep(1000);
   return await add(publisher);
-}
-
-export async function updatePublisher(id, publisher) {
-  await sleep(1000);
-  return await set(id, publisher);
 }
 
 export async function getPublisher(id) {
@@ -1156,11 +1193,25 @@ export async function getPublisherCollection() {
 
   return await getAll();
 }
-"
+
+export async function updatePublisher(id, publisher) {
+  await sleep(1000);
+  return await update(id, publisher);
+}
+
+export async function removePublisher(id) {
+  await sleep(1000);
+
+  if (!id) {
+    return null;
+  }
+
+  return await remove(id);
+}"
 `;
 
 exports[`React template tests/app/video-game-app/src/api/videoGame.js should match snapshot 1`] = `
-"import { add, get, set, getAll } from '../db/videoGame';
+"import { add, update, get, getAll, remove } from '../db/videoGame';
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -1169,11 +1220,6 @@ function sleep(ms) {
 export async function addVideoGame(videoGame) {
   await sleep(1000);
   return await add(videoGame);
-}
-
-export async function updateVideoGame(id, videoGame) {
-  await sleep(1000);
-  return await set(id, videoGame);
 }
 
 export async function getVideoGame(id) {
@@ -1191,7 +1237,21 @@ export async function getVideoGameCollection() {
 
   return await getAll();
 }
-"
+
+export async function updateVideoGame(id, videoGame) {
+  await sleep(1000);
+  return await update(id, videoGame);
+}
+
+export async function removeVideoGame(id) {
+  await sleep(1000);
+
+  if (!id) {
+    return null;
+  }
+
+  return await remove(id);
+}"
 `;
 
 exports[`React template tests/app/video-game-app/src/components/App/AppHeader.js should match snapshot 1`] = `
@@ -1459,13 +1519,15 @@ export function EditPublisher() {
 
 exports[`React template tests/app/video-game-app/src/components/Publisher/Publisher.js should match snapshot 1`] = `
 "import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { Container, CircularProgress } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
 import { Center } from '../common/Center';
-import { getPublisher } from '../../api/publisher';
+import { getPublisher, removePublisher } from '../../api/publisher';
 import { StringView } from '../types/StringView';
-import { Header } from \\"../../components/common/Header\\";
+import { Header } from '../common/Header';
+import { ConfirmDialog } from '../common/ConfirmDialog';
 
 function loading() {
   return (
@@ -1482,14 +1544,58 @@ function publisherNotFound() {
   return (
     <Container maxWidth=\\"sm\\" className=\\"Container Publisher\\">
       <Header title=\\"Publisher\\"/>
-      <h2>Not found</h2>
+      <div className=\\"containerContent\\">
+        <h2>Not found</h2>
+      </div>
     </Container>
   );
+}
+
+function handleRemovePublisher({ id, setIsLoading, history }) {
+  return async () => {
+    setIsLoading(true);
+    await removePublisher(id);
+    history.push(\`/publisherCollection\`);
+  };
+}
+
+function handleConfirmDialogConfrim(setConfirmDialogOpen, onConfirm) {
+  return () => {
+    if (onConfirm) {
+      onConfirm();
+    }
+
+    setConfirmDialogOpen(false);
+  };
+}
+
+function handleConfirmDialogCancel(setConfirmDialogOpen) {
+  return () => {
+    setConfirmDialogOpen(false);
+  };
+}
+
+function openConfirmDialog(setConfirmDialogOpen) {
+  return () => {
+    setConfirmDialogOpen(true);
+  };
+}
+
+function getDialogText(publisher) {
+  const title = publisher.name;
+
+  if (title === '') {
+    return \`Do you want to delete this publisher?\`;
+  }
+
+  return \`Do you want to delete the publisher, \${title}?\`;
 }
 
 export function Publisher() {
   const [publisher, setPublisher] = useState({ name: '' });
   const [isLoading, setIsLoading] = useState(true);
+  const [confirmDialogOpen, setConfirmDialogOpen] = useState(false);
+  const history = useHistory();
   const { id: stringId } = useParams();
   const id = parseInt(stringId);
 
@@ -1513,14 +1619,31 @@ export function Publisher() {
     return publisherNotFound();
   }
 
-  const headerIcon = {Icon: EditIcon, to:\`edit/\${id}\`, label:\\"edit\\"};
+  const headerActions = [
+    { Icon: EditIcon, to: \`edit/\${id}\`, label: 'Edit' },
+    {
+      Icon: DeleteIcon,
+      onClick: openConfirmDialog(setConfirmDialogOpen),
+      label: 'Delete'
+    }
+  ];
 
   return (
     <Container maxWidth=\\"sm\\" className=\\"Container Publisher\\">
-      <Header title=\\"Publisher\\" icon={headerIcon}/>
+      <Header title=\\"Publisher\\" actions={headerActions}/>
       <div className=\\"containerContent\\">
         <StringView label=\\"Name\\" value={publisher.name} />
       </div>
+      <ConfirmDialog
+        text={getDialogText(publisher)}
+        title=\\"Confirm Delete\\"
+        open={confirmDialogOpen}
+        onCancel={handleConfirmDialogCancel(setConfirmDialogOpen)}
+        onConfirm={handleConfirmDialogConfrim(
+          setConfirmDialogOpen,
+          handleRemovePublisher({ id, setIsLoading, history })
+        )}
+      />
     </Container>
   );
 }"
@@ -1587,14 +1710,14 @@ export function PublisherCollection() {
     return loading();
   }
 
-  const headerIcon = { Icon: AddIcon, to: \\"Publisher\\", label: \\"add\\" };
+  const actions = [{ Icon: AddIcon, to: \\"Publisher\\", label: \\"Add\\" }];
 
   return (
     <Container
       maxWidth=\\"sm\\"
       className=\\"Container Collection PublisherCollection\\"
     >
-      <Header title=\\"Publisher Collection\\" icon={headerIcon}/>
+      <Header title=\\"Publisher Collection\\" actions={actions}/>
       <div style={{ display: \\"flex\\", height: \\"100%\\" }}>
         <div className=\\"test\\" style={{ flexGrow: 1 }}>
           <DataGrid
@@ -1797,13 +1920,15 @@ export function EditVideoGame() {
 
 exports[`React template tests/app/video-game-app/src/components/VideoGame/VideoGame.js should match snapshot 1`] = `
 "import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { Container, CircularProgress } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
 import { Center } from '../common/Center';
-import { getVideoGame } from '../../api/videoGame';
+import { getVideoGame, removeVideoGame } from '../../api/videoGame';
 import { StringView } from '../types/StringView';
-import { Header } from \\"../../components/common/Header\\";
+import { Header } from '../common/Header';
+import { ConfirmDialog } from '../common/ConfirmDialog';
 
 function loading() {
   return (
@@ -1820,14 +1945,58 @@ function videoGameNotFound() {
   return (
     <Container maxWidth=\\"sm\\" className=\\"Container VideoGame\\">
       <Header title=\\"Video Game\\"/>
-      <h2>Not found</h2>
+      <div className=\\"containerContent\\">
+        <h2>Not found</h2>
+      </div>
     </Container>
   );
+}
+
+function handleRemoveVideoGame({ id, setIsLoading, history }) {
+  return async () => {
+    setIsLoading(true);
+    await removeVideoGame(id);
+    history.push(\`/videoGameCollection\`);
+  };
+}
+
+function handleConfirmDialogConfrim(setConfirmDialogOpen, onConfirm) {
+  return () => {
+    if (onConfirm) {
+      onConfirm();
+    }
+
+    setConfirmDialogOpen(false);
+  };
+}
+
+function handleConfirmDialogCancel(setConfirmDialogOpen) {
+  return () => {
+    setConfirmDialogOpen(false);
+  };
+}
+
+function openConfirmDialog(setConfirmDialogOpen) {
+  return () => {
+    setConfirmDialogOpen(true);
+  };
+}
+
+function getDialogText(videoGame) {
+  const title = videoGame.title;
+
+  if (title === '') {
+    return \`Do you want to delete this video game?\`;
+  }
+
+  return \`Do you want to delete the video game, \${title}?\`;
 }
 
 export function VideoGame() {
   const [videoGame, setVideoGame] = useState({ title: '', yearPublished: '' });
   const [isLoading, setIsLoading] = useState(true);
+  const [confirmDialogOpen, setConfirmDialogOpen] = useState(false);
+  const history = useHistory();
   const { id: stringId } = useParams();
   const id = parseInt(stringId);
 
@@ -1851,15 +2020,32 @@ export function VideoGame() {
     return videoGameNotFound();
   }
 
-  const headerIcon = {Icon: EditIcon, to:\`edit/\${id}\`, label:\\"edit\\"};
+  const headerActions = [
+    { Icon: EditIcon, to: \`edit/\${id}\`, label: 'Edit' },
+    {
+      Icon: DeleteIcon,
+      onClick: openConfirmDialog(setConfirmDialogOpen),
+      label: 'Delete'
+    }
+  ];
 
   return (
     <Container maxWidth=\\"sm\\" className=\\"Container VideoGame\\">
-      <Header title=\\"Video Game\\" icon={headerIcon}/>
+      <Header title=\\"Video Game\\" actions={headerActions}/>
       <div className=\\"containerContent\\">
         <StringView label=\\"Title\\" value={videoGame.title} />
         <StringView label=\\"Year Published\\" value={videoGame.yearPublished} />
       </div>
+      <ConfirmDialog
+        text={getDialogText(videoGame)}
+        title=\\"Confirm Delete\\"
+        open={confirmDialogOpen}
+        onCancel={handleConfirmDialogCancel(setConfirmDialogOpen)}
+        onConfirm={handleConfirmDialogConfrim(
+          setConfirmDialogOpen,
+          handleRemoveVideoGame({ id, setIsLoading, history })
+        )}
+      />
     </Container>
   );
 }"
@@ -1932,14 +2118,14 @@ export function VideoGameCollection() {
     return loading();
   }
 
-  const headerIcon = { Icon: AddIcon, to: \\"VideoGame\\", label: \\"add\\" };
+  const actions = [{ Icon: AddIcon, to: \\"VideoGame\\", label: \\"Add\\" }];
 
   return (
     <Container
       maxWidth=\\"sm\\"
       className=\\"Container Collection VideoGameCollection\\"
     >
-      <Header title=\\"Video Game Collection\\" icon={headerIcon}/>
+      <Header title=\\"Video Game Collection\\" actions={actions}/>
       <div style={{ display: \\"flex\\", height: \\"100%\\" }}>
         <div className=\\"test\\" style={{ flexGrow: 1 }}>
           <DataGrid
@@ -2100,31 +2286,100 @@ exports[`React template tests/app/video-game-app/src/components/common/Center.sc
 "
 `;
 
+exports[`React template tests/app/video-game-app/src/components/common/ConfirmDialog.js should match snapshot 1`] = `
+"import { forwardRef } from 'react';
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Slide from '@material-ui/core/Slide';
+
+const Transition = forwardRef(function Transition(props, ref) {
+  return <Slide direction=\\"up\\" ref={ref} {...props} />;
+});
+
+export function ConfirmDialog({ open, onConfirm, onCancel, text, title }) {
+  return (
+    <Dialog
+      open={open}
+      TransitionComponent={Transition}
+      keepMounted
+      onClose={onCancel}
+      aria-labelledby=\\"alert-dialog-slide-title\\"
+      aria-describedby=\\"alert-dialog-slide-description\\"
+    >
+      <DialogTitle id=\\"alert-dialog-slide-title\\">{title}</DialogTitle>
+      <DialogContent>
+        <DialogContentText id=\\"alert-dialog-slide-description\\">
+          {text}
+        </DialogContentText>
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={onCancel} color=\\"primary\\">
+          Cancel
+        </Button>
+        <Button onClick={onConfirm} color=\\"primary\\">
+          Yes
+        </Button>
+      </DialogActions>
+    </Dialog>
+  );
+}
+"
+`;
+
 exports[`React template tests/app/video-game-app/src/components/common/Header.js should match snapshot 1`] = `
-"import { Link as RouterLink } from \\"react-router-dom\\";
-import { IconButton } from \\"@material-ui/core\\";
-import \\"./Header.scss\\";
+"import { Link as RouterLink } from 'react-router-dom';
+import { IconButton } from '@material-ui/core';
+import HeaderMenu from './HeaderMenu';
+import './Header.scss';
+
+function getAction({ to, onClick }) {
+  if (to) {
+    return { component: RouterLink, to };
+  }
+
+  if (onClick) {
+    return { onClick };
+  }
+
+  return {};
+}
 
 function getIcon(icon) {
   if (!icon) {
     return;
   }
-  const { label, Icon, to } = icon;
+  const { label, Icon, to, onClick } = icon;
 
   return (
     <div className=\\"headerIcon\\">
-      <IconButton aria-label={label} component={RouterLink} to={to}>
+      <IconButton aria-label={label} {...getAction({ to, onClick })}>
         <Icon />
       </IconButton>
     </div>
   );
 }
 
-export function Header({ title, icon }) {
+function renderActions(actions) {
+  if (!actions || actions.length <= 0) {
+    return;
+  }
+
+  if (actions.length === 1) {
+    return getIcon(actions[0]);
+  }
+
+  return HeaderMenu({ actions });
+}
+
+export function Header({ title, actions }) {
   return (
     <div className=\\"Header\\">
       <h1>{title}</h1>
-      {getIcon(icon)}
+      {renderActions(actions)}
     </div>
   );
 }
@@ -2135,12 +2390,89 @@ exports[`React template tests/app/video-game-app/src/components/common/Header.sc
 ".Header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 1.5rem;
 
   .headerIcon {
     height: 48px;
     margin-top: 18px;
   }
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app/src/components/common/HeaderMenu.js should match snapshot 1`] = `
+"import { useState } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
+import {
+  Menu,
+  MenuItem,
+  IconButton,
+  ListItemIcon,
+  ListItemText
+} from '@material-ui/core';
+import { MoreVert as MoreVertIcon } from '@material-ui/icons';
+
+function getAction({ to, onClick, handleClose }) {
+  if (to) {
+    return { component: RouterLink, to };
+  }
+
+  if (onClick) {
+    return {
+      onClick: () => {
+        handleClose();
+        onClick();
+      }
+    };
+  }
+
+  return {};
+}
+
+function renderActions(actions, handleClose) {
+  return actions.map(({ Icon, label, to, onClick }) => (
+    <MenuItem {...getAction({ to, onClick, handleClose })} key={label}>
+      <ListItemIcon>
+        <Icon fontSize=\\"small\\" />
+      </ListItemIcon>
+      <ListItemText primary={label} />
+    </MenuItem>
+  ));
+}
+
+export default function HeaderMenu({ actions }) {
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  return (
+    <div>
+      <IconButton
+        aria-label=\\"menu\\"
+        aria-controls=\\"menu\\"
+        aria-haspopup=\\"true\\"
+        onClick={handleClick}
+      >
+        <MoreVertIcon />
+      </IconButton>
+      <Menu
+        id=\\"customized-menu\\"
+        anchorEl={anchorEl}
+        keepMounted
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+      >
+        {renderActions(actions, handleClose)}
+      </Menu>
+    </div>
+  );
 }
 "
 `;
@@ -2244,24 +2576,14 @@ export async function connect() {
   });
 }
 
-export async function get(store, key) {
-  const db = await connect();
-  return db.get(store, key);
-}
-
 export async function add(store, value) {
   const db = await connect();
   return db.add(store, value);
 }
 
-export async function set(store, key, value) {
+export async function get(store, key) {
   const db = await connect();
-  return db.put(store, value, key);
-}
-
-export async function deleteRecord(store, key) {
-  const db = await connect();
-  return db.delete(store, key);
+  return db.get(store, key);
 }
 
 export async function getAll(store) {
@@ -2273,13 +2595,23 @@ export async function getAll(store) {
   return Promise.all(promises);
 }
 
+export async function update(store, key, value) {
+  const db = await connect();
+  return db.put(store, value, key);
+}
+
+export async function remove(store, key) {
+  const db = await connect();
+  return db.delete(store, key);
+}
+
 export function withStore(store) {
   return {
     get: async (key) => await get(store, key),
-    add: async (value) => await add(store, value),
-    set: async (key, value) => await set(store, value, key),
-    deleteRecord: async (key) => await deleteRecord(store, key),
     getAll: async () => await getAll(store),
+    add: async (value) => await add(store, value),
+    update: async (key, value) => await update(store, value, key),
+    remove: async (key) => await remove(store, key),
   };
 }
 "
@@ -2287,21 +2619,17 @@ export function withStore(store) {
 
 exports[`React template tests/app/video-game-app/src/db/publisher.js should match snapshot 1`] = `
 "import { withStore } from './db';
-const { add, get, set, deleteRecord, getAll } = withStore(
-  'Publisher'
-);
+const { add, get, getAll, update, remove } = withStore('Publisher');
 
-export { get, add, set, deleteRecord, getAll };
+export { add, get, getAll, update, remove };
 "
 `;
 
 exports[`React template tests/app/video-game-app/src/db/videoGame.js should match snapshot 1`] = `
 "import { withStore } from './db';
-const { add, get, set, deleteRecord, getAll } = withStore(
-  'VideoGame'
-);
+const { add, get, getAll, update, remove } = withStore('VideoGame');
 
-export { get, add, set, deleteRecord, getAll };
+export { add, get, getAll, update, remove };
 "
 `;
 

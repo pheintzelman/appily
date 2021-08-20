@@ -17,6 +17,14 @@ function preprocessProperty([propertyName, { type }], index) {
   };
 }
 
+export function getPrimaryProperty(properties) {
+  if (!properties) {
+    return '';
+  }
+
+  return Object.keys(properties)[0];
+}
+
 export function preprocessProperties(properties) {
   if (!properties) {
     return [];

@@ -1,5 +1,5 @@
 import util from 'util';
-import { preprocessProperties } from './properties.js';
+import { preprocessProperties, getPrimaryProperty } from './properties.js';
 import { getVariations } from '../../lib/case.js';
 import { DefaultPluralSuffix } from '../../constants/constants.js';
 import { getDefaultValueForType } from './getDefaultValueForType.js';
@@ -21,9 +21,11 @@ function getPluralModelName(modelName, model) {
 function preprocessModel([modelName, model]) {
   const properties = preprocessProperties(model.properties);
   const pluralName = getPluralModelName(modelName, model);
+  const primaryProperty = getPrimaryProperty(model.properties);
 
   return {
     properties,
+    ...getVariations('primaryProperty', primaryProperty),
     defaultState: util.inspect(getDefaultState(properties)),
     ...getVariations('modelName', modelName),
     ...getVariations('pluralModelName', pluralName)

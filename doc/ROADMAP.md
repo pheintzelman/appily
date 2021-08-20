@@ -11,33 +11,24 @@ _alpha 0.1_
 
 _alpha 0.2_
 
-- configured api support
-- create api adapters for rest and wire to UI
-  - get
-  - get with children
-  - insert
-  - update
-  - delete
+- node express backend
 - support model nesting
 - add app tests
 
 _alpha 0.3_
 
-- node express backend
-- configured db support
+- postgresDb
 - basic validation
+  - required fields
+  - regex
 
 _alpha 0.4_
-
-- postgresDb
-
-_alpha 0.5_
 
 - Basic Auth, homerolled following OAuth (this is the best out of the box experence)
   - Login
   - Account creation
 
-_alpha 0.6_
+_alpha 0.5_
 
 - UI with better types
 - Improved validation
@@ -47,7 +38,7 @@ _beta 1.0_
 - add smtp
 - cors configuration
 - improved auth
-- password reset/validate login
+- password reset/validate email
 
 _later_
 
@@ -63,4 +54,3 @@ _later_
 - support native apps/desktop
 - storybook
 - app overwrite option
-- change config to js

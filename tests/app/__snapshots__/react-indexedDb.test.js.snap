@@ -43,6 +43,7 @@ Array [
             "componentImports": Array [
               Object {
                 "component": Object {
+                  "cell": "StringCell",
                   "edit": "StringEdit",
                   "view": "StringView",
                 },
@@ -67,9 +68,11 @@ Array [
             "properties": Array [
               Object {
                 "component": Object {
+                  "cell": "StringCell",
                   "edit": "StringEdit",
                   "view": "StringView",
                 },
+                "flex": 4,
                 "hide": false,
                 "isBoolean": false,
                 "isPrimary": true,
@@ -83,9 +86,11 @@ Array [
               },
               Object {
                 "component": Object {
+                  "cell": "StringCell",
                   "edit": "StringEdit",
                   "view": "StringView",
                 },
+                "flex": 4,
                 "hide": false,
                 "isBoolean": false,
                 "isPrimary": false,
@@ -103,6 +108,7 @@ Array [
             "componentImports": Array [
               Object {
                 "component": Object {
+                  "cell": "StringCell",
                   "edit": "StringEdit",
                   "view": "StringView",
                 },
@@ -127,9 +133,11 @@ Array [
             "properties": Array [
               Object {
                 "component": Object {
+                  "cell": "StringCell",
                   "edit": "StringEdit",
                   "view": "StringView",
                 },
+                "flex": 4,
                 "hide": false,
                 "isBoolean": false,
                 "isPrimary": true,
@@ -151,7 +159,7 @@ Array [
           },
         ],
         "templateName": "react-app",
-        "templateVersion": "0.3.0",
+        "templateVersion": "0.4.0",
       },
     },
   },
@@ -400,6 +408,7 @@ Array [
             "componentImports": Array [
               Object {
                 "component": Object {
+                  "cell": "StringCell",
                   "edit": "StringEdit",
                   "view": "StringView",
                 },
@@ -424,9 +433,11 @@ Array [
             "properties": Array [
               Object {
                 "component": Object {
+                  "cell": "StringCell",
                   "edit": "StringEdit",
                   "view": "StringView",
                 },
+                "flex": 4,
                 "hide": false,
                 "isBoolean": false,
                 "isPrimary": true,
@@ -440,9 +451,11 @@ Array [
               },
               Object {
                 "component": Object {
+                  "cell": "StringCell",
                   "edit": "StringEdit",
                   "view": "StringView",
                 },
+                "flex": 4,
                 "hide": false,
                 "isBoolean": false,
                 "isPrimary": false,
@@ -460,6 +473,7 @@ Array [
             "componentImports": Array [
               Object {
                 "component": Object {
+                  "cell": "StringCell",
                   "edit": "StringEdit",
                   "view": "StringView",
                 },
@@ -484,9 +498,11 @@ Array [
             "properties": Array [
               Object {
                 "component": Object {
+                  "cell": "StringCell",
                   "edit": "StringEdit",
                   "view": "StringView",
                 },
+                "flex": 4,
                 "hide": false,
                 "isBoolean": false,
                 "isPrimary": true,
@@ -502,7 +518,7 @@ Array [
           },
         ],
         "templateName": "react-app",
-        "templateVersion": "0.3.0",
+        "templateVersion": "0.4.0",
       },
     },
   },
@@ -616,10 +632,19 @@ Array [
     "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/components/types/StringEdit.js",
   },
   Object {
+    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/components/types/StringCell.js",
+  },
+  Object {
     "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/components/types/BooleanView.js",
   },
   Object {
     "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/components/types/BooleanEdit.js",
+  },
+  Object {
+    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/components/types/BooleanCell.scss",
+  },
+  Object {
+    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/components/types/BooleanCell.js",
   },
   Object {
     "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/components/common/HeaderMenu.js",
@@ -681,7 +706,7 @@ Array [
 exports[`React template tests/app/video-game-app-indexedDB/.appily should match snapshot 1`] = `
 "{
   template: \\"react-app\\",
-  version: \\"0.3.0\\",
+  version: \\"0.4.0\\",
   config:  {
   \\"dir\\": \\"tests/app\\",
   \\"name\\": \\"Video Game App IndexedDB\\",
@@ -794,7 +819,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 exports[`React template tests/app/video-game-app-indexedDB/package.json should match snapshot 1`] = `
 "{
   \\"name\\": \\"video-game-app-indexeddb\\",
-  \\"version\\": \\"0.3.0\\",
+  \\"version\\": \\"0.4.0\\",
   \\"private\\": true,
   \\"dependencies\\": {
     \\"@material-ui/core\\": \\"^4.11.4\\",
@@ -1219,7 +1244,8 @@ export async function removePublisher(id) {
   }
 
   return await remove(id);
-}"
+}
+"
 `;
 
 exports[`React template tests/app/video-game-app-indexedDB/src/api/videoGame.js should match snapshot 1`] = `
@@ -1263,7 +1289,8 @@ export async function removeVideoGame(id) {
   }
 
   return await remove(id);
-}"
+}
+"
 `;
 
 exports[`React template tests/app/video-game-app-indexedDB/src/components/App/AppHeader.js should match snapshot 1`] = `
@@ -1658,7 +1685,8 @@ export function Publisher() {
       />
     </Container>
   );
-}"
+}
+"
 `;
 
 exports[`React template tests/app/video-game-app-indexedDB/src/components/Publisher/PublisherCollection.js should match snapshot 1`] = `
@@ -1670,6 +1698,7 @@ import { Center } from \\"../common/Center\\";
 import { getPublisherCollection } from \\"../../api/publisher\\";
 import { DataGrid } from \\"@material-ui/data-grid\\";
 import { Header } from \\"../../components/common/Header\\";
+import { StringCell } from '../types/StringCell';
 
 function loading() {
   return (
@@ -1690,11 +1719,11 @@ function getColumns() {
     {
       field: \\"name\\",
       headerName: \\"Name\\",
-      flex: 1,
+      flex: 4,
       renderCell: ({ row: publisher }) => {
         return (
           <Link to={\`/publisher/\${publisher.id}\`}>
-            {publisher.name !== \\"\\" ? publisher.name : \\"--\\"}
+            <StringCell value={publisher.name} />
           </Link>
         );
       },
@@ -2060,7 +2089,8 @@ export function VideoGame() {
       />
     </Container>
   );
-}"
+}
+"
 `;
 
 exports[`React template tests/app/video-game-app-indexedDB/src/components/VideoGame/VideoGameCollection.js should match snapshot 1`] = `
@@ -2072,6 +2102,7 @@ import { Center } from \\"../common/Center\\";
 import { getVideoGames } from \\"../../api/videoGame\\";
 import { DataGrid } from \\"@material-ui/data-grid\\";
 import { Header } from \\"../../components/common/Header\\";
+import { StringCell } from '../types/StringCell';
 
 function loading() {
   return (
@@ -2092,11 +2123,11 @@ function getColumns() {
     {
       field: \\"title\\",
       headerName: \\"Title\\",
-      flex: 1,
+      flex: 4,
       renderCell: ({ row: videoGame }) => {
         return (
           <Link to={\`/videoGame/\${videoGame.id}\`}>
-            {videoGame.title !== \\"\\" ? videoGame.title : \\"--\\"}
+            <StringCell value={videoGame.title} />
           </Link>
         );
       },
@@ -2105,7 +2136,12 @@ function getColumns() {
       field: \\"yearPublished\\",
       headerName: \\"Year Published\\",
       hide: false,
-      flex: 1,
+      flex: 4,
+      renderCell: ({ row: videoGame }) => {
+        return (
+          <StringCell value={videoGame.yearPublished} />
+        );
+      },
     },
   ];
 }
@@ -2489,6 +2525,32 @@ export default function HeaderMenu({ actions }) {
 "
 `;
 
+exports[`React template tests/app/video-game-app-indexedDB/src/components/types/BooleanCell.js should match snapshot 1`] = `
+"import CheckIcon from '@material-ui/icons/Check';
+import './BooleanCell.scss';
+
+function getIcon(value) {
+  if (value) {
+    return <CheckIcon color=\\"primary\\" style={{ fontSize: 12 }} />;
+  }
+
+  return '-';
+}
+
+export function BooleanCell({ value }) {
+  return <div className=\\"BooleanCell\\">{getIcon(value)}</div>;
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app-indexedDB/src/components/types/BooleanCell.scss should match snapshot 1`] = `
+".BooleanCell {
+  width: 100%;
+  text-align: center;
+}
+"
+`;
+
 exports[`React template tests/app/video-game-app-indexedDB/src/components/types/BooleanEdit.js should match snapshot 1`] = `
 "import { FormControlLabel, Checkbox } from '@material-ui/core';
 
@@ -2528,6 +2590,17 @@ export function BooleanView({ label, value }) {
       {label}: {getIcon(value)}
     </div>
   );
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app-indexedDB/src/components/types/StringCell.js should match snapshot 1`] = `
+"function renderValue(value) {
+  return !value || value === '' ? '--' : value;
+}
+
+export function StringCell({ value }) {
+  return <div> {renderValue(value)} </div>;
 }
 "
 `;

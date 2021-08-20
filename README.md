@@ -5,7 +5,7 @@ Generate an application form a simple json configuration. Perfect for MVP's and 
 ## Status
 
 Alpha. We have met our alpha goals!  
-Appily can generated a react app that is able to perform full CRUD opperations, against indexedDb.
+Appily can generate a react app that is able to perform full CRUD opperations, against indexedDb.
 
 ![First app](doc/images/first-app-2021-06-17.png)
 
@@ -22,7 +22,9 @@ See [change log](./doc/CHANGELOG.md) for more details.
 
 ### Install
 
+```bash
 $ npm install appily -g
+```
 
 ### Dev Setup
 

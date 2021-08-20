@@ -6,6 +6,9 @@ import { Center } from "../common/Center";
 import { get{{pluralModelNamePascal}} } from "../../api/{{modelNameCamel}}";
 import { DataGrid } from "@material-ui/data-grid";
 import { Header } from "../../components/common/Header";
+{{#componentImports}}
+import { {{component.cell}} } from '../types/{{component.cell}}';
+{{/componentImports}}
 
 function loading() {
   return (
@@ -24,16 +27,15 @@ function loading() {
 function getColumns() {
   return [
     {{#properties}}
-    {{#isString}}
     {{#isPrimary}}
     {
       field: "{{propertyNameCamel}}",
       headerName: "{{propertyName}}",
-      flex: 1,
+      flex: {{flex}},
       renderCell: ({ row: {{modelNameCamel}} }) => {
         return (
           <Link to={`/{{modelNameCamel}}/{{=<% %>=}}${<%modelNameCamel%>.id}<%={{ }}=%>`}>
-            {{=<% %>=}}{<%modelNameCamel%>.<%propertyNameCamel%><%={{ }}=%> !== "" ? {{modelNameCamel}}.{{propertyNameCamel}} : "--"}
+            <{{component.cell}} value={{=<% %>=}}{<%modelNameCamel%>.<%propertyNameCamel%>}<%={{ }}=%> />
           </Link>
         );
       },
@@ -44,10 +46,14 @@ function getColumns() {
       field: "{{propertyNameCamel}}",
       headerName: "{{propertyName}}",
       hide: {{hide}},
-      flex: 1,
+      flex: {{flex}},
+      renderCell: ({ row: {{modelNameCamel}} }) => {
+        return (
+          <{{component.cell}} value={{=<% %>=}}{<%modelNameCamel%>.<%propertyNameCamel%>}<%={{ }}=%> />
+        );
+      },
     },
     {{/isPrimary}}
-    {{/isString}}
     {{/properties}}
   ];
 }

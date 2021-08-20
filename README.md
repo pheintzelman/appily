@@ -122,18 +122,22 @@ Aim for progressive development with something useful asap See the [road map](./
 - add overide cli option, for now this can just delete the existing dir
 - add options cli option, print out options from manfesto
 - add test for missing coverage
-- try to fix nested app issue (apps don't run from manual folder)
+- try to fix nested app issue (apps don't run from manual folder - nested npm package issue confuses npm install)
+- improve local dev testing (idea: build a tool that copies existing node_modules to new test files)
 - make docs easier to understand
 - decouple getViewModel from runDirectives
 - make tests cross OS
 - get types working with collection
 - add support for nested models
+- add a flex mapper for types
 - add stubbed express api
 - add types
-  -- Number
+  -- Number - Alex calls dibs
   -- DateTime
   -- Enum
   -- link
+- add better formatting/styling to types
+  -- string elipses, wrapping, etc
 
 # Later
 

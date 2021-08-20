@@ -1,4 +1,4 @@
-import { mapTypeToComponent } from './mapTypeToComponent.js';
+import { mapTypeToComponent, mapTypeToFlex } from './typeMappers.js';
 import { getComponentImports } from './getComponentImports.js';
 
 function transformProperties(properties) {
@@ -6,7 +6,8 @@ function transformProperties(properties) {
     const { type } = property;
     return {
       ...property,
-      component: mapTypeToComponent(type)
+      component: mapTypeToComponent(type),
+      flex: mapTypeToFlex(type)
     };
   });
 }

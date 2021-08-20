@@ -1,7 +1,7 @@
 {
   "name": "appily",
   "description": "Generate a new app",
-  "version": "0.0.15-alpha",
+  "version": "0.1.0-alpha",
   "keywords": [],
   "author": "Paul Heintzelman",
   "license": "MIT",

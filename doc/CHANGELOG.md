@@ -1,4 +1,4 @@
-v. 0.0.15-alpha
+v. 0.1.0-alpha
 
 - react-app template: Added remove model
 

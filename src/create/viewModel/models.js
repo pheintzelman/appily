@@ -18,7 +18,8 @@ function getPluralModelName(modelName, model) {
   return `${modelName} ${DefaultPluralSuffix}`;
 }
 
-function preprocessModel([modelName, model]) {
+function preprocessModel(model) {
+  const { modelName } = model;
   const properties = preprocessProperties(model.properties);
   const pluralName = getPluralModelName(modelName, model);
   const primaryProperty = getPrimaryProperty(model.properties);
@@ -37,5 +38,5 @@ export function preprocessModels({ config, manifesto, dir }) {
     return [];
   }
 
-  return Object.entries(config.models).map(preprocessModel);
+  return config.models.map(preprocessModel);
 }

@@ -4,7 +4,7 @@ function typeFlags(type) {
   return { isString: type === 'String', isBoolean: type === 'Boolean' };
 }
 
-function preprocessProperty([propertyName, { type }], index) {
+function preprocessProperty({ type, propertyName }, index) {
   const isPrimary = index == 0;
   const hide = index > 4;
 
@@ -18,11 +18,11 @@ function preprocessProperty([propertyName, { type }], index) {
 }
 
 export function getPrimaryProperty(properties) {
-  if (!properties) {
+  if (!properties || !properties.length) {
     return '';
   }
 
-  return Object.keys(properties)[0];
+  return properties[0].propertyName;
 }
 
 export function preprocessProperties(properties) {
@@ -30,5 +30,5 @@ export function preprocessProperties(properties) {
     return [];
   }
 
-  return Object.entries(properties).map(preprocessProperty);
+  return properties.map(preprocessProperty);
 }

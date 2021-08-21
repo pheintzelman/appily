@@ -2,7 +2,12 @@
   "name": "appily",
   "description": "Generate a new app",
   "version": "0.1.0-alpha",
-  "keywords": [],
+  "keywords": [
+    "react",
+    "app",
+    "create",
+    "generate"
+  ],
   "author": "Paul Heintzelman",
   "license": "MIT",
   "repository": {

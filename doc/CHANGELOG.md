@@ -1,6 +1,7 @@
 v. 0.1.0-alpha
 
 - react-app template: Added remove model
+- react-app template: Added support for types in Collections
 
 v. 0.0.14-prealpha
 

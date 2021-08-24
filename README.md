@@ -13,13 +13,6 @@ See [change log](./doc/CHANGELOG.md) for more details.
 
 ## Getting started
 
-### Environment Requirements
-
-```
-1. Yarn
-2. Node >= 14.x
-```
-
 ### Install
 
 ```bash
@@ -27,6 +20,13 @@ $ npm install appily -g
 ```
 
 ### Dev Setup
+
+```
+Environment Requirements
+
+1. Node >= 14.x
+2. Yarn
+```
 
 ```
 1. clone repo
@@ -122,30 +122,36 @@ Aim for progressive development with something useful asap See the [road map](./
 - add overide cli option, for now this can just delete the existing dir
 - add options cli option, print out options from manfesto
 - add test for missing coverage
-- try to fix nested app issue (apps don't run from manual folder)
+- try to fix nested app issue (apps don't run from manual folder - nested npm package issue confuses npm install)
+- improve local dev testing (idea: build a tool that copies existing node_modules to new test files)
 - make docs easier to understand
+  - list supported types
 - decouple getViewModel from runDirectives
 - make tests cross OS
 - get types working with collection
 - add support for nested models
+- add a flex mapper for types
 - add stubbed express api
 - add types
-  -- Number
-  -- DateTime
-  -- Enum
-  -- link
+  - Number - Alex calls dibs
+  - DateTime
+  - Enum
+  - link
+- add better formatting/styling to types
+  - string elipses, wrapping, etc
 
 # Later
 
 - add better table filter
 - add types
-  -- tags
-  -- address
-  -- phone
-  -- year
-  -- dob
-  -- date range
-  -- time
-  -- curency
-  -- quantity
+  - tags
+  - address
+  - phone
+  - year
+  - dob
+  - date range
+  - time range
+  - time
+  - curency
+  - quantity
 - add computed properties

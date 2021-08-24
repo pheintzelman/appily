@@ -1,4 +1,4 @@
-import { mapTypeToComponent } from './mapTypeToComponent.js';
+import { mapTypeToComponent } from './typeMappers.js';
 
 function removeDuplicates(array) {
   const set = new Set(array);

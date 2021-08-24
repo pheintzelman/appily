@@ -25,6 +25,7 @@ const config = {
   }
 };
 
+await removeDir('tests/app/video-game-app-indexedDB');
 const log = captureLog();
 await createApp(config);
 
@@ -35,7 +36,7 @@ describe('React template', () => {
 
   test.each(testCases)(
     '$dir should match snapshot',
-    ({ name, dir, snapshot }) => {
+    async ({ name, dir, snapshot }) => {
       expect(snapshot).toMatchSnapshot();
     }
   );

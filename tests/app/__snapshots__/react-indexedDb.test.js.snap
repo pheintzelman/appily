@@ -151,7 +151,7 @@ Array [
           },
         ],
         "templateName": "react-app",
-        "templateVersion": "0.3.0",
+        "templateVersion": "0.4.0",
       },
     },
   },
@@ -502,7 +502,7 @@ Array [
           },
         ],
         "templateName": "react-app",
-        "templateVersion": "0.3.0",
+        "templateVersion": "0.4.0",
       },
     },
   },
@@ -681,7 +681,7 @@ Array [
 exports[`React template tests/app/video-game-app-indexedDB/.appily should match snapshot 1`] = `
 "{
   template: \\"react-app\\",
-  version: \\"0.3.0\\",
+  version: \\"0.4.0\\",
   config:  {
   \\"dir\\": \\"tests/app\\",
   \\"name\\": \\"Video Game App IndexedDB\\",
@@ -794,7 +794,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 exports[`React template tests/app/video-game-app-indexedDB/package.json should match snapshot 1`] = `
 "{
   \\"name\\": \\"video-game-app-indexeddb\\",
-  \\"version\\": \\"0.3.0\\",
+  \\"version\\": \\"0.4.0\\",
   \\"private\\": true,
   \\"dependencies\\": {
     \\"@material-ui/core\\": \\"^4.11.4\\",
@@ -1219,7 +1219,8 @@ export async function removePublisher(id) {
   }
 
   return await remove(id);
-}"
+}
+"
 `;
 
 exports[`React template tests/app/video-game-app-indexedDB/src/api/videoGame.js should match snapshot 1`] = `
@@ -1263,7 +1264,8 @@ export async function removeVideoGame(id) {
   }
 
   return await remove(id);
-}"
+}
+"
 `;
 
 exports[`React template tests/app/video-game-app-indexedDB/src/components/App/AppHeader.js should match snapshot 1`] = `
@@ -1658,7 +1660,8 @@ export function Publisher() {
       />
     </Container>
   );
-}"
+}
+"
 `;
 
 exports[`React template tests/app/video-game-app-indexedDB/src/components/Publisher/PublisherCollection.js should match snapshot 1`] = `
@@ -2060,7 +2063,8 @@ export function VideoGame() {
       />
     </Container>
   );
-}"
+}
+"
 `;
 
 exports[`React template tests/app/video-game-app-indexedDB/src/components/VideoGame/VideoGameCollection.js should match snapshot 1`] = `

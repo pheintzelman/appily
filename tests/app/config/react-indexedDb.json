@@ -1,0 +1,19 @@
+{
+  "dir": "tests/app",
+  "name": "Video Game App IndexedDB",
+  "template": "react-app",
+  "api": "indexedDB",
+  "db": "indexedDB",
+  "models": {
+    "Video Game": {
+      "plural": "Video Games",
+      "properties": {
+        "Title": "String",
+        "Year Published": "String"
+      }
+    },
+    "Publisher": {
+      "Name": "String"
+    }
+  }
+}

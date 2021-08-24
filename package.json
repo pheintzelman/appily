@@ -12,6 +12,7 @@
   "type": "module",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/.bin/jest --coverage",
+    "test1": "node scripts/testRunner.js",
     "test:windows": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
     "coverage": "open ./tests/coverage/lcov-report/index.html"
   },
@@ -29,6 +30,7 @@
       "!**/tests/**",
       "!**/tools/**",
       "!**/getTemplateDir.js",
+      "!**/scripts/**",
       "!**/__*__/**"
     ],
     "coverageDirectory": "./tests/coverage"

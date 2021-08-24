@@ -2,20 +2,19 @@ import { getViewModel } from './getViewModel';
 
 const configString = ` {
   "name": "Test Config",
-  "models": {
-    "Animal": {
+  "models": [
+    {
+      "modelName": "Animal",
       "properties": null
     }
-  }
+  ]
  }`;
 
 describe('getViewModel', () => {
   test('should handle model with no properties', () => {
     const config = {
       name: 'Test Config',
-      models: {
-        Animal: { properties: null }
-      }
+      models: [{ modelName: 'Animal', properties: null }]
     };
 
     const expected = {

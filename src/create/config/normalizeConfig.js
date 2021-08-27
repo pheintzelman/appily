@@ -3,11 +3,15 @@ import { setDefaults } from './setDefaults.js';
 import { ConfigIsEmpty } from './../../constants/messages.js';
 
 function normalizeProperty([propertyName, property]) {
+  const initialType = property.type ?? property;
+  const isCollection = Array.isArray(initialType);
+  const type = isCollection ? initialType[0] : initialType;
+
   if (isObject(property) && property.type) {
-    return { ...property, propertyName };
+    return { ...property, type, isCollection, propertyName };
   }
 
-  return { type: property, propertyName };
+  return { type, isCollection, propertyName };
 }
 
 function normalizeModel([modelName, model]) {

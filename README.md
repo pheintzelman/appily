@@ -128,8 +128,8 @@ Aim for progressive development with something useful asap See the [road map](./
   - list supported types
 - make tests cross OS
 - add support for nested models
-  - add validation
-  - detect relationships
+  - add validation (done)
+  - detect relationships (done) - may need to define more
   - create api/db to support this
   - support single model relationship UI: add, remove
   - support multi model relationship UI: add, remove

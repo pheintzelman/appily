@@ -18,7 +18,6 @@ Array [
   \\"db\\": \\"indexedDB\\",
   \\"models\\": [
     {
-      \\"plural\\": \\"Video Games\\",
       \\"properties\\": [
         {
           \\"type\\": \\"String\\",
@@ -29,6 +28,7 @@ Array [
           \\"propertyName\\": \\"Year Published\\"
         }
       ],
+      \\"pluralName\\": \\"Video Games\\",
       \\"modelName\\": \\"Video Game\\"
     },
     {
@@ -38,7 +38,8 @@ Array [
           \\"propertyName\\": \\"Name\\"
         }
       ],
-      \\"modelName\\": \\"Publisher\\"
+      \\"modelName\\": \\"Publisher\\",
+      \\"pluralName\\": \\"Publisher Collection\\"
     }
   ]
  }",
@@ -177,7 +178,7 @@ Array [
         "models": Array [
           Object {
             "modelName": "Video Game",
-            "plural": "Video Games",
+            "pluralName": "Video Games",
             "properties": Array [
               Object {
                 "propertyName": "Title",
@@ -191,6 +192,7 @@ Array [
           },
           Object {
             "modelName": "Publisher",
+            "pluralName": "Publisher Collection",
             "properties": Array [
               Object {
                 "propertyName": "Name",
@@ -393,7 +395,6 @@ Array [
   \\"db\\": \\"indexedDB\\",
   \\"models\\": [
     {
-      \\"plural\\": \\"Video Games\\",
       \\"properties\\": [
         {
           \\"type\\": \\"String\\",
@@ -404,6 +405,7 @@ Array [
           \\"propertyName\\": \\"Year Published\\"
         }
       ],
+      \\"pluralName\\": \\"Video Games\\",
       \\"modelName\\": \\"Video Game\\"
     },
     {
@@ -413,7 +415,8 @@ Array [
           \\"propertyName\\": \\"Name\\"
         }
       ],
-      \\"modelName\\": \\"Publisher\\"
+      \\"modelName\\": \\"Publisher\\",
+      \\"pluralName\\": \\"Publisher Collection\\"
     }
   ]
  }",
@@ -730,7 +733,6 @@ exports[`React template tests/app/video-game-app-indexedDB/.appily should match 
   \\"db\\": \\"indexedDB\\",
   \\"models\\": [
     {
-      \\"plural\\": \\"Video Games\\",
       \\"properties\\": [
         {
           \\"type\\": \\"String\\",
@@ -741,6 +743,7 @@ exports[`React template tests/app/video-game-app-indexedDB/.appily should match 
           \\"propertyName\\": \\"Year Published\\"
         }
       ],
+      \\"pluralName\\": \\"Video Games\\",
       \\"modelName\\": \\"Video Game\\"
     },
     {
@@ -750,7 +753,8 @@ exports[`React template tests/app/video-game-app-indexedDB/.appily should match 
           \\"propertyName\\": \\"Name\\"
         }
       ],
-      \\"modelName\\": \\"Publisher\\"
+      \\"modelName\\": \\"Publisher\\",
+      \\"pluralName\\": \\"Publisher Collection\\"
     }
   ]
  }

@@ -4,7 +4,7 @@ function typeFlags(type) {
   return { isString: type === 'String', isBoolean: type === 'Boolean' };
 }
 
-function preprocessProperty({ type, propertyName }, index) {
+function getViewModelProperty({ type, propertyName }, index) {
   const isPrimary = index == 0;
   const hide = index > 4;
 
@@ -17,18 +17,18 @@ function preprocessProperty({ type, propertyName }, index) {
   };
 }
 
+export function getViewModelProperties(properties) {
+  if (!properties) {
+    return [];
+  }
+
+  return properties.map(getViewModelProperty);
+}
+
 export function getPrimaryProperty(properties) {
   if (!properties || !properties.length) {
     return '';
   }
 
   return properties[0].propertyName;
-}
-
-export function preprocessProperties(properties) {
-  if (!properties) {
-    return [];
-  }
-
-  return properties.map(preprocessProperty);
 }

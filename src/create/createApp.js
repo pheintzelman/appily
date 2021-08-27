@@ -7,6 +7,7 @@ import { readJsonFile } from '../lib/file.js';
 import { getTemplateDir } from './file/getTemplateDir.js';
 import { logger } from '../logger.js';
 import { normalizeConfig } from './config/normalizeConfig.js';
+import { getViewModel } from './viewModel/getViewModel.js';
 
 async function readManifesto(templateDir) {
   const manifestoPath = path.join(templateDir, ManifestoFileName);
@@ -21,11 +22,13 @@ export async function createApp(config) {
   logger.trace({ normalizedConfig });
   await validateConfig(normalizedConfig, manifesto);
   const dir = await createRootDir(normalizedConfig);
+  const viewModel = getViewModel({ config: normalizedConfig, dir, manifesto });
+  const metaData = { config: normalizedConfig, dir, manifesto, templateDir };
+
   await runDirectives({
-    config: normalizedConfig,
-    dir,
-    manifesto,
-    templateDir
+    viewModel,
+    metaData
   });
+
   logger.info(`${normalizedConfig.name} created, in dir ${dir}`);
 }

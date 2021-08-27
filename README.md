@@ -126,7 +126,6 @@ Aim for progressive development with something useful asap See the [road map](./
 - improve local dev testing (idea: build a tool that copies existing node_modules to new test files)
 - make docs easier to understand
   - list supported types
-- decouple getViewModel from runDirectives
 - make tests cross OS
 - get types working with collection
 - add support for nested models

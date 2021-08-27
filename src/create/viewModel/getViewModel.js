@@ -1,5 +1,5 @@
-import { getVariations } from '../lib/case.js';
-import { preprocessModels } from './viewModel/models.js';
+import { getVariations } from '../../lib/case.js';
+import { getViewModelModels } from './getViewModelModels.js';
 
 function addOffset(string, offset) {
   const words = string.split('\n');
@@ -16,7 +16,7 @@ export function getViewModel({ config, manifesto, dir }) {
     dir,
     templateName: manifesto.name,
     templateVersion: manifesto.version,
-    models: preprocessModels({ config, manifesto, dir }),
+    models: getViewModelModels({ config, manifesto, dir }),
     configString: addOffset(JSON.stringify(config, null, 2), 2)
   };
 }

@@ -26,7 +26,8 @@ Array [
           \\"propertyName\\": \\"Year Published\\"
         }
       ],
-      \\"modelName\\": \\"Video Game\\"
+      \\"modelName\\": \\"Video Game\\",
+      \\"pluralName\\": \\"Video Game Collection\\"
     },
     {
       \\"properties\\": [
@@ -35,7 +36,8 @@ Array [
           \\"propertyName\\": \\"Name\\"
         }
       ],
-      \\"modelName\\": \\"Publisher\\"
+      \\"modelName\\": \\"Publisher\\",
+      \\"pluralName\\": \\"Publisher Collection\\"
     }
   ]
  }",
@@ -172,6 +174,7 @@ Array [
         "models": Array [
           Object {
             "modelName": "Video Game",
+            "pluralName": "Video Game Collection",
             "properties": Array [
               Object {
                 "propertyName": "Title",
@@ -185,6 +188,7 @@ Array [
           },
           Object {
             "modelName": "Publisher",
+            "pluralName": "Publisher Collection",
             "properties": Array [
               Object {
                 "propertyName": "Name",
@@ -395,7 +399,8 @@ Array [
           \\"propertyName\\": \\"Year Published\\"
         }
       ],
-      \\"modelName\\": \\"Video Game\\"
+      \\"modelName\\": \\"Video Game\\",
+      \\"pluralName\\": \\"Video Game Collection\\"
     },
     {
       \\"properties\\": [
@@ -404,7 +409,8 @@ Array [
           \\"propertyName\\": \\"Name\\"
         }
       ],
-      \\"modelName\\": \\"Publisher\\"
+      \\"modelName\\": \\"Publisher\\",
+      \\"pluralName\\": \\"Publisher Collection\\"
     }
   ]
  }",
@@ -729,7 +735,8 @@ exports[`React template tests/app/video-game-app/.appily should match snapshot 1
           \\"propertyName\\": \\"Year Published\\"
         }
       ],
-      \\"modelName\\": \\"Video Game\\"
+      \\"modelName\\": \\"Video Game\\",
+      \\"pluralName\\": \\"Video Game Collection\\"
     },
     {
       \\"properties\\": [
@@ -738,7 +745,8 @@ exports[`React template tests/app/video-game-app/.appily should match snapshot 1
           \\"propertyName\\": \\"Name\\"
         }
       ],
-      \\"modelName\\": \\"Publisher\\"
+      \\"modelName\\": \\"Publisher\\",
+      \\"pluralName\\": \\"Publisher Collection\\"
     }
   ]
  }

@@ -8,11 +8,10 @@ import {
 import { logger } from '../../logger.js';
 
 function validateModelProperties({
-  modelName,
-  model: { properties },
+  model: { modelName, properties },
   allowedTypes
 }) {
-  Object.entries(properties).forEach(([propertyName, { type }]) => {
+  properties.forEach(({ propertyName, type }) => {
     if (!allowedTypes.includes(type)) {
       logger.warn(TypeNotSupported(modelName, propertyName, type));
     }
@@ -27,8 +26,8 @@ function validateModels(config, manifesto) {
     return;
   }
 
-  Object.entries(models).forEach(([modelName, model]) => {
-    validateModelProperties({ modelName, model, allowedTypes });
+  models.forEach((model) => {
+    validateModelProperties({ model, allowedTypes });
   });
 }
 

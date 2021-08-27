@@ -1,4 +1,5 @@
 import { isObject } from '../../lib/check.js';
+import { setDefaults } from './setDefaults.js';
 
 function normalizeProperty([propertyName, property]) {
   if (isObject(property) && property.type) {
@@ -21,7 +22,14 @@ function normalizeModel([modelName, model]) {
     Object.entries(properties).map(normalizeProperty);
 
   if (model && model.properties) {
-    return { ...model, modelName, properties: normalizedProperties };
+    const { plural, ...cleanModel } = model;
+
+    return {
+      ...cleanModel,
+      pluralName: plural,
+      modelName,
+      properties: normalizedProperties
+    };
   }
 
   return { properties: normalizedProperties, modelName };
@@ -34,6 +42,6 @@ export function normalizeConfig(config) {
 
   const { models = [] } = config;
   const normalizedModels = Object.entries(models).map(normalizeModel);
-
-  return { ...config, models: normalizedModels };
+  const normalizedConfig = { ...config, models: normalizedModels };
+  return setDefaults(normalizedConfig);
 }

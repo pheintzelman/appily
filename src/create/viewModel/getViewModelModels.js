@@ -1,7 +1,9 @@
 import util from 'util';
-import { preprocessProperties, getPrimaryProperty } from './properties.js';
+import {
+  getViewModelProperties,
+  getPrimaryProperty
+} from './getViewModelProperties.js';
 import { getVariations } from '../../lib/case.js';
-import { DefaultPluralSuffix } from '../../constants/constants.js';
 import { getDefaultValueForType } from './getDefaultValueForType.js';
 
 function getDefaultState(properties) {
@@ -10,18 +12,9 @@ function getDefaultState(properties) {
   }, {});
 }
 
-function getPluralModelName(modelName, model) {
-  if (model && model.properties && model.plural) {
-    return model.plural;
-  }
-
-  return `${modelName} ${DefaultPluralSuffix}`;
-}
-
-function preprocessModel(model) {
-  const { modelName } = model;
-  const properties = preprocessProperties(model.properties);
-  const pluralName = getPluralModelName(modelName, model);
+function getViewModelModel(model) {
+  const { modelName, pluralName } = model;
+  const properties = getViewModelProperties(model.properties);
   const primaryProperty = getPrimaryProperty(model.properties);
 
   return {
@@ -33,10 +26,10 @@ function preprocessModel(model) {
   };
 }
 
-export function preprocessModels({ config, manifesto, dir }) {
+export function getViewModelModels({ config, manifesto, dir }) {
   if (!config.models) {
     return [];
   }
 
-  return config.models.map(preprocessModel);
+  return config.models.map(getViewModelModel);
 }

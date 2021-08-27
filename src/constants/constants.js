@@ -1,4 +1,5 @@
 export const DefaultAppName = 'app';
+export const DefaultTemplate = 'react-app';
 export const TemplateExt = '.mustache';
 export const ManifestoFileName = 'manifesto.json';
 export const DefaultPluralSuffix = 'Collection';

@@ -6,6 +6,7 @@ import {
 import { getVariations } from '../../lib/case.js';
 import { getDefaultValueForType } from './getDefaultValueForType.js';
 import { getModelRelationships } from './getModelRelationships.js';
+import { logger } from '../../logger.js';
 
 function getDefaultState(properties) {
   return properties.reduce((acc, { propertyNameCamel, type }) => {
@@ -18,7 +19,7 @@ function getViewModelModel(model, _, models) {
   const properties = getViewModelProperties(model.properties);
   const primaryProperty = getPrimaryProperty(model.properties);
   const relationships = getModelRelationships(models, model);
-
+  logger.info({ modelName, relationships });
   return {
     properties,
     relationships,

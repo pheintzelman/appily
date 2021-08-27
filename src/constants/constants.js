@@ -22,3 +22,9 @@ export const Type = {
   Boolean: 'Boolean',
   String: 'String'
 };
+export const Relationship = {
+  OneToOne: 'OneToOne',
+  ManyToOne: 'ManyToOne',
+  OneToMany: 'OneToMany',
+  ManyToMany: 'ManyToMany'
+};

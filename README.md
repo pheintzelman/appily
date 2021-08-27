@@ -114,9 +114,7 @@ Aim for progressive development with something useful asap See the [road map](./
 
 ## Todo
 
-- have normalize config, convert objects to arrays
 - remove `viewModelDirective.js` (or rename to `packageDirective.js` and repurpose for packages)
-- add default value module under config
 - add github test badge
 - add github test action (pipeline)
 - add overide cli option, for now this can just delete the existing dir
@@ -126,11 +124,13 @@ Aim for progressive development with something useful asap See the [road map](./
 - improve local dev testing (idea: build a tool that copies existing node_modules to new test files)
 - make docs easier to understand
   - list supported types
-- decouple getViewModel from runDirectives
 - make tests cross OS
-- get types working with collection
 - add support for nested models
-- add a flex mapper for types
+  - add validation
+  - detect relationships
+  - create api/db to support this
+  - support single model relationship UI: add, remove
+  - support multi model relationship UI: add, remove
 - add stubbed express api
 - add types
   - Number - Alex calls dibs

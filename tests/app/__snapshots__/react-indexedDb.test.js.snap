@@ -16,26 +16,32 @@ Array [
   \\"template\\": \\"react-app\\",
   \\"api\\": \\"indexedDB\\",
   \\"db\\": \\"indexedDB\\",
-  \\"models\\": {
-    \\"Video Game\\": {
-      \\"plural\\": \\"Video Games\\",
-      \\"properties\\": {
-        \\"Title\\": {
-          \\"type\\": \\"String\\"
+  \\"models\\": [
+    {
+      \\"properties\\": [
+        {
+          \\"type\\": \\"String\\",
+          \\"propertyName\\": \\"Title\\"
         },
-        \\"Year Published\\": {
-          \\"type\\": \\"String\\"
+        {
+          \\"type\\": \\"String\\",
+          \\"propertyName\\": \\"Year Published\\"
         }
-      }
+      ],
+      \\"pluralName\\": \\"Video Games\\",
+      \\"modelName\\": \\"Video Game\\"
     },
-    \\"Publisher\\": {
-      \\"properties\\": {
-        \\"Name\\": {
-          \\"type\\": \\"String\\"
+    {
+      \\"properties\\": [
+        {
+          \\"type\\": \\"String\\",
+          \\"propertyName\\": \\"Name\\"
         }
-      }
+      ],
+      \\"modelName\\": \\"Publisher\\",
+      \\"pluralName\\": \\"Publisher Collection\\"
     }
-  }
+  ]
  }",
         "dir": "tests/app/video-game-app-indexeddb",
         "models": Array [
@@ -169,26 +175,32 @@ Array [
         "api": "indexedDB",
         "db": "indexedDB",
         "dir": "tests/app",
-        "models": Object {
-          "Publisher": Object {
-            "properties": Object {
-              "Name": Object {
+        "models": Array [
+          Object {
+            "modelName": "Video Game",
+            "pluralName": "Video Games",
+            "properties": Array [
+              Object {
+                "propertyName": "Title",
                 "type": "String",
               },
-            },
+              Object {
+                "propertyName": "Year Published",
+                "type": "String",
+              },
+            ],
           },
-          "Video Game": Object {
-            "plural": "Video Games",
-            "properties": Object {
-              "Title": Object {
+          Object {
+            "modelName": "Publisher",
+            "pluralName": "Publisher Collection",
+            "properties": Array [
+              Object {
+                "propertyName": "Name",
                 "type": "String",
               },
-              "Year Published": Object {
-                "type": "String",
-              },
-            },
+            ],
           },
-        },
+        ],
         "name": "Video Game App IndexedDB",
         "template": "react-app",
       },
@@ -381,26 +393,32 @@ Array [
   \\"template\\": \\"react-app\\",
   \\"api\\": \\"indexedDB\\",
   \\"db\\": \\"indexedDB\\",
-  \\"models\\": {
-    \\"Video Game\\": {
-      \\"plural\\": \\"Video Games\\",
-      \\"properties\\": {
-        \\"Title\\": {
-          \\"type\\": \\"String\\"
+  \\"models\\": [
+    {
+      \\"properties\\": [
+        {
+          \\"type\\": \\"String\\",
+          \\"propertyName\\": \\"Title\\"
         },
-        \\"Year Published\\": {
-          \\"type\\": \\"String\\"
+        {
+          \\"type\\": \\"String\\",
+          \\"propertyName\\": \\"Year Published\\"
         }
-      }
+      ],
+      \\"pluralName\\": \\"Video Games\\",
+      \\"modelName\\": \\"Video Game\\"
     },
-    \\"Publisher\\": {
-      \\"properties\\": {
-        \\"Name\\": {
-          \\"type\\": \\"String\\"
+    {
+      \\"properties\\": [
+        {
+          \\"type\\": \\"String\\",
+          \\"propertyName\\": \\"Name\\"
         }
-      }
+      ],
+      \\"modelName\\": \\"Publisher\\",
+      \\"pluralName\\": \\"Publisher Collection\\"
     }
-  }
+  ]
  }",
         "dir": "tests/app/video-game-app-indexeddb",
         "models": Array [
@@ -713,26 +731,32 @@ exports[`React template tests/app/video-game-app-indexedDB/.appily should match 
   \\"template\\": \\"react-app\\",
   \\"api\\": \\"indexedDB\\",
   \\"db\\": \\"indexedDB\\",
-  \\"models\\": {
-    \\"Video Game\\": {
-      \\"plural\\": \\"Video Games\\",
-      \\"properties\\": {
-        \\"Title\\": {
-          \\"type\\": \\"String\\"
+  \\"models\\": [
+    {
+      \\"properties\\": [
+        {
+          \\"type\\": \\"String\\",
+          \\"propertyName\\": \\"Title\\"
         },
-        \\"Year Published\\": {
-          \\"type\\": \\"String\\"
+        {
+          \\"type\\": \\"String\\",
+          \\"propertyName\\": \\"Year Published\\"
         }
-      }
+      ],
+      \\"pluralName\\": \\"Video Games\\",
+      \\"modelName\\": \\"Video Game\\"
     },
-    \\"Publisher\\": {
-      \\"properties\\": {
-        \\"Name\\": {
-          \\"type\\": \\"String\\"
+    {
+      \\"properties\\": [
+        {
+          \\"type\\": \\"String\\",
+          \\"propertyName\\": \\"Name\\"
         }
-      }
+      ],
+      \\"modelName\\": \\"Publisher\\",
+      \\"pluralName\\": \\"Publisher Collection\\"
     }
-  }
+  ]
  }
 }"
 `;

@@ -1,3 +1,9 @@
+v. 0.1.1-alpha
+
+- set defaults values on config not view model
+- normalize config now converts objects to arrays
+- decouple getViewModel and runDirectives
+
 v. 0.1.0-alpha
 
 - react-app template: Added remove model

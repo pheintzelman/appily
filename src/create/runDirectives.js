@@ -6,7 +6,6 @@ import { copyDirective } from './directives/copyDirective.js';
 import { loopDirective } from './directives/loopDirective.js';
 import { viewModelDirective } from './directives/viewModelDirective.js';
 import { viewModelTransform } from './directives/viewModelTransform.js';
-import { getViewModel } from './getViewModel.js';
 
 function getDirectives(manifesto, selectedOptions) {
   const { directives } = manifesto;
@@ -33,7 +32,11 @@ function getSelectedOptions(manifesto, config) {
     });
 }
 
-async function runFileDirectives({ directives, templateDir, dir, viewModel }) {
+async function runFileDirectives({
+  directives,
+  viewModel,
+  metaData: { templateDir, dir }
+}) {
   for (const directive of directives) {
     if (directive.key === Directive.Copy) {
       const src = path.join(templateDir, directive.value.src);
@@ -53,7 +56,7 @@ async function runFileDirectives({ directives, templateDir, dir, viewModel }) {
 
 async function runViewModelDirectives({
   directives,
-  templateDir,
+  metaData: { templateDir },
   initialViewModel
 }) {
   return directives.reduce(async (viewModel, directive) => {
@@ -77,16 +80,16 @@ async function runViewModelDirectives({
   }, initialViewModel);
 }
 
-export async function runDirectives({ config, dir, manifesto, templateDir }) {
+export async function runDirectives({ viewModel: initialViewModel, metaData }) {
+  const { manifesto, config } = metaData;
   const selectedOptions = getSelectedOptions(manifesto, config);
   const directives = getDirectives(manifesto, selectedOptions).map(kvp);
-  const initialViewModel = getViewModel({ config, manifesto, dir });
   const viewModel = await runViewModelDirectives({
     directives,
-    templateDir,
-    initialViewModel
+    initialViewModel,
+    metaData
   });
   logger.trace({ viewModel });
 
-  await runFileDirectives({ directives, templateDir, dir, viewModel });
+  await runFileDirectives({ directives, viewModel, metaData });
 }

@@ -14,7 +14,7 @@ Array [
   \\"dir\\": \\"tests/app\\",
   \\"name\\": \\"Test App\\",
   \\"template\\": \\"test\\",
-  \\"models\\": {}
+  \\"models\\": []
  }",
         "dir": "tests/app/test-app",
         "models": Array [],
@@ -27,7 +27,7 @@ Array [
     "TRACE": Object {
       "normalizedConfig": Object {
         "dir": "tests/app",
-        "models": Object {},
+        "models": Array [],
         "name": "Test App",
         "template": "test",
       },

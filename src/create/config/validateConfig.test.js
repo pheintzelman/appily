@@ -42,7 +42,14 @@ describe('validateConfig', () => {
     test('should log warning for unsupported model property type', () => {
       const log = captureLog();
       validateConfig(
-        { models: { Car: { properties: { Make: { type: 'Honda' } } } } },
+        {
+          models: [
+            {
+              modelName: 'Car',
+              properties: [{ propertyName: 'Make', type: 'Honda' }]
+            }
+          ]
+        },
         {}
       );
       expect(log).toStrictEqual([

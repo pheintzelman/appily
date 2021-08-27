@@ -3,7 +3,7 @@ import {
   DefaultPluralSuffix,
   DefaultTemplate,
   Type
-} from '../../constants/constants';
+} from '../../constants/constants.js';
 
 function getPropertyWithDefaults(property) {
   const type = property.type ?? Type.String;

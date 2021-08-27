@@ -1,15 +1,35 @@
-import { logger } from '../../logger.js';
 import { Relationship } from '../../constants/constants.js';
+import { logger } from '../../logger.js';
 
-function findRelationship(models, { modelName }, type) {
-  const { modelName: relatedModelName } = models.find(
-    ({ modelName }) => modelName === type
+function getRelationshipType(property, relatedProperty) {
+  if (property.isCollection && relatedProperty.isCollection) {
+    return Relationship.ManyToMany;
+  }
+
+  if (property.isCollection) {
+    return Relationship.ManyToOne;
+  }
+
+  if (relatedProperty.isCollection) {
+    return Relationship.OneToMany;
+  }
+
+  return Relationship.OneToOne;
+}
+
+function findRelationship(models, { modelName }, property) {
+  const relatedModel = models.find(
+    ({ modelName }) => modelName === property.type
+  );
+
+  const relatedProperty = relatedModel.properties.find(
+    ({ type }) => type === modelName
   );
 
   return {
-    type: Relationship.OneToOne,
+    type: getRelationshipType(property, relatedProperty),
     source: modelName,
-    target: relatedModelName
+    target: relatedModel.modelName
   };
 }
 
@@ -20,9 +40,8 @@ function isCustomType(models, type) {
 export function getModelRelationships(models, model) {
   const { properties } = model;
   return properties.reduce((relationships, property) => {
-    const { type } = property;
-    if (isCustomType(models, type)) {
-      relationships.push(findRelationship(models, model, type));
+    if (isCustomType(models, property.type)) {
+      relationships.push(findRelationship(models, model, property));
     }
     return relationships;
   }, []);

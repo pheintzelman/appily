@@ -3,7 +3,8 @@ import {
   ConfigIsEmpty,
   ConfigPropertyNotSupported,
   TemplateOptionNotSupported,
-  TypeNotSupported
+  TypeNotSupported,
+  TypeSelfReferenced
 } from '../../constants/messages.js';
 import { logger } from '../../logger.js';
 
@@ -12,6 +13,10 @@ function validateModelProperties({
   allowedTypes
 }) {
   properties.forEach(({ propertyName, type }) => {
+    if (type === modelName) {
+      logger.warn(TypeSelfReferenced(modelName, propertyName));
+    }
+
     if (!allowedTypes.includes(type)) {
       logger.warn(TypeNotSupported(modelName, propertyName, type));
     }
@@ -26,8 +31,13 @@ function validateModels(config, manifesto) {
     return;
   }
 
+  const customTypes = models.map((model) => model.modelName);
+
   models.forEach((model) => {
-    validateModelProperties({ model, allowedTypes });
+    validateModelProperties({
+      model,
+      allowedTypes: [...customTypes, ...allowedTypes]
+    });
   });
 }
 

@@ -122,6 +122,7 @@ Aim for progressive development with something useful asap See the [road map](./
 - add test for missing coverage
 - try to fix nested app issue (apps don't run from manual folder - nested npm package issue confuses npm install)
 - improve local dev testing (idea: build a tool that copies existing node_modules to new test files)
+- make directives groupable
 - make docs easier to understand
   - list supported types
 - make tests cross OS

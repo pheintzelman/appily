@@ -3,7 +3,7 @@
   "version": "0.4.0",
   "options": {
     "ui": ["react"],
-    "api": ["express", "indexedDB", "stub"],
+    "api": ["indexedDB", "stub", "express"],
     "db": ["indexedDB", "none"]
   },
   "allowedTypes": ["String", "Boolean"],
@@ -46,6 +46,29 @@
     },
     {
       "api:express": { "copy": { "src": "api/express/base", "dest": "server" } }
+    },
+    {
+      "api:express": {
+        "loop": {
+          "property": "models",
+          "src": "api/express/rest",
+          "dest": "server/src/rest"
+        }
+      }
+    },
+    {
+      "api:express": {
+        "copy": { "src": "api/express/client/api", "dest": "client/src/api" }
+      }
+    },
+    {
+      "api:express": {
+        "loop": {
+          "property": "models",
+          "src": "api/express/client/models",
+          "dest": "client/src/api/models"
+        }
+      }
     },
     {
       "db:indexedDB": {

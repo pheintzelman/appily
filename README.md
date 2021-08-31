@@ -115,6 +115,7 @@ Aim for progressive development with something useful asap See the [road map](./
 ## Todo
 
 - remove `viewModelDirective.js` (or rename to `packageDirective.js` and repurpose for packages)
+- make dialog handlers cleaner in model components
 - add github test badge
 - add github test action (pipeline)
 - add overide cli option, for now this can just delete the existing dir

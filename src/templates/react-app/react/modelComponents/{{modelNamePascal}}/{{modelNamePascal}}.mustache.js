@@ -10,6 +10,7 @@ import { {{component.view}} } from '../types/{{component.view}}';
 {{/componentImports}}
 import { Header } from '../common/Header';
 import { ConfirmDialog } from '../common/ConfirmDialog';
+import { MessageContainer } from "../common/MessageContainer";
 
 function loading() {
   return (
@@ -22,14 +23,15 @@ function loading() {
   );
 }
 
+function renderError() {
+  return (
+    <MessageContainer title="{{modelName}}" message="Something went wrong." />
+  );
+}
+
 function {{modelNameCamel}}NotFound() {
   return (
-    <Container maxWidth="sm" className="Container {{modelNamePascal}}">
-      <Header title="{{modelName}}"/>
-      <div className="containerContent">
-        <h2>Not found</h2>
-      </div>
-    </Container>
+    <MessageContainer title="{{modelName}}" message="Not found" />
   );
 }
 
@@ -76,6 +78,7 @@ function getDialogText({{modelNameCamel}}) {
 export function {{modelNamePascal}}() {
   const [{{modelNameCamel}}, set{{modelNamePascal}}] = useState({{{defaultState}}});
   const [isLoading, setIsLoading] = useState(true);
+  const [error, hasError] = useState(false);
   const [confirmDialogOpen, setConfirmDialogOpen] = useState(false);
   const history = useHistory();
   const { id: stringId } = useParams();
@@ -86,11 +89,20 @@ export function {{modelNamePascal}}() {
   }, [id]);
 
   async function get(id) {
-    setIsLoading(true);
-    const {{modelNameCamel}} = await get{{modelNamePascal}}(id);
-    console.log({ {{modelNameCamel}} });
-    set{{modelNamePascal}}({{modelNameCamel}});
+    try {
+      setIsLoading(true);
+      const {{modelNameCamel}} = await get{{modelNamePascal}}(id);
+      console.log({ {{modelNameCamel}} });
+      set{{modelNamePascal}}({{modelNameCamel}});
+    } catch (error){
+      hasError(true);
+    }
+
     setIsLoading(false);
+  }
+
+  if (error) {
+    return renderError();
   }
 
   if (isLoading) {

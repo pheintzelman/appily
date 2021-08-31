@@ -1,3 +1,9 @@
+v. 0.2.0-alpha
+
+- react-app template: Impvoved error handling
+- react-app template: Express support
+- react-app template: Env support
+
 v. 0.1.1-alpha
 
 - set defaults values on config not view model

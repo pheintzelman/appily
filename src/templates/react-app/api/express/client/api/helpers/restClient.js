@@ -11,6 +11,17 @@ function parseResponseBody(text) {
   }
 }
 
+async function getResponse(response) {
+  const text = await response.text();
+  const body = parseResponseBody(text);
+
+  if (!response.ok) {
+    throw new Error(body);
+  }
+
+  return { response, body };
+}
+
 function getHeaders() {
   return {
     'Content-Type': 'application/json'
@@ -19,40 +30,45 @@ function getHeaders() {
 
 export async function post(path, body) {
   const url = new URL(path, baseUrl);
-  return await fetch(url, {
+
+  const response = await fetch(url, {
     method: HttpMethod.Post,
     headers: getHeaders(),
     body: JSON.stringify(body)
-  }).json();
+  });
+
+  return await getResponse(response);
 }
 
 export async function get(path, id, params) {
-  const url = id
-    ? new URL(`${path}/${id}`, baseUrl)
-    : new URL(`${path}`, baseUrl);
+  const urlPath = id ? `${path}/${id}` : path;
+  const url = new URL(urlPath, baseUrl);
 
   const response = await fetch(url, {
     method: HttpMethod.Get,
     headers: getHeaders()
-  }).json();
+  });
 
-  const text = await response.text();
-  return { response, body: parseResponseBody(text) };
+  return await getResponse(response);
 }
 
 export async function put(path, id, body) {
   const url = new URL(`${path}/${id}`, baseUrl);
-  return await fetch(url, {
+  const response = fetch(url, {
     method: HttpMethod.Put,
     headers: getHeaders(),
     body: JSON.stringify(body)
-  }).json();
+  });
+
+  return await getResponse(response);
 }
 
 export async function remove(path, id) {
   const url = new URL(`${path}/${id}`, baseUrl);
-  return await fetch(url, {
+  const response = fetch(url, {
     method: HttpMethod.Delete,
     headers: getHeaders()
-  }).json();
+  });
+
+  return await getResponse(response);
 }

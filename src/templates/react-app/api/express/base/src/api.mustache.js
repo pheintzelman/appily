@@ -1,4 +1,5 @@
 import express from 'express';
+import { StatusCodes } from "http-status-codes";
 {{#models}}
 import { {{modelNameCamel}}Routes } from './rest/{{modelNamePascal}}.js';
 import { {{pluralModelNameCamel}}Routes } from './rest/{{pluralModelNameCamel}}.js';

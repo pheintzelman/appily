@@ -1,32 +1,19 @@
 import { useState, useEffect } from 'react';
 import {
-  Button,
-  Container,
-  CircularProgress
+  Button
 } from '@material-ui/core';
-import { Center } from '../common/Center';
 {{#componentImports}}
 import { {{component.edit}} } from '../types/{{component.edit}}';
 {{/componentImports}}
-import { Header } from "../../components/common/Header";
-
-function loading() {
-  return (
-    <Container maxWidth="sm" className="Container {{modelNamePascal}}">
-      <Header title="{{ modelName }}" />
-      <Center className="loading">
-        <CircularProgress />
-      </Center>
-    </Container>
-  );
-}
+import { ContentContainer } from "../common/containers/ContentContainer";
 
 export function {{modelNamePascal}}Form({
   {{modelNameCamel}}: initialState,
   ctaLabel,
   cta,
   isLoading,
-  processing
+  processing,
+  error
 }) {
   const [{{modelNameCamel}}, set{{modelNamePascal}}] = useState(
     initialState ?? {{{defaultState}}}
@@ -50,15 +37,14 @@ export function {{modelNamePascal}}Form({
     };
   }
 
-
-  if (isLoading) {
-    return loading();
-  }
-
   return (
-    <Container maxWidth="sm" className="Container {{modelNamePascal}}Form">
-      <Header title="{{ modelName }}" />
-      <div className="containerContent">
+    <ContentContainer 
+      title="{{modelName}}"
+      error={error}
+      loading={isLoading}
+      className="{{modelNamePascal}}Form"
+    >
+      <div className="content">
         <form noValidate autoComplete="off">
           {{#properties}}
           <{{component.edit}}
@@ -82,6 +68,6 @@ export function {{modelNamePascal}}Form({
           </Button>
         </form>
       </div>
-    </Container>
+    </ContentContainer>
   );
 }

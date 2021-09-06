@@ -204,6 +204,12 @@ Array [
   },
   Object {
     "TRACE": Object {
+      "dest": "tests/app/video-game-app/client/src/lib",
+      "msg": "mkdir",
+    },
+  },
+  Object {
+    "TRACE": Object {
       "dest": "tests/app/video-game-app/client/src/db",
       "msg": "mkdir",
     },
@@ -211,6 +217,12 @@ Array [
   Object {
     "TRACE": Object {
       "dest": "tests/app/video-game-app/client/src/components/types",
+      "msg": "mkdir",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/video-game-app/client/src/components/common/containers",
       "msg": "mkdir",
     },
   },
@@ -298,9 +310,23 @@ Array [
   },
   Object {
     "TRACE": Object {
+      "dest": "tests/app/video-game-app/client/src/lib",
+      "msg": "copyDir",
+      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/react/base/src/lib",
+    },
+  },
+  Object {
+    "TRACE": Object {
       "dest": "tests/app/video-game-app/client/src/components/types",
       "msg": "copyDir",
       "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/react/base/src/components/types",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/video-game-app/client/src/components/common/containers",
+      "msg": "copyDir",
+      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/react/base/src/components/common/containers",
     },
   },
   Object {
@@ -638,6 +664,9 @@ Array [
     "DEBUG": "File copied: tests/app/video-game-app/client/src/logo.svg",
   },
   Object {
+    "DEBUG": "File copied: tests/app/video-game-app/client/src/lib/Error.js",
+  },
+  Object {
     "DEBUG": "File copied: tests/app/video-game-app/client/src/index.js",
   },
   Object {
@@ -665,7 +694,19 @@ Array [
     "DEBUG": "File copied: tests/app/video-game-app/client/src/components/types/BooleanCell.js",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app/client/src/components/common/MessageContainer.js",
+    "DEBUG": "File copied: tests/app/video-game-app/client/src/components/common/containers/MessageContainer.js",
+  },
+  Object {
+    "DEBUG": "File copied: tests/app/video-game-app/client/src/components/common/containers/LoadingContainer.js",
+  },
+  Object {
+    "DEBUG": "File copied: tests/app/video-game-app/client/src/components/common/containers/ErrorContainer.js",
+  },
+  Object {
+    "DEBUG": "File copied: tests/app/video-game-app/client/src/components/common/containers/ContentContainer.scss",
+  },
+  Object {
+    "DEBUG": "File copied: tests/app/video-game-app/client/src/components/common/containers/ContentContainer.js",
   },
   Object {
     "DEBUG": "File copied: tests/app/video-game-app/client/src/components/common/HeaderMenu.js",
@@ -1179,34 +1220,6 @@ exports[`React template tests/app/video-game-app/client/src/App.scss should matc
     height: 150px;
   }
 
-  .Container {
-    background-color: white;
-    margin-top: 40px;
-    min-height: 350px;
-    border-radius: 5px;
-    border: solid 1px #ccc;
-    padding: 0;
-
-    .header {
-      display: flex;
-      justify-content: space-between;
-      padding: 1.5rem;
-
-      .headerIcon {
-        height: 48px;
-        margin-top: 18px;
-      }
-    }
-
-    .containerContent {
-      padding: 0px 2rem 2rem 2rem;
-    }
-
-    .datagrid {
-      min-height: 400px;
-    }
-  }
-
   .View {
     .body {
       font-size: 1.4rem;
@@ -1230,6 +1243,7 @@ test('renders welcome message', () => {
 
 exports[`React template tests/app/video-game-app/client/src/api/publisher.js should match snapshot 1`] = `
 "import { add, update, get, getAll, remove } from '../db/publisher';
+import { NotFoundError } from \\"../lib/Error\\";
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -1247,7 +1261,12 @@ export async function getPublisher(id) {
     return null;
   }
 
-  return await get(id);
+  const publisher = await get(id);
+  if(!publisher){
+    throw NotFoundError();
+  }
+
+  return publisher;
 }
 
 export async function getPublisherCollection() {
@@ -1275,6 +1294,7 @@ export async function removePublisher(id) {
 
 exports[`React template tests/app/video-game-app/client/src/api/videoGame.js should match snapshot 1`] = `
 "import { add, update, get, getAll, remove } from '../db/videoGame';
+import { NotFoundError } from \\"../lib/Error\\";
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -1292,7 +1312,12 @@ export async function getVideoGame(id) {
     return null;
   }
 
-  return await get(id);
+  const videoGame = await get(id);
+  if(!videoGame){
+    throw NotFoundError();
+  }
+
+  return videoGame;
 }
 
 export async function getVideoGameCollection() {
@@ -1519,17 +1544,28 @@ import { addPublisher } from '../../api/publisher';
 import { PublisherForm } from './PublisherForm';
 
 export function AddPublisher() {
+  const [error, setError] = useState(null);
   const [processing, setProcessing] = useState(false);
   const history = useHistory();
 
   async function add(publisher) {
-    setProcessing(true);
-    const id = await addPublisher(publisher);
-    setProcessing(false);
-    history.push(\`/publisher/\${id}\`);
+    try {
+      setProcessing(true);
+      const id = await addPublisher(publisher);
+      setProcessing(false);
+      history.push(\`/publisher/\${id}\`);
+    } catch (error) {
+      setError(error);
+      setProcessing(false);
+    }
   }
 
-  return <PublisherForm ctaLabel=\\"Add\\" cta={add} processing={processing} />;
+  return <PublisherForm
+      ctaLabel=\\"Add\\"
+      cta={add}
+      processing={processing}
+      error={error}
+    />
 }
 "
 `;
@@ -1542,6 +1578,7 @@ import { PublisherForm } from './PublisherForm';
 
 export function EditPublisher() {
   const [publisher, setPublisher] = useState(null);
+  const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [processing, setProcessing] = useState(false);
 
@@ -1554,18 +1591,28 @@ export function EditPublisher() {
   }, [id]);
 
   async function get(id) {
-    setIsLoading(true);
-    const publisher = await getPublisher(id);
-    console.log({ publisher });
-    setPublisher(publisher);
+    try {
+      setIsLoading(true);
+      const publisher = await getPublisher(id);
+      console.log({ publisher });
+      setPublisher(publisher);  
+    } catch (error) {
+      setError(error);
+    }
+    
     setIsLoading(false);
   }
 
   async function save(publisher) {
-    setProcessing(true);
-    await updatePublisher(publisher);
-    setProcessing(false);
-    history.push(\`/publisher/\${id}\`);
+    try {
+      setProcessing(true);
+      await updatePublisher(publisher);
+      setProcessing(false);
+      history.push(\`/publisher/\${id}\`);
+    } catch (error) {
+      setError(error);
+      setProcessing(false);
+    }
   }
 
   return (
@@ -1575,6 +1622,7 @@ export function EditPublisher() {
       isLoading={isLoading}
       processing={processing}
       publisher={publisher}
+      error={error}
     />
   );
 }
@@ -1584,66 +1632,23 @@ export function EditPublisher() {
 exports[`React template tests/app/video-game-app/client/src/components/Publisher/Publisher.js should match snapshot 1`] = `
 "import { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-import { Container, CircularProgress } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { Center } from '../common/Center';
 import { getPublisher, removePublisher } from '../../api/publisher';
 import { StringView } from '../types/StringView';
-import { Header } from '../common/Header';
 import { ConfirmDialog } from '../common/ConfirmDialog';
-import { MessageContainer } from \\"../common/MessageContainer\\";
+import { ContentContainer } from \\"../common/containers/ContentContainer\\";
 
-function loading() {
-  return (
-    <Container maxWidth=\\"sm\\" className=\\"Container Publisher\\">
-      <Header title=\\"Publisher\\"/>
-      <Center className=\\"loading\\">
-        <CircularProgress />
-      </Center>
-    </Container>
-  );
-}
-
-function renderError() {
-  return (
-    <MessageContainer title=\\"Publisher\\" message=\\"Something went wrong.\\" />
-  );
-}
-
-function publisherNotFound() {
-  return (
-    <MessageContainer title=\\"Publisher\\" message=\\"Not found\\" />
-  );
-}
-
-function handleRemovePublisher({ id, setIsLoading, history }) {
+function handleRemovePublisher({ id, setIsLoading, setError, history }) {
   return async () => {
-    setIsLoading(true);
-    await removePublisher(id);
-    history.push(\`/publisherCollection\`);
-  };
-}
-
-function handleConfirmDialogConfrim(setConfirmDialogOpen, onConfirm) {
-  return () => {
-    if (onConfirm) {
-      onConfirm();
+    try {
+      setIsLoading(true);
+      await removePublisher(id);
+      history.push(\`/publisherCollection\`); 
+    } catch (error) {
+      setError(error);
+      setIsLoading(false);
     }
-
-    setConfirmDialogOpen(false);
-  };
-}
-
-function handleConfirmDialogCancel(setConfirmDialogOpen) {
-  return () => {
-    setConfirmDialogOpen(false);
-  };
-}
-
-function openConfirmDialog(setConfirmDialogOpen) {
-  return () => {
-    setConfirmDialogOpen(true);
   };
 }
 
@@ -1660,8 +1665,8 @@ function getDialogText(publisher) {
 export function Publisher() {
   const [publisher, setPublisher] = useState({ name: '' });
   const [isLoading, setIsLoading] = useState(true);
-  const [error, hasError] = useState(false);
-  const [confirmDialogOpen, setConfirmDialogOpen] = useState(false);
+  const [error, setError] = useState(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
   const history = useHistory();
   const { id: stringId } = useParams();
   const id = parseInt(stringId);
@@ -1677,50 +1682,45 @@ export function Publisher() {
       console.log({ publisher });
       setPublisher(publisher);
     } catch (error){
-      hasError(true);
+      setError(error);
     }
 
     setIsLoading(false);
   }
 
-  if (error) {
-    return renderError();
-  }
-
-  if (isLoading) {
-    return loading();
-  }
-
-  if (!publisher) {
-    return publisherNotFound();
-  }
-
-  const headerActions = [
+  const actions = [
     { Icon: EditIcon, to: \`edit/\${id}\`, label: 'Edit' },
     {
       Icon: DeleteIcon,
-      onClick: openConfirmDialog(setConfirmDialogOpen),
+      onClick: () => setDialogOpen(true),
       label: 'Delete'
     }
   ];
 
   return (
-    <Container maxWidth=\\"sm\\" className=\\"Container Publisher\\">
-      <Header title=\\"Publisher\\" actions={headerActions}/>
-      <div className=\\"containerContent\\">
+    <ContentContainer
+      title=\\"Publisher\\"
+      error={error}
+      loading={isLoading}
+      actions={actions}
+      className=\\"Publisher\\"
+    >
+      <div className=\\"content\\">
         <StringView label=\\"Name\\" value={publisher.name} />
       </div>
       <ConfirmDialog
         text={getDialogText(publisher)}
         title=\\"Confirm Delete\\"
-        open={confirmDialogOpen}
-        onCancel={handleConfirmDialogCancel(setConfirmDialogOpen)}
-        onConfirm={handleConfirmDialogConfrim(
-          setConfirmDialogOpen,
-          handleRemovePublisher({ id, setIsLoading, history })
-        )}
+        open={dialogOpen}
+        setOpen={setDialogOpen}
+        onConfirm={handleRemovePublisher({ 
+          id, 
+          setIsLoading, 
+          history, 
+          setError 
+        })}
       />
-    </Container>
+    </ContentContainer>
   );
 }
 "
@@ -1729,27 +1729,11 @@ export function Publisher() {
 exports[`React template tests/app/video-game-app/client/src/components/Publisher/PublisherCollection.js should match snapshot 1`] = `
 "import { useState, useEffect } from \\"react\\";
 import { Link } from \\"react-router-dom\\";
-import { Container, CircularProgress } from \\"@material-ui/core\\";
 import AddIcon from '@material-ui/icons/Add';
-import { Center } from \\"../common/Center\\";
 import { getPublisherCollection } from \\"../../api/publisher\\";
 import { DataGrid } from \\"@material-ui/data-grid\\";
-import { Header } from \\"../../components/common/Header\\";
 import { StringCell } from '../types/StringCell';
-
-function loading() {
-  return (
-    <Container
-      maxWidth=\\"sm\\"
-      className=\\"Container Collection PublisherCollection\\"
-    >
-      <Header title=\\"Publisher Collection\\"/>
-      <Center className=\\"loading\\">
-        <CircularProgress />
-      </Center>
-    </Container>
-  );
-}
+import { ContentContainer } from \\"../common/containers/ContentContainer\\";
 
 function getColumns() {
   return [
@@ -1770,6 +1754,7 @@ function getColumns() {
 
 export function PublisherCollection() {
   const [publisherCollection, setPublisherCollection] = useState([]);
+  const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -1777,25 +1762,27 @@ export function PublisherCollection() {
   }, []);
 
   async function getAll() {
-    setIsLoading(true);
-    const publisherCollection = await getPublisherCollection();
-    console.log({publisherCollection});
-    setPublisherCollection(publisherCollection);
+    try {
+      setIsLoading(true);
+      const publisherCollection = await getPublisherCollection();
+      console.log({publisherCollection});
+      setPublisherCollection(publisherCollection);
+    } catch (error) {
+      setError(error);
+    }
+    
     setIsLoading(false);
-  }
-
-  if (isLoading) {
-    return loading();
   }
 
   const actions = [{ Icon: AddIcon, to: \\"Publisher\\", label: \\"Add\\" }];
 
   return (
-    <Container
-      maxWidth=\\"sm\\"
-      className=\\"Container Collection PublisherCollection\\"
+    <ContentContainer
+      title=\\"Publisher Collection\\"
+      error={error}
+      loading={isLoading}
+      actions={actions}
     >
-      <Header title=\\"Publisher Collection\\" actions={actions}/>
       <div style={{ display: \\"flex\\", height: \\"100%\\" }}>
         <div className=\\"test\\" style={{ flexGrow: 1 }}>
           <DataGrid
@@ -1806,7 +1793,7 @@ export function PublisherCollection() {
           />
         </div>
       </div>
-    </Container>
+    </ContentContainer>
   );
 }
 "
@@ -1815,31 +1802,18 @@ export function PublisherCollection() {
 exports[`React template tests/app/video-game-app/client/src/components/Publisher/PublisherForm.js should match snapshot 1`] = `
 "import { useState, useEffect } from 'react';
 import {
-  Button,
-  Container,
-  CircularProgress
+  Button
 } from '@material-ui/core';
-import { Center } from '../common/Center';
 import { StringEdit } from '../types/StringEdit';
-import { Header } from \\"../../components/common/Header\\";
-
-function loading() {
-  return (
-    <Container maxWidth=\\"sm\\" className=\\"Container Publisher\\">
-      <Header title=\\"Publisher\\" />
-      <Center className=\\"loading\\">
-        <CircularProgress />
-      </Center>
-    </Container>
-  );
-}
+import { ContentContainer } from \\"../common/containers/ContentContainer\\";
 
 export function PublisherForm({
   publisher: initialState,
   ctaLabel,
   cta,
   isLoading,
-  processing
+  processing,
+  error
 }) {
   const [publisher, setPublisher] = useState(
     initialState ?? { name: '' }
@@ -1863,15 +1837,14 @@ export function PublisherForm({
     };
   }
 
-
-  if (isLoading) {
-    return loading();
-  }
-
   return (
-    <Container maxWidth=\\"sm\\" className=\\"Container PublisherForm\\">
-      <Header title=\\"Publisher\\" />
-      <div className=\\"containerContent\\">
+    <ContentContainer 
+      title=\\"Publisher\\"
+      error={error}
+      loading={isLoading}
+      className=\\"PublisherForm\\"
+    >
+      <div className=\\"content\\">
         <form noValidate autoComplete=\\"off\\">
           <StringEdit
             id=\\"publisherFormName\\"
@@ -1893,7 +1866,7 @@ export function PublisherForm({
           </Button>
         </form>
       </div>
-    </Container>
+    </ContentContainer>
   );
 }
 "
@@ -1934,17 +1907,28 @@ import { addVideoGame } from '../../api/videoGame';
 import { VideoGameForm } from './VideoGameForm';
 
 export function AddVideoGame() {
+  const [error, setError] = useState(null);
   const [processing, setProcessing] = useState(false);
   const history = useHistory();
 
   async function add(videoGame) {
-    setProcessing(true);
-    const id = await addVideoGame(videoGame);
-    setProcessing(false);
-    history.push(\`/videoGame/\${id}\`);
+    try {
+      setProcessing(true);
+      const id = await addVideoGame(videoGame);
+      setProcessing(false);
+      history.push(\`/videoGame/\${id}\`);
+    } catch (error) {
+      setError(error);
+      setProcessing(false);
+    }
   }
 
-  return <VideoGameForm ctaLabel=\\"Add\\" cta={add} processing={processing} />;
+  return <VideoGameForm
+      ctaLabel=\\"Add\\"
+      cta={add}
+      processing={processing}
+      error={error}
+    />
 }
 "
 `;
@@ -1957,6 +1941,7 @@ import { VideoGameForm } from './VideoGameForm';
 
 export function EditVideoGame() {
   const [videoGame, setVideoGame] = useState(null);
+  const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [processing, setProcessing] = useState(false);
 
@@ -1969,18 +1954,28 @@ export function EditVideoGame() {
   }, [id]);
 
   async function get(id) {
-    setIsLoading(true);
-    const videoGame = await getVideoGame(id);
-    console.log({ videoGame });
-    setVideoGame(videoGame);
+    try {
+      setIsLoading(true);
+      const videoGame = await getVideoGame(id);
+      console.log({ videoGame });
+      setVideoGame(videoGame);  
+    } catch (error) {
+      setError(error);
+    }
+    
     setIsLoading(false);
   }
 
   async function save(videoGame) {
-    setProcessing(true);
-    await updateVideoGame(videoGame);
-    setProcessing(false);
-    history.push(\`/videoGame/\${id}\`);
+    try {
+      setProcessing(true);
+      await updateVideoGame(videoGame);
+      setProcessing(false);
+      history.push(\`/videoGame/\${id}\`);
+    } catch (error) {
+      setError(error);
+      setProcessing(false);
+    }
   }
 
   return (
@@ -1990,6 +1985,7 @@ export function EditVideoGame() {
       isLoading={isLoading}
       processing={processing}
       videoGame={videoGame}
+      error={error}
     />
   );
 }
@@ -1999,66 +1995,23 @@ export function EditVideoGame() {
 exports[`React template tests/app/video-game-app/client/src/components/VideoGame/VideoGame.js should match snapshot 1`] = `
 "import { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-import { Container, CircularProgress } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { Center } from '../common/Center';
 import { getVideoGame, removeVideoGame } from '../../api/videoGame';
 import { StringView } from '../types/StringView';
-import { Header } from '../common/Header';
 import { ConfirmDialog } from '../common/ConfirmDialog';
-import { MessageContainer } from \\"../common/MessageContainer\\";
+import { ContentContainer } from \\"../common/containers/ContentContainer\\";
 
-function loading() {
-  return (
-    <Container maxWidth=\\"sm\\" className=\\"Container VideoGame\\">
-      <Header title=\\"Video Game\\"/>
-      <Center className=\\"loading\\">
-        <CircularProgress />
-      </Center>
-    </Container>
-  );
-}
-
-function renderError() {
-  return (
-    <MessageContainer title=\\"Video Game\\" message=\\"Something went wrong.\\" />
-  );
-}
-
-function videoGameNotFound() {
-  return (
-    <MessageContainer title=\\"Video Game\\" message=\\"Not found\\" />
-  );
-}
-
-function handleRemoveVideoGame({ id, setIsLoading, history }) {
+function handleRemoveVideoGame({ id, setIsLoading, setError, history }) {
   return async () => {
-    setIsLoading(true);
-    await removeVideoGame(id);
-    history.push(\`/videoGameCollection\`);
-  };
-}
-
-function handleConfirmDialogConfrim(setConfirmDialogOpen, onConfirm) {
-  return () => {
-    if (onConfirm) {
-      onConfirm();
+    try {
+      setIsLoading(true);
+      await removeVideoGame(id);
+      history.push(\`/videoGameCollection\`); 
+    } catch (error) {
+      setError(error);
+      setIsLoading(false);
     }
-
-    setConfirmDialogOpen(false);
-  };
-}
-
-function handleConfirmDialogCancel(setConfirmDialogOpen) {
-  return () => {
-    setConfirmDialogOpen(false);
-  };
-}
-
-function openConfirmDialog(setConfirmDialogOpen) {
-  return () => {
-    setConfirmDialogOpen(true);
   };
 }
 
@@ -2075,8 +2028,8 @@ function getDialogText(videoGame) {
 export function VideoGame() {
   const [videoGame, setVideoGame] = useState({ title: '', yearPublished: '' });
   const [isLoading, setIsLoading] = useState(true);
-  const [error, hasError] = useState(false);
-  const [confirmDialogOpen, setConfirmDialogOpen] = useState(false);
+  const [error, setError] = useState(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
   const history = useHistory();
   const { id: stringId } = useParams();
   const id = parseInt(stringId);
@@ -2092,51 +2045,46 @@ export function VideoGame() {
       console.log({ videoGame });
       setVideoGame(videoGame);
     } catch (error){
-      hasError(true);
+      setError(error);
     }
 
     setIsLoading(false);
   }
 
-  if (error) {
-    return renderError();
-  }
-
-  if (isLoading) {
-    return loading();
-  }
-
-  if (!videoGame) {
-    return videoGameNotFound();
-  }
-
-  const headerActions = [
+  const actions = [
     { Icon: EditIcon, to: \`edit/\${id}\`, label: 'Edit' },
     {
       Icon: DeleteIcon,
-      onClick: openConfirmDialog(setConfirmDialogOpen),
+      onClick: () => setDialogOpen(true),
       label: 'Delete'
     }
   ];
 
   return (
-    <Container maxWidth=\\"sm\\" className=\\"Container VideoGame\\">
-      <Header title=\\"Video Game\\" actions={headerActions}/>
-      <div className=\\"containerContent\\">
+    <ContentContainer
+      title=\\"Video Game\\"
+      error={error}
+      loading={isLoading}
+      actions={actions}
+      className=\\"VideoGame\\"
+    >
+      <div className=\\"content\\">
         <StringView label=\\"Title\\" value={videoGame.title} />
         <StringView label=\\"Year Published\\" value={videoGame.yearPublished} />
       </div>
       <ConfirmDialog
         text={getDialogText(videoGame)}
         title=\\"Confirm Delete\\"
-        open={confirmDialogOpen}
-        onCancel={handleConfirmDialogCancel(setConfirmDialogOpen)}
-        onConfirm={handleConfirmDialogConfrim(
-          setConfirmDialogOpen,
-          handleRemoveVideoGame({ id, setIsLoading, history })
-        )}
+        open={dialogOpen}
+        setOpen={setDialogOpen}
+        onConfirm={handleRemoveVideoGame({ 
+          id, 
+          setIsLoading, 
+          history, 
+          setError 
+        })}
       />
-    </Container>
+    </ContentContainer>
   );
 }
 "
@@ -2145,27 +2093,11 @@ export function VideoGame() {
 exports[`React template tests/app/video-game-app/client/src/components/VideoGame/VideoGameCollection.js should match snapshot 1`] = `
 "import { useState, useEffect } from \\"react\\";
 import { Link } from \\"react-router-dom\\";
-import { Container, CircularProgress } from \\"@material-ui/core\\";
 import AddIcon from '@material-ui/icons/Add';
-import { Center } from \\"../common/Center\\";
 import { getVideoGameCollection } from \\"../../api/videoGame\\";
 import { DataGrid } from \\"@material-ui/data-grid\\";
-import { Header } from \\"../../components/common/Header\\";
 import { StringCell } from '../types/StringCell';
-
-function loading() {
-  return (
-    <Container
-      maxWidth=\\"sm\\"
-      className=\\"Container Collection VideoGameCollection\\"
-    >
-      <Header title=\\"Video Game Collection\\"/>
-      <Center className=\\"loading\\">
-        <CircularProgress />
-      </Center>
-    </Container>
-  );
-}
+import { ContentContainer } from \\"../common/containers/ContentContainer\\";
 
 function getColumns() {
   return [
@@ -2197,6 +2129,7 @@ function getColumns() {
 
 export function VideoGameCollection() {
   const [videoGameCollection, setVideoGameCollection] = useState([]);
+  const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -2204,25 +2137,27 @@ export function VideoGameCollection() {
   }, []);
 
   async function getAll() {
-    setIsLoading(true);
-    const videoGameCollection = await getVideoGameCollection();
-    console.log({videoGameCollection});
-    setVideoGameCollection(videoGameCollection);
+    try {
+      setIsLoading(true);
+      const videoGameCollection = await getVideoGameCollection();
+      console.log({videoGameCollection});
+      setVideoGameCollection(videoGameCollection);
+    } catch (error) {
+      setError(error);
+    }
+    
     setIsLoading(false);
-  }
-
-  if (isLoading) {
-    return loading();
   }
 
   const actions = [{ Icon: AddIcon, to: \\"VideoGame\\", label: \\"Add\\" }];
 
   return (
-    <Container
-      maxWidth=\\"sm\\"
-      className=\\"Container Collection VideoGameCollection\\"
+    <ContentContainer
+      title=\\"Video Game Collection\\"
+      error={error}
+      loading={isLoading}
+      actions={actions}
     >
-      <Header title=\\"Video Game Collection\\" actions={actions}/>
       <div style={{ display: \\"flex\\", height: \\"100%\\" }}>
         <div className=\\"test\\" style={{ flexGrow: 1 }}>
           <DataGrid
@@ -2233,7 +2168,7 @@ export function VideoGameCollection() {
           />
         </div>
       </div>
-    </Container>
+    </ContentContainer>
   );
 }
 "
@@ -2242,31 +2177,18 @@ export function VideoGameCollection() {
 exports[`React template tests/app/video-game-app/client/src/components/VideoGame/VideoGameForm.js should match snapshot 1`] = `
 "import { useState, useEffect } from 'react';
 import {
-  Button,
-  Container,
-  CircularProgress
+  Button
 } from '@material-ui/core';
-import { Center } from '../common/Center';
 import { StringEdit } from '../types/StringEdit';
-import { Header } from \\"../../components/common/Header\\";
-
-function loading() {
-  return (
-    <Container maxWidth=\\"sm\\" className=\\"Container VideoGame\\">
-      <Header title=\\"Video Game\\" />
-      <Center className=\\"loading\\">
-        <CircularProgress />
-      </Center>
-    </Container>
-  );
-}
+import { ContentContainer } from \\"../common/containers/ContentContainer\\";
 
 export function VideoGameForm({
   videoGame: initialState,
   ctaLabel,
   cta,
   isLoading,
-  processing
+  processing,
+  error
 }) {
   const [videoGame, setVideoGame] = useState(
     initialState ?? { title: '', yearPublished: '' }
@@ -2290,15 +2212,14 @@ export function VideoGameForm({
     };
   }
 
-
-  if (isLoading) {
-    return loading();
-  }
-
   return (
-    <Container maxWidth=\\"sm\\" className=\\"Container VideoGameForm\\">
-      <Header title=\\"Video Game\\" />
-      <div className=\\"containerContent\\">
+    <ContentContainer 
+      title=\\"Video Game\\"
+      error={error}
+      loading={isLoading}
+      className=\\"VideoGameForm\\"
+    >
+      <div className=\\"content\\">
         <form noValidate autoComplete=\\"off\\">
           <StringEdit
             id=\\"videoGameFormTitle\\"
@@ -2329,7 +2250,7 @@ export function VideoGameForm({
           </Button>
         </form>
       </div>
-    </Container>
+    </ContentContainer>
   );
 }
 "
@@ -2384,26 +2305,52 @@ exports[`React template tests/app/video-game-app/client/src/components/common/Ce
 `;
 
 exports[`React template tests/app/video-game-app/client/src/components/common/ConfirmDialog.js should match snapshot 1`] = `
-"import { forwardRef } from 'react';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import Slide from '@material-ui/core/Slide';
+"import { forwardRef } from \\"react\\";
+import Button from \\"@material-ui/core/Button\\";
+import Dialog from \\"@material-ui/core/Dialog\\";
+import DialogActions from \\"@material-ui/core/DialogActions\\";
+import DialogContent from \\"@material-ui/core/DialogContent\\";
+import DialogContentText from \\"@material-ui/core/DialogContentText\\";
+import DialogTitle from \\"@material-ui/core/DialogTitle\\";
+import Slide from \\"@material-ui/core/Slide\\";
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction=\\"up\\" ref={ref} {...props} />;
 });
 
-export function ConfirmDialog({ open, onConfirm, onCancel, text, title }) {
+function handleConfirm(setOpen, onConfirm) {
+  return () => {
+    if (onConfirm) {
+      onConfirm();
+    }
+
+    setOpen(false);
+  };
+}
+
+function handleCancel(setOpen, onCancel) {
+  return () => {
+    setOpen(false);
+    if (onCancel) {
+      onCancel();
+    }
+  };
+}
+
+export function ConfirmDialog({
+  open,
+  setOpen,
+  onConfirm,
+  onCancel,
+  text,
+  title,
+}) {
   return (
     <Dialog
       open={open}
       TransitionComponent={Transition}
       keepMounted
-      onClose={onCancel}
+      onClose={handleCancel(setOpen, onCancel)}
       aria-labelledby=\\"alert-dialog-slide-title\\"
       aria-describedby=\\"alert-dialog-slide-description\\"
     >
@@ -2414,11 +2361,11 @@ export function ConfirmDialog({ open, onConfirm, onCancel, text, title }) {
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={onCancel} color=\\"primary\\">
+        <Button onClick={handleCancel(setOpen, onCancel)} color=\\"primary\\">
           Cancel
         </Button>
-        <Button onClick={onConfirm} color=\\"primary\\">
-          Yes
+        <Button onClick={handleConfirm(setOpen, onConfirm)} color=\\"primary\\">
+          Delete
         </Button>
       </DialogActions>
     </Dialog>
@@ -2574,17 +2521,136 @@ export default function HeaderMenu({ actions }) {
 "
 `;
 
-exports[`React template tests/app/video-game-app/client/src/components/common/MessageContainer.js should match snapshot 1`] = `
+exports[`React template tests/app/video-game-app/client/src/components/common/containers/ContentContainer.js should match snapshot 1`] = `
 "import { Container } from \\"@material-ui/core\\";
-import { Header } from \\"./Header\\";
+import { Header } from \\"../Header\\";
+import { LoadingContainer } from \\"./LoadingContainer\\";
+import { ErrorContainer } from \\"./ErrorContainer\\";
+import \\"./ContentContainer.scss\\";
 
-export function MessageContainer({ title, message, className }) {
-  const classes = [\\"Container\\", className].join(\\" \\");
+export function ContentContainer({
+  title,
+  children,
+  className,
+  loading,
+  error,
+  actions,
+}) {
+  const classes = [\\"Container\\", \\"ContentContainer\\", className].join(\\" \\");
+
+  if (error) {
+    return <ErrorContainer title={title} error={error} className={classes} />;
+  }
+
+  if (loading) {
+    return <LoadingContainer title={title} className={classes} />;
+  }
+
+  return (
+    <Container maxWidth=\\"sm\\" className={classes}>
+      <Header title={title} actions={actions} />
+      {children}
+    </Container>
+  );
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app/client/src/components/common/containers/ContentContainer.scss should match snapshot 1`] = `
+".ContentContainer {
+  background-color: white;
+  margin-top: 40px;
+  min-height: 350px;
+  border-radius: 5px;
+  border: solid 1px #ccc;
+
+  &.Container {
+    padding: 0;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+
+    .headerIcon {
+      height: 48px;
+      margin-top: 18px;
+    }
+  }
+
+  .content {
+    padding: 0px 2rem 2rem 2rem;
+  }
+
+  .datagrid {
+    min-height: 400px;
+  }
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app/client/src/components/common/containers/ErrorContainer.js should match snapshot 1`] = `
+"import { useEffect } from 'react';
+import { ErrorType } from '../../../lib/Error';
+import { MessageContainer } from './MessageContainer';
+
+function getErrorMessage(error) {
+  switch (error.type) {
+    case ErrorType.NotFound:
+      return 'Not Found';
+    default:
+      return 'Something went wrong.';
+  }
+}
+
+export function ErrorContainer({ title, error, className }) {
+  useEffect(() => {
+    console.error(error);
+  }, [error]);
+
+  return (
+    <MessageContainer
+      title={title}
+      message={getErrorMessage(error)}
+      className={className}
+    />
+  );
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app/client/src/components/common/containers/LoadingContainer.js should match snapshot 1`] = `
+"import { Container, CircularProgress } from '@material-ui/core';
+import { Header } from '../Header';
+import { Center } from '../Center';
+
+export function LoadingContainer({ title, className }) {
+  const classes = ['Container', className].join(' ');
 
   return (
     <Container maxWidth=\\"sm\\" className={classes}>
       <Header title={title} />
-      <div className=\\"containerContent\\">
+      <Center className=\\"loading\\">
+        <CircularProgress />
+      </Center>
+    </Container>
+  );
+}
+"
+`;
+
+exports[`React template tests/app/video-game-app/client/src/components/common/containers/MessageContainer.js should match snapshot 1`] = `
+"import { Container } from '@material-ui/core';
+import { Header } from '../Header';
+
+export function MessageContainer({ title, message, className }) {
+  const classes = ['Container', className].join(' ');
+
+  return (
+    <Container maxWidth=\\"sm\\" className={classes}>
+      <Header title={title} />
+      <div className=\\"content\\">
         <h2>{message}</h2>
       </div>
     </Container>
@@ -2822,6 +2888,17 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+"
+`;
+
+exports[`React template tests/app/video-game-app/client/src/lib/Error.js should match snapshot 1`] = `
+"export const ErrorType = { NotFound: \\"NotFound\\" };
+
+export function NotFoundError() {
+  const error = new Error(\\"Record Not Found\\");
+  error.type = ErrorType.NotFound;
+  return error;
+}
 "
 `;
 

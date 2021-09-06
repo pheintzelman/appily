@@ -1,14 +1,16 @@
 v. 0.2.0-alpha
 
 - react-app template: Impvoved error handling
+- react-app template: Component clean-up
+- react-app template: CSS clean-up
 - react-app template: Express support
 - react-app template: Env support
 
 v. 0.1.1-alpha
 
-- set defaults values on config not view model
-- normalize config now converts objects to arrays
-- decouple getViewModel and runDirectives
+- Set defaults values on config not view model
+- Normalize config now converts objects to arrays
+- Decouple getViewModel and runDirectives
 
 v. 0.1.0-alpha
 
@@ -17,9 +19,9 @@ v. 0.1.0-alpha
 
 v. 0.0.14-prealpha
 
-- rebranded from `create-app` to `appily`
-- fixed tabbing in `.appily` config file
-- removed component logic from view model
+- Rebranded from `create-app` to `appily`
+- Fixed tabbing in `.appily` config file
+- Removed component logic from view model
 
 v. 0.0.13-prealpha
 

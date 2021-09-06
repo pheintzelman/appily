@@ -163,7 +163,7 @@ Array [
           },
         ],
         "templateName": "react-app",
-        "templateVersion": "0.4.0",
+        "templateVersion": "0.5.0",
       },
     },
   },
@@ -562,7 +562,7 @@ Array [
           },
         ],
         "templateName": "react-app",
-        "templateVersion": "0.4.0",
+        "templateVersion": "0.5.0",
       },
     },
   },
@@ -768,7 +768,7 @@ Array [
 exports[`React template tests/app/video-game-app/client/.appily should match snapshot 1`] = `
 "{
   template: \\"react-app\\",
-  version: \\"0.4.0\\",
+  version: \\"0.5.0\\",
   config:  {
   \\"dir\\": \\"tests/app\\",
   \\"name\\": \\"Video Game App\\",
@@ -885,7 +885,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 exports[`React template tests/app/video-game-app/client/package.json should match snapshot 1`] = `
 "{
   \\"name\\": \\"video-game-app\\",
-  \\"version\\": \\"0.4.0\\",
+  \\"version\\": \\"0.5.0\\",
   \\"private\\": true,
   \\"dependencies\\": {
     \\"@material-ui/core\\": \\"^4.11.4\\",

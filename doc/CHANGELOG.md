@@ -1,6 +1,6 @@
 v. 0.2.0-alpha
 
-- react-app template: Impvoved error handling
+- react-app template: Improved error handling
 - react-app template: Component clean-up
 - react-app template: CSS clean-up
 - react-app template: Express support

@@ -1,20 +1,20 @@
 {
   "name": "react-app",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "options": {
     "ui": ["react"],
-    "api": ["indexedDB", "stub"],
+    "api": ["indexedDB", "stub", "express", "none"],
     "db": ["indexedDB", "none"]
   },
   "allowedTypes": ["String", "Boolean"],
   "directives": [
-    { "ui:react": { "copy": { "src": "react/base", "dest": "" } } },
+    { "ui:react": { "copy": { "src": "react/base", "dest": "client" } } },
     {
       "ui:react": {
         "loop": {
           "property": "models",
           "src": "react/modelComponents",
-          "dest": "src/components"
+          "dest": "client/src/components"
         }
       }
     },
@@ -31,7 +31,7 @@
         "loop": {
           "property": "models",
           "src": "api/stub/api",
-          "dest": "src/api"
+          "dest": "client/src/api"
         }
       }
     },
@@ -40,13 +40,39 @@
         "loop": {
           "property": "models",
           "src": "api/indexedDb/api",
-          "dest": "src/api"
+          "dest": "client/src/api"
+        }
+      }
+    },
+    {
+      "api:express": { "copy": { "src": "api/express/base", "dest": "server" } }
+    },
+    {
+      "api:express": {
+        "loop": {
+          "property": "models",
+          "src": "api/express/rest",
+          "dest": "server/src/rest"
+        }
+      }
+    },
+    {
+      "api:express": {
+        "copy": { "src": "api/express/client/api", "dest": "client/src/api" }
+      }
+    },
+    {
+      "api:express": {
+        "loop": {
+          "property": "models",
+          "src": "api/express/client/models",
+          "dest": "client/src/api/"
         }
       }
     },
     {
       "db:indexedDB": {
-        "copy": { "src": "db/indexedDb/db", "dest": "src/db" }
+        "copy": { "src": "db/indexedDb/db", "dest": "client/src/db" }
       }
     },
     {
@@ -54,7 +80,7 @@
         "loop": {
           "property": "models",
           "src": "db/indexedDb/loop",
-          "dest": "src/db"
+          "dest": "client/src/db"
         }
       }
     },

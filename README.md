@@ -6,6 +6,7 @@ Generate an application form a simple json configuration. Perfect for MVP's and 
 
 Alpha. We have met our alpha goals!  
 Appily can generate a react app that is able to perform full CRUD opperations, against indexedDb.
+Express is now an option but there is no db setup yet.
 
 ![First app](doc/images/first-app-2021-06-17.png)
 
@@ -81,7 +82,7 @@ Each template has its own set of options for ui, api and db, which change how th
 | Property | options | Default |
 | ------------- | ------------- | -----
 | ui | react | react
-| api | indexedDB, stub | indexedDB
+| api | indexedDB, stub, express | indexedDB
 | db | indexedDB, none | indexedDB
 
 _more options coming_
@@ -119,9 +120,10 @@ Aim for progressive development with something useful asap See the [road map](./
 - add github test action (pipeline)
 - add overide cli option, for now this can just delete the existing dir
 - add options cli option, print out options from manfesto
-- add test for missing coverage
+- add tests for missing coverage
 - try to fix nested app issue (apps don't run from manual folder - nested npm package issue confuses npm install)
 - improve local dev testing (idea: build a tool that copies existing node_modules to new test files)
+- make directives groupable
 - make docs easier to understand
   - list supported types
 - make tests cross OS
@@ -139,6 +141,8 @@ Aim for progressive development with something useful asap See the [road map](./
   - link
 - add better formatting/styling to types
   - string elipses, wrapping, etc
+- add spinner progress button
+- internationalize app (setup)
 
 # Later
 

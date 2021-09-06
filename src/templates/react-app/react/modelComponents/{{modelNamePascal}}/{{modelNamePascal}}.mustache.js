@@ -1,65 +1,24 @@
 import { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-import { Container, CircularProgress } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { Center } from '../common/Center';
 import { get{{modelNamePascal}}, remove{{modelNamePascal}} } from '../../api/{{modelNameCamel}}';
 {{#componentImports}}
 import { {{component.view}} } from '../types/{{component.view}}';
 {{/componentImports}}
-import { Header } from '../common/Header';
 import { ConfirmDialog } from '../common/ConfirmDialog';
+import { ContentContainer } from "../common/containers/ContentContainer";
 
-function loading() {
-  return (
-    <Container maxWidth="sm" className="Container {{modelNamePascal}}">
-      <Header title="{{modelName}}"/>
-      <Center className="loading">
-        <CircularProgress />
-      </Center>
-    </Container>
-  );
-}
-
-function {{modelNameCamel}}NotFound() {
-  return (
-    <Container maxWidth="sm" className="Container {{modelNamePascal}}">
-      <Header title="{{modelName}}"/>
-      <div className="containerContent">
-        <h2>Not found</h2>
-      </div>
-    </Container>
-  );
-}
-
-function handleRemove{{modelNamePascal}}({ id, setIsLoading, history }) {
+function handleRemove{{modelNamePascal}}({ id, setIsLoading, setError, history }) {
   return async () => {
-    setIsLoading(true);
-    await remove{{modelNamePascal}}(id);
-    history.push(`/{{pluralModelNameCamel}}`);
-  };
-}
-
-function handleConfirmDialogConfrim(setConfirmDialogOpen, onConfirm) {
-  return () => {
-    if (onConfirm) {
-      onConfirm();
+    try {
+      setIsLoading(true);
+      await remove{{modelNamePascal}}(id);
+      history.push(`/{{pluralModelNameCamel}}`); 
+    } catch (error) {
+      setError(error);
+      setIsLoading(false);
     }
-
-    setConfirmDialogOpen(false);
-  };
-}
-
-function handleConfirmDialogCancel(setConfirmDialogOpen) {
-  return () => {
-    setConfirmDialogOpen(false);
-  };
-}
-
-function openConfirmDialog(setConfirmDialogOpen) {
-  return () => {
-    setConfirmDialogOpen(true);
   };
 }
 
@@ -76,7 +35,8 @@ function getDialogText({{modelNameCamel}}) {
 export function {{modelNamePascal}}() {
   const [{{modelNameCamel}}, set{{modelNamePascal}}] = useState({{{defaultState}}});
   const [isLoading, setIsLoading] = useState(true);
-  const [confirmDialogOpen, setConfirmDialogOpen] = useState(false);
+  const [error, setError] = useState(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
   const history = useHistory();
   const { id: stringId } = useParams();
   const id = parseInt(stringId);
@@ -86,34 +46,36 @@ export function {{modelNamePascal}}() {
   }, [id]);
 
   async function get(id) {
-    setIsLoading(true);
-    const {{modelNameCamel}} = await get{{modelNamePascal}}(id);
-    console.log({ {{modelNameCamel}} });
-    set{{modelNamePascal}}({{modelNameCamel}});
+    try {
+      setIsLoading(true);
+      const {{modelNameCamel}} = await get{{modelNamePascal}}(id);
+      console.log({ {{modelNameCamel}} });
+      set{{modelNamePascal}}({{modelNameCamel}});
+    } catch (error){
+      setError(error);
+    }
+
     setIsLoading(false);
   }
 
-  if (isLoading) {
-    return loading();
-  }
-
-  if (!{{modelNameCamel}}) {
-    return {{modelNameCamel}}NotFound();
-  }
-
-  const headerActions = [
+  const actions = [
     { Icon: EditIcon, to: `edit/${id}`, label: 'Edit' },
     {
       Icon: DeleteIcon,
-      onClick: openConfirmDialog(setConfirmDialogOpen),
+      onClick: () => setDialogOpen(true),
       label: 'Delete'
     }
   ];
 
   return (
-    <Container maxWidth="sm" className="Container {{modelNamePascal}}">
-      <Header title="{{modelName}}" actions={headerActions}/>
-      <div className="containerContent">
+    <ContentContainer
+      title="{{modelName}}"
+      error={error}
+      loading={isLoading}
+      actions={actions}
+      className="{{modelNamePascal}}"
+    >
+      <div className="content">
         {{#properties}}
         <{{component.view}} label="{{propertyName}}" value={{=<% %>=}}{<%modelNameCamel%>.<%propertyNameCamel%>}<%={{ }}=%> />
         {{/properties}}
@@ -121,13 +83,15 @@ export function {{modelNamePascal}}() {
       <ConfirmDialog
         text={getDialogText({{modelNameCamel}})}
         title="Confirm Delete"
-        open={confirmDialogOpen}
-        onCancel={handleConfirmDialogCancel(setConfirmDialogOpen)}
-        onConfirm={handleConfirmDialogConfrim(
-          setConfirmDialogOpen,
-          handleRemove{{modelNamePascal}}({ id, setIsLoading, history })
-        )}
+        open={dialogOpen}
+        setOpen={setDialogOpen}
+        onConfirm={handleRemove{{modelNamePascal}}({ 
+          id, 
+          setIsLoading, 
+          history, 
+          setError 
+        })}
       />
-    </Container>
+    </ContentContainer>
   );
 }

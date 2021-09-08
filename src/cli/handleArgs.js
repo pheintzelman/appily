@@ -16,6 +16,12 @@ export function handleArgs(args) {
         describe: 'enable verbose (trace) level logging',
         type: 'boolean'
       },
+      w: {
+        alias: 'overwrite',
+        demandOption: false,
+        describe: 'overwrite existing app',
+        type: 'boolean'
+      },
       h: { alias: ['h', 'help'] }
     }).argv;
 }

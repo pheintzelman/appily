@@ -14,17 +14,22 @@ async function readManifesto(templateDir) {
   return await readJsonFile(manifestoPath);
 }
 
-export async function createApp(config) {
+export async function createApp(config, options = {}) {
+  const { overwrite = false } = options;
   const templateDir = getTemplateDir(config);
   const manifesto = await readManifesto(templateDir);
 
   const normalizedConfig = normalizeConfig(config);
   logger.trace({ normalizedConfig });
   await validateConfig(normalizedConfig, manifesto);
-  const dir = await createRootDir(normalizedConfig);
+  const dir = await createRootDir(normalizedConfig, options);
   const viewModel = getViewModel({ config: normalizedConfig, dir, manifesto });
-  const metaData = { config: normalizedConfig, dir, manifesto, templateDir };
 
+  if (overwrite) {
+    logger.info({ mode: 'overwrite', dir });
+  }
+
+  const metaData = { config: normalizedConfig, dir, manifesto, templateDir };
   await runDirectives({
     viewModel,
     metaData

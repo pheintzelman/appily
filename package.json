@@ -16,7 +16,7 @@
   },
   "type": "module",
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/.bin/jest --coverage",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest --coverage --runInBand --forceExit --no-cache --detectOpenHandles",
     "test:debug": "node --experimental-vm-modules --inspect-brk node_modules/.bin/jest --coverage",
     "test:windows": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
     "coverage": "open ./tests/coverage/lcov-report/index.html"

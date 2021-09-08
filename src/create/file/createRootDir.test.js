@@ -13,7 +13,7 @@ describe('createRootDir', () => {
   });
 
   test('should not create dir if it already exists (overwrite)', async () => {
-    mockDirExists.returns(Promise.resolve(true));
+    mockDirExists.mockReturnValue(Promise.resolve(true));
     const dir = await createRootDir({}, { overwrite: true });
     expect(dir).toEqual('');
   });

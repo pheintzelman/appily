@@ -36,15 +36,15 @@ async function handleOverwrite(baseDir, name) {
   return dir;
 }
 
-export async function createRootDir(config, { overwrite = false }) {
-  const name = snakeCase(config.name) ?? DefaultAppName;
-  const baseDir = config.dir ?? '';
+export async function createRootDir({ name, dir }, { overwrite = false }) {
+  const appName = name ? snakeCase(name) : DefaultAppName;
+  const baseDir = dir ?? '';
 
   if (overwrite) {
-    return await handleOverwrite(baseDir, name);
+    return await handleOverwrite(baseDir, appName);
   }
 
-  const rootDir = await getRootDirName(baseDir, name);
+  const rootDir = await getRootDirName(baseDir, appName);
   await fs.mkdir(rootDir);
   logger.debug(`Dir created: ${rootDir}`);
   return rootDir;

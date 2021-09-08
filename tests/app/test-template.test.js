@@ -12,6 +12,7 @@ const config = {
 };
 
 const log = captureLog();
+await removeDir('tests/app/test-app');
 await createApp(config);
 
 describe('Test template', () => {
@@ -26,9 +27,5 @@ describe('Test template', () => {
 
   test('should match logs', () => {
     expect(sortLog(log)).toMatchSnapshot();
-  });
-
-  afterAll(async () => {
-    await removeDir('tests/app/test-app');
   });
 });

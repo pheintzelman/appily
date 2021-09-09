@@ -3,10 +3,15 @@ import { mockDependencies, createRootDir } from './createRootDir.js';
 
 describe('createRootDir', () => {
   let mockDirExists;
+  let mockMkdir;
 
   beforeEach(() => {
     mockDirExists = jest.fn();
-    mockDependencies({ file: { dirExists: mockDirExists } });
+    mockMkdir = jest.fn();
+    mockDependencies({
+      file: { dirExists: mockDirExists },
+      fs: { mkdir: mockMkdir }
+    });
   });
   afterEach(() => {
     mockDependencies();
@@ -15,6 +20,6 @@ describe('createRootDir', () => {
   test('should not create dir if it already exists (overwrite)', async () => {
     mockDirExists.mockReturnValue(Promise.resolve(true));
     const dir = await createRootDir({}, { overwrite: true });
-    expect(dir).toEqual('');
+    expect(mockMkdir).not.toHaveBeenCalled();
   });
 });

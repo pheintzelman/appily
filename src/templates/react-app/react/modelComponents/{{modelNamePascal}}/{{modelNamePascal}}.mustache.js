@@ -7,7 +7,7 @@ import { get{{modelNamePascal}}, remove{{modelNamePascal}} } from '../../api/{{m
 import { {{component.view}} } from '../types/{{component.view}}';
 {{/componentImports}}
 import { ConfirmDialog } from '../common/ConfirmDialog';
-import { ContentContainer } from "../common/containers/ContentContainer";
+import { ContentContainer } from '../common/containers/ContentContainer';
 
 function handleRemove{{modelNamePascal}}({ id, setIsLoading, setError, history }) {
   return async () => {
@@ -77,7 +77,7 @@ export function {{modelNamePascal}}() {
     >
       <div className="content">
         {{#properties}}
-        <{{component.view}} label="{{propertyName}}" value={{=<% %>=}}{<%modelNameCamel%>.<%propertyNameCamel%>}<%={{ }}=%> />
+        <{{component.view}} label="{{propertyName}}" value={{=<% %>=}}{<%modelNameCamel%>.<%propertyNameCamel%>}<%={{ }}=%> options={{=<% %>=}}{<%&options%>}<%={{ }}=%>  />
         {{/properties}}
       </div>
       <ConfirmDialog

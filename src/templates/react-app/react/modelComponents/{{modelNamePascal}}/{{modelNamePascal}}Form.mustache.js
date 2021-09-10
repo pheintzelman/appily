@@ -47,6 +47,7 @@ export function {{modelNamePascal}}Form({
       <div className="content">
         <form noValidate autoComplete="off">
           {{#properties}}
+          {{^isModel}}
           <{{component.edit}}
             id="{{modelNameCamel}}Form{{propertyNamePascal}}"
             label="{{propertyName}}"
@@ -55,7 +56,7 @@ export function {{modelNamePascal}}Form({
             onChange={handleChange}
             disabled={processing}
           />
-
+          {{/isModel}}
           {{/properties}}
           <Button
             className="cta"

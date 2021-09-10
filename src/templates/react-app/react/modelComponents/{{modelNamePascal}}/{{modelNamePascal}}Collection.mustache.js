@@ -11,6 +11,7 @@ import { ContentContainer } from "../common/containers/ContentContainer";
 function getColumns() {
   return [
     {{#properties}}
+    {{^isModel}}
     {{#isPrimary}}
     {
       field: "{{propertyNameCamel}}",
@@ -38,6 +39,7 @@ function getColumns() {
       },
     },
     {{/isPrimary}}
+    {{/isModel}}
     {{/properties}}
   ];
 }

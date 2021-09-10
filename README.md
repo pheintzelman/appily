@@ -141,6 +141,7 @@ Aim for progressive development with something useful asap See the [road map](./
 - add spinner progress button
 - internationalize app (setup)
 - add postgres
+- resolve `Test environment has been torn down` issue
 
 # Later
 

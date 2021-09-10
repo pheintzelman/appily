@@ -2,7 +2,8 @@ import { Type } from '../../constants/constants.js';
 
 const defaultValues = {
   [Type.Boolean]: false,
-  [Type.String]: ''
+  [Type.String]: '',
+  [Type.Model]: 1
 };
 
 export function getDefaultValueForType(type) {

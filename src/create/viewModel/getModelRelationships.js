@@ -38,7 +38,7 @@ function isCustomType(models, type) {
 }
 
 export function getModelRelationships(models, model) {
-  const { properties } = model;
+  const properties = model.properties ?? [];
   return properties.reduce((relationships, property) => {
     if (isCustomType(models, property.type)) {
       relationships.push(findRelationship(models, model, property));

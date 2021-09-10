@@ -13,6 +13,9 @@ const typeMapper = {
   [Type.String]: {
     component: { cell: 'StringCell', edit: 'StringEdit', view: 'StringView' },
     flex: 4
+  },
+  [Type.Model]: {
+    component: { view: 'ModelView' }
   }
 };
 

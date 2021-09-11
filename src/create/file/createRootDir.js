@@ -6,12 +6,6 @@ import * as file from '../../lib/file.js';
 import { snakeCase } from '../../lib/case.js';
 
 // Needed because es6 doesn't allow re-writing modules
-/*let importedDependencies = { fs: fsModule.promises, file };
-let dependencies = { ...importedDependencies };
-const { mkdir } = dependencies.fs;
-const fs = dependencies.fs;
-const { dirExists } = dependencies.file;
-*/
 const fs = fsModule.promises;
 let { dirExists } = file;
 let { mkdir } = fs;

@@ -32,7 +32,7 @@ describe.only('createRootDir', () => {
     expect(mockMkdir).toBeCalledWith('cloud-beast');
   });
 
-  test('should increse count if dir already exists (overwrite)', async () => {
+  test('should increse count if dir already exists', async () => {
     mockDirExists
       .mockReturnValueOnce(Promise.resolve(true))
       .mockReturnValue(Promise.resolve(false));

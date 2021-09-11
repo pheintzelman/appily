@@ -1,12 +1,11 @@
-import { Container, List, ListItem, ListItemText } from '@material-ui/core';
+import { List, ListItem, ListItemText } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import { Header } from "./common/Header";
+import { ContentContainer } from "./common/containers/ContentContainer";
 
 export function Home() {
   return (
-    <Container maxWidth="sm" className="Container Home">
-       <Header title="Welcome to {{ appName }}!"/>
-       <div className="containerContent">
+    <ContentContainer title="Welcome to {{ appName }}!">
+      <div className="content">
         <List component="nav">
         {{#models}}
           <ListItem button component={Link} to="/{{pluralModelNamePascal}}">
@@ -15,6 +14,6 @@ export function Home() {
         {{/models}}
         </List>
       </div>
-    </Container>
+    </ContentContainer>
   );
 }

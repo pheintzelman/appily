@@ -6,12 +6,18 @@ import * as file from '../../lib/file.js';
 import { snakeCase } from '../../lib/case.js';
 
 // Needed because es6 doesn't allow re-writing modules
-let importedDependencies = { fs: fsModule.promises, file };
+/*let importedDependencies = { fs: fsModule.promises, file };
 let dependencies = { ...importedDependencies };
+const { mkdir } = dependencies.fs;
 const fs = dependencies.fs;
 const { dirExists } = dependencies.file;
-export function mockDependencies(mockedDependencies) {
-  dependencies = { ...importedDependencies, ...mockedDependencies };
+*/
+const fs = fsModule.promises;
+let { dirExists } = file;
+let { mkdir } = fs;
+export function mockDependencies(mockedDependencies = {}) {
+  ({ dirExists } = mockedDependencies.file ?? file);
+  ({ mkdir } = mockedDependencies.fs ?? fs);
 }
 
 // If the dir already exists append the next number
@@ -30,7 +36,7 @@ async function handleOverwrite(baseDir, name) {
   const dir = path.join(baseDir, name);
 
   if (!(await dirExists(dir))) {
-    await fs.mkdir(dir);
+    await mkdir(dir);
   }
 
   return dir;
@@ -45,7 +51,7 @@ export async function createRootDir({ name, dir }, { overwrite = false }) {
   }
 
   const rootDir = await getRootDirName(baseDir, appName);
-  await fs.mkdir(rootDir);
+  await mkdir(rootDir);
   logger.debug(`Dir created: ${rootDir}`);
   return rootDir;
 }

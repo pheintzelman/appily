@@ -1,7 +1,7 @@
 import { jest } from '@jest/globals';
 import { mockDependencies, createRootDir } from './createRootDir.js';
 
-describe('createRootDir', () => {
+describe.only('createRootDir', () => {
   let mockDirExists;
   let mockMkdir;
 
@@ -21,5 +21,22 @@ describe('createRootDir', () => {
     mockDirExists.mockReturnValue(Promise.resolve(true));
     const dir = await createRootDir({}, { overwrite: true });
     expect(mockMkdir).not.toHaveBeenCalled();
+  });
+
+  test('should create dir if it does not exists (overwrite)', async () => {
+    mockDirExists.mockReturnValue(Promise.resolve(false));
+    const dir = await createRootDir(
+      { name: 'Cloud Beast' },
+      { overwrite: true }
+    );
+    expect(mockMkdir).toBeCalledWith('cloud-beast');
+  });
+
+  test('should increse count if dir already exists (overwrite)', async () => {
+    mockDirExists
+      .mockReturnValueOnce(Promise.resolve(true))
+      .mockReturnValue(Promise.resolve(false));
+    const dir = await createRootDir({}, {});
+    expect(mockMkdir).toBeCalledWith('app1');
   });
 });

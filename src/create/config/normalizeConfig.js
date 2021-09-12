@@ -1,5 +1,6 @@
 import { isObject } from '../../lib/check.js';
 import { setDefaults } from './setDefaults.js';
+import { ConfigIsEmpty } from './../../constants/messages.js';
 
 function normalizeProperty([propertyName, property]) {
   if (isObject(property) && property.type) {
@@ -7,13 +8,6 @@ function normalizeProperty([propertyName, property]) {
   }
 
   return { type: property, propertyName };
-}
-
-function objectMap(object, fn) {
-  return Object.entries(object).reduce((acc, [key, value]) => {
-    acc[key] = fn(value);
-    return acc;
-  }, {});
 }
 
 function normalizeModel([modelName, model]) {

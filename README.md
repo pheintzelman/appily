@@ -118,11 +118,9 @@ Aim for progressive development with something useful asap See the [road map](./
 - remove `viewModelDirective.js` (or rename to `packageDirective.js` and repurpose for packages)
 - add github test badge
 - add github test action (pipeline)
-- add overide cli option, for now this can just delete the existing dir
 - add options cli option, print out options from manfesto
 - add tests for missing coverage
 - try to fix nested app issue (apps don't run from manual folder - nested npm package issue confuses npm install)
-- improve local dev testing (idea: build a tool that copies existing node_modules to new test files)
 - make directives groupable
 - make docs easier to understand
   - list supported types
@@ -133,7 +131,6 @@ Aim for progressive development with something useful asap See the [road map](./
   - create api/db to support this
   - support single model relationship UI: add, remove
   - support multi model relationship UI: add, remove
-- add stubbed express api
 - add types
   - Number - Alex calls dibs
   - DateTime

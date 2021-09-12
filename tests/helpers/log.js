@@ -1,4 +1,6 @@
 import { jest } from '@jest/globals';
+import { isObject } from '../../src/lib/check.js';
+import { objectMap } from '../../src/lib/objectMap.js';
 import { logger } from '../../src/logger.js';
 import { compareObjects } from './compareObjects.js';
 
@@ -29,4 +31,30 @@ export function captureLog() {
 export function sortLog(log) {
   const logCopy = [...log];
   return logCopy.sort(compareObjects);
+}
+
+function removeProjectDirString(entry) {
+  if (typeof entry !== 'string') {
+    return entry;
+  }
+
+  return entry.replace(/(\/.*\/)(appily)/, '$2');
+}
+
+function removeProjectDirHelper(entry) {
+  if (Array.isArray(entry)) {
+    return entry.map(removeProjectDirHelper);
+  }
+
+  if (isObject(entry)) {
+    return objectMap(entry, removeProjectDirHelper);
+  }
+
+  return removeProjectDirString(entry);
+}
+
+export function removeProjectDir(log) {
+  return log.map((entry) => {
+    return removeProjectDirHelper(entry);
+  });
 }

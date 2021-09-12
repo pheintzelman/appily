@@ -3,10 +3,10 @@ import {
   removeDir,
   getSanpshotTestCasesSync
 } from './helpers/snapshot-helpers.js';
-import { captureLog, sortLog } from '../helpers/log.js';
+import { captureLog, sortLog, removeProjectDir } from '../helpers/log.js';
 
 const config = {
-  dir: 'tests/app',
+  dir: 'tests/app/testApps',
   name: 'Video Game App IndexedDB',
   template: 'react-app',
   api: 'indexedDB',
@@ -26,11 +26,12 @@ const config = {
 };
 
 const log = captureLog();
-await createApp(config);
+await removeDir('tests/app/testApps/video-game-app-indexedDB');
+await createApp(config, { overwrite: true });
 
 describe('React template', () => {
   const testCases = getSanpshotTestCasesSync(
-    'tests/app/video-game-app-indexedDB'
+    'tests/app/testApps/video-game-app-indexedDB'
   );
 
   test.each(testCases)(
@@ -41,10 +42,7 @@ describe('React template', () => {
   );
 
   test('should match logs', () => {
-    expect(sortLog(log)).toMatchSnapshot();
-  });
-
-  afterAll(async () => {
-    await removeDir('tests/app/video-game-app-indexedDB');
+    const cleanedLog = removeProjectDir(log);
+    expect(sortLog(cleanedLog)).toMatchSnapshot();
   });
 });

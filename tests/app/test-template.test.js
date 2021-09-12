@@ -3,19 +3,20 @@ import {
   removeDir,
   getSanpshotTestCasesSync
 } from './helpers/snapshot-helpers.js';
-import { captureLog, sortLog } from '../helpers/log.js';
+import { captureLog, removeProjectDir, sortLog } from '../helpers/log.js';
 
 const config = {
-  dir: 'tests/app',
+  dir: 'tests/app/testApps',
   name: 'Test App',
   template: 'test'
 };
 
 const log = captureLog();
+await removeDir('tests/app/testApps/test-app');
 await createApp(config);
 
 describe('Test template', () => {
-  const testCases = getSanpshotTestCasesSync('tests/app/test-app');
+  const testCases = getSanpshotTestCasesSync('tests/app/testApps/test-app');
 
   test.each(testCases)(
     '$dir should match snapshot',
@@ -25,10 +26,7 @@ describe('Test template', () => {
   );
 
   test('should match logs', () => {
-    expect(sortLog(log)).toMatchSnapshot();
-  });
-
-  afterAll(async () => {
-    await removeDir('tests/app/test-app');
+    const cleanedLog = removeProjectDir(log);
+    expect(sortLog(cleanedLog)).toMatchSnapshot();
   });
 });

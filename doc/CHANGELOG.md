@@ -1,3 +1,10 @@
+v. 0.2.1-alpha
+
+- Added overwrite option
+- Improved test coverage
+- Removed full dir from test logs
+- react-app template: fix home css issue
+
 v. 0.2.0-alpha
 
 - react-app template: Improved error handling

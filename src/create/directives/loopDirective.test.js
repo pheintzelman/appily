@@ -6,7 +6,7 @@ describe('loopDirective', () => {
 
   beforeEach(() => {
     mockCopyDir = jest.fn();
-    mockDependencies({ mockCopy: mockCopyDir });
+    mockDependencies({ copyDir: mockCopyDir });
   });
   afterEach(() => {
     mockDependencies();

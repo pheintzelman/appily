@@ -1,12 +1,13 @@
 {
   "name": "appily",
   "description": "Generate a new app",
-  "version": "0.2.0-alpha",
+  "version": "0.2.1-alpha",
   "keywords": [
     "react",
     "app",
     "create",
-    "generate"
+    "generate",
+    "express"
   ],
   "author": "Paul Heintzelman",
   "license": "MIT",
@@ -19,6 +20,7 @@
     "test": "node --experimental-vm-modules node_modules/.bin/jest --coverage",
     "test:debug": "node --experimental-vm-modules --inspect-brk node_modules/.bin/jest --coverage",
     "test:windows": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
+    "test:clear": "node --experimental-vm-modules node_modules/.bin/jest --clearCache",
     "coverage": "open ./tests/coverage/lcov-report/index.html"
   },
   "jest": {
@@ -26,7 +28,8 @@
     "transform": {},
     "testMatch": [
       "**/*.test.js",
-      "!**/templates/**"
+      "!**/templates/**",
+      "!**/tests/app/testApps/**"
     ],
     "collectCoverageFrom": [
       "**/*.{js,jsx}",

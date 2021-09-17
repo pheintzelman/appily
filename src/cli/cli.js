@@ -11,9 +11,13 @@ async function main() {
     logger.level = logLevel.trace;
   }
 
+  const options = {
+    overwrite: argv.w
+  };
+
   const config = await readConfig(argv.configFile);
   logger.trace({ config });
-  await createApp(config);
+  await createApp(config, options);
 }
 
 main()

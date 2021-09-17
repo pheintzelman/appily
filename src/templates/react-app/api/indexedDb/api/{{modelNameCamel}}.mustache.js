@@ -45,3 +45,11 @@ export async function remove{{modelNamePascal}}(id) {
 
   return await remove(id);
 }
+
+export const api = {
+  add: add{{modelNamePascal}},
+  get: get{{modelNamePascal}},
+  getCollection: get{{modelNamePascal}}Collection,
+  update: update{{modelNamePascal}},
+  remove: remove{{modelNamePascal}}
+}

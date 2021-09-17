@@ -37,6 +37,11 @@
     },
     {
       "api:indexedDB": {
+        "copy": { "src": "api/indexedDb/base", "dest": "client/src/api" }
+      }
+    },
+    {
+      "api:indexedDB": {
         "loop": {
           "property": "models",
           "src": "api/indexedDb/api",

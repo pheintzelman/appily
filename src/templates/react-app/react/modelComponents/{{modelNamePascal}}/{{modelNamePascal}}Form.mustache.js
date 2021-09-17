@@ -3,7 +3,9 @@ import {
   Button
 } from '@material-ui/core';
 {{#componentImports}}
+{{#component.edit}}
 import { {{component.edit}} } from '../types/{{component.edit}}';
+{{/component.edit}}
 {{/componentImports}}
 import { ContentContainer } from "../common/containers/ContentContainer";
 

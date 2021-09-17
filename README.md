@@ -141,6 +141,9 @@ Aim for progressive development with something useful asap See the [road map](./
 - add spinner progress button
 - internationalize app (setup)
 - resolve `Test environment has been torn down` issue
+- rename `Edit` to `Input` in types
+- rename `api` methods to be more generic
+- add icon animations for loader
 
 # Later
 

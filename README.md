@@ -140,6 +140,7 @@ Aim for progressive development with something useful asap See the [road map](./
   - string elipses, wrapping, etc
 - add spinner progress button
 - internationalize app (setup)
+- add postgres
 
 # Later
 

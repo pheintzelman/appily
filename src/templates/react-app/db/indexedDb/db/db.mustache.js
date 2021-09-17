@@ -16,7 +16,8 @@ export async function connect() {
 
 export async function add(store, value) {
   const db = await connect();
-  return db.add(store, value);
+  const id = await db.add(store, value);
+  return db.get(store, id);
 }
 
 export async function get(store, key) {

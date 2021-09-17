@@ -12,8 +12,8 @@ export async function get{{pluralModelNamePascal}}() {
   return await get("{{pluralModelNamePascal}}");
 }
 
-export async function update{{modelNamePascal}}(id, {{modelNameCamel}}) {
-  return await put("{{modelNamePascal}}", id, {{modelNameCamel}});
+export async function update{{modelNamePascal}}({{modelNameCamel}}) {
+  return await put("{{modelNamePascal}}", {{modelNameCamel}});
 }
 
 export async function remove{{modelNamePascal}}(id) {

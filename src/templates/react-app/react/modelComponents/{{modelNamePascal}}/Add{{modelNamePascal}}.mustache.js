@@ -11,7 +11,7 @@ export function Add{{modelNamePascal}}() {
   async function add({{modelNameCamel}}) {
     try {
       setProcessing(true);
-      const id = await add{{modelNamePascal}}({{modelNameCamel}});
+      const { id } = await add{{modelNamePascal}}({{modelNameCamel}});
       setProcessing(false);
       history.push(`/{{modelNameCamel}}/${id}`);
     } catch (error) {

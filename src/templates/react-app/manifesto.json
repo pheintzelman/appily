@@ -1,6 +1,6 @@
 {
   "name": "react-app",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "options": {
     "ui": ["react"],
     "api": ["indexedDB", "stub", "express", "none"],
@@ -51,8 +51,8 @@
       "api:express": {
         "loop": {
           "property": "models",
-          "src": "api/express/rest",
-          "dest": "server/src/rest"
+          "src": "api/express/endpoints",
+          "dest": "server/src/rest/endpoints"
         }
       }
     },

@@ -165,7 +165,7 @@ Array [
           },
         ],
         "templateName": "react-app",
-        "templateVersion": "0.5.1",
+        "templateVersion": "0.5.2",
       },
     },
   },
@@ -568,7 +568,7 @@ Array [
           },
         ],
         "templateName": "react-app",
-        "templateVersion": "0.5.1",
+        "templateVersion": "0.5.2",
       },
     },
   },
@@ -777,7 +777,7 @@ Array [
 exports[`React template tests/app/testApps/video-game-app-indexedDB/client/.appily should match snapshot 1`] = `
 "{
   template: \\"react-app\\",
-  version: \\"0.5.1\\",
+  version: \\"0.5.2\\",
   config:  {
   \\"dir\\": \\"tests/app/testApps\\",
   \\"name\\": \\"Video Game App IndexedDB\\",
@@ -896,7 +896,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 exports[`React template tests/app/testApps/video-game-app-indexedDB/client/package.json should match snapshot 1`] = `
 "{
   \\"name\\": \\"video-game-app-indexeddb\\",
-  \\"version\\": \\"0.5.1\\",
+  \\"version\\": \\"0.5.2\\",
   \\"private\\": true,
   \\"dependencies\\": {
     \\"@material-ui/core\\": \\"^4.11.4\\",

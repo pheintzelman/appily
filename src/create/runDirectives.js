@@ -26,9 +26,7 @@ function getSelectedOptions(manifesto, config) {
       }
 
       //include the first option by default
-      if (value.length >= 1) {
-        return `${key}:${value[0]}`;
-      }
+      return `${key}:${value[0]}`;
     });
 }
 

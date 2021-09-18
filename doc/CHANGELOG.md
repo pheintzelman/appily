@@ -1,3 +1,8 @@
+v. 0.2.2-alpha
+
+- react-app template: Express In-Memory header
+- react-app template: In-Memory header session storage setting
+
 v. 0.2.1-alpha
 
 - Added overwrite option

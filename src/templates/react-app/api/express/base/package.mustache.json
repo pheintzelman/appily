@@ -1,5 +1,5 @@
 {
-  "name": "{{appNameSnake}}-api",
+  "name": "{{appNameKebab}}-api",
   "version": "{{templateVersion}}",
   "main": "src/api.js",
   "private": true,

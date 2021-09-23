@@ -4,7 +4,7 @@
   "options": {
     "ui": ["react"],
     "api": ["indexedDB", "stub", "express", "none"],
-    "db": ["indexedDB", "none"]
+    "db": ["indexedDB", "postgres", "none"]
   },
   "allowedTypes": ["String", "Boolean"],
   "directives": [
@@ -87,6 +87,11 @@
     {
       "db:indexedDB": {
         "viewModel": { "packages": [{ "package": "idb", "version": "^6.1.2" }] }
+      }
+    },
+    {
+      "db:postgres": {
+        "copy": { "src": "db/postgres/docker", "dest": "server/docker" }
       }
     }
   ]

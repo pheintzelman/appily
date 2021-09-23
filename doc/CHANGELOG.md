@@ -1,3 +1,8 @@
+v. 0.2.3-alpha
+
+- Fixed kebab case name
+- Added snake case
+
 v. 0.2.2-alpha
 
 - react-app template: Express In-Memory header

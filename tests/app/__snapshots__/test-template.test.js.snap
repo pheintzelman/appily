@@ -7,9 +7,10 @@ Array [
       "viewModel": Object {
         "appName": "Test App",
         "appNameCamel": "testApp",
+        "appNameKebab": "test-app",
         "appNamePascal": "TestApp",
         "appNameSentenceCase": "test app",
-        "appNameSnake": "test-app",
+        "appNameSnake": "test_app",
         "configString": " {
   \\"dir\\": \\"tests/app/testApps\\",
   \\"name\\": \\"Test App\\",

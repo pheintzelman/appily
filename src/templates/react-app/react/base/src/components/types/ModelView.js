@@ -21,7 +21,7 @@ export function ModelView({ label, value, options }) {
 
   useEffect(() => {
     get(modelName, value);
-  }, []);
+  }, [modelName, value]);
 
   if(loading) return (<div className="ModelView">{label}: <CircularProgress className="spinner" size="14px" /></div>);
 

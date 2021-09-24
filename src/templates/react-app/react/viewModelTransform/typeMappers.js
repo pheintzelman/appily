@@ -15,7 +15,7 @@ const typeMapper = {
     flex: 4
   },
   [Type.Model]: {
-    component: { view: 'ModelView', edit: false, cell: false}
+    component: { view: 'ModelView', edit: 'ModelInput', cell: false}
   }
 };
 

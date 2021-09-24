@@ -131,6 +131,8 @@ Aim for progressive development with something useful asap See the [road map](./
   - create api/db to support this
   - support single model relationship UI: add, remove
   - support multi model relationship UI: add, remove
+  - handle deletions
+  - handle when relationships are unasociated (`autocomplete` should be `nullable`)
 - add types
   - Number - Alex calls dibs
   - DateTime
@@ -145,6 +147,7 @@ Aim for progressive development with something useful asap See the [road map](./
 - rename `Edit` to `Input` in types
 - rename `api` methods to be more generic
 - add icon animations for loader
+- replace `console.log` with `logger` in react template code
 
 # Later
 

@@ -22,7 +22,7 @@ function normalizeProperty([propertyName, property], models) {
   return { type, isCollection, propertyName, ...model };
 }
 
-function normalizeModel([modelName, model]) {
+function normalizeModel([modelName, model], _, models) {
   const properties = model && model.properties ? model.properties : model;
   const normalizedProperties = Object.entries(properties).map((property) =>
     normalizeProperty(property, models)

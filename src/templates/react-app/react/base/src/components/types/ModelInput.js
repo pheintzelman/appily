@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import Skeleton from 'react-loading-skeleton';
 import { TextField } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { apiFactory } from '../../api/apiFactory';
 import { models } from '../../constants/models';
+import './ModelInput.scss';
 
 const handleChange = (field, update) => (event, value) => {
   console.log(value);
@@ -15,7 +17,10 @@ function getOptionById(options, id) {
 
 function getOptions(collection, modelName) {
   const { primaryProperty } = models[modelName];
-  return collection.map((model) => ({ label: model[primaryProperty], id: model.id }));
+  return collection.map((model) => ({
+    label: model[primaryProperty],
+    id: model.id
+  }));
 }
 
 export function ModelInput({
@@ -45,7 +50,11 @@ export function ModelInput({
   }, [modelName]);
 
   if (loading) {
-    return <div>Loading....</div>;
+    return (
+      <div className="ModelInput">
+        <Skeleton className="skeleton" />
+      </div>
+    );
   }
 
   return (

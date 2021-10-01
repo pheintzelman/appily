@@ -18,7 +18,8 @@
     {{#packages}}
     "{{package}}": "{{version}}",
     {{/packages}}
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^1.1.2",
+    "react-loading-skeleton": "2.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

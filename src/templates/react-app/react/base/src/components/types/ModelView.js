@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { CircularProgress } from '@material-ui/core';
+import Skeleton from 'react-loading-skeleton';
 import { apiFactory } from '../../api/apiFactory';
-import { models } from '../../constants/models'
+import { models } from '../../constants/models';
 import './ModelView.scss';
 
 export function ModelView({ label, value, options }) {
@@ -23,12 +23,18 @@ export function ModelView({ label, value, options }) {
     get(modelName, value);
   }, [modelName, value]);
 
-  if(loading) return (<div className="ModelView">{label}: <CircularProgress className="spinner" size="14px" /></div>);
+  if (loading)
+    return (
+      <div className="ModelView">
+        {label}: <Skeleton className="skeleton" />
+      </div>
+    );
 
   const { primaryProperty } = models[modelName];
   return (
     <div className="ModelView">
-      {label}: <Link to={`/${modelName}/${value}`}>{model[primaryProperty]}</Link>
+      {label}:{' '}
+      <Link to={`/${modelName}/${value}`}>{model[primaryProperty]}</Link>
     </div>
   );
 }

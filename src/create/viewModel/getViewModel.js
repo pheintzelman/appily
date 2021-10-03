@@ -1,4 +1,5 @@
 import { getVariations } from '../../lib/case.js';
+import { getSelectedOptions } from '../processManafesto.js';
 import { getViewModelModels } from './getViewModelModels.js';
 
 function addOffset(string, offset) {
@@ -10,6 +11,20 @@ function addOffset(string, offset) {
     .join('\n');
 }
 
+function getFlags(config, manifesto) {
+  const optionFlags = getSelectedOptions(manifesto, config).reduce(
+    (optionFlags, option) => {
+      const parts = option.split(':');
+      const flag = parts[1];
+      optionFlags[flag] = true;
+      return optionFlags;
+    },
+    {}
+  );
+
+  return { ...optionFlags, sequelize: Boolean(optionFlags.postgres) };
+}
+
 export function getViewModel({ config, manifesto, dir }) {
   return {
     ...getVariations('appName', config.name),
@@ -17,6 +32,7 @@ export function getViewModel({ config, manifesto, dir }) {
     templateName: manifesto.name,
     templateVersion: manifesto.version,
     models: getViewModelModels({ config, manifesto, dir }),
-    configString: addOffset(JSON.stringify(config, null, 2), 2)
+    configString: addOffset(JSON.stringify(config, null, 2), 2),
+    flags: getFlags(config, manifesto)
   };
 }

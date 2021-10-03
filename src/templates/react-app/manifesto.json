@@ -85,13 +85,22 @@
       }
     },
     {
-      "db:indexedDB": {
-        "viewModel": { "packages": [{ "package": "idb", "version": "^6.1.2" }] }
+      "db:postgres": {
+        "copy": { "src": "db/postgres/docker", "dest": "server/docker" }
       }
     },
     {
       "db:postgres": {
-        "copy": { "src": "db/postgres/docker", "dest": "server/docker" }
+        "copy": { "src": "db/sequelize/db", "dest": "server/src/db" }
+      }
+    },
+    {
+      "db:postgres": {
+        "loop": {
+          "property": "models",
+          "src": "db/sequelize/models",
+          "dest": "server/src/db/models"
+        }
       }
     }
   ]

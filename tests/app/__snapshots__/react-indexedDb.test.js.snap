@@ -45,6 +45,11 @@ Array [
   ]
  }",
         "dir": "tests/app/testApps/video-game-app-indexeddb",
+        "flags": Object {
+          "indexedDB": true,
+          "react": true,
+          "sequelize": false,
+        },
         "models": Array [
           Object {
             "componentImports": Array [
@@ -166,12 +171,6 @@ Array [
                 "type": "String",
               },
             ],
-          },
-        ],
-        "packages": Array [
-          Object {
-            "package": "idb",
-            "version": "^6.1.2",
           },
         ],
         "templateName": "react-app",
@@ -464,6 +463,11 @@ Array [
   ]
  }",
         "dir": "tests/app/testApps/video-game-app-indexeddb",
+        "flags": Object {
+          "indexedDB": true,
+          "react": true,
+          "sequelize": false,
+        },
         "models": Array [
           Object {
             "componentImports": Array [
@@ -589,19 +593,6 @@ Array [
         ],
         "templateName": "react-app",
         "templateVersion": "0.5.2",
-      },
-    },
-  },
-  Object {
-    "TRACE": Object {
-      "msg": "Add to view model",
-      "property": Object {
-        "packages": Array [
-          Object {
-            "package": "idb",
-            "version": "^6.1.2",
-          },
-        ],
       },
     },
   },

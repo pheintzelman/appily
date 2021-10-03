@@ -2,9 +2,12 @@
 version: '3'
 services:
   database:
+    container_name: {{appNameSnake}}_db
     image: 'postgres' # use latest official postgres version
     env_file:
       - database.env # configure postgres
+    ports:
+      - "5432:5432"
     volumes:
       - database-data:/var/lib/postgresql/data/ # persist data even if container shuts down
 volumes:

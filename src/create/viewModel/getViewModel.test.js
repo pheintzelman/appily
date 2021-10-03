@@ -63,7 +63,7 @@ describe('getViewModel', () => {
 
     const actual = getViewModel({
       config,
-      manifesto: { name: 'test', version: '1.2.3' }
+      manifesto: { name: 'test', version: '1.2.3', options: {} }
     });
 
     expect(actual).toStrictEqual(expected);

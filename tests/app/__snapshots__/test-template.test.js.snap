@@ -18,6 +18,10 @@ Array [
   \\"models\\": []
  }",
         "dir": "tests/app/testApps/test-app",
+        "flags": Object {
+          "sequelize": false,
+          "vanilla": true,
+        },
         "models": Array [],
         "templateName": "test",
         "templateVersion": "0.0.1",

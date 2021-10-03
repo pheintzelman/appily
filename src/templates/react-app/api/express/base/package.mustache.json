@@ -5,8 +5,15 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "express": "^4.17.1",
-    "http-status-codes": "^2.1.4"
+    "express": "4.17.1",
+    "http-status-codes": "2.1.4",
+    {{#flags.sequelize}}
+    "sequelize": "6.6.5",
+    {{/flags.sequelize}}
+    {{#flags.postgres}}
+    "pg": "8.7.1",
+    "pg-hstore": "2.3.4"
+    {{/flags.postgres}}
   },
   "scripts": {
     "start": "node src/api.js",

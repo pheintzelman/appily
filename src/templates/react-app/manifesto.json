@@ -102,6 +102,14 @@
           "dest": "server/src/db/models"
         }
       }
+    },
+    {
+      "db:postgres": {
+        "viewModelTransform": {
+          "path": "./db/sequelize/viewModelTransform/transform.js",
+          "method": "transform"
+        }
+      }
     }
   ]
 }

@@ -5,7 +5,7 @@ const { DataTypes } = sequelizeModule;
 export const {{modelNamePascal}} = sequelize.define('{{modelNamePascal}}', {
   {{#properties}}
   {{propertyNameSnake}}: {
-    type: DataTypes.STRING
+    type: DataTypes.{{sequelizeType}}
   },
   {{/properties}}
 }, {

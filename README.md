@@ -115,7 +115,6 @@ Aim for progressive development with something useful asap See the [road map](./
 
 ## Todo
 
-- remove `viewModelDirective.js` (or rename to `packageDirective.js` and repurpose for packages)
 - add github test badge
 - add github test action (pipeline)
 - add options cli option, print out options from manfesto

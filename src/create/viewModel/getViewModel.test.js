@@ -33,6 +33,9 @@ describe('getViewModel', () => {
       appNameKebab: 'test-config',
       configString,
       dir: undefined,
+      flags: {
+        sequelize: false
+      },
       models: [
         {
           defaultState: '{}',

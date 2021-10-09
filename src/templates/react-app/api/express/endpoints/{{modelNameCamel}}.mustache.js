@@ -1,28 +1,26 @@
 import express from "express";
 import { StatusCodes } from "http-status-codes";
 import { useInMemoryDb, getRepository } from "../../lib/inMemoryDb.js";
+import { getRepository as getSequelizeRepository } from "../../db/sequelizeDb.js";
+import { {{modelNamePascal}} } from "../../db/models/{{modelNamePascal}}.js";
 
 export const {{modelNameCamel}}Routes = express.Router();
 
-function getDb(request, modelName) {
+function getDb(request) {
   if (useInMemoryDb(request)) {
-    return getRepository(modelName);
+    console.log({ mode: `InMemory` });
+    return getRepository("{{modelNameCamel}}");
   }
 
-  return null;
+  return getSequelizeRepository({{modelNamePascal}});
 }
 
 {{modelNameCamel}}Routes.post("/", async (request, response, next) => {
   try {
     const {{modelNameCamel}} = request.body;
-    const db = getDb(request, "{{modelNameCamel}}");
+    const db = getDb(request);
     console.log(`POST {{modelNamePascal}} ${JSON.stringify({{modelNameCamel}})}`);
 
-    if (!db) {
-      return response.status(StatusCodes.NOT_IMPLEMENTED).send("Not Implemented");
-    }
-
-    console.log({ mode: `InMemory` });
     const record = await db.insert({{modelNameCamel}});
     return response.status(StatusCodes.OK).send(record);
   } catch (error) {
@@ -33,14 +31,9 @@ function getDb(request, modelName) {
 {{modelNameCamel}}Routes.get("/:id", async (request, response, next) => {
   try {
     const { id } = request.params;
-    const db = getDb(request, "{{modelNameCamel}}");
+    const db = getDb(request);
     console.log(`GET {{modelNamePascal}} ${id}`);
 
-    if (!db) {
-      return response.status(StatusCodes.NOT_IMPLEMENTED).send("Not Implemented");
-    }
-
-    console.log({ mode: `InMemory` });
     const record = await db.retrieve(id);
     return response.status(StatusCodes.OK).send(record);
   } catch (error) {
@@ -51,14 +44,9 @@ function getDb(request, modelName) {
 {{modelNameCamel}}Routes.put("/", async (request, response, next) => {
   try {
     const {{modelNameCamel}} = request.body;
-    const db = getDb(request, "{{modelNameCamel}}");
+    const db = getDb(request);
     console.log(`Put {{modelNamePascal}} ${JSON.stringify({{modelNameCamel}})}`);
   
-    if (!db) {
-      return response.status(StatusCodes.NOT_IMPLEMENTED).send("Not Implemented");
-    }
-  
-    console.log({ mode: `InMemory` });
     const record = await db.update({{modelNameCamel}});
     return response.status(StatusCodes.OK).send(record); 
   } catch (error) {
@@ -69,14 +57,9 @@ function getDb(request, modelName) {
 {{modelNameCamel}}Routes.delete("/:id", async (request, response, next) => {
   try {
     const { id } = request.params;
-    const db = getDb(request, "{{modelNameCamel}}");
+    const db = getDb(request);
     console.log(`Delete {{modelNamePascal}} ${id}`);
   
-    if (!db) {
-      return response.status(StatusCodes.NOT_IMPLEMENTED).send("Not Implemented");
-    }
-  
-    console.log({ mode: `InMemory` });
     await db.remove(id);
     return response.status(StatusCodes.NO_CONTENT).send(); 
   } catch (error) {

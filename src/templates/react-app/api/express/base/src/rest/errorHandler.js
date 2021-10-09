@@ -14,6 +14,12 @@ export function errorHandler(error, request, response, next) {
     return response.status(StatusCodes.NOT_FOUND).send('Record not found.');
   }
 
+  if (error.type == Type.NotImplemented) {
+    return response
+      .status(StatusCodes.NOT_IMPLEMENTED)
+      .send('Not implemented.');
+  }
+
   return response
     .status(StatusCodes.INTERNAL_SERVER_ERROR)
     .send('Server failed.');

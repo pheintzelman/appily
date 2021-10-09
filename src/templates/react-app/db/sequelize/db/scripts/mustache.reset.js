@@ -3,9 +3,12 @@ import { sequelize } from '../sequelize.js';
 import "../models/{{modelNamePascal}}.js";
 {{/models}}
 
-//needed to handle table renames
-await sequelize.drop();
-console.log("All tables dropped!");
+await sequelize.query(`
+DROP SCHEMA public CASCADE;
+CREATE SCHEMA public;
+
+GRANT ALL ON SCHEMA public TO public;
+`);
 
 await sequelize.sync({ force: true });
 console.log('All models were synchronized successfully.');

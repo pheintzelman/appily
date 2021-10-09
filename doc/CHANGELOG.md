@@ -1,5 +1,6 @@
 v. 0.2.3-alpha
 
+- react-app template: postgres support
 - Fixed kebab case name
 - Added snake case
 

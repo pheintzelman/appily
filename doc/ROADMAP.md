@@ -12,12 +12,12 @@ _alpha 0.1_
 _alpha 0.2_
 
 - node express backend
-- support model nesting
-- add app tests
+- postgresDb
 
 _alpha 0.3_
 
-- postgresDb
+- support model nesting
+- add app tests
 - basic validation
   - required fields
   - regex

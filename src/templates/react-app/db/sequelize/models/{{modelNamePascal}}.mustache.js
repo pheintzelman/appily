@@ -4,10 +4,11 @@ const { DataTypes } = sequelizeModule;
 
 export const {{modelNamePascal}} = sequelize.define('{{modelNamePascal}}', {
   {{#properties}}
-  {{propertyNameSnake}}: {
-    type: DataTypes.{{sequelizeType}}
+  {{propertyNameCamel}}: {
+    type: DataTypes.{{sequelizeType}},
+    field: '{{propertyNameSnake}}'
   },
   {{/properties}}
 }, {
-  // Other model options go here
+  tableName: '{{modelNameSnake}}'
 });

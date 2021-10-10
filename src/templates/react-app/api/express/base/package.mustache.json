@@ -17,6 +17,13 @@
   },
   "scripts": {
     "start": "node src/api.js",
+    {{#flags.postgres}}
+    "db:up": "docker-compose -f docker/docker-compose.yml up",
+    {{/flags.postgres}}
+    {{#flags.sequelize}}
+    "db:reset": "node scripts/dbReset.js",
+    "db:sync": "node scripts/dbSync.js",
+    {{/flags.sequelize}}
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

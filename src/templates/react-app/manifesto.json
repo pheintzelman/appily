@@ -110,6 +110,11 @@
           "method": "transform"
         }
       }
+    },
+    {
+      "db:postgres": {
+        "copy": { "src": "db/sequelize/scripts", "dest": "server/scripts" }
+      }
     }
   ]
 }

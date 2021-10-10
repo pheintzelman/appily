@@ -1,7 +1,7 @@
 import { Sequelize } from 'sequelize';
 
 const localConnectionString =
-  'postgres://dbwrite:local@localhost:5432/{{appNameSnake}}_database';
+  'postgres://dbwrite:local@localhost:5432/{{appNameSnake}}_database_local';
 
 const options = {
   define: {

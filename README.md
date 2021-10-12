@@ -2,11 +2,12 @@
 
 Generate an application form a simple json configuration. Perfect for MVP's and admin sites. Built on ideas from smalltalk and other data-model driven application creation.
 
+Build an appilcation in minutes not months!
+
 ## Status
 
 Alpha. We have met our alpha goals!  
-Appily can generate a react app that is able to perform full CRUD opperations, against indexedDb.
-Express is now an option but there is no db setup yet.
+Appily can generate a react app that is able to perform full CRUD operations, with an Express, Postgres backend.
 
 ![First app](doc/images/first-app-2021-06-17.png)
 

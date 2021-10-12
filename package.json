@@ -1,7 +1,7 @@
 {
   "name": "appily",
   "description": "Generate a new app",
-  "version": "0.2.3-alpha",
+  "version": "0.3.0-alpha",
   "keywords": [
     "react",
     "app",

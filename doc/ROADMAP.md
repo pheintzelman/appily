@@ -7,14 +7,17 @@ _alpha 0.1_
   - Add/Edit a model
   - View collection of model
   - Remove model
-- indexeddb
+- indexedDB
 
 _alpha 0.2_
 
 - node express backend
-- postgresDb
 
 _alpha 0.3_
+
+- postgresDb
+
+_alpha 0.4_
 
 - support model nesting
 - add app tests
@@ -22,13 +25,13 @@ _alpha 0.3_
   - required fields
   - regex
 
-_alpha 0.4_
+_alpha 0.5_
 
 - Basic Auth, homerolled following OAuth (this is the best out of the box experence)
   - Login
   - Account creation
 
-_alpha 0.5_
+_alpha 0.6_
 
 - UI with better types
 - Improved validation

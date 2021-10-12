@@ -1,4 +1,4 @@
-v. 0.2.3-alpha
+v. 0.3.0-alpha
 
 - react-app template: postgres support
 - Fixed kebab case name

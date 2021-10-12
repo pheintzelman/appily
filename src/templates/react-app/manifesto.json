@@ -3,8 +3,8 @@
   "version": "0.5.2",
   "options": {
     "ui": ["react"],
-    "api": ["indexedDB", "stub", "express", "none"],
-    "db": ["indexedDB", "postgres", "none"]
+    "api": ["express", "indexedDB", "stub", "none"],
+    "db": ["postgres", "indexedDB", "none"]
   },
   "allowedTypes": ["String", "Boolean"],
   "directives": [

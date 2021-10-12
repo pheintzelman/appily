@@ -82,8 +82,8 @@ Each template has its own set of options for ui, api and db, which change how th
 | Property | options | Default |
 | ------------- | ------------- | -----
 | ui | react | react
-| api | indexedDB, stub, express | indexedDB
-| db | indexedDB, none | indexedDB
+| api | express, indexedDB, stub | express
+| db | postgres, indexedDB, none | postgres
 
 _more options coming_
 
@@ -118,7 +118,7 @@ Aim for progressive development with something useful asap See the [road map](./
 - add github test badge
 - add github test action (pipeline)
 - add options cli option, print out options from manfesto
-- add tests for missing coverage
+- add tests for cli
 - try to fix nested app issue (apps don't run from manual folder - nested npm package issue confuses npm install)
 - make directives groupable
 - make docs easier to understand
@@ -139,7 +139,10 @@ Aim for progressive development with something useful asap See the [road map](./
   - string elipses, wrapping, etc
 - add spinner progress button
 - internationalize app (setup)
-- add postgres
+
+## Sever
+
+- add logger (Pino?)
 
 # Later
 

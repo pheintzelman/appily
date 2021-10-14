@@ -2,7 +2,7 @@ function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 }
 
-//for easier encapsulation
+//for easier composition
 function toLowerCase(word) {
   return word.toLowerCase();
 }

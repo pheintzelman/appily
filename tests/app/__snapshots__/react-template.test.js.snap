@@ -176,7 +176,7 @@ Array [
           },
         ],
         "templateName": "react-app",
-        "templateVersion": "0.5.2",
+        "templateVersion": "0.6.0",
       },
     },
   },
@@ -715,7 +715,7 @@ Array [
           },
         ],
         "templateName": "react-app",
-        "templateVersion": "0.5.2",
+        "templateVersion": "0.6.0",
       },
     },
   },
@@ -894,7 +894,7 @@ Array [
           },
         ],
         "templateName": "react-app",
-        "templateVersion": "0.5.2",
+        "templateVersion": "0.6.0",
       },
     },
   },
@@ -939,6 +939,9 @@ Array [
   },
   Object {
     "DEBUG": "File rendered: tests/app/testApps/video-game-app/server/docker/database.env",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app/server/README.md",
   },
   Object {
     "DEBUG": "File rendered: tests/app/testApps/video-game-app/client/src/components/VideoGame/VideoGameRouter.js",
@@ -1017,9 +1020,6 @@ Array [
   },
   Object {
     "DEBUG": "File copied: tests/app/testApps/video-game-app/server/src/db/sequelizeDb.js",
-  },
-  Object {
-    "DEBUG": "File copied: tests/app/testApps/video-game-app/server/README.md",
   },
   Object {
     "DEBUG": "File copied: tests/app/testApps/video-game-app/server/.nvmrc",
@@ -1150,7 +1150,7 @@ Array [
 exports[`React template tests/app/testApps/video-game-app/client/.appily should match snapshot 1`] = `
 "{
   template: \\"react-app\\",
-  version: \\"0.5.2\\",
+  version: \\"0.6.0\\",
   config:  {
   \\"dir\\": \\"tests/app/testApps\\",
   \\"name\\": \\"Video Game App\\",
@@ -1267,7 +1267,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 exports[`React template tests/app/testApps/video-game-app/client/package.json should match snapshot 1`] = `
 "{
   \\"name\\": \\"video-game-app\\",
-  \\"version\\": \\"0.5.2\\",
+  \\"version\\": \\"0.6.0\\",
   \\"private\\": true,
   \\"dependencies\\": {
     \\"@material-ui/core\\": \\"^4.11.4\\",
@@ -3334,6 +3334,29 @@ $ npm start
 \`\`\`
 
 Sever will run at http://localhost:3001
+
+
+# DB
+
+\`\`\`bash
+$ npm install
+$ npm run db:up
+\`\`\`
+
+## Initialize DB
+
+\`\`\`bash
+$ npm run db:sync
+\`\`\`
+
+## Rest DB
+
+This will wipe out everything
+
+\`\`\`bash
+$ npm run db:reset
+\`\`\`
+
 "
 `;
 
@@ -3364,7 +3387,7 @@ volumes:
 exports[`React template tests/app/testApps/video-game-app/server/package.json should match snapshot 1`] = `
 "{
   \\"name\\": \\"video-game-app-api\\",
-  \\"version\\": \\"0.5.2\\",
+  \\"version\\": \\"0.6.0\\",
   \\"main\\": \\"src/api.js\\",
   \\"private\\": true,
   \\"type\\": \\"module\\",

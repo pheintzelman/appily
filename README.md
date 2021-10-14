@@ -143,7 +143,10 @@ Aim for progressive development with something useful asap See the [road map](./
 
 ## Sever
 
+- move base out of express
+- have docker include express server
 - add logger (Pino?)
+- add env support
 
 # Later
 

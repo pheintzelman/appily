@@ -4009,15 +4009,15 @@ export function errorHandler(error, request, response, next) {
   console.log('Path: ', request.path);
   console.error(error);
 
-  if (error.type == Type.IdNotUnique) {
+  if (error.type === Type.IdNotUnique) {
     return response.status(StatusCodes.BAD_REQUEST).send('Id is not unique.');
   }
 
-  if (error.type == Type.NotFound) {
+  if (error.type === Type.NotFound) {
     return response.status(StatusCodes.NOT_FOUND).send('Record not found.');
   }
 
-  if (error.type == Type.NotImplemented) {
+  if (error.type === Type.NotImplemented) {
     return response
       .status(StatusCodes.NOT_IMPLEMENTED)
       .send('Not implemented.');

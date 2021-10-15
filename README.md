@@ -2,11 +2,12 @@
 
 Generate an application form a simple json configuration. Perfect for MVP's and admin sites. Built on ideas from smalltalk and other data-model driven application creation.
 
+Build an appilcation in minutes not months!
+
 ## Status
 
 Alpha. We have met our alpha goals!  
-Appily can generate a react app that is able to perform full CRUD opperations, against indexedDb.
-Express is now an option but there is no db setup yet.
+Appily can generate a react app that is able to perform full CRUD operations, with an Express, Postgres backend.
 
 ![First app](doc/images/first-app-2021-06-17.png)
 
@@ -82,8 +83,8 @@ Each template has its own set of options for ui, api and db, which change how th
 | Property | options | Default |
 | ------------- | ------------- | -----
 | ui | react | react
-| api | indexedDB, stub, express | indexedDB
-| db | indexedDB, none | indexedDB
+| api | express, indexedDB, stub | express
+| db | postgres, indexedDB, none | postgres
 
 _more options coming_
 
@@ -115,11 +116,10 @@ Aim for progressive development with something useful asap See the [road map](./
 
 ## Todo
 
-- remove `viewModelDirective.js` (or rename to `packageDirective.js` and repurpose for packages)
 - add github test badge
 - add github test action (pipeline)
 - add options cli option, print out options from manfesto
-- add tests for missing coverage
+- add tests for cli
 - try to fix nested app issue (apps don't run from manual folder - nested npm package issue confuses npm install)
 - make directives groupable
 - make docs easier to understand
@@ -140,7 +140,13 @@ Aim for progressive development with something useful asap See the [road map](./
   - string elipses, wrapping, etc
 - add spinner progress button
 - internationalize app (setup)
-- add postgres
+
+## Sever
+
+- move base out of express
+- have docker include express server
+- add logger (Pino?)
+- add env support
 
 # Later
 

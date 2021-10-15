@@ -7,9 +7,10 @@ Array [
       "viewModel": Object {
         "appName": "Video Game App",
         "appNameCamel": "videoGameApp",
+        "appNameKebab": "video-game-app",
         "appNamePascal": "VideoGameApp",
         "appNameSentenceCase": "video game app",
-        "appNameSnake": "video-game-app",
+        "appNameSnake": "video_game_app",
         "configString": " {
   \\"dir\\": \\"tests/app/testApps\\",
   \\"name\\": \\"Video Game App\\",
@@ -42,6 +43,12 @@ Array [
   ]
  }",
         "dir": "tests/app/testApps/video-game-app",
+        "flags": Object {
+          "express": true,
+          "postgres": true,
+          "react": true,
+          "sequelize": true,
+        },
         "models": Array [
           Object {
             "componentImports": Array [
@@ -56,16 +63,19 @@ Array [
             "defaultState": "{ title: '', yearPublished: '' }",
             "modelName": "Video Game",
             "modelNameCamel": "videoGame",
+            "modelNameKebab": "video-game",
             "modelNamePascal": "VideoGame",
             "modelNameSentenceCase": "video game",
-            "modelNameSnake": "video-game",
+            "modelNameSnake": "video_game",
             "pluralModelName": "Video Game Collection",
             "pluralModelNameCamel": "videoGameCollection",
+            "pluralModelNameKebab": "video-game-collection",
             "pluralModelNamePascal": "VideoGameCollection",
             "pluralModelNameSentenceCase": "video game collection",
-            "pluralModelNameSnake": "video-game-collection",
+            "pluralModelNameSnake": "video_game_collection",
             "primaryProperty": "Title",
             "primaryPropertyCamel": "title",
+            "primaryPropertyKebab": "title",
             "primaryPropertyPascal": "Title",
             "primaryPropertySentenceCase": "title",
             "primaryPropertySnake": "title",
@@ -83,9 +93,11 @@ Array [
                 "isString": true,
                 "propertyName": "Title",
                 "propertyNameCamel": "title",
+                "propertyNameKebab": "title",
                 "propertyNamePascal": "Title",
                 "propertyNameSentenceCase": "title",
                 "propertyNameSnake": "title",
+                "sequelizeType": "STRING",
                 "type": "String",
               },
               Object {
@@ -101,9 +113,11 @@ Array [
                 "isString": true,
                 "propertyName": "Year Published",
                 "propertyNameCamel": "yearPublished",
+                "propertyNameKebab": "year-published",
                 "propertyNamePascal": "YearPublished",
                 "propertyNameSentenceCase": "year published",
-                "propertyNameSnake": "year-published",
+                "propertyNameSnake": "year_published",
+                "sequelizeType": "STRING",
                 "type": "String",
               },
             ],
@@ -121,16 +135,19 @@ Array [
             "defaultState": "{ name: '' }",
             "modelName": "Publisher",
             "modelNameCamel": "publisher",
+            "modelNameKebab": "publisher",
             "modelNamePascal": "Publisher",
             "modelNameSentenceCase": "publisher",
             "modelNameSnake": "publisher",
             "pluralModelName": "Publisher Collection",
             "pluralModelNameCamel": "publisherCollection",
+            "pluralModelNameKebab": "publisher-collection",
             "pluralModelNamePascal": "PublisherCollection",
             "pluralModelNameSentenceCase": "publisher collection",
-            "pluralModelNameSnake": "publisher-collection",
+            "pluralModelNameSnake": "publisher_collection",
             "primaryProperty": "Name",
             "primaryPropertyCamel": "name",
+            "primaryPropertyKebab": "name",
             "primaryPropertyPascal": "Name",
             "primaryPropertySentenceCase": "name",
             "primaryPropertySnake": "name",
@@ -148,22 +165,18 @@ Array [
                 "isString": true,
                 "propertyName": "Name",
                 "propertyNameCamel": "name",
+                "propertyNameKebab": "name",
                 "propertyNamePascal": "Name",
                 "propertyNameSentenceCase": "name",
                 "propertyNameSnake": "name",
+                "sequelizeType": "STRING",
                 "type": "String",
               },
             ],
           },
         ],
-        "packages": Array [
-          Object {
-            "package": "idb",
-            "version": "^6.1.2",
-          },
-        ],
         "templateName": "react-app",
-        "templateVersion": "0.5.2",
+        "templateVersion": "0.6.0",
       },
     },
   },
@@ -204,13 +217,61 @@ Array [
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/testApps/video-game-app/client/src/lib",
+      "dest": "tests/app/testApps/video-game-app/server/src/rest/endpoints",
       "msg": "mkdir",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/testApps/video-game-app/client/src/db",
+      "dest": "tests/app/testApps/video-game-app/server/src/rest",
+      "msg": "mkdir",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/testApps/video-game-app/server/src/lib",
+      "msg": "mkdir",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/testApps/video-game-app/server/src/db/models",
+      "msg": "mkdir",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/testApps/video-game-app/server/src/db",
+      "msg": "mkdir",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/testApps/video-game-app/server/src",
+      "msg": "mkdir",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/testApps/video-game-app/server/scripts",
+      "msg": "mkdir",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/testApps/video-game-app/server/docker",
+      "msg": "mkdir",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/testApps/video-game-app/server",
+      "msg": "mkdir",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/testApps/video-game-app/client/src/lib",
       "msg": "mkdir",
     },
   },
@@ -253,6 +314,12 @@ Array [
   Object {
     "TRACE": Object {
       "dest": "tests/app/testApps/video-game-app/client/src/components",
+      "msg": "mkdir",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/testApps/video-game-app/client/src/api/helpers",
       "msg": "mkdir",
     },
   },
@@ -373,37 +440,107 @@ Array [
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/testApps/video-game-app/client/src/db",
+      "dest": "tests/app/testApps/video-game-app/server/scripts",
       "msg": "copyDir",
-      "src": "appily/src/templates/react-app/db/indexedDb/loop",
+      "src": "appily/src/templates/react-app/db/sequelize/scripts",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/testApps/video-game-app/client/src/db",
+      "dest": "tests/app/testApps/video-game-app/server/src/db/models",
       "msg": "copyDir",
-      "src": "appily/src/templates/react-app/db/indexedDb/loop",
+      "src": "appily/src/templates/react-app/db/sequelize/models",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/testApps/video-game-app/client/src/db",
+      "dest": "tests/app/testApps/video-game-app/server/src/db/models",
       "msg": "copyDir",
-      "src": "appily/src/templates/react-app/db/indexedDb/db",
+      "src": "appily/src/templates/react-app/db/sequelize/models",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/testApps/video-game-app/server/src/db",
+      "msg": "copyDir",
+      "src": "appily/src/templates/react-app/db/sequelize/db",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/testApps/video-game-app/server/docker",
+      "msg": "copyDir",
+      "src": "appily/src/templates/react-app/db/postgres/docker",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/testApps/video-game-app/server/src/rest/endpoints",
+      "msg": "copyDir",
+      "src": "appily/src/templates/react-app/api/express/endpoints",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/testApps/video-game-app/server/src/rest/endpoints",
+      "msg": "copyDir",
+      "src": "appily/src/templates/react-app/api/express/endpoints",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/testApps/video-game-app/client/src/api/",
+      "msg": "copyDir",
+      "src": "appily/src/templates/react-app/api/express/client/models",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/testApps/video-game-app/client/src/api/",
+      "msg": "copyDir",
+      "src": "appily/src/templates/react-app/api/express/client/models",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/testApps/video-game-app/client/src/api/helpers",
+      "msg": "copyDir",
+      "src": "appily/src/templates/react-app/api/express/client/api/helpers",
     },
   },
   Object {
     "TRACE": Object {
       "dest": "tests/app/testApps/video-game-app/client/src/api",
       "msg": "copyDir",
-      "src": "appily/src/templates/react-app/api/indexedDb/api",
+      "src": "appily/src/templates/react-app/api/express/client/api",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/testApps/video-game-app/client/src/api",
+      "dest": "tests/app/testApps/video-game-app/server/src/rest",
       "msg": "copyDir",
-      "src": "appily/src/templates/react-app/api/indexedDb/api",
+      "src": "appily/src/templates/react-app/api/express/base/src/rest",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/testApps/video-game-app/server/src/lib",
+      "msg": "copyDir",
+      "src": "appily/src/templates/react-app/api/express/base/src/lib",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/testApps/video-game-app/server/src",
+      "msg": "copyDir",
+      "src": "appily/src/templates/react-app/api/express/base/src",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/testApps/video-game-app/server",
+      "msg": "copyDir",
+      "src": "appily/src/templates/react-app/api/express/base",
     },
   },
   Object {
@@ -412,9 +549,10 @@ Array [
       "transformedViewModel": Object {
         "appName": "Video Game App",
         "appNameCamel": "videoGameApp",
+        "appNameKebab": "video-game-app",
         "appNamePascal": "VideoGameApp",
         "appNameSentenceCase": "video game app",
-        "appNameSnake": "video-game-app",
+        "appNameSnake": "video_game_app",
         "configString": " {
   \\"dir\\": \\"tests/app/testApps\\",
   \\"name\\": \\"Video Game App\\",
@@ -447,6 +585,12 @@ Array [
   ]
  }",
         "dir": "tests/app/testApps/video-game-app",
+        "flags": Object {
+          "express": true,
+          "postgres": true,
+          "react": true,
+          "sequelize": true,
+        },
         "models": Array [
           Object {
             "componentImports": Array [
@@ -461,16 +605,19 @@ Array [
             "defaultState": "{ title: '', yearPublished: '' }",
             "modelName": "Video Game",
             "modelNameCamel": "videoGame",
+            "modelNameKebab": "video-game",
             "modelNamePascal": "VideoGame",
             "modelNameSentenceCase": "video game",
-            "modelNameSnake": "video-game",
+            "modelNameSnake": "video_game",
             "pluralModelName": "Video Game Collection",
             "pluralModelNameCamel": "videoGameCollection",
+            "pluralModelNameKebab": "video-game-collection",
             "pluralModelNamePascal": "VideoGameCollection",
             "pluralModelNameSentenceCase": "video game collection",
-            "pluralModelNameSnake": "video-game-collection",
+            "pluralModelNameSnake": "video_game_collection",
             "primaryProperty": "Title",
             "primaryPropertyCamel": "title",
+            "primaryPropertyKebab": "title",
             "primaryPropertyPascal": "Title",
             "primaryPropertySentenceCase": "title",
             "primaryPropertySnake": "title",
@@ -488,6 +635,7 @@ Array [
                 "isString": true,
                 "propertyName": "Title",
                 "propertyNameCamel": "title",
+                "propertyNameKebab": "title",
                 "propertyNamePascal": "Title",
                 "propertyNameSentenceCase": "title",
                 "propertyNameSnake": "title",
@@ -506,9 +654,10 @@ Array [
                 "isString": true,
                 "propertyName": "Year Published",
                 "propertyNameCamel": "yearPublished",
+                "propertyNameKebab": "year-published",
                 "propertyNamePascal": "YearPublished",
                 "propertyNameSentenceCase": "year published",
-                "propertyNameSnake": "year-published",
+                "propertyNameSnake": "year_published",
                 "type": "String",
               },
             ],
@@ -526,16 +675,19 @@ Array [
             "defaultState": "{ name: '' }",
             "modelName": "Publisher",
             "modelNameCamel": "publisher",
+            "modelNameKebab": "publisher",
             "modelNamePascal": "Publisher",
             "modelNameSentenceCase": "publisher",
             "modelNameSnake": "publisher",
             "pluralModelName": "Publisher Collection",
             "pluralModelNameCamel": "publisherCollection",
+            "pluralModelNameKebab": "publisher-collection",
             "pluralModelNamePascal": "PublisherCollection",
             "pluralModelNameSentenceCase": "publisher collection",
-            "pluralModelNameSnake": "publisher-collection",
+            "pluralModelNameSnake": "publisher_collection",
             "primaryProperty": "Name",
             "primaryPropertyCamel": "name",
+            "primaryPropertyKebab": "name",
             "primaryPropertyPascal": "Name",
             "primaryPropertySentenceCase": "name",
             "primaryPropertySnake": "name",
@@ -553,6 +705,7 @@ Array [
                 "isString": true,
                 "propertyName": "Name",
                 "propertyNameCamel": "name",
+                "propertyNameKebab": "name",
                 "propertyNamePascal": "Name",
                 "propertyNameSentenceCase": "name",
                 "propertyNameSnake": "name",
@@ -562,20 +715,186 @@ Array [
           },
         ],
         "templateName": "react-app",
-        "templateVersion": "0.5.2",
+        "templateVersion": "0.6.0",
       },
     },
   },
   Object {
     "TRACE": Object {
-      "msg": "Add to view model",
-      "property": Object {
-        "packages": Array [
+      "msg": "View model transformed",
+      "transformedViewModel": Object {
+        "appName": "Video Game App",
+        "appNameCamel": "videoGameApp",
+        "appNameKebab": "video-game-app",
+        "appNamePascal": "VideoGameApp",
+        "appNameSentenceCase": "video game app",
+        "appNameSnake": "video_game_app",
+        "configString": " {
+  \\"dir\\": \\"tests/app/testApps\\",
+  \\"name\\": \\"Video Game App\\",
+  \\"template\\": \\"react-app\\",
+  \\"models\\": [
+    {
+      \\"properties\\": [
+        {
+          \\"type\\": \\"String\\",
+          \\"propertyName\\": \\"Title\\"
+        },
+        {
+          \\"type\\": \\"String\\",
+          \\"propertyName\\": \\"Year Published\\"
+        }
+      ],
+      \\"modelName\\": \\"Video Game\\",
+      \\"pluralName\\": \\"Video Game Collection\\"
+    },
+    {
+      \\"properties\\": [
+        {
+          \\"type\\": \\"String\\",
+          \\"propertyName\\": \\"Name\\"
+        }
+      ],
+      \\"modelName\\": \\"Publisher\\",
+      \\"pluralName\\": \\"Publisher Collection\\"
+    }
+  ]
+ }",
+        "dir": "tests/app/testApps/video-game-app",
+        "flags": Object {
+          "express": true,
+          "postgres": true,
+          "react": true,
+          "sequelize": true,
+        },
+        "models": Array [
           Object {
-            "package": "idb",
-            "version": "^6.1.2",
+            "componentImports": Array [
+              Object {
+                "component": Object {
+                  "cell": "StringCell",
+                  "edit": "StringEdit",
+                  "view": "StringView",
+                },
+              },
+            ],
+            "defaultState": "{ title: '', yearPublished: '' }",
+            "modelName": "Video Game",
+            "modelNameCamel": "videoGame",
+            "modelNameKebab": "video-game",
+            "modelNamePascal": "VideoGame",
+            "modelNameSentenceCase": "video game",
+            "modelNameSnake": "video_game",
+            "pluralModelName": "Video Game Collection",
+            "pluralModelNameCamel": "videoGameCollection",
+            "pluralModelNameKebab": "video-game-collection",
+            "pluralModelNamePascal": "VideoGameCollection",
+            "pluralModelNameSentenceCase": "video game collection",
+            "pluralModelNameSnake": "video_game_collection",
+            "primaryProperty": "Title",
+            "primaryPropertyCamel": "title",
+            "primaryPropertyKebab": "title",
+            "primaryPropertyPascal": "Title",
+            "primaryPropertySentenceCase": "title",
+            "primaryPropertySnake": "title",
+            "properties": Array [
+              Object {
+                "component": Object {
+                  "cell": "StringCell",
+                  "edit": "StringEdit",
+                  "view": "StringView",
+                },
+                "flex": 4,
+                "hide": false,
+                "isBoolean": false,
+                "isPrimary": true,
+                "isString": true,
+                "propertyName": "Title",
+                "propertyNameCamel": "title",
+                "propertyNameKebab": "title",
+                "propertyNamePascal": "Title",
+                "propertyNameSentenceCase": "title",
+                "propertyNameSnake": "title",
+                "sequelizeType": "STRING",
+                "type": "String",
+              },
+              Object {
+                "component": Object {
+                  "cell": "StringCell",
+                  "edit": "StringEdit",
+                  "view": "StringView",
+                },
+                "flex": 4,
+                "hide": false,
+                "isBoolean": false,
+                "isPrimary": false,
+                "isString": true,
+                "propertyName": "Year Published",
+                "propertyNameCamel": "yearPublished",
+                "propertyNameKebab": "year-published",
+                "propertyNamePascal": "YearPublished",
+                "propertyNameSentenceCase": "year published",
+                "propertyNameSnake": "year_published",
+                "sequelizeType": "STRING",
+                "type": "String",
+              },
+            ],
+          },
+          Object {
+            "componentImports": Array [
+              Object {
+                "component": Object {
+                  "cell": "StringCell",
+                  "edit": "StringEdit",
+                  "view": "StringView",
+                },
+              },
+            ],
+            "defaultState": "{ name: '' }",
+            "modelName": "Publisher",
+            "modelNameCamel": "publisher",
+            "modelNameKebab": "publisher",
+            "modelNamePascal": "Publisher",
+            "modelNameSentenceCase": "publisher",
+            "modelNameSnake": "publisher",
+            "pluralModelName": "Publisher Collection",
+            "pluralModelNameCamel": "publisherCollection",
+            "pluralModelNameKebab": "publisher-collection",
+            "pluralModelNamePascal": "PublisherCollection",
+            "pluralModelNameSentenceCase": "publisher collection",
+            "pluralModelNameSnake": "publisher_collection",
+            "primaryProperty": "Name",
+            "primaryPropertyCamel": "name",
+            "primaryPropertyKebab": "name",
+            "primaryPropertyPascal": "Name",
+            "primaryPropertySentenceCase": "name",
+            "primaryPropertySnake": "name",
+            "properties": Array [
+              Object {
+                "component": Object {
+                  "cell": "StringCell",
+                  "edit": "StringEdit",
+                  "view": "StringView",
+                },
+                "flex": 4,
+                "hide": false,
+                "isBoolean": false,
+                "isPrimary": true,
+                "isString": true,
+                "propertyName": "Name",
+                "propertyNameCamel": "name",
+                "propertyNameKebab": "name",
+                "propertyNamePascal": "Name",
+                "propertyNameSentenceCase": "name",
+                "propertyNameSnake": "name",
+                "sequelizeType": "STRING",
+                "type": "String",
+              },
+            ],
           },
         ],
+        "templateName": "react-app",
+        "templateVersion": "0.6.0",
       },
     },
   },
@@ -583,13 +902,46 @@ Array [
     "INFO": "Video Game App created, in dir tests/app/testApps/video-game-app",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/testApps/video-game-app/client/src/db/videoGame.js",
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app/server/src/rest/endpoints/videoGameCollection.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/testApps/video-game-app/client/src/db/publisher.js",
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app/server/src/rest/endpoints/videoGame.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/testApps/video-game-app/client/src/db/db.js",
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app/server/src/rest/endpoints/publisherCollection.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app/server/src/rest/endpoints/publisher.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app/server/src/db/sequelize.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app/server/src/db/models/VideoGame.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app/server/src/db/models/Publisher.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app/server/src/api.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app/server/scripts/dbSync.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app/server/scripts/dbReset.js",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app/server/package.json",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app/server/docker/docker-compose.yml",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app/server/docker/database.env",
+  },
+  Object {
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app/server/README.md",
   },
   Object {
     "DEBUG": "File rendered: tests/app/testApps/video-game-app/client/src/components/VideoGame/VideoGameRouter.js",
@@ -653,6 +1005,27 @@ Array [
   },
   Object {
     "DEBUG": "File rendered: tests/app/testApps/video-game-app/client/.appily",
+  },
+  Object {
+    "DEBUG": "File copied: tests/app/testApps/video-game-app/server/src/rest/errorHandler.js",
+  },
+  Object {
+    "DEBUG": "File copied: tests/app/testApps/video-game-app/server/src/rest/error.js",
+  },
+  Object {
+    "DEBUG": "File copied: tests/app/testApps/video-game-app/server/src/lib/inMemoryDb.js",
+  },
+  Object {
+    "DEBUG": "File copied: tests/app/testApps/video-game-app/server/src/lib/cache.js",
+  },
+  Object {
+    "DEBUG": "File copied: tests/app/testApps/video-game-app/server/src/db/sequelizeDb.js",
+  },
+  Object {
+    "DEBUG": "File copied: tests/app/testApps/video-game-app/server/.nvmrc",
+  },
+  Object {
+    "DEBUG": "File copied: tests/app/testApps/video-game-app/server/.gitignore",
   },
   Object {
     "DEBUG": "File copied: tests/app/testApps/video-game-app/client/src/setupTests.js",
@@ -733,6 +1106,15 @@ Array [
     "DEBUG": "File copied: tests/app/testApps/video-game-app/client/src/components/App/AppHeader.scss",
   },
   Object {
+    "DEBUG": "File copied: tests/app/testApps/video-game-app/client/src/api/helpers/restClient.js",
+  },
+  Object {
+    "DEBUG": "File copied: tests/app/testApps/video-game-app/client/src/api/helpers/getBaseUrl.js",
+  },
+  Object {
+    "DEBUG": "File copied: tests/app/testApps/video-game-app/client/src/api/helpers/constants.js",
+  },
+  Object {
     "DEBUG": "File copied: tests/app/testApps/video-game-app/client/src/App.scss",
   },
   Object {
@@ -768,7 +1150,7 @@ Array [
 exports[`React template tests/app/testApps/video-game-app/client/.appily should match snapshot 1`] = `
 "{
   template: \\"react-app\\",
-  version: \\"0.5.2\\",
+  version: \\"0.6.0\\",
   config:  {
   \\"dir\\": \\"tests/app/testApps\\",
   \\"name\\": \\"Video Game App\\",
@@ -885,7 +1267,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 exports[`React template tests/app/testApps/video-game-app/client/package.json should match snapshot 1`] = `
 "{
   \\"name\\": \\"video-game-app\\",
-  \\"version\\": \\"0.5.2\\",
+  \\"version\\": \\"0.6.0\\",
   \\"private\\": true,
   \\"dependencies\\": {
     \\"@material-ui/core\\": \\"^4.11.4\\",
@@ -899,7 +1281,6 @@ exports[`React template tests/app/testApps/video-game-app/client/package.json sh
     \\"react-dom\\": \\"^17.0.2\\",
     \\"react-router-dom\\": \\"^5.2.0\\",
     \\"react-scripts\\": \\"4.0.3\\",
-    \\"idb\\": \\"^6.1.2\\",
     \\"web-vitals\\": \\"^1.1.2\\"
   },
   \\"scripts\\": {
@@ -1241,104 +1622,182 @@ test('renders welcome message', () => {
 "
 `;
 
-exports[`React template tests/app/testApps/video-game-app/client/src/api/publisher.js should match snapshot 1`] = `
-"import { add, update, get, getAll, remove } from '../db/publisher';
-import { NotFoundError } from \\"../lib/Error\\";
+exports[`React template tests/app/testApps/video-game-app/client/src/api/helpers/constants.js should match snapshot 1`] = `
+"export const Environment = {
+  Development: \\"development\\",
+  Production: \\"production\\",
+};
 
-function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
+export const HttpMethod = {
+  Post: \\"POST\\",
+  get: \\"GET\\",
+  Put: \\"PUT\\",
+  Delete: \\"DELETE\\",
+};
+
+export const LocalBaseUrl = \\"http://localhost:3001\\";
+export const ProductionBaseUrl = \\"\\";
+"
+`;
+
+exports[`React template tests/app/testApps/video-game-app/client/src/api/helpers/getBaseUrl.js should match snapshot 1`] = `
+"import { Environment, LocalBaseUrl, ProductionBaseUrl } from \\"./constants\\";
+
+export function getBaseUrl() {
+  if (process.env.NODE_ENV === Environment.Development) {
+    return LocalBaseUrl;
+  }
+
+  return ProductionBaseUrl;
+}
+"
+`;
+
+exports[`React template tests/app/testApps/video-game-app/client/src/api/helpers/restClient.js should match snapshot 1`] = `
+"import { HttpMethod } from './constants';
+import { getBaseUrl } from './getBaseUrl';
+
+const baseUrl = getBaseUrl();
+
+function parseResponseBody(text) {
+  try {
+    return JSON.parse(text);
+  } catch (error) {
+    return text;
+  }
 }
 
+async function processResponse(responsePromise) {
+  const response = await responsePromise;
+  const text = await response.text();
+  const body = parseResponseBody(text);
+
+  if (!response.ok) {
+    throw new Error(body);
+  }
+
+  return body;
+}
+
+function getHeaders(inMemory) {
+  const headers = {
+    'Content-Type': 'application/json'
+  };
+
+  if (inMemory) {
+    return { ...headers, 'In-Memory': 'true' };
+  }
+
+  return headers;
+}
+
+function getInMemorySetting(method) {
+  const sessionStorageInMemory = sessionStorage.getItem('inMemory');
+  const inMemory = JSON.parse(sessionStorageInMemory ?? '{}');
+  const { all: inMemoryAll, [method]: inMemoryMethod } = inMemory;
+
+  return inMemoryAll || inMemoryMethod;
+}
+
+export async function post(path, body) {
+  const url = new URL(path, baseUrl);
+  const inMemory = getInMemorySetting('post');
+
+  const response = await fetch(url, {
+    method: HttpMethod.Post,
+    headers: getHeaders(inMemory),
+    body: JSON.stringify(body)
+  });
+
+  return await processResponse(response);
+}
+
+export async function get(path, id, params) {
+  const urlPath = id !== undefined ? \`\${path}/\${id}\` : path;
+  const url = new URL(urlPath, baseUrl);
+  const inMemory = getInMemorySetting('get');
+
+  const response = await fetch(url, {
+    method: HttpMethod.Get,
+    headers: getHeaders(inMemory)
+  });
+
+  return await processResponse(response);
+}
+
+export async function put(path, body) {
+  const url = new URL(path, baseUrl);
+  const inMemory = getInMemorySetting('put');
+
+  const response = fetch(url, {
+    method: HttpMethod.Put,
+    headers: getHeaders(inMemory),
+    body: JSON.stringify(body)
+  });
+
+  return await processResponse(response);
+}
+
+export async function remove(path, id) {
+  const url = new URL(\`\${path}/\${id}\`, baseUrl);
+  const inMemory = getInMemorySetting('remove');
+
+  const response = fetch(url, {
+    method: HttpMethod.Delete,
+    headers: getHeaders(inMemory)
+  });
+
+  return await processResponse(response);
+}
+"
+`;
+
+exports[`React template tests/app/testApps/video-game-app/client/src/api/publisher.js should match snapshot 1`] = `
+"import { post, get, put, remove } from \\"./helpers/restClient\\";
+
 export async function addPublisher(publisher) {
-  await sleep(1000);
-  return await add(publisher);
+  return await post(\\"Publisher\\", publisher);
 }
 
 export async function getPublisher(id) {
-  await sleep(1000);
-
-  if (!id) {
-    return null;
-  }
-
-  const publisher = await get(id);
-  if(!publisher){
-    throw NotFoundError();
-  }
-
-  return publisher;
+  return await get(\\"Publisher\\", id);
 }
 
 export async function getPublisherCollection() {
-  await sleep(1000);
-
-  return await getAll();
+  return await get(\\"PublisherCollection\\");
 }
 
-export async function updatePublisher(id, publisher) {
-  await sleep(1000);
-  return await update(id, publisher);
+export async function updatePublisher(publisher) {
+  return await put(\\"Publisher\\", publisher);
 }
 
 export async function removePublisher(id) {
-  await sleep(1000);
-
-  if (!id) {
-    return null;
-  }
-
-  return await remove(id);
+  return await remove(\\"Publisher\\", id);
 }
 "
 `;
 
 exports[`React template tests/app/testApps/video-game-app/client/src/api/videoGame.js should match snapshot 1`] = `
-"import { add, update, get, getAll, remove } from '../db/videoGame';
-import { NotFoundError } from \\"../lib/Error\\";
-
-function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
+"import { post, get, put, remove } from \\"./helpers/restClient\\";
 
 export async function addVideoGame(videoGame) {
-  await sleep(1000);
-  return await add(videoGame);
+  return await post(\\"VideoGame\\", videoGame);
 }
 
 export async function getVideoGame(id) {
-  await sleep(1000);
-
-  if (!id) {
-    return null;
-  }
-
-  const videoGame = await get(id);
-  if(!videoGame){
-    throw NotFoundError();
-  }
-
-  return videoGame;
+  return await get(\\"VideoGame\\", id);
 }
 
 export async function getVideoGameCollection() {
-  await sleep(1000);
-
-  return await getAll();
+  return await get(\\"VideoGameCollection\\");
 }
 
-export async function updateVideoGame(id, videoGame) {
-  await sleep(1000);
-  return await update(id, videoGame);
+export async function updateVideoGame(videoGame) {
+  return await put(\\"VideoGame\\", videoGame);
 }
 
 export async function removeVideoGame(id) {
-  await sleep(1000);
-
-  if (!id) {
-    return null;
-  }
-
-  return await remove(id);
+  return await remove(\\"VideoGame\\", id);
 }
 "
 `;
@@ -2774,84 +3233,6 @@ exports[`React template tests/app/testApps/video-game-app/client/src/components/
 "
 `;
 
-exports[`React template tests/app/testApps/video-game-app/client/src/db/db.js should match snapshot 1`] = `
-"import { openDB } from \\"idb\\";
-
-export async function connect() {
-  return openDB(\\"db\\", 1, {
-    upgrade(db) {
-      db.createObjectStore(\\"VideoGame\\", {
-        keyPath: \\"id\\",
-        autoIncrement: true,
-      });
-
-      db.createObjectStore(\\"Publisher\\", {
-        keyPath: \\"id\\",
-        autoIncrement: true,
-      });
-
-    },
-  });
-}
-
-export async function add(store, value) {
-  const db = await connect();
-  const id = await db.add(store, value);
-  return db.get(store, id);
-}
-
-export async function get(store, key) {
-  const db = await connect();
-  return db.get(store, key);
-}
-
-export async function getAll(store) {
-  const db = await connect();
-  const keys = await db.getAllKeys(store);
-
-  const promises = keys.map((key) => get(store, key));
-
-  return Promise.all(promises);
-}
-
-export async function update(store, key, value) {
-  const db = await connect();
-  return db.put(store, value, key);
-}
-
-export async function remove(store, key) {
-  const db = await connect();
-  return db.delete(store, key);
-}
-
-export function withStore(store) {
-  return {
-    get: async (key) => await get(store, key),
-    getAll: async () => await getAll(store),
-    add: async (value) => await add(store, value),
-    update: async (key, value) => await update(store, value, key),
-    remove: async (key) => await remove(store, key),
-  };
-}
-"
-`;
-
-exports[`React template tests/app/testApps/video-game-app/client/src/db/publisher.js should match snapshot 1`] = `
-"import { withStore } from './db';
-const { add, get, getAll, update, remove } = withStore('Publisher');
-
-export { add, get, getAll, update, remove };
-"
-`;
-
-exports[`React template tests/app/testApps/video-game-app/client/src/db/videoGame.js should match snapshot 1`] = `
-"import { withStore } from './db';
-const { add, get, getAll, update, remove } = withStore('VideoGame');
-
-export { add, get, getAll, update, remove };
-"
-`;
-
 exports[`React template tests/app/testApps/video-game-app/client/src/index.css should match snapshot 1`] = `
 "body {
   margin: 0;
@@ -2927,5 +3308,724 @@ exports[`React template tests/app/testApps/video-game-app/client/src/setupTests.
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
+"
+`;
+
+exports[`React template tests/app/testApps/video-game-app/server/.gitignore should match snapshot 1`] = `
+"node_modules
+.DS_Store"
+`;
+
+exports[`React template tests/app/testApps/video-game-app/server/.nvmrc should match snapshot 1`] = `"14"`;
+
+exports[`React template tests/app/testApps/video-game-app/server/README.md should match snapshot 1`] = `
+"# Prereqs
+
+## Docker
+
+1. go to https://www.docker.com/get-started
+2. Download docker desktop
+
+# Getting started
+
+\`\`\`bash
+$ npm install
+$ npm start
+\`\`\`
+
+Sever will run at http://localhost:3001
+
+
+# DB
+
+\`\`\`bash
+$ npm install
+$ npm run db:up
+\`\`\`
+
+## Initialize DB
+
+\`\`\`bash
+$ npm run db:sync
+\`\`\`
+
+## Rest DB
+
+This will wipe out everything
+
+\`\`\`bash
+$ npm run db:reset
+\`\`\`
+
+"
+`;
+
+exports[`React template tests/app/testApps/video-game-app/server/docker/database.env should match snapshot 1`] = `
+"POSTGRES_USER=dbwrite
+POSTGRES_PASSWORD=local
+POSTGRES_DB=video_game_app_database_local"
+`;
+
+exports[`React template tests/app/testApps/video-game-app/server/docker/docker-compose.yml should match snapshot 1`] = `
+"# docker-compose.yml
+version: '3'
+services:
+  database:
+    container_name: video_game_app_db
+    image: 'postgres' # use latest official postgres version
+    env_file:
+      - database.env # configure postgres
+    ports:
+      - \\"5432:5432\\"
+    volumes:
+      - database-data:/var/lib/postgresql/data/ # persist data even if container shuts down
+volumes:
+  database-data: # named volumes can be managed easier using docker-compose
+"
+`;
+
+exports[`React template tests/app/testApps/video-game-app/server/package.json should match snapshot 1`] = `
+"{
+  \\"name\\": \\"video-game-app-api\\",
+  \\"version\\": \\"0.6.0\\",
+  \\"main\\": \\"src/api.js\\",
+  \\"private\\": true,
+  \\"type\\": \\"module\\",
+  \\"dependencies\\": {
+    \\"express\\": \\"4.17.1\\",
+    \\"http-status-codes\\": \\"2.1.4\\",
+    \\"sequelize\\": \\"6.6.5\\",
+    \\"pg\\": \\"8.7.1\\",
+    \\"pg-hstore\\": \\"2.3.4\\"
+  },
+  \\"scripts\\": {
+    \\"start\\": \\"node src/api.js\\",
+    \\"db:up\\": \\"docker-compose -f docker/docker-compose.yml up\\",
+    \\"db:reset\\": \\"node scripts/dbReset.js\\",
+    \\"db:sync\\": \\"node scripts/dbSync.js\\",
+    \\"test\\": \\"echo \\\\\\"Error: no test specified\\\\\\" && exit 1\\"
+  }
+}
+"
+`;
+
+exports[`React template tests/app/testApps/video-game-app/server/scripts/dbReset.js should match snapshot 1`] = `
+"import { sequelize } from '../src/db/sequelize.js';
+import \\"../src/db/models/VideoGame.js\\";
+import \\"../src/db/models/Publisher.js\\";
+
+if(sequelize.getDatabaseName() !== 'video_game_app_database_local'){
+  console.log('Reset only works on local DB');
+  process.exit(126);
+}
+
+await sequelize.query(\`
+DROP SCHEMA public CASCADE;
+CREATE SCHEMA public;
+
+GRANT ALL ON SCHEMA public TO public;
+\`);
+
+await sequelize.sync({ force: true });
+console.log('All models were synchronized successfully.');
+"
+`;
+
+exports[`React template tests/app/testApps/video-game-app/server/scripts/dbSync.js should match snapshot 1`] = `
+"import { sequelize } from '../src/db/sequelize.js';
+import \\"../src/db/models/VideoGame.js\\";
+import \\"../src/db/models/Publisher.js\\";
+
+await sequelize.sync({ alter: true });
+console.log('All models were synchronized successfully.');
+"
+`;
+
+exports[`React template tests/app/testApps/video-game-app/server/src/api.js should match snapshot 1`] = `
+"import express from 'express';
+import { StatusCodes } from \\"http-status-codes\\";
+import { videoGameRoutes } from './rest/endpoints/VideoGame.js';
+import { videoGameCollectionRoutes } from './rest/endpoints/videoGameCollection.js';
+import { publisherRoutes } from './rest/endpoints/Publisher.js';
+import { publisherCollectionRoutes } from './rest/endpoints/publisherCollection.js';
+import { errorHandler } from \\"./rest/errorHandler.js\\";
+
+function setHeaders(request, response, next) {
+  response.header(\\"Access-Control-Allow-Origin\\", \\"http://localhost:3000\\");
+  response.header(\\"Access-Control-Allow-Methods\\", \\"GET,PUT,POST,DELETE\\");
+  response.header(\\"Access-Control-Allow-Headers\\", \\"Content-Type, In-Memory\\");
+  next();
+}
+
+const app = express();
+const port = 3001;
+app.use(express.json());
+app.use(setHeaders);
+
+app.options(\\"*\\", (request, response) => {
+  response.status(StatusCodes.NO_CONTENT);
+  response.send();
+});
+app.use(\\"/VideoGame\\", videoGameRoutes);
+app.use(\\"/videoGameCollection\\", videoGameCollectionRoutes);
+app.use(\\"/Publisher\\", publisherRoutes);
+app.use(\\"/publisherCollection\\", publisherCollectionRoutes);
+app.use(errorHandler);
+
+app.listen(port, () => {
+  console.log(\`Video Game App server listening at http://localhost:\${port}\`);
+});
+"
+`;
+
+exports[`React template tests/app/testApps/video-game-app/server/src/db/models/Publisher.js should match snapshot 1`] = `
+"import sequelizeModule from 'sequelize';
+import { sequelize } from '../sequelize.js'
+const { DataTypes } = sequelizeModule;
+
+export const Publisher = sequelize.define('Publisher', {
+  name: {
+    type: DataTypes.STRING,
+    field: 'name'
+  },
+}, {
+  tableName: 'publisher'
+});
+"
+`;
+
+exports[`React template tests/app/testApps/video-game-app/server/src/db/models/VideoGame.js should match snapshot 1`] = `
+"import sequelizeModule from 'sequelize';
+import { sequelize } from '../sequelize.js'
+const { DataTypes } = sequelizeModule;
+
+export const VideoGame = sequelize.define('VideoGame', {
+  title: {
+    type: DataTypes.STRING,
+    field: 'title'
+  },
+  yearPublished: {
+    type: DataTypes.STRING,
+    field: 'year_published'
+  },
+}, {
+  tableName: 'video_game'
+});
+"
+`;
+
+exports[`React template tests/app/testApps/video-game-app/server/src/db/sequelize.js should match snapshot 1`] = `
+"import { Sequelize } from 'sequelize';
+
+const localConnectionString =
+  'postgres://dbwrite:local@localhost:5432/video_game_app_database_local';
+
+const options = {
+  define: {
+    //prevent sequelize from pluralizing table names
+    freezeTableName: true
+  }
+};
+
+export const sequelize = new Sequelize(localConnectionString, options);
+"
+`;
+
+exports[`React template tests/app/testApps/video-game-app/server/src/db/sequelizeDb.js should match snapshot 1`] = `
+"import sequelizeModule from 'sequelize';
+import { NotFound, IdNotUnique } from '../rest/error.js';
+const { UniqueConstraintError } = sequelizeModule;
+
+export async function insert(model, value) {
+  try {
+    return await model.create(value);
+  } catch (error) {
+    if (error instanceof UniqueConstraintError) {
+      throw IdNotUnique('insert', model.name, error.errors[0].path);
+    }
+
+    throw error;
+  }
+}
+
+export async function retrieve(model, id) {
+  const record = await model.findByPk(id);
+
+  if (!record) {
+    throw NotFound('retrieve', model.name, id);
+  }
+
+  return record;
+}
+
+export async function retrieveAll(model) {
+  return await model.findAll();
+}
+
+export async function update(model, value) {
+  const [rowsAffected, [record]] = await model.update(value, {
+    where: {
+      id: value.id
+    },
+    returning: true
+  });
+
+  if (!record) {
+    throw NotFound('update', model.name, value.id);
+  }
+
+  return record;
+}
+
+export async function remove(model, id) {
+  const results = await model.destroy({
+    where: {
+      id
+    }
+  });
+
+  if (!results) {
+    throw NotFound('Remove', model.name, id);
+  }
+
+  return true;
+}
+
+export function getRepository(model) {
+  return {
+    insert: (value) => insert(model, value),
+    retrieve: (id) => retrieve(model, id),
+    update: (value) => update(model, value),
+    remove: (id) => remove(model, id),
+    retrieveAll: () => retrieveAll(model)
+  };
+}
+"
+`;
+
+exports[`React template tests/app/testApps/video-game-app/server/src/lib/cache.js should match snapshot 1`] = `
+"const cacheStore = {};
+const defaultNamespace = Symbol('defaultNamespace');
+
+function expired(expiresAt) {
+  return expiresAt && expiresAt < Date.now();
+}
+
+function getNamedCache(namespace) {
+  if (!cacheStore[namespace]) {
+    cacheStore[namespace] = new Map();
+  }
+
+  return cacheStore[namespace];
+}
+
+export function useNamespace(namespace) {
+  const namedCache = getNamedCache(namespace);
+
+  function get(key) {
+    const { value, expiresAt } = namedCache.get(key) || {};
+
+    if (expired(expiresAt)) {
+      remove(key);
+      return undefined;
+    }
+
+    return value;
+  }
+
+  function set(key, value, timeout) {
+    const expiresAt = timeout ? Date.now() + timeout : null;
+    namedCache.set(key, { value, expiresAt });
+  }
+
+  function timeTillExpires(key) {
+    const { expiresAt } = namedCache.get(key) || {};
+
+    if (!expiresAt) {
+      return null;
+    }
+
+    if (expired(expiresAt)) {
+      return 0;
+    }
+
+    return expiresAt - Date.now();
+  }
+
+  function remove(key) {
+    namedCache.delete(key);
+  }
+
+  function removeAll() {
+    namedCache.clear();
+  }
+
+  return { get, set, timeTillExpires, remove, removeAll };
+}
+
+export const { get, set, timeTillExpires, remove } =
+  useNamespace(defaultNamespace);
+"
+`;
+
+exports[`React template tests/app/testApps/video-game-app/server/src/lib/inMemoryDb.js should match snapshot 1`] = `
+"import { IdNotUnique, NotFound } from '../rest/error.js';
+import { useNamespace } from './cache.js';
+const InMemoryKey = Symbol('InMemory');
+const { get, set } = useNamespace(InMemoryKey);
+
+export function useInMemoryDb(request) {
+  const inMemory = request.header('In-Memory');
+  return inMemory && inMemory.toLowerCase() === 'true';
+}
+
+function exists(records, value) {
+  const { id } = value;
+  return records[id] !== undefined;
+}
+
+function getId(records, value) {
+  const { id } = value;
+  return id ?? records.nextId;
+}
+
+export async function insert(name, value) {
+  const records = get(name) ?? { nextId: 0 };
+  if (exists(records, value)) {
+    throw IdNotUnique('insert', name, value.id);
+  }
+
+  const id = getId(records, value);
+  const record = { ...value, id };
+  const nextId = Math.max(records.nextId + 1, id + 1);
+  const newRecords = { ...records, [id]: record, nextId };
+  console.log(newRecords);
+  set(name, newRecords);
+
+  return record;
+}
+
+export async function retrieve(name, id) {
+  const records = get(name) ?? {};
+  const record = records[id];
+
+  if (!record) {
+    throw NotFound('retrieve', name, id);
+  }
+
+  return record;
+}
+
+export async function retrieveAll(name) {
+  const records = get(name) ?? {};
+  const { nextId, ...rest } = records;
+  return Object.values(rest);
+}
+
+export async function update(name, value) {
+  const records = get(name) ?? {};
+  const { id } = value;
+  const record = records[id];
+
+  if (!record) {
+    throw NotFound('update', name, id);
+  }
+
+  const newRecords = { ...records, [id]: value };
+  console.log(newRecords);
+  set(name, newRecords);
+  return value;
+}
+
+export async function remove(name, id) {
+  const records = get(name) ?? {};
+  const record = records[id];
+
+  if (!record) {
+    throw NotFound('remove', name, id);
+  }
+
+  const newRecords = { ...records };
+  delete newRecords[id];
+  console.log(newRecords);
+  set(name, newRecords);
+  return true;
+}
+
+export function getRepository(name) {
+  return {
+    insert: (value) => insert(name, value),
+    retrieve: (id) => retrieve(name, id),
+    update: (value) => update(name, value),
+    remove: (id) => remove(name, id),
+    retrieveAll: () => retrieveAll(name)
+  };
+}
+"
+`;
+
+exports[`React template tests/app/testApps/video-game-app/server/src/rest/endpoints/publisher.js should match snapshot 1`] = `
+"import express from \\"express\\";
+import { StatusCodes } from \\"http-status-codes\\";
+import { useInMemoryDb, getRepository } from \\"../../lib/inMemoryDb.js\\";
+import { getRepository as getSequelizeRepository } from \\"../../db/sequelizeDb.js\\";
+import { Publisher } from \\"../../db/models/Publisher.js\\";
+
+export const publisherRoutes = express.Router();
+
+function getDb(request) {
+  if (useInMemoryDb(request)) {
+    console.log({ mode: \`InMemory\` });
+    return getRepository(\\"publisher\\");
+  }
+
+  return getSequelizeRepository(Publisher);
+}
+
+publisherRoutes.post(\\"/\\", async (request, response, next) => {
+  try {
+    const publisher = request.body;
+    const db = getDb(request);
+    console.log(\`POST Publisher \${JSON.stringify(publisher)}\`);
+
+    const record = await db.insert(publisher);
+    return response.status(StatusCodes.OK).send(record);
+  } catch (error) {
+    next(error);
+  }
+});
+
+publisherRoutes.get(\\"/:id\\", async (request, response, next) => {
+  try {
+    const { id } = request.params;
+    const db = getDb(request);
+    console.log(\`GET Publisher \${id}\`);
+
+    const record = await db.retrieve(id);
+    return response.status(StatusCodes.OK).send(record);
+  } catch (error) {
+    next(error);
+  }
+});
+
+publisherRoutes.put(\\"/\\", async (request, response, next) => {
+  try {
+    const publisher = request.body;
+    const db = getDb(request);
+    console.log(\`Put Publisher \${JSON.stringify(publisher)}\`);
+  
+    const record = await db.update(publisher);
+    return response.status(StatusCodes.OK).send(record); 
+  } catch (error) {
+    next(error);
+  }
+});
+
+publisherRoutes.delete(\\"/:id\\", async (request, response, next) => {
+  try {
+    const { id } = request.params;
+    const db = getDb(request);
+    console.log(\`Delete Publisher \${id}\`);
+  
+    await db.remove(id);
+    return response.status(StatusCodes.NO_CONTENT).send(); 
+  } catch (error) {
+    next(error);
+  }
+});
+"
+`;
+
+exports[`React template tests/app/testApps/video-game-app/server/src/rest/endpoints/publisherCollection.js should match snapshot 1`] = `
+"import express from \\"express\\";
+import { StatusCodes } from \\"http-status-codes\\";
+import { useInMemoryDb, getRepository } from \\"../../lib/inMemoryDb.js\\";
+import { getRepository as getSequelizeRepository } from \\"../../db/sequelizeDb.js\\";
+import { Publisher } from \\"../../db/models/Publisher.js\\";
+
+export const publisherCollectionRoutes = express.Router();
+
+function getDb(request) {
+  if (useInMemoryDb(request)) {
+    console.log({ mode: \`InMemory\` });
+    return getRepository(\\"publisher\\");
+  }
+
+  return getSequelizeRepository(Publisher);
+}
+
+publisherCollectionRoutes.get(\\"/\\", async (request, response, next) => {
+  try {
+    const db = getDb(request, \\"publisher\\");
+    console.log(\\"GET publisherCollection\\");
+
+    const records = await db.retrieveAll();
+    return response.status(StatusCodes.OK).send(records);
+  } catch (error) {
+    next(error);
+  }
+});
+"
+`;
+
+exports[`React template tests/app/testApps/video-game-app/server/src/rest/endpoints/videoGame.js should match snapshot 1`] = `
+"import express from \\"express\\";
+import { StatusCodes } from \\"http-status-codes\\";
+import { useInMemoryDb, getRepository } from \\"../../lib/inMemoryDb.js\\";
+import { getRepository as getSequelizeRepository } from \\"../../db/sequelizeDb.js\\";
+import { VideoGame } from \\"../../db/models/VideoGame.js\\";
+
+export const videoGameRoutes = express.Router();
+
+function getDb(request) {
+  if (useInMemoryDb(request)) {
+    console.log({ mode: \`InMemory\` });
+    return getRepository(\\"videoGame\\");
+  }
+
+  return getSequelizeRepository(VideoGame);
+}
+
+videoGameRoutes.post(\\"/\\", async (request, response, next) => {
+  try {
+    const videoGame = request.body;
+    const db = getDb(request);
+    console.log(\`POST VideoGame \${JSON.stringify(videoGame)}\`);
+
+    const record = await db.insert(videoGame);
+    return response.status(StatusCodes.OK).send(record);
+  } catch (error) {
+    next(error);
+  }
+});
+
+videoGameRoutes.get(\\"/:id\\", async (request, response, next) => {
+  try {
+    const { id } = request.params;
+    const db = getDb(request);
+    console.log(\`GET VideoGame \${id}\`);
+
+    const record = await db.retrieve(id);
+    return response.status(StatusCodes.OK).send(record);
+  } catch (error) {
+    next(error);
+  }
+});
+
+videoGameRoutes.put(\\"/\\", async (request, response, next) => {
+  try {
+    const videoGame = request.body;
+    const db = getDb(request);
+    console.log(\`Put VideoGame \${JSON.stringify(videoGame)}\`);
+  
+    const record = await db.update(videoGame);
+    return response.status(StatusCodes.OK).send(record); 
+  } catch (error) {
+    next(error);
+  }
+});
+
+videoGameRoutes.delete(\\"/:id\\", async (request, response, next) => {
+  try {
+    const { id } = request.params;
+    const db = getDb(request);
+    console.log(\`Delete VideoGame \${id}\`);
+  
+    await db.remove(id);
+    return response.status(StatusCodes.NO_CONTENT).send(); 
+  } catch (error) {
+    next(error);
+  }
+});
+"
+`;
+
+exports[`React template tests/app/testApps/video-game-app/server/src/rest/endpoints/videoGameCollection.js should match snapshot 1`] = `
+"import express from \\"express\\";
+import { StatusCodes } from \\"http-status-codes\\";
+import { useInMemoryDb, getRepository } from \\"../../lib/inMemoryDb.js\\";
+import { getRepository as getSequelizeRepository } from \\"../../db/sequelizeDb.js\\";
+import { VideoGame } from \\"../../db/models/VideoGame.js\\";
+
+export const videoGameCollectionRoutes = express.Router();
+
+function getDb(request) {
+  if (useInMemoryDb(request)) {
+    console.log({ mode: \`InMemory\` });
+    return getRepository(\\"videoGame\\");
+  }
+
+  return getSequelizeRepository(VideoGame);
+}
+
+videoGameCollectionRoutes.get(\\"/\\", async (request, response, next) => {
+  try {
+    const db = getDb(request, \\"videoGame\\");
+    console.log(\\"GET videoGameCollection\\");
+
+    const records = await db.retrieveAll();
+    return response.status(StatusCodes.OK).send(records);
+  } catch (error) {
+    next(error);
+  }
+});
+"
+`;
+
+exports[`React template tests/app/testApps/video-game-app/server/src/rest/error.js should match snapshot 1`] = `
+"export const Type = {
+  BadRequest: \\"BadRequest\\",
+  NotFound: \\"NotFound\\",
+  IdNotUnique: \\"IdNotUnique\\",
+  NotImplemented: \\"NotImplemented\\",
+};
+
+export function IdNotUnique(action, subject, id) {
+  const error = new Error(\`Id already exists: \${subject}, \${id} in \${action}\`);
+  error.type = Type.IdNotUnique;
+  return error;
+}
+
+export function NotFound(action, subject, id) {
+  const error = new Error(\`Record not found: \${subject}, \${id} in \${action}\`);
+  error.type = Type.NotFound;
+  return error;
+}
+
+export function NotImplemented() {
+  const error = new Error(\\"Not Implemented\\");
+  error.type = Type.NotImplemented;
+  return error;
+}
+"
+`;
+
+exports[`React template tests/app/testApps/video-game-app/server/src/rest/errorHandler.js should match snapshot 1`] = `
+"import { Type } from './error.js';
+import { StatusCodes } from 'http-status-codes';
+
+export function errorHandler(error, request, response, next) {
+  console.log('Error Handling Middleware called');
+  console.log('Path: ', request.path);
+  console.error(error);
+
+  if (error.type == Type.IdNotUnique) {
+    return response.status(StatusCodes.BAD_REQUEST).send('Id is not unique.');
+  }
+
+  if (error.type == Type.NotFound) {
+    return response.status(StatusCodes.NOT_FOUND).send('Record not found.');
+  }
+
+  if (error.type == Type.NotImplemented) {
+    return response
+      .status(StatusCodes.NOT_IMPLEMENTED)
+      .send('Not implemented.');
+  }
+
+  return response
+    .status(StatusCodes.INTERNAL_SERVER_ERROR)
+    .send('Server failed.');
+}
 "
 `;

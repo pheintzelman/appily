@@ -1,3 +1,9 @@
+v. 0.3.0-alpha
+
+- react-app template: postgres support
+- Fixed kebab case name
+- Added snake case
+
 v. 0.2.2-alpha
 
 - react-app template: Express In-Memory header

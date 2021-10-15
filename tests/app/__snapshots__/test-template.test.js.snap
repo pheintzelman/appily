@@ -5,11 +5,15 @@ Array [
   Object {
     "TRACE": Object {
       "viewModel": Object {
+        "animals": Array [
+          "monkey",
+        ],
         "appName": "Test App",
         "appNameCamel": "testApp",
+        "appNameKebab": "test-app",
         "appNamePascal": "TestApp",
         "appNameSentenceCase": "test app",
-        "appNameSnake": "test-app",
+        "appNameSnake": "test_app",
         "configString": " {
   \\"dir\\": \\"tests/app/testApps\\",
   \\"name\\": \\"Test App\\",
@@ -17,6 +21,10 @@ Array [
   \\"models\\": []
  }",
         "dir": "tests/app/testApps/test-app",
+        "flags": Object {
+          "sequelize": false,
+          "vanilla": true,
+        },
         "models": Array [],
         "templateName": "test",
         "templateVersion": "0.0.1",
@@ -51,6 +59,16 @@ Array [
       "dest": "tests/app/testApps/test-app",
       "msg": "copyDir",
       "src": "appily/src/templates/test/app",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "msg": "Add to view model",
+      "property": Object {
+        "animals": Array [
+          "monkey",
+        ],
+      },
     },
   },
   Object {

@@ -29,9 +29,13 @@ describe('getViewModel', () => {
       appNameCamel: 'testConfig',
       appNamePascal: 'TestConfig',
       appNameSentenceCase: 'test config',
-      appNameSnake: 'test-config',
+      appNameSnake: 'test_config',
+      appNameKebab: 'test-config',
       configString,
       dir: undefined,
+      flags: {
+        sequelize: false
+      },
       models: [
         {
           defaultState: '{}',
@@ -39,16 +43,19 @@ describe('getViewModel', () => {
           modelNameCamel: 'animal',
           modelNamePascal: 'Animal',
           modelNameSentenceCase: 'animal',
+          modelNameKebab: 'animal',
           modelNameSnake: 'animal',
           pluralModelName: 'Animal Collection',
           pluralModelNameCamel: 'animalCollection',
           pluralModelNamePascal: 'AnimalCollection',
           pluralModelNameSentenceCase: 'animal collection',
-          pluralModelNameSnake: 'animal-collection',
+          pluralModelNameKebab: 'animal-collection',
+          pluralModelNameSnake: 'animal_collection',
           primaryProperty: '',
           primaryPropertyCamel: '',
           primaryPropertyPascal: '',
           primaryPropertySentenceCase: '',
+          primaryPropertyKebab: '',
           primaryPropertySnake: '',
           properties: []
         }
@@ -59,7 +66,7 @@ describe('getViewModel', () => {
 
     const actual = getViewModel({
       config,
-      manifesto: { name: 'test', version: '1.2.3' }
+      manifesto: { name: 'test', version: '1.2.3', options: {} }
     });
 
     expect(actual).toStrictEqual(expected);

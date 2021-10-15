@@ -6,5 +6,12 @@
     "api": [],
     "db": []
   },
-  "directives": [{ "ui:vanilla": { "copy": { "src": "app", "dest": "" } } }]
+  "directives": [
+    { "ui:vanilla": { "copy": { "src": "app", "dest": "" } } },
+    {
+      "ui:vanilla": {
+        "viewModel": { "animals": ["monkey"] }
+      }
+    }
+  ]
 }

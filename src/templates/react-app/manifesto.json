@@ -1,10 +1,10 @@
 {
   "name": "react-app",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "options": {
     "ui": ["react"],
-    "api": ["indexedDB", "stub", "express", "none"],
-    "db": ["indexedDB", "none"]
+    "api": ["express", "indexedDB", "stub", "none"],
+    "db": ["postgres", "indexedDB", "none"]
   },
   "allowedTypes": ["String", "Boolean"],
   "directives": [
@@ -85,8 +85,35 @@
       }
     },
     {
-      "db:indexedDB": {
-        "viewModel": { "packages": [{ "package": "idb", "version": "^6.1.2" }] }
+      "db:postgres": {
+        "copy": { "src": "db/postgres/docker", "dest": "server/docker" }
+      }
+    },
+    {
+      "db:postgres": {
+        "copy": { "src": "db/sequelize/db", "dest": "server/src/db" }
+      }
+    },
+    {
+      "db:postgres": {
+        "loop": {
+          "property": "models",
+          "src": "db/sequelize/models",
+          "dest": "server/src/db/models"
+        }
+      }
+    },
+    {
+      "db:postgres": {
+        "viewModelTransform": {
+          "path": "./db/sequelize/viewModelTransform/transform.js",
+          "method": "transform"
+        }
+      }
+    },
+    {
+      "db:postgres": {
+        "copy": { "src": "db/sequelize/scripts", "dest": "server/scripts" }
       }
     }
   ]

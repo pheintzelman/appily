@@ -9,8 +9,7 @@
   "allowedTypes": ["String", "Boolean"],
   "directives": [
     {
-      "option": "ui:react",
-      "directive": [
+      "ui:react": [
         { "copy": { "src": "react/base", "dest": "client" } },
         {
           "loop": {
@@ -18,16 +17,14 @@
             "src": "react/modelComponents",
             "dest": "client/src/components"
           }
+        },
+        {
+          "viewModelTransform": {
+            "path": "./react/viewModelTransform/addComponents.js",
+            "method": "addComponents"
+          }
         }
       ]
-    },
-    {
-      "ui:react": {
-        "viewModelTransform": {
-          "path": "./react/viewModelTransform/addComponents.js",
-          "method": "addComponents"
-        }
-      }
     },
     {
       "api:stub": {
@@ -48,76 +45,66 @@
       }
     },
     {
-      "api:express": { "copy": { "src": "api/express/base", "dest": "server" } }
-    },
-    {
-      "api:express": {
-        "loop": {
-          "property": "models",
-          "src": "api/express/endpoints",
-          "dest": "server/src/rest/endpoints"
+      "api:express": [
+        { "copy": { "src": "api/express/base", "dest": "server" } },
+        {
+          "loop": {
+            "property": "models",
+            "src": "api/express/endpoints",
+            "dest": "server/src/rest/endpoints"
+          }
+        },
+        {
+          "copy": { "src": "api/express/client/api", "dest": "client/src/api" }
+        },
+        {
+          "loop": {
+            "property": "models",
+            "src": "api/express/client/models",
+            "dest": "client/src/api/"
+          }
         }
-      }
+      ]
     },
     {
-      "api:express": {
-        "copy": { "src": "api/express/client/api", "dest": "client/src/api" }
-      }
-    },
-    {
-      "api:express": {
-        "loop": {
-          "property": "models",
-          "src": "api/express/client/models",
-          "dest": "client/src/api/"
+      "db:indexedDB": [
+        {
+          "copy": { "src": "db/indexedDb/db", "dest": "client/src/db" }
+        },
+        {
+          "loop": {
+            "property": "models",
+            "src": "db/indexedDb/loop",
+            "dest": "client/src/db"
+          }
         }
-      }
+      ]
     },
     {
-      "db:indexedDB": {
-        "copy": { "src": "db/indexedDb/db", "dest": "client/src/db" }
-      }
-    },
-    {
-      "db:indexedDB": {
-        "loop": {
-          "property": "models",
-          "src": "db/indexedDb/loop",
-          "dest": "client/src/db"
+      "db:postgres": [
+        {
+          "copy": { "src": "db/postgres/docker", "dest": "server/docker" }
+        },
+        {
+          "copy": { "src": "db/sequelize/db", "dest": "server/src/db" }
+        },
+        {
+          "loop": {
+            "property": "models",
+            "src": "db/sequelize/models",
+            "dest": "server/src/db/models"
+          }
+        },
+        {
+          "viewModelTransform": {
+            "path": "./db/sequelize/viewModelTransform/transform.js",
+            "method": "transform"
+          }
+        },
+        {
+          "copy": { "src": "db/sequelize/scripts", "dest": "server/scripts" }
         }
-      }
-    },
-    {
-      "db:postgres": {
-        "copy": { "src": "db/postgres/docker", "dest": "server/docker" }
-      }
-    },
-    {
-      "db:postgres": {
-        "copy": { "src": "db/sequelize/db", "dest": "server/src/db" }
-      }
-    },
-    {
-      "db:postgres": {
-        "loop": {
-          "property": "models",
-          "src": "db/sequelize/models",
-          "dest": "server/src/db/models"
-        }
-      }
-    },
-    {
-      "db:postgres": {
-        "viewModelTransform": {
-          "path": "./db/sequelize/viewModelTransform/transform.js",
-          "method": "transform"
-        }
-      }
-    },
-    {
-      "db:postgres": {
-        "copy": { "src": "db/sequelize/scripts", "dest": "server/scripts" }
-      }
+      ]
     }
   ]
 }

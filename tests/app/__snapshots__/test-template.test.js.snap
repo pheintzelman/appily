@@ -62,6 +62,17 @@ Array [
             },
             "option": "ui:vanilla",
           },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "animals": Array [
+                  "monkey",
+                ],
+              },
+              "command": "viewModel",
+            },
+            "option": "ui:chocolate",
+          },
         ],
         "name": "test",
         "options": Object {
@@ -69,6 +80,7 @@ Array [
           "db": Array [],
           "ui": Array [
             "vanilla",
+            "chocolate",
           ],
         },
         "version": "0.0.1",

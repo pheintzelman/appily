@@ -2,18 +2,23 @@
   "name": "test",
   "version": "0.0.1",
   "options": {
-    "ui": ["vanilla"],
+    "ui": ["vanilla", "chocolate"],
     "api": [],
     "db": []
   },
   "directives": [
-    { "ui:vanilla": { "copy": { "src": "app", "dest": "" } } },
     {
       "option": "ui:vanilla",
-      "directive": {
-        "command": "viewModel",
-        "args": { "animals": ["monkey"] }
-      }
+      "directive": { "copy": { "src": "app", "dest": "" } }
+    },
+    {
+      "options": ["ui:vanilla", "ui:chocolate"],
+      "directives": [
+        {
+          "command": "viewModel",
+          "args": { "animals": ["monkey"] }
+        }
+      ]
     }
   ]
 }

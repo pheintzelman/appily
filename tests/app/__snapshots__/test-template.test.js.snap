@@ -39,6 +39,40 @@ Array [
         "name": "Test App",
         "template": "test",
       },
+      "normalizedManifesto": Object {
+        "directives": Array [
+          Object {
+            "directive": Object {
+              "args": Object {
+                "dest": "",
+                "src": "app",
+              },
+              "command": "copy",
+            },
+            "option": "ui:vanilla",
+          },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "animals": Array [
+                  "monkey",
+                ],
+              },
+              "command": "viewModel",
+            },
+            "option": "ui:vanilla",
+          },
+        ],
+        "name": "test",
+        "options": Object {
+          "api": Array [],
+          "db": Array [],
+          "ui": Array [
+            "vanilla",
+          ],
+        },
+        "version": "0.0.1",
+      },
     },
   },
   Object {

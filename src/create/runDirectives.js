@@ -5,7 +5,7 @@ import { copyDirective } from './directives/copyDirective.js';
 import { loopDirective } from './directives/loopDirective.js';
 import { viewModelDirective } from './directives/viewModelDirective.js';
 import { viewModelTransform } from './directives/viewModelTransform.js';
-import { getDirectives } from './processManafesto.js';
+import { getDirectives } from './manifesto/processManifesto.js';
 
 async function runFileDirectives({
   directives,
@@ -13,16 +13,16 @@ async function runFileDirectives({
   metaData: { templateDir, dir }
 }) {
   for (const directive of directives) {
-    if (directive.key === Directive.Copy) {
-      const src = path.join(templateDir, directive.value.src);
-      const dest = path.join(dir, directive.value.dest);
+    if (directive.command === Directive.Copy) {
+      const src = path.join(templateDir, directive.args.src);
+      const dest = path.join(dir, directive.args.dest);
       await copyDirective({ src, dest, viewModel });
     }
 
-    if (directive.key === Directive.Loop) {
-      const src = path.join(templateDir, directive.value.src);
-      const dest = path.join(dir, directive.value.dest);
-      const { property } = directive.value;
+    if (directive.command === Directive.Loop) {
+      const src = path.join(templateDir, directive.args.src);
+      const dest = path.join(dir, directive.args.dest);
+      const { property } = directive.args;
 
       await loopDirective({ property, src, dest, viewModel });
     }
@@ -36,13 +36,13 @@ async function runViewModelDirectives({
 }) {
   return directives.reduce(async (viewModel, directive) => {
     const resolvedViewModel = await viewModel;
-    if (directive.key === Directive.ViewModel) {
-      const property = directive.value;
+    if (directive.command === Directive.ViewModel) {
+      const property = directive.args;
       return viewModelDirective({ property, viewModel: resolvedViewModel });
     }
 
-    if (directive.key === Directive.ViewModelTransform) {
-      const { path: templatePath, method } = directive.value;
+    if (directive.command === Directive.ViewModelTransform) {
+      const { path: templatePath, method } = directive.args;
       const transformPath = path.join(templateDir, templatePath);
       return await viewModelTransform({
         path: transformPath,

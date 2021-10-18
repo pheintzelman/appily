@@ -8,15 +8,18 @@
   },
   "allowedTypes": ["String", "Boolean"],
   "directives": [
-    { "ui:react": { "copy": { "src": "react/base", "dest": "client" } } },
     {
-      "ui:react": {
-        "loop": {
-          "property": "models",
-          "src": "react/modelComponents",
-          "dest": "client/src/components"
+      "option": "ui:react",
+      "directive": [
+        { "copy": { "src": "react/base", "dest": "client" } },
+        {
+          "loop": {
+            "property": "models",
+            "src": "react/modelComponents",
+            "dest": "client/src/components"
+          }
         }
-      }
+      ]
     },
     {
       "ui:react": {

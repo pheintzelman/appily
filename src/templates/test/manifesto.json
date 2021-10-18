@@ -9,8 +9,10 @@
   "directives": [
     { "ui:vanilla": { "copy": { "src": "app", "dest": "" } } },
     {
-      "ui:vanilla": {
-        "viewModel": { "animals": ["monkey"] }
+      "option": "ui:vanilla",
+      "directive": {
+        "command": "viewModel",
+        "args": { "animals": ["monkey"] }
       }
     }
   ]

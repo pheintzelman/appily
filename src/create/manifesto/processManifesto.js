@@ -1,12 +1,8 @@
-import { kvp } from '../lib/kvp.js';
-
 export function getSelectedDirectives(manifesto, selectedOptions) {
   const { directives } = manifesto;
   return directives
-    .map(kvp)
-    .filter((directive) => selectedOptions.includes(directive.key))
-    .map((directive) => directive.value)
-    .map(kvp);
+    .filter((directive) => selectedOptions.includes(directive.option))
+    .map((directive) => directive.directive);
 }
 
 export function getSelectedOptions(manifesto, config) {

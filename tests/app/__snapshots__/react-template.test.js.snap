@@ -213,6 +213,199 @@ Array [
         "name": "Video Game App",
         "template": "react-app",
       },
+      "normalizedManifesto": Object {
+        "allowedTypes": Array [
+          "String",
+          "Boolean",
+        ],
+        "directives": Array [
+          Object {
+            "directive": Object {
+              "args": Object {
+                "dest": "client",
+                "src": "react/base",
+              },
+              "command": "copy",
+            },
+            "option": "ui:react",
+          },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "dest": "client/src/components",
+                "property": "models",
+                "src": "react/modelComponents",
+              },
+              "command": "loop",
+            },
+            "option": "ui:react",
+          },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "method": "addComponents",
+                "path": "./react/viewModelTransform/addComponents.js",
+              },
+              "command": "viewModelTransform",
+            },
+            "option": "ui:react",
+          },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "dest": "client/src/api",
+                "property": "models",
+                "src": "api/stub/api",
+              },
+              "command": "loop",
+            },
+            "option": "api:stub",
+          },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "dest": "client/src/api",
+                "property": "models",
+                "src": "api/indexedDb/api",
+              },
+              "command": "loop",
+            },
+            "option": "api:indexedDB",
+          },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "dest": "server",
+                "src": "api/express/base",
+              },
+              "command": "copy",
+            },
+            "option": "api:express",
+          },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "dest": "server/src/rest/endpoints",
+                "property": "models",
+                "src": "api/express/endpoints",
+              },
+              "command": "loop",
+            },
+            "option": "api:express",
+          },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "dest": "client/src/api",
+                "src": "api/express/client/api",
+              },
+              "command": "copy",
+            },
+            "option": "api:express",
+          },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "dest": "client/src/api/",
+                "property": "models",
+                "src": "api/express/client/models",
+              },
+              "command": "loop",
+            },
+            "option": "api:express",
+          },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "dest": "client/src/db",
+                "src": "db/indexedDb/db",
+              },
+              "command": "copy",
+            },
+            "option": "db:indexedDB",
+          },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "dest": "client/src/db",
+                "property": "models",
+                "src": "db/indexedDb/loop",
+              },
+              "command": "loop",
+            },
+            "option": "db:indexedDB",
+          },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "dest": "server/docker",
+                "src": "db/postgres/docker",
+              },
+              "command": "copy",
+            },
+            "option": "db:postgres",
+          },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "dest": "server/src/db",
+                "src": "db/sequelize/db",
+              },
+              "command": "copy",
+            },
+            "option": "db:postgres",
+          },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "dest": "server/src/db/models",
+                "property": "models",
+                "src": "db/sequelize/models",
+              },
+              "command": "loop",
+            },
+            "option": "db:postgres",
+          },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "method": "transform",
+                "path": "./db/sequelize/viewModelTransform/transform.js",
+              },
+              "command": "viewModelTransform",
+            },
+            "option": "db:postgres",
+          },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "dest": "server/scripts",
+                "src": "db/sequelize/scripts",
+              },
+              "command": "copy",
+            },
+            "option": "db:postgres",
+          },
+        ],
+        "name": "react-app",
+        "options": Object {
+          "api": Array [
+            "express",
+            "indexedDB",
+            "stub",
+            "none",
+          ],
+          "db": Array [
+            "postgres",
+            "indexedDB",
+            "none",
+          ],
+          "ui": Array [
+            "react",
+          ],
+        },
+        "version": "0.6.0",
+      },
     },
   },
   Object {

@@ -1,3 +1,7 @@
+v. 0.3.1-alpha
+
+- Allow directives to be grouped
+
 v. 0.3.0-alpha
 
 - react-app template: postgres support

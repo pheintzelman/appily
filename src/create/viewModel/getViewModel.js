@@ -1,5 +1,5 @@
 import { getVariations } from '../../lib/case.js';
-import { getSelectedOptions } from '../processManafesto.js';
+import { getSelectedOptions } from '../manifesto/processManifesto.js';
 import { getViewModelModels } from './getViewModelModels.js';
 
 function addOffset(string, offset) {

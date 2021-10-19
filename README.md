@@ -121,7 +121,6 @@ Aim for progressive development with something useful asap See the [road map](./
 - add options cli option, print out options from manfesto
 - add tests for cli
 - try to fix nested app issue (apps don't run from manual folder - nested npm package issue confuses npm install)
-- make directives groupable
 - make docs easier to understand
   - list supported types
 - make tests cross OS

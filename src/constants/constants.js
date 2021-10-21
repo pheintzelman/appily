@@ -3,12 +3,14 @@ export const DefaultTemplate = 'react-app';
 export const TemplateExt = 'mustache.';
 export const ManifestoFileName = 'manifesto.json';
 export const DefaultPluralSuffix = 'Collection';
+
 export const Directive = {
   Copy: 'copy',
   Loop: 'loop',
   ViewModel: 'viewModel',
   ViewModelTransform: 'viewModelTransform'
 };
+
 export const AllowedConfigProperties = [
   'name',
   'template',
@@ -18,6 +20,7 @@ export const AllowedConfigProperties = [
   'api',
   'db'
 ];
+
 export const Type = {
   Boolean: 'Boolean',
   String: 'String'

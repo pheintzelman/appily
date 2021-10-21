@@ -139,15 +139,24 @@ Aim for progressive development with something useful asap See the [road map](./
   - string elipses, wrapping, etc
 - add spinner progress button
 - internationalize app (setup)
+- add required properties
+  - [x] add to viewModel
+  - [ ] add to UI
+  - [ ] add to api
+  - [ ] add to db
 
-## Sever
+### Appily
+
+- add config validation for model and properties
+
+### Sever
 
 - move base out of express
 - have docker include express server
 - add logger (Pino?)
 - add env support
 
-# Later
+### Later
 
 - add better table filter
 - add types

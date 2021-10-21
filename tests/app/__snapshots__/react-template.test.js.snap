@@ -20,11 +20,13 @@ Array [
       \\"properties\\": [
         {
           \\"type\\": \\"String\\",
-          \\"propertyName\\": \\"Title\\"
+          \\"propertyName\\": \\"Title\\",
+          \\"required\\": false
         },
         {
           \\"type\\": \\"String\\",
-          \\"propertyName\\": \\"Year Published\\"
+          \\"propertyName\\": \\"Year Published\\",
+          \\"required\\": false
         }
       ],
       \\"modelName\\": \\"Video Game\\",
@@ -34,7 +36,8 @@ Array [
       \\"properties\\": [
         {
           \\"type\\": \\"String\\",
-          \\"propertyName\\": \\"Name\\"
+          \\"propertyName\\": \\"Name\\",
+          \\"required\\": false
         }
       ],
       \\"modelName\\": \\"Publisher\\",
@@ -191,10 +194,12 @@ Array [
             "properties": Array [
               Object {
                 "propertyName": "Title",
+                "required": false,
                 "type": "String",
               },
               Object {
                 "propertyName": "Year Published",
+                "required": false,
                 "type": "String",
               },
             ],
@@ -205,6 +210,7 @@ Array [
             "properties": Array [
               Object {
                 "propertyName": "Name",
+                "required": false,
                 "type": "String",
               },
             ],
@@ -755,11 +761,13 @@ Array [
       \\"properties\\": [
         {
           \\"type\\": \\"String\\",
-          \\"propertyName\\": \\"Title\\"
+          \\"propertyName\\": \\"Title\\",
+          \\"required\\": false
         },
         {
           \\"type\\": \\"String\\",
-          \\"propertyName\\": \\"Year Published\\"
+          \\"propertyName\\": \\"Year Published\\",
+          \\"required\\": false
         }
       ],
       \\"modelName\\": \\"Video Game\\",
@@ -769,7 +777,8 @@ Array [
       \\"properties\\": [
         {
           \\"type\\": \\"String\\",
-          \\"propertyName\\": \\"Name\\"
+          \\"propertyName\\": \\"Name\\",
+          \\"required\\": false
         }
       ],
       \\"modelName\\": \\"Publisher\\",
@@ -931,11 +940,13 @@ Array [
       \\"properties\\": [
         {
           \\"type\\": \\"String\\",
-          \\"propertyName\\": \\"Title\\"
+          \\"propertyName\\": \\"Title\\",
+          \\"required\\": false
         },
         {
           \\"type\\": \\"String\\",
-          \\"propertyName\\": \\"Year Published\\"
+          \\"propertyName\\": \\"Year Published\\",
+          \\"required\\": false
         }
       ],
       \\"modelName\\": \\"Video Game\\",
@@ -945,7 +956,8 @@ Array [
       \\"properties\\": [
         {
           \\"type\\": \\"String\\",
-          \\"propertyName\\": \\"Name\\"
+          \\"propertyName\\": \\"Name\\",
+          \\"required\\": false
         }
       ],
       \\"modelName\\": \\"Publisher\\",
@@ -1353,11 +1365,13 @@ exports[`React template tests/app/testApps/video-game-app/client/.appily should 
       \\"properties\\": [
         {
           \\"type\\": \\"String\\",
-          \\"propertyName\\": \\"Title\\"
+          \\"propertyName\\": \\"Title\\",
+          \\"required\\": false
         },
         {
           \\"type\\": \\"String\\",
-          \\"propertyName\\": \\"Year Published\\"
+          \\"propertyName\\": \\"Year Published\\",
+          \\"required\\": false
         }
       ],
       \\"modelName\\": \\"Video Game\\",
@@ -1367,7 +1381,8 @@ exports[`React template tests/app/testApps/video-game-app/client/.appily should 
       \\"properties\\": [
         {
           \\"type\\": \\"String\\",
-          \\"propertyName\\": \\"Name\\"
+          \\"propertyName\\": \\"Name\\",
+          \\"required\\": false
         }
       ],
       \\"modelName\\": \\"Publisher\\",

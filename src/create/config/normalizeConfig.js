@@ -20,7 +20,7 @@ function normalizeProperty([propertyNameInit, property]) {
     return {
       ...property,
       propertyName,
-      required: required || property.required
+      required: required || Boolean(property.required)
     };
   }
 

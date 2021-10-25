@@ -5,7 +5,22 @@ import {
 {{#componentImports}}
 import { {{component.edit}} } from '../types/{{component.edit}}';
 {{/componentImports}}
-import { ContentContainer } from "../common/containers/ContentContainer";
+import { ContentContainer } from '../common/containers/ContentContainer';
+import { validate, Valdator } from '../../lib/validate';
+
+function validate{{modelNamePascal}}({{modelNameCamel}}) {
+  const rules = [
+    {{#properties}}
+    {{#required}}
+    { type: Valdator.Required, name: '{{propertyNameCamel}}' }{{#last}},{{/last}}
+    {{/required}}
+    {{/properties}}
+  ];
+
+  const state = validate(rules, {{modelNameCamel}});
+  console.log(state);
+  return state;
+}
 
 export function {{modelNamePascal}}Form({
   {{modelNameCamel}}: initialState,
@@ -19,11 +34,17 @@ export function {{modelNamePascal}}Form({
     initialState ?? {{{defaultState}}}
   );
 
+  const [validationState, setValidationState] = useState({valid:true, properties:{}});
+
   useEffect(() => {
     if (initialState) {
       set{{modelNamePascal}}(initialState);
     }
   }, [initialState]);
+
+  useEffect(() => {
+    console.log({validationState});
+  }, [validationState]);
 
   const handleChange = (field, value) => {
     const updated{{modelNamePascal}} = { ...{{modelNameCamel}}, [field]: value };
@@ -33,7 +54,13 @@ export function {{modelNamePascal}}Form({
 
   function handleCta(cta, {{modelNameCamel}}) {
     return async (event) => {
-      await cta({{modelNameCamel}});
+      const state = validate{{modelNamePascal}}({{modelNameCamel}});
+      if (state.valid) {
+        setValidationState(state);
+        return await cta({{modelNameCamel}});
+      }
+
+      setValidationState(state);
     };
   }
 
@@ -54,6 +81,7 @@ export function {{modelNamePascal}}Form({
             field="{{propertyNameCamel}}"
             onChange={handleChange}
             disabled={processing}
+            validationState={validationState.properties['{{propertyNameCamel}}']}
           />
 
           {{/properties}}

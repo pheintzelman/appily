@@ -141,9 +141,10 @@ Aim for progressive development with something useful asap See the [road map](./
 - internationalize app (setup)
 - add required properties
   - [x] add to viewModel
-  - [ ] add to UI
+  - [x] add to UI
   - [ ] add to api
   - [ ] add to db
+  - [ ] add validation on type
 
 ### Appily
 

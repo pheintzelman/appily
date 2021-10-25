@@ -94,12 +94,14 @@ Array [
                 "isBoolean": false,
                 "isPrimary": true,
                 "isString": true,
+                "last": false,
                 "propertyName": "Title",
                 "propertyNameCamel": "title",
                 "propertyNameKebab": "title",
                 "propertyNamePascal": "Title",
                 "propertyNameSentenceCase": "title",
                 "propertyNameSnake": "title",
+                "required": false,
                 "sequelizeType": "STRING",
                 "type": "String",
               },
@@ -114,12 +116,14 @@ Array [
                 "isBoolean": false,
                 "isPrimary": false,
                 "isString": true,
+                "last": true,
                 "propertyName": "Year Published",
                 "propertyNameCamel": "yearPublished",
                 "propertyNameKebab": "year-published",
                 "propertyNamePascal": "YearPublished",
                 "propertyNameSentenceCase": "year published",
                 "propertyNameSnake": "year_published",
+                "required": false,
                 "sequelizeType": "STRING",
                 "type": "String",
               },
@@ -166,12 +170,14 @@ Array [
                 "isBoolean": false,
                 "isPrimary": true,
                 "isString": true,
+                "last": true,
                 "propertyName": "Name",
                 "propertyNameCamel": "name",
                 "propertyNameKebab": "name",
                 "propertyNamePascal": "Name",
                 "propertyNameSentenceCase": "name",
                 "propertyNameSnake": "name",
+                "required": false,
                 "sequelizeType": "STRING",
                 "type": "String",
               },
@@ -835,12 +841,14 @@ Array [
                 "isBoolean": false,
                 "isPrimary": true,
                 "isString": true,
+                "last": false,
                 "propertyName": "Title",
                 "propertyNameCamel": "title",
                 "propertyNameKebab": "title",
                 "propertyNamePascal": "Title",
                 "propertyNameSentenceCase": "title",
                 "propertyNameSnake": "title",
+                "required": false,
                 "type": "String",
               },
               Object {
@@ -854,12 +862,14 @@ Array [
                 "isBoolean": false,
                 "isPrimary": false,
                 "isString": true,
+                "last": true,
                 "propertyName": "Year Published",
                 "propertyNameCamel": "yearPublished",
                 "propertyNameKebab": "year-published",
                 "propertyNamePascal": "YearPublished",
                 "propertyNameSentenceCase": "year published",
                 "propertyNameSnake": "year_published",
+                "required": false,
                 "type": "String",
               },
             ],
@@ -905,12 +915,14 @@ Array [
                 "isBoolean": false,
                 "isPrimary": true,
                 "isString": true,
+                "last": true,
                 "propertyName": "Name",
                 "propertyNameCamel": "name",
                 "propertyNameKebab": "name",
                 "propertyNamePascal": "Name",
                 "propertyNameSentenceCase": "name",
                 "propertyNameSnake": "name",
+                "required": false,
                 "type": "String",
               },
             ],
@@ -1014,12 +1026,14 @@ Array [
                 "isBoolean": false,
                 "isPrimary": true,
                 "isString": true,
+                "last": false,
                 "propertyName": "Title",
                 "propertyNameCamel": "title",
                 "propertyNameKebab": "title",
                 "propertyNamePascal": "Title",
                 "propertyNameSentenceCase": "title",
                 "propertyNameSnake": "title",
+                "required": false,
                 "sequelizeType": "STRING",
                 "type": "String",
               },
@@ -1034,12 +1048,14 @@ Array [
                 "isBoolean": false,
                 "isPrimary": false,
                 "isString": true,
+                "last": true,
                 "propertyName": "Year Published",
                 "propertyNameCamel": "yearPublished",
                 "propertyNameKebab": "year-published",
                 "propertyNamePascal": "YearPublished",
                 "propertyNameSentenceCase": "year published",
                 "propertyNameSnake": "year_published",
+                "required": false,
                 "sequelizeType": "STRING",
                 "type": "String",
               },
@@ -1086,12 +1102,14 @@ Array [
                 "isBoolean": false,
                 "isPrimary": true,
                 "isString": true,
+                "last": true,
                 "propertyName": "Name",
                 "propertyNameCamel": "name",
                 "propertyNameKebab": "name",
                 "propertyNamePascal": "Name",
                 "propertyNameSentenceCase": "name",
                 "propertyNameSnake": "name",
+                "required": false,
                 "sequelizeType": "STRING",
                 "type": "String",
               },
@@ -1242,7 +1260,10 @@ Array [
     "DEBUG": "File copied: tests/app/testApps/video-game-app/client/src/logo.svg",
   },
   Object {
-    "DEBUG": "File copied: tests/app/testApps/video-game-app/client/src/lib/Error.js",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app/client/src/lib/validate.js",
+  },
+  Object {
+    "DEBUG": "File copied: tests/app/testApps/video-game-app/client/src/lib/error.js",
   },
   Object {
     "DEBUG": "File copied: tests/app/testApps/video-game-app/client/src/index.js",
@@ -2471,7 +2492,17 @@ import {
   Button
 } from '@material-ui/core';
 import { StringEdit } from '../types/StringEdit';
-import { ContentContainer } from \\"../common/containers/ContentContainer\\";
+import { ContentContainer } from '../common/containers/ContentContainer';
+import { validate, Valdator } from '../../lib/validate';
+
+function validatePublisher(publisher) {
+  const rules = [
+  ];
+
+  const state = validate(rules, publisher);
+  console.log(state);
+  return state;
+}
 
 export function PublisherForm({
   publisher: initialState,
@@ -2485,11 +2516,17 @@ export function PublisherForm({
     initialState ?? { name: '' }
   );
 
+  const [validationState, setValidationState] = useState({valid:true, properties:{}});
+
   useEffect(() => {
     if (initialState) {
       setPublisher(initialState);
     }
   }, [initialState]);
+
+  useEffect(() => {
+    console.log({validationState});
+  }, [validationState]);
 
   const handleChange = (field, value) => {
     const updatedPublisher = { ...publisher, [field]: value };
@@ -2499,7 +2536,13 @@ export function PublisherForm({
 
   function handleCta(cta, publisher) {
     return async (event) => {
-      await cta(publisher);
+      const state = validatePublisher(publisher);
+      if (state.valid) {
+        setValidationState(state);
+        return await cta(publisher);
+      }
+
+      setValidationState(state);
     };
   }
 
@@ -2519,6 +2562,7 @@ export function PublisherForm({
             field=\\"name\\"
             onChange={handleChange}
             disabled={processing}
+            validationState={validationState.properties['name']}
           />
 
           <Button
@@ -2846,7 +2890,17 @@ import {
   Button
 } from '@material-ui/core';
 import { StringEdit } from '../types/StringEdit';
-import { ContentContainer } from \\"../common/containers/ContentContainer\\";
+import { ContentContainer } from '../common/containers/ContentContainer';
+import { validate, Valdator } from '../../lib/validate';
+
+function validateVideoGame(videoGame) {
+  const rules = [
+  ];
+
+  const state = validate(rules, videoGame);
+  console.log(state);
+  return state;
+}
 
 export function VideoGameForm({
   videoGame: initialState,
@@ -2860,11 +2914,17 @@ export function VideoGameForm({
     initialState ?? { title: '', yearPublished: '' }
   );
 
+  const [validationState, setValidationState] = useState({valid:true, properties:{}});
+
   useEffect(() => {
     if (initialState) {
       setVideoGame(initialState);
     }
   }, [initialState]);
+
+  useEffect(() => {
+    console.log({validationState});
+  }, [validationState]);
 
   const handleChange = (field, value) => {
     const updatedVideoGame = { ...videoGame, [field]: value };
@@ -2874,7 +2934,13 @@ export function VideoGameForm({
 
   function handleCta(cta, videoGame) {
     return async (event) => {
-      await cta(videoGame);
+      const state = validateVideoGame(videoGame);
+      if (state.valid) {
+        setValidationState(state);
+        return await cta(videoGame);
+      }
+
+      setValidationState(state);
     };
   }
 
@@ -2894,6 +2960,7 @@ export function VideoGameForm({
             field=\\"title\\"
             onChange={handleChange}
             disabled={processing}
+            validationState={validationState.properties['title']}
           />
 
           <StringEdit
@@ -2903,6 +2970,7 @@ export function VideoGameForm({
             field=\\"yearPublished\\"
             onChange={handleChange}
             disabled={processing}
+            validationState={validationState.properties['yearPublished']}
           />
 
           <Button
@@ -3258,7 +3326,7 @@ exports[`React template tests/app/testApps/video-game-app/client/src/components/
 
 exports[`React template tests/app/testApps/video-game-app/client/src/components/common/containers/ErrorContainer.js should match snapshot 1`] = `
 "import { useEffect } from 'react';
-import { ErrorType } from '../../../lib/Error';
+import { ErrorType } from '../../../lib/error';
 import { MessageContainer } from './MessageContainer';
 
 function getErrorMessage(error) {
@@ -3413,9 +3481,26 @@ const handleChange = (field, update) => (event) => {
   return update(field, value);
 };
 
-export function StringEdit({ id, label, value, field, onChange, disabled }) {
+export function StringEdit({
+  id,
+  label,
+  value,
+  field,
+  onChange,
+  disabled,
+  validationState
+}) {
+  const error = validationState && !validationState.valid;
+  const helperText =
+    validationState &&
+    validationState.messages &&
+    validationState.messages.length > 0
+      ? validationState.messages[0]
+      : null;
+
   return (
     <TextField
+      error={error}
       className=\\"TextField\\"
       id={id}
       label={label}
@@ -3424,6 +3509,7 @@ export function StringEdit({ id, label, value, field, onChange, disabled }) {
       variant=\\"filled\\"
       fullWidth
       disabled={disabled}
+      helperText={helperText}
     />
   );
 }
@@ -3480,13 +3566,73 @@ reportWebVitals();
 "
 `;
 
-exports[`React template tests/app/testApps/video-game-app/client/src/lib/Error.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app/client/src/lib/error.js should match snapshot 1`] = `
 "export const ErrorType = { NotFound: \\"NotFound\\" };
 
 export function NotFoundError() {
   const error = new Error(\\"Record Not Found\\");
   error.type = ErrorType.NotFound;
   return error;
+}
+"
+`;
+
+exports[`React template tests/app/testApps/video-game-app/client/src/lib/validate.js should match snapshot 1`] = `
+"export const Valdator = { Required: 'Required' };
+const valdatorMap = { [Valdator.Required]: requiredValdator };
+const validState = { valid: true, messages: [] };
+
+function requiredValdator({ property, value }) {
+  if (value !== null && value !== undefined && value !== '') {
+    return validState;
+  }
+
+  return { valid: false, messages: ['required'] };
+}
+
+function getValdator({ type }) {
+  if (valdatorMap.hasOwnProperty(type)) {
+    return valdatorMap[type];
+  }
+
+  return () => validState;
+}
+
+function validateProperty({ rules, property, value, model }) {
+  return rules.reduce((state, rule) => {
+    if (rule.name !== property) {
+      return state;
+    }
+
+    const validator = getValdator(rule);
+    const { valid, messages } = validator({
+      value,
+      property,
+      model,
+      rule
+    });
+
+    return {
+      valid: valid && state.valid,
+      messages: [...state.messages, ...messages]
+    };
+  }, validState);
+}
+
+export function validate(rules, model) {
+  return Object.entries(model).reduce(
+    (state, [property, value]) => {
+      const propertyState = validateProperty({ rules, property, value, model });
+      return {
+        valid: state.valid && propertyState.valid,
+        properties: {
+          ...state.properties,
+          [property]: propertyState
+        }
+      };
+    },
+    { valid: true, properties: {} }
+  );
 }
 "
 `;

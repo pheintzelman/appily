@@ -4,8 +4,13 @@ function typeFlags(type) {
   return { isString: type === 'String', isBoolean: type === 'Boolean' };
 }
 
-function getViewModelProperty({ type, propertyName }, index) {
-  const isPrimary = index == 0;
+function getViewModelProperty(
+  { type, propertyName, required },
+  index,
+  properties
+) {
+  const last = index === properties.length - 1;
+  const isPrimary = index === 0;
   const hide = index > 4;
 
   return {
@@ -13,6 +18,8 @@ function getViewModelProperty({ type, propertyName }, index) {
     type,
     ...typeFlags(type),
     isPrimary,
+    required,
+    last,
     hide
   };
 }

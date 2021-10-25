@@ -5,9 +5,26 @@ const handleChange = (field, update) => (event) => {
   return update(field, value);
 };
 
-export function StringEdit({ id, label, value, field, onChange, disabled }) {
+export function StringEdit({
+  id,
+  label,
+  value,
+  field,
+  onChange,
+  disabled,
+  validationState
+}) {
+  const error = validationState && !validationState.valid;
+  const helperText =
+    validationState &&
+    validationState.messages &&
+    validationState.messages.length > 0
+      ? validationState.messages[0]
+      : null;
+
   return (
     <TextField
+      error={error}
       className="TextField"
       id={id}
       label={label}
@@ -16,6 +33,7 @@ export function StringEdit({ id, label, value, field, onChange, disabled }) {
       variant="filled"
       fullWidth
       disabled={disabled}
+      helperText={helperText}
     />
   );
 }

@@ -2117,8 +2117,8 @@ export function PublisherForm({
             onChange={handleChange}
             disabled={processing}
             validationState={validationState.properties['name']}
+            required={false}
           />
-
           <Button
             className=\\"cta\\"
             id=\\"publisherFormCta\\"
@@ -2516,8 +2516,8 @@ export function VideoGameForm({
             onChange={handleChange}
             disabled={processing}
             validationState={validationState.properties['title']}
+            required={true}
           />
-
           <StringEdit
             id=\\"videoGameFormYearPublished\\"
             label=\\"Year Published\\"
@@ -2526,8 +2526,8 @@ export function VideoGameForm({
             onChange={handleChange}
             disabled={processing}
             validationState={validationState.properties['yearPublished']}
+            required={false}
           />
-
           <Button
             className=\\"cta\\"
             id=\\"videoGameFormCta\\"
@@ -3043,7 +3043,8 @@ export function StringEdit({
   field,
   onChange,
   disabled,
-  validationState
+  validationState,
+  required
 }) {
   const error = validationState && !validationState.valid;
   const helperText =
@@ -3065,6 +3066,7 @@ export function StringEdit({
       fullWidth
       disabled={disabled}
       helperText={helperText}
+      required={required}
     />
   );
 }

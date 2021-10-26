@@ -12,7 +12,8 @@ export function StringEdit({
   field,
   onChange,
   disabled,
-  validationState
+  validationState,
+  required
 }) {
   const error = validationState && !validationState.valid;
   const helperText =
@@ -34,6 +35,7 @@ export function StringEdit({
       fullWidth
       disabled={disabled}
       helperText={helperText}
+      required={required}
     />
   );
 }

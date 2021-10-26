@@ -82,8 +82,8 @@ export function {{modelNamePascal}}Form({
             onChange={handleChange}
             disabled={processing}
             validationState={validationState.properties['{{propertyNameCamel}}']}
+            required={{=<% %>=}}{<%required%>}<%={{ }}=%>
           />
-
           {{/properties}}
           <Button
             className="cta"

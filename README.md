@@ -46,54 +46,7 @@ config.json
 
 ```json
 {
-  "name": "test-app",
-  "template": "test"
-}
-```
-
-## Config
-
-| Property | Description                                                                  | Default                         |
-| -------- | ---------------------------------------------------------------------------- | ------------------------------- |
-| name     | The name of your app                                                         | app                             |
-| template | What type of app you are creating, can be react or test                      | react-app                       |
-| dir      | The relative directory the app will be created in                            | /                               |
-| ui       | Specify what UI you would like, values depend on the template                | default depends on the template |
-| api      | Specify what API you would like, values depend on the template               | default depends on the template |
-| db       | Specify what DB you would like, values depend on the template                | default depends on the template |
-| models   | The data and relationships that make up your app, see below for more details | {}                              |
-
-### Models
-
-| Property          | Description                 | Default |
-| ----------------- | --------------------------- | ------- |
-| _your model name_ | The defintion of your model | {}      |
-
-### Model
-
-| Property             | Description          | Default  |
-| -------------------- | -------------------- | -------- |
-| _your property name_ | type of the property | "String" |
-
-### Template
-
-Each template has its own set of options for ui, api and db, which change how the app is constucted.
-
-**react-app**
-| Property | options | Default |
-| ------------- | ------------- | -----
-| ui | react | react
-| api | express, indexedDB, stub | express
-| db | postgres, indexedDB, none | postgres
-
-_more options coming_
-
-## Example config
-
-```
-{
   "name": "video-game-app",
-  "template": "react-app",
   "models": {
     "Video Game": {
       "Title": "String",
@@ -105,6 +58,113 @@ _more options coming_
   }
 }
 ```
+
+## Config
+
+| Property | Description                                                                  | Default  |
+| -------- | ---------------------------------------------------------------------------- | -------- |
+| name     | The name of your app                                                         | app      |
+| dir      | The relative directory the app will be created in                            | /        |
+| api      | express, indexedDB or stub                                                   | express  |
+| db       | postgres, indexedDB or none                                                  | postgres |
+| models   | The data and relationships that make up your app, see below for more details | {}       |
+
+<i>To use indexedDB you must set indexedDB for api and db </i>
+
+<i>The above is based on the react template, you can make your own templates</i>
+
+### Models
+
+models is a collection of models which are used to generate the UI, Api and DB
+
+```
+models {
+  modelName: {
+      "plural": modelNamePlural,
+      "properties": properties
+  },
+  ...
+}
+```
+
+You can also use the short form
+
+```
+models {
+  modelName: properties,
+  ...
+}
+```
+
+modelName: should be the name of your model as you want displayed in the app. It is recomended to include spaces.
+
+Examples: "Theme Park Ride", "Car Part"...
+
+### properties
+
+Properties are a colection of the properties in your model.
+
+```
+properties {
+  propertyName: {type: type},
+  ...
+}
+```
+
+You can also use the short form
+
+```
+properties {
+  propertyName: type,
+  ...
+}
+```
+
+propertyName: should be the name of the model's property as you want displayed in the app. It is recomended to include spaces.
+
+Examples: "Year Made", "Color"...
+
+#### required property
+
+To make a property required simple add an \* to the end of its name
+
+```
+properties {
+  propertyName*: type,
+  ...
+}
+```
+
+<i>Note the \* will not be part of the properties' name</i>
+
+you can also do
+
+```
+properties {
+  propertyName: {type: type, required: true},
+  ...
+}
+```
+
+### types
+
+Types should be in quoutes like
+
+```
+properties {
+  propertyName: "String",
+  ...
+}
+```
+
+Supported types
+
+| Type      | Description     | Renders As |
+| --------- | --------------- | ---------- |
+| "String"  | A simple string | An Input   |
+| "Boolean" | True or false   | A Checkbox |
+
+<i>More types are coming</i>
 
 ## Contributors welcome
 
@@ -121,8 +181,6 @@ Aim for progressive development with something useful asap See the [road map](./
 - add options cli option, print out options from manfesto
 - add tests for cli
 - try to fix nested app issue (apps don't run from manual folder - nested npm package issue confuses npm install)
-- make docs easier to understand
-  - list supported types
 - make tests cross OS
 - add support for nested models
   - add validation
@@ -142,6 +200,8 @@ Aim for progressive development with something useful asap See the [road map](./
 - add required properties
   - [x] add to viewModel
   - [x] add to UI
+  - [ ] rename edit to input
+  - [ ] make react-app the default template
   - [ ] add to api
   - [ ] add to db
   - [ ] add validation on type
@@ -149,6 +209,10 @@ Aim for progressive development with something useful asap See the [road map](./
 ### Appily
 
 - add config validation for model and properties
+
+### Client
+
+- add cancel edit button
 
 ### Sever
 

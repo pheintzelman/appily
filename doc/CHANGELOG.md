@@ -1,3 +1,8 @@
+v. 0.3.2-alpha
+
+- Updated Readme
+- Added support for required properties
+
 v. 0.3.1-alpha
 
 - Allow directives to be grouped

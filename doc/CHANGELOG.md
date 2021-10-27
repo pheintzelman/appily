@@ -2,6 +2,7 @@ v. 0.3.2-alpha
 
 - Updated Readme
 - Added support for required properties
+- Fixed bug when template is not being set
 
 v. 0.3.1-alpha
 

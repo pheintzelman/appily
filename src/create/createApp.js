@@ -17,11 +17,11 @@ async function readManifesto(templateDir) {
 
 export async function createApp(config, options = {}) {
   const { overwrite = false } = options;
-  const templateDir = getTemplateDir(config);
-  const manifesto = await readManifesto(templateDir);
-
-  const normalizedManifesto = normalizeManifesto(manifesto);
   const normalizedConfig = normalizeConfig(config);
+
+  const templateDir = getTemplateDir(normalizedConfig);
+  const manifesto = await readManifesto(templateDir);
+  const normalizedManifesto = normalizeManifesto(manifesto);
 
   logger.trace({ normalizedConfig, normalizedManifesto });
   await validateConfig(normalizedConfig, normalizedManifesto);

@@ -5,7 +5,7 @@ const handleChange = (field, update) => (event) => {
   return update(field, value);
 };
 
-export function BooleanEdit({ id, label, value, field, onChange, disabled }) {
+export function BooleanInput({ id, label, value, field, onChange, disabled }) {
   return (
     <FormControlLabel
       control={<Checkbox checked={value} color="primary" />}

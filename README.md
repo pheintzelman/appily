@@ -200,11 +200,12 @@ Aim for progressive development with something useful asap See the [road map](./
 - add required properties
   - [x] add to viewModel
   - [x] add to UI
-  - [ ] rename edit to input
-  - [ ] make react-app the default template
+  - [x] rename edit to input
+  - [x] make react-app the default template
   - [ ] add to api
   - [ ] add to db
   - [ ] add validation on type
+  - [ ] add required to Boolean
 
 ### Appily
 

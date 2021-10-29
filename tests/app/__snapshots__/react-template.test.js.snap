@@ -58,7 +58,7 @@ Array [
               Object {
                 "component": Object {
                   "cell": "StringCell",
-                  "edit": "StringEdit",
+                  "edit": "StringInput",
                   "view": "StringView",
                 },
               },
@@ -86,7 +86,7 @@ Array [
               Object {
                 "component": Object {
                   "cell": "StringCell",
-                  "edit": "StringEdit",
+                  "edit": "StringInput",
                   "view": "StringView",
                 },
                 "flex": 4,
@@ -108,7 +108,7 @@ Array [
               Object {
                 "component": Object {
                   "cell": "StringCell",
-                  "edit": "StringEdit",
+                  "edit": "StringInput",
                   "view": "StringView",
                 },
                 "flex": 4,
@@ -134,7 +134,7 @@ Array [
               Object {
                 "component": Object {
                   "cell": "StringCell",
-                  "edit": "StringEdit",
+                  "edit": "StringInput",
                   "view": "StringView",
                 },
               },
@@ -162,7 +162,7 @@ Array [
               Object {
                 "component": Object {
                   "cell": "StringCell",
-                  "edit": "StringEdit",
+                  "edit": "StringInput",
                   "view": "StringView",
                 },
                 "flex": 4,
@@ -805,7 +805,7 @@ Array [
               Object {
                 "component": Object {
                   "cell": "StringCell",
-                  "edit": "StringEdit",
+                  "edit": "StringInput",
                   "view": "StringView",
                 },
               },
@@ -833,7 +833,7 @@ Array [
               Object {
                 "component": Object {
                   "cell": "StringCell",
-                  "edit": "StringEdit",
+                  "edit": "StringInput",
                   "view": "StringView",
                 },
                 "flex": 4,
@@ -854,7 +854,7 @@ Array [
               Object {
                 "component": Object {
                   "cell": "StringCell",
-                  "edit": "StringEdit",
+                  "edit": "StringInput",
                   "view": "StringView",
                 },
                 "flex": 4,
@@ -879,7 +879,7 @@ Array [
               Object {
                 "component": Object {
                   "cell": "StringCell",
-                  "edit": "StringEdit",
+                  "edit": "StringInput",
                   "view": "StringView",
                 },
               },
@@ -907,7 +907,7 @@ Array [
               Object {
                 "component": Object {
                   "cell": "StringCell",
-                  "edit": "StringEdit",
+                  "edit": "StringInput",
                   "view": "StringView",
                 },
                 "flex": 4,
@@ -990,7 +990,7 @@ Array [
               Object {
                 "component": Object {
                   "cell": "StringCell",
-                  "edit": "StringEdit",
+                  "edit": "StringInput",
                   "view": "StringView",
                 },
               },
@@ -1018,7 +1018,7 @@ Array [
               Object {
                 "component": Object {
                   "cell": "StringCell",
-                  "edit": "StringEdit",
+                  "edit": "StringInput",
                   "view": "StringView",
                 },
                 "flex": 4,
@@ -1040,7 +1040,7 @@ Array [
               Object {
                 "component": Object {
                   "cell": "StringCell",
-                  "edit": "StringEdit",
+                  "edit": "StringInput",
                   "view": "StringView",
                 },
                 "flex": 4,
@@ -1066,7 +1066,7 @@ Array [
               Object {
                 "component": Object {
                   "cell": "StringCell",
-                  "edit": "StringEdit",
+                  "edit": "StringInput",
                   "view": "StringView",
                 },
               },
@@ -1094,7 +1094,7 @@ Array [
               Object {
                 "component": Object {
                   "cell": "StringCell",
-                  "edit": "StringEdit",
+                  "edit": "StringInput",
                   "view": "StringView",
                 },
                 "flex": 4,
@@ -1275,7 +1275,7 @@ Array [
     "DEBUG": "File copied: tests/app/testApps/video-game-app/client/src/components/types/StringView.js",
   },
   Object {
-    "DEBUG": "File copied: tests/app/testApps/video-game-app/client/src/components/types/StringEdit.js",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app/client/src/components/types/StringInput.js",
   },
   Object {
     "DEBUG": "File copied: tests/app/testApps/video-game-app/client/src/components/types/StringCell.js",
@@ -1284,7 +1284,7 @@ Array [
     "DEBUG": "File copied: tests/app/testApps/video-game-app/client/src/components/types/BooleanView.js",
   },
   Object {
-    "DEBUG": "File copied: tests/app/testApps/video-game-app/client/src/components/types/BooleanEdit.js",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app/client/src/components/types/BooleanInput.js",
   },
   Object {
     "DEBUG": "File copied: tests/app/testApps/video-game-app/client/src/components/types/BooleanCell.scss",
@@ -2491,7 +2491,7 @@ exports[`React template tests/app/testApps/video-game-app/client/src/components/
 import {
   Button
 } from '@material-ui/core';
-import { StringEdit } from '../types/StringEdit';
+import { StringInput } from '../types/StringInput';
 import { ContentContainer } from '../common/containers/ContentContainer';
 import { validate, Valdator } from '../../lib/validate';
 
@@ -2555,7 +2555,7 @@ export function PublisherForm({
     >
       <div className=\\"content\\">
         <form noValidate autoComplete=\\"off\\">
-          <StringEdit
+          <StringInput
             id=\\"publisherFormName\\"
             label=\\"Name\\"
             value={publisher.name}
@@ -2889,7 +2889,7 @@ exports[`React template tests/app/testApps/video-game-app/client/src/components/
 import {
   Button
 } from '@material-ui/core';
-import { StringEdit } from '../types/StringEdit';
+import { StringInput } from '../types/StringInput';
 import { ContentContainer } from '../common/containers/ContentContainer';
 import { validate, Valdator } from '../../lib/validate';
 
@@ -2953,7 +2953,7 @@ export function VideoGameForm({
     >
       <div className=\\"content\\">
         <form noValidate autoComplete=\\"off\\">
-          <StringEdit
+          <StringInput
             id=\\"videoGameFormTitle\\"
             label=\\"Title\\"
             value={videoGame.title}
@@ -2963,7 +2963,7 @@ export function VideoGameForm({
             validationState={validationState.properties['title']}
             required={false}
           />
-          <StringEdit
+          <StringInput
             id=\\"videoGameFormYearPublished\\"
             label=\\"Year Published\\"
             value={videoGame.yearPublished}
@@ -3419,7 +3419,7 @@ exports[`React template tests/app/testApps/video-game-app/client/src/components/
 "
 `;
 
-exports[`React template tests/app/testApps/video-game-app/client/src/components/types/BooleanEdit.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app/client/src/components/types/BooleanInput.js should match snapshot 1`] = `
 "import { FormControlLabel, Checkbox } from '@material-ui/core';
 
 const handleChange = (field, update) => (event) => {
@@ -3427,7 +3427,7 @@ const handleChange = (field, update) => (event) => {
   return update(field, value);
 };
 
-export function BooleanEdit({ id, label, value, field, onChange, disabled }) {
+export function BooleanInput({ id, label, value, field, onChange, disabled }) {
   return (
     <FormControlLabel
       control={<Checkbox checked={value} color=\\"primary\\" />}
@@ -3473,7 +3473,7 @@ export function StringCell({ value }) {
 "
 `;
 
-exports[`React template tests/app/testApps/video-game-app/client/src/components/types/StringEdit.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app/client/src/components/types/StringInput.js should match snapshot 1`] = `
 "import { TextField } from '@material-ui/core';
 
 const handleChange = (field, update) => (event) => {

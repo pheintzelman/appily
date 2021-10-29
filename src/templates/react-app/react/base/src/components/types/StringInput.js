@@ -5,7 +5,7 @@ const handleChange = (field, update) => (event) => {
   return update(field, value);
 };
 
-export function StringEdit({
+export function StringInput({
   id,
   label,
   value,

@@ -5,13 +5,13 @@ const typeMapper = {
   [Type.Boolean]: {
     component: {
       cell: 'BooleanCell',
-      edit: 'BooleanEdit',
+      edit: 'BooleanInput',
       view: 'BooleanView'
     },
     flex: 2
   },
   [Type.String]: {
-    component: { cell: 'StringCell', edit: 'StringEdit', view: 'StringView' },
+    component: { cell: 'StringCell', edit: 'StringInput', view: 'StringView' },
     flex: 4
   }
 };

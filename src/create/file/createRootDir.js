@@ -3,7 +3,7 @@ import path from 'path';
 import { DefaultAppName } from '../../constants/constants.js';
 import { logger } from '../../logger.js';
 import * as file from '../../lib/file.js';
-import { snakeCase } from '../../lib/case.js';
+import { kebabCase } from '../../lib/case.js';
 
 // Needed because es6 doesn't allow re-writing modules
 const fs = fsModule.promises;
@@ -37,7 +37,7 @@ async function handleOverwrite(baseDir, name) {
 }
 
 export async function createRootDir({ name, dir }, { overwrite = false }) {
-  const appName = name ? snakeCase(name) : DefaultAppName;
+  const appName = name ? kebabCase(name) : DefaultAppName;
   const baseDir = dir ?? '';
 
   if (overwrite) {

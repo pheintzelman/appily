@@ -2,40 +2,56 @@ function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 }
 
-export function pascalCase(string) {
-  return string.split(' ').map(capitalizeFirstLetter).join('');
+//for easier composition
+function toLowerCase(word) {
+  return word.toLowerCase();
 }
 
-export function camelCase(string) {
-  return string
-    .split(' ')
-    .map((part, index) =>
+function changeCase({ input, transform = toLowerCase, delimiter = '' }) {
+  return input.split(' ').map(transform).join(delimiter);
+}
+
+export function pascalCase(input) {
+  return changeCase({ input, transform: capitalizeFirstLetter });
+}
+
+export function camelCase(input) {
+  return changeCase({
+    input,
+    transform: (part, index) =>
       index === 0 ? part.toLowerCase() : capitalizeFirstLetter(part)
-    )
-    .join('');
+  });
 }
 
-export function snakeCase(string) {
-  return string
-    .split(' ')
-    .map((part) => part.toLowerCase())
-    .join('-');
+export function kebabCase(input) {
+  return changeCase({
+    input,
+    delimiter: '-'
+  });
+}
+
+export function snakeCase(input) {
+  return changeCase({
+    input,
+    delimiter: '_'
+  });
 }
 
 //how the string should look in the middle of a sentence
-export function sentenceCase(string) {
-  return string
-    .split(' ')
-    .map((part) => part.toLowerCase())
-    .join(' ');
+export function sentenceCase(input) {
+  return changeCase({
+    input,
+    delimiter: ' '
+  });
 }
 
 export function getVariations(name, string) {
   return {
     [name]: string,
-    [`${name}Pascal`]: pascalCase(string),
     [`${name}Camel`]: camelCase(string),
-    [`${name}Snake`]: snakeCase(string),
-    [`${name}SentenceCase`]: sentenceCase(string)
+    [`${name}Kebab`]: kebabCase(string),
+    [`${name}Pascal`]: pascalCase(string),
+    [`${name}SentenceCase`]: sentenceCase(string),
+    [`${name}Snake`]: snakeCase(string)
   };
 }

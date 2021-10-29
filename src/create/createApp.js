@@ -8,6 +8,7 @@ import { getTemplateDir } from './file/getTemplateDir.js';
 import { logger } from '../logger.js';
 import { normalizeConfig } from './config/normalizeConfig.js';
 import { getViewModel } from './viewModel/getViewModel.js';
+import { normalizeManifesto } from './manifesto/normalizeManifesto.js';
 
 async function readManifesto(templateDir) {
   const manifestoPath = path.join(templateDir, ManifestoFileName);
@@ -19,17 +20,28 @@ export async function createApp(config, options = {}) {
   const templateDir = getTemplateDir(config);
   const manifesto = await readManifesto(templateDir);
 
+  const normalizedManifesto = normalizeManifesto(manifesto);
   const normalizedConfig = normalizeConfig(config);
-  logger.trace({ normalizedConfig });
-  await validateConfig(normalizedConfig, manifesto);
+
+  logger.trace({ normalizedConfig, normalizedManifesto });
+  await validateConfig(normalizedConfig, normalizedManifesto);
   const dir = await createRootDir(normalizedConfig, options);
-  const viewModel = getViewModel({ config: normalizedConfig, dir, manifesto });
+  const viewModel = getViewModel({
+    config: normalizedConfig,
+    dir,
+    manifesto: normalizedManifesto
+  });
 
   if (overwrite) {
     logger.info({ mode: 'overwrite', dir });
   }
 
-  const metaData = { config: normalizedConfig, dir, manifesto, templateDir };
+  const metaData = {
+    config: normalizedConfig,
+    dir,
+    manifesto: normalizedManifesto,
+    templateDir
+  };
   await runDirectives({
     viewModel,
     metaData

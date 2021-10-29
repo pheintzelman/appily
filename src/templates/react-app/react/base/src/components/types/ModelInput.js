@@ -8,10 +8,14 @@ import './ModelInput.scss';
 
 const handleChange = (field, update) => (event, value) => {
   console.log(value);
-  return update(field, value.id);
+  return update(field, value?.id ?? null);
 };
 
 function getOptionById(options, id) {
+  if (!id) {
+    return null;
+  }
+
   return options.find((option) => option.id === id);
 }
 

@@ -6,6 +6,7 @@ import { models } from '../../constants/models';
 import './ModelView.scss';
 
 export function ModelView({ label, value, options }) {
+  console.log({ options });
   const { model: modelName } = options;
   const [loading, isLoading] = useState(true);
   const [model, setModel] = useState(null);
@@ -20,15 +21,22 @@ export function ModelView({ label, value, options }) {
   }
 
   useEffect(() => {
-    get(modelName, value);
+    if (value) {
+      get(modelName, value);
+    }
   }, [modelName, value]);
 
-  if (loading)
+  if (!value) {
+    return <div className="ModelView">{label}: --</div>;
+  }
+
+  if (loading) {
     return (
       <div className="ModelView">
         {label}: <Skeleton className="skeleton" />
       </div>
     );
+  }
 
   const { primaryProperty } = models[modelName];
   return (

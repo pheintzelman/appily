@@ -224,6 +224,8 @@ Aim for progressive development with something useful asap See the [road map](./
 
 ### Later
 
+- Pull validation into is own npm package
+  - remove shared code
 - add better table filter
 - add types
   - tags

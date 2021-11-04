@@ -6,7 +6,7 @@ import {
 import { {{component.edit}} } from '../types/{{component.edit}}';
 {{/componentImports}}
 import { ContentContainer } from '../common/containers/ContentContainer';
-import { validate, Valdator } from '../../lib/validate';
+import { validate, Valdator } from '../../../../shared/lib/validate.js';
 
 function validate{{modelNamePascal}}({{modelNameCamel}}) {
   const rules = [

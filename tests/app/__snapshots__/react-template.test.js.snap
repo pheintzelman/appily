@@ -398,6 +398,16 @@ Array [
             },
             "option": "db:postgres",
           },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "dest": "shared",
+                "src": "shared",
+              },
+              "command": "copy",
+            },
+            "option": "ui:react",
+          },
         ],
         "name": "react-app",
         "options": Object {
@@ -418,6 +428,18 @@ Array [
         },
         "version": "0.6.0",
       },
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/testApps/video-game-app/shared/lib",
+      "msg": "mkdir",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/testApps/video-game-app/shared",
+      "msg": "mkdir",
     },
   },
   Object {
@@ -550,6 +572,20 @@ Array [
     "TRACE": Object {
       "dest": "tests/app/testApps/video-game-app/client",
       "msg": "mkdir",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/testApps/video-game-app/shared/lib",
+      "msg": "copyDir",
+      "src": "appily/src/templates/react-app/shared/lib",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/testApps/video-game-app/shared",
+      "msg": "copyDir",
+      "src": "appily/src/templates/react-app/shared",
     },
   },
   Object {
@@ -1230,6 +1266,9 @@ Array [
     "DEBUG": "File rendered: tests/app/testApps/video-game-app/client/.appily",
   },
   Object {
+    "DEBUG": "File copied: tests/app/testApps/video-game-app/shared/lib/validate.js",
+  },
+  Object {
     "DEBUG": "File copied: tests/app/testApps/video-game-app/server/src/rest/errorHandler.js",
   },
   Object {
@@ -1258,9 +1297,6 @@ Array [
   },
   Object {
     "DEBUG": "File copied: tests/app/testApps/video-game-app/client/src/logo.svg",
-  },
-  Object {
-    "DEBUG": "File copied: tests/app/testApps/video-game-app/client/src/lib/validate.js",
   },
   Object {
     "DEBUG": "File copied: tests/app/testApps/video-game-app/client/src/lib/error.js",
@@ -1360,6 +1396,9 @@ Array [
   },
   Object {
     "DEBUG": "File copied: tests/app/testApps/video-game-app/client/public/favicon.ico",
+  },
+  Object {
+    "DEBUG": "File copied: tests/app/testApps/video-game-app/client/config-overrides.js",
   },
   Object {
     "DEBUG": "File copied: tests/app/testApps/video-game-app/client/README.md",
@@ -1493,6 +1532,23 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 "
 `;
 
+exports[`React template tests/app/testApps/video-game-app/client/config-overrides.js should match snapshot 1`] = `
+"/* config-overrides.js */
+const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
+const path = require('path');
+
+module.exports = function override(config) {
+  config.resolve.plugins.forEach((plugin) => {
+    if (plugin instanceof ModuleScopePlugin) {
+      plugin.allowedFiles.add(path.resolve('../shared/lib/validate.js'));
+    }
+  });
+
+  return config;
+};
+"
+`;
+
 exports[`React template tests/app/testApps/video-game-app/client/package.json should match snapshot 1`] = `
 "{
   \\"name\\": \\"video-game-app\\",
@@ -1512,8 +1568,11 @@ exports[`React template tests/app/testApps/video-game-app/client/package.json sh
     \\"react-scripts\\": \\"4.0.3\\",
     \\"web-vitals\\": \\"^1.1.2\\"
   },
+  \\"devDependencies\\": {
+    \\"react-app-rewired\\": \\"^2.1.8\\"
+  },
   \\"scripts\\": {
-    \\"start\\": \\"react-scripts start\\",
+    \\"start\\": \\"react-app-rewired start\\",
     \\"build\\": \\"react-scripts build\\",
     \\"test\\": \\"react-scripts test\\",
     \\"eject\\": \\"react-scripts eject\\"
@@ -2493,7 +2552,7 @@ import {
 } from '@material-ui/core';
 import { StringInput } from '../types/StringInput';
 import { ContentContainer } from '../common/containers/ContentContainer';
-import { validate, Valdator } from '../../lib/validate';
+import { validate, Valdator } from '../../../../shared/lib/validate.js';
 
 function validatePublisher(publisher) {
   const rules = [
@@ -2891,7 +2950,7 @@ import {
 } from '@material-ui/core';
 import { StringInput } from '../types/StringInput';
 import { ContentContainer } from '../common/containers/ContentContainer';
-import { validate, Valdator } from '../../lib/validate';
+import { validate, Valdator } from '../../../../shared/lib/validate.js';
 
 function validateVideoGame(videoGame) {
   const rules = [
@@ -3575,66 +3634,6 @@ export function NotFoundError() {
   const error = new Error(\\"Record Not Found\\");
   error.type = ErrorType.NotFound;
   return error;
-}
-"
-`;
-
-exports[`React template tests/app/testApps/video-game-app/client/src/lib/validate.js should match snapshot 1`] = `
-"export const Valdator = { Required: 'Required' };
-const valdatorMap = { [Valdator.Required]: requiredValdator };
-const validState = { valid: true, messages: [] };
-
-function requiredValdator({ property, value }) {
-  if (value !== null && value !== undefined && value !== '') {
-    return validState;
-  }
-
-  return { valid: false, messages: ['required'] };
-}
-
-function getValdator({ type }) {
-  if (valdatorMap.hasOwnProperty(type)) {
-    return valdatorMap[type];
-  }
-
-  return () => validState;
-}
-
-function validateProperty({ rules, property, value, model }) {
-  return rules.reduce((state, rule) => {
-    if (rule.name !== property) {
-      return state;
-    }
-
-    const validator = getValdator(rule);
-    const { valid, messages } = validator({
-      value,
-      property,
-      model,
-      rule
-    });
-
-    return {
-      valid: valid && state.valid,
-      messages: [...state.messages, ...messages]
-    };
-  }, validState);
-}
-
-export function validate(rules, model) {
-  return Object.entries(model).reduce(
-    (state, [property, value]) => {
-      const propertyState = validateProperty({ rules, property, value, model });
-      return {
-        valid: state.valid && propertyState.valid,
-        properties: {
-          ...state.properties,
-          [property]: propertyState
-        }
-      };
-    },
-    { valid: true, properties: {} }
-  );
 }
 "
 `;
@@ -4382,6 +4381,66 @@ export function errorHandler(error, request, response, next) {
   return response
     .status(StatusCodes.INTERNAL_SERVER_ERROR)
     .send('Server failed.');
+}
+"
+`;
+
+exports[`React template tests/app/testApps/video-game-app/shared/lib/validate.js should match snapshot 1`] = `
+"export const Valdator = { Required: 'Required' };
+const valdatorMap = { [Valdator.Required]: requiredValdator };
+const validState = { valid: true, messages: [] };
+
+function requiredValdator({ property, value }) {
+  if (value !== null && value !== undefined && value !== '') {
+    return validState;
+  }
+
+  return { valid: false, messages: ['required'] };
+}
+
+function getValdator({ type }) {
+  if (valdatorMap.hasOwnProperty(type)) {
+    return valdatorMap[type];
+  }
+
+  return () => validState;
+}
+
+function validateProperty({ rules, property, value, model }) {
+  return rules.reduce((state, rule) => {
+    if (rule.name !== property) {
+      return state;
+    }
+
+    const validator = getValdator(rule);
+    const { valid, messages } = validator({
+      value,
+      property,
+      model,
+      rule
+    });
+
+    return {
+      valid: valid && state.valid,
+      messages: [...state.messages, ...messages]
+    };
+  }, validState);
+}
+
+export function validate(rules, model) {
+  return Object.entries(model).reduce(
+    (state, [property, value]) => {
+      const propertyState = validateProperty({ rules, property, value, model });
+      return {
+        valid: state.valid && propertyState.valid,
+        properties: {
+          ...state.properties,
+          [property]: propertyState
+        }
+      };
+    },
+    { valid: true, properties: {} }
+  );
 }
 "
 `;

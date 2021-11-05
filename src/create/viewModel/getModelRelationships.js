@@ -1,5 +1,25 @@
-import { Relationship } from '../../constants/constants.js';
+import { Relationship, Type } from '../../constants/constants.js';
 import { logger } from '../../logger.js';
+
+function isPrimary({ relationshipType, models, modelName, relatedModelName }) {
+  if (relationshipType === Relationship.ManyToOne) {
+    return true;
+  }
+
+  if (
+    relationshipType === Relationship.ManyToMany ||
+    relationshipType === Relationship.OneToMany
+  ) {
+    return false;
+  }
+
+  const modelIndex = models.findIndex((model) => model.modelName === modelName);
+  const relatedModelIndex = models.findIndex(
+    (model) => model.modelName === relatedModelName
+  );
+
+  return modelIndex < relatedModelIndex;
+}
 
 function getRelationshipType(property, relatedProperty) {
   if (property.isCollection && relatedProperty.isCollection) {
@@ -17,31 +37,50 @@ function getRelationshipType(property, relatedProperty) {
   return Relationship.OneToOne;
 }
 
-function findRelationship(models, { modelName }, property) {
+function findRelationship({
+  models,
+  model: { modelName },
+  property,
+  relationships
+}) {
+  const { propertyName } = property;
   const relatedModel = models.find(
-    ({ modelName }) => modelName === property.type
+    ({ modelName }) => modelName === property.model
   );
 
   const relatedProperty = relatedModel.properties.find(
-    ({ type }) => type === modelName
+    ({ model }) => model === modelName
   );
 
-  return {
-    type: getRelationshipType(property, relatedProperty),
-    source: modelName,
-    target: relatedModel.modelName
-  };
-}
+  const relationshipType = getRelationshipType(property, relatedProperty);
 
-function isCustomType(models, type) {
-  return models.some((model) => model.modelName === type);
+  const primary = isPrimary({
+    relationshipType,
+    models,
+    modelName,
+    relatedModelName: relatedModel.modelName
+  });
+
+  return {
+    propertyName,
+    type: relationshipType,
+    source: modelName,
+    target: relatedModel.modelName,
+    primary
+  };
 }
 
 export function getModelRelationships(models, model) {
   const properties = model.properties ?? [];
   return properties.reduce((relationships, property) => {
-    if (isCustomType(models, property.type)) {
-      relationships.push(findRelationship(models, model, property));
+    if (property.type === Type.Model) {
+      const relationship = findRelationship({
+        models,
+        model,
+        property,
+        relationships
+      });
+      return [...relationships, relationship];
     }
     return relationships;
   }, []);

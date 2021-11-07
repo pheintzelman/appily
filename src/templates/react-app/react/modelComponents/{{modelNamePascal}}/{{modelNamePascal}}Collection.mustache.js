@@ -4,13 +4,16 @@ import AddIcon from '@material-ui/icons/Add';
 import { get{{pluralModelNamePascal}} } from "../../api/{{modelNameCamel}}";
 import { DataGrid } from "@material-ui/data-grid";
 {{#componentImports}}
+{{#component.cell}}
 import { {{component.cell}} } from '../types/{{component.cell}}';
+{{/component.cell}}
 {{/componentImports}}
 import { ContentContainer } from "../common/containers/ContentContainer";
 
 function getColumns() {
   return [
     {{#properties}}
+    {{^isModel}}
     {{#isPrimary}}
     {
       field: "{{propertyNameCamel}}",
@@ -38,6 +41,7 @@ function getColumns() {
       },
     },
     {{/isPrimary}}
+    {{/isModel}}
     {{/properties}}
   ];
 }

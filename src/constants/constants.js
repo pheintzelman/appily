@@ -20,5 +20,12 @@ export const AllowedConfigProperties = [
 ];
 export const Type = {
   Boolean: 'Boolean',
-  String: 'String'
+  String: 'String',
+  Model: 'Model'
+};
+export const Relationship = {
+  OneToOne: 'OneToOne',
+  ManyToOne: 'ManyToOne',
+  OneToMany: 'OneToMany',
+  ManyToMany: 'ManyToMany'
 };

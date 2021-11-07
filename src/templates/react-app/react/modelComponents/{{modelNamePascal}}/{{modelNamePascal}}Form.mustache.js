@@ -3,7 +3,9 @@ import {
   Button
 } from '@material-ui/core';
 {{#componentImports}}
+{{#component.edit}}
 import { {{component.edit}} } from '../types/{{component.edit}}';
+{{/component.edit}}
 {{/componentImports}}
 import { ContentContainer } from "../common/containers/ContentContainer";
 
@@ -51,11 +53,11 @@ export function {{modelNamePascal}}Form({
             id="{{modelNameCamel}}Form{{propertyNamePascal}}"
             label="{{propertyName}}"
             value={{=<% %>=}}{<%modelNameCamel%>.<%propertyNameCamel%>}<%={{ }}=%>
+            options={{=<% %>=}}{<%&options%>}<%={{ }}=%>
             field="{{propertyNameCamel}}"
             onChange={handleChange}
             disabled={processing}
           />
-
           {{/properties}}
           <Button
             className="cta"

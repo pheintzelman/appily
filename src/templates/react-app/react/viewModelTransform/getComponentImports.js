@@ -13,6 +13,7 @@ function getTypes(properties) {
 export function getComponentImports(properties) {
   const types = getTypes(properties);
   return types.map((type) => ({
-    component: mapTypeToComponent(type)
+    component: mapTypeToComponent(type),
+    hasEdit: false
   }));
 }

@@ -57,7 +57,8 @@ describe('getViewModel', () => {
           primaryPropertySentenceCase: '',
           primaryPropertyKebab: '',
           primaryPropertySnake: '',
-          properties: []
+          properties: [],
+          relationships: []
         }
       ],
       templateName: 'test',

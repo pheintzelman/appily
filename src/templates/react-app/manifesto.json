@@ -105,10 +105,6 @@
           "copy": { "src": "db/sequelize/scripts", "dest": "server/scripts" }
         }
       ]
-    },
-    {
-      "options": ["ui:react"],
-      "directive": { "copy": { "src": "shared", "dest": "shared" } }
     }
   ]
 }

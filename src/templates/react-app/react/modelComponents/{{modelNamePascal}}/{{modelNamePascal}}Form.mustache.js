@@ -2,17 +2,17 @@ import { useState, useEffect } from 'react';
 import {
   Button
 } from '@material-ui/core';
+import { validate, Validator } from 'appily-validate';
 {{#componentImports}}
 import { {{component.edit}} } from '../types/{{component.edit}}';
 {{/componentImports}}
 import { ContentContainer } from '../common/containers/ContentContainer';
-import { validate, Valdator } from '../../../../shared/lib/validate.js';
 
 function validate{{modelNamePascal}}({{modelNameCamel}}) {
   const rules = [
     {{#properties}}
     {{#required}}
-    { type: Valdator.Required, name: '{{propertyNameCamel}}' }{{#last}},{{/last}}
+    { type: Validator.NotEmpty, property: '{{propertyNameCamel}}', message: 'required' }{{#last}},{{/last}}
     {{/required}}
     {{/properties}}
   ];

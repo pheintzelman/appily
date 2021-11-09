@@ -3,6 +3,7 @@
   "version": "{{templateVersion}}",
   "private": true,
   "dependencies": {
+    "appily-validate": "0.1.1",
     "@material-ui/core": "^4.11.4",
     "@material-ui/data-grid": "^4.0.0-alpha.33",
     "@material-ui/icons": "^4.11.2",
@@ -19,11 +20,8 @@
     {{/flags.indexedDB}}
     "web-vitals": "^1.1.2"
   },
-  "devDependencies": {
-    "react-app-rewired": "^2.1.8"
-  },
   "scripts": {
-    "start": "react-app-rewired start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

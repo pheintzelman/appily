@@ -398,16 +398,6 @@ Array [
             },
             "option": "db:postgres",
           },
-          Object {
-            "directive": Object {
-              "args": Object {
-                "dest": "shared",
-                "src": "shared",
-              },
-              "command": "copy",
-            },
-            "option": "ui:react",
-          },
         ],
         "name": "react-app",
         "options": Object {
@@ -428,18 +418,6 @@ Array [
         },
         "version": "0.6.0",
       },
-    },
-  },
-  Object {
-    "TRACE": Object {
-      "dest": "tests/app/testApps/video-game-app-indexeddb/shared/lib",
-      "msg": "mkdir",
-    },
-  },
-  Object {
-    "TRACE": Object {
-      "dest": "tests/app/testApps/video-game-app-indexeddb/shared",
-      "msg": "mkdir",
     },
   },
   Object {
@@ -518,20 +496,6 @@ Array [
     "TRACE": Object {
       "dest": "tests/app/testApps/video-game-app-indexeddb/client",
       "msg": "mkdir",
-    },
-  },
-  Object {
-    "TRACE": Object {
-      "dest": "tests/app/testApps/video-game-app-indexeddb/shared/lib",
-      "msg": "copyDir",
-      "src": "appily/src/templates/react-app/shared/lib",
-    },
-  },
-  Object {
-    "TRACE": Object {
-      "dest": "tests/app/testApps/video-game-app-indexeddb/shared",
-      "msg": "copyDir",
-      "src": "appily/src/templates/react-app/shared",
     },
   },
   Object {
@@ -928,9 +892,6 @@ Array [
     "DEBUG": "File rendered: tests/app/testApps/video-game-app-indexeddb/client/.appily",
   },
   Object {
-    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/shared/lib/validate.js",
-  },
-  Object {
     "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/setupTests.js",
   },
   Object {
@@ -1028,9 +989,6 @@ Array [
   },
   Object {
     "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/public/favicon.ico",
-  },
-  Object {
-    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/config-overrides.js",
   },
   Object {
     "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/README.md",
@@ -1163,29 +1121,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 "
 `;
 
-exports[`React template tests/app/testApps/video-game-app-indexedDB/client/config-overrides.js should match snapshot 1`] = `
-"/* config-overrides.js */
-const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
-const path = require('path');
-
-module.exports = function override(config) {
-  config.resolve.plugins.forEach((plugin) => {
-    if (plugin instanceof ModuleScopePlugin) {
-      plugin.allowedFiles.add(path.resolve('../shared/lib/validate.js'));
-    }
-  });
-
-  return config;
-};
-"
-`;
-
 exports[`React template tests/app/testApps/video-game-app-indexedDB/client/package.json should match snapshot 1`] = `
 "{
   \\"name\\": \\"video-game-app-indexeddb\\",
   \\"version\\": \\"0.6.0\\",
   \\"private\\": true,
   \\"dependencies\\": {
+    \\"appily-validate\\": \\"0.1.1\\",
     \\"@material-ui/core\\": \\"^4.11.4\\",
     \\"@material-ui/data-grid\\": \\"^4.0.0-alpha.33\\",
     \\"@material-ui/icons\\": \\"^4.11.2\\",
@@ -1200,11 +1142,8 @@ exports[`React template tests/app/testApps/video-game-app-indexedDB/client/packa
     \\"idb\\": \\"^6.1.2\\",
     \\"web-vitals\\": \\"^1.1.2\\"
   },
-  \\"devDependencies\\": {
-    \\"react-app-rewired\\": \\"^2.1.8\\"
-  },
   \\"scripts\\": {
-    \\"start\\": \\"react-app-rewired start\\",
+    \\"start\\": \\"react-scripts start\\",
     \\"build\\": \\"react-scripts build\\",
     \\"test\\": \\"react-scripts test\\",
     \\"eject\\": \\"react-scripts eject\\"
@@ -1840,11 +1779,13 @@ export function Home() {
 exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/Publisher/AddPublisher.js should match snapshot 1`] = `
 "import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { StatusCodes } from \\"http-status-codes\\";
 import { addPublisher } from '../../api/publisher';
 import { PublisherForm } from './PublisherForm';
 
 export function AddPublisher() {
   const [error, setError] = useState(null);
+  const [validationState, setValidationState] = useState({valid:true, properties:{}});
   const [processing, setProcessing] = useState(false);
   const history = useHistory();
 
@@ -1855,6 +1796,14 @@ export function AddPublisher() {
       setProcessing(false);
       history.push(\`/publisher/\${id}\`);
     } catch (error) {
+      if(error.status === StatusCodes.BAD_REQUEST)
+      {
+        console.log({validationState: error.body});
+        setValidationState(error.body);
+        setProcessing(false);
+        return;
+      }
+
       setError(error);
       setProcessing(false);
     }
@@ -1865,6 +1814,7 @@ export function AddPublisher() {
       cta={add}
       processing={processing}
       error={error}
+      validationState={validationState}
     />
 }
 "
@@ -1873,12 +1823,14 @@ export function AddPublisher() {
 exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/Publisher/EditPublisher.js should match snapshot 1`] = `
 "import { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
+import { StatusCodes } from \\"http-status-codes\\";
 import { getPublisher, updatePublisher } from '../../api/publisher';
 import { PublisherForm } from './PublisherForm';
 
 export function EditPublisher() {
   const [publisher, setPublisher] = useState(null);
   const [error, setError] = useState(null);
+  const [validationState, setValidationState] = useState({valid:true, properties:{}});
   const [isLoading, setIsLoading] = useState(true);
   const [processing, setProcessing] = useState(false);
 
@@ -1910,6 +1862,14 @@ export function EditPublisher() {
       setProcessing(false);
       history.push(\`/publisher/\${id}\`);
     } catch (error) {
+      if(error.status === StatusCodes.BAD_REQUEST)
+      {
+        console.log({validationState: error.body});
+        setValidationState(error.body);
+        setProcessing(false);
+        return;
+      }
+
       setError(error);
       setProcessing(false);
     }
@@ -1923,6 +1883,7 @@ export function EditPublisher() {
       processing={processing}
       publisher={publisher}
       error={error}
+      validationState={validationState}
     />
   );
 }
@@ -2104,9 +2065,9 @@ exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/c
 import {
   Button
 } from '@material-ui/core';
+import { validate, Validator } from 'appily-validate';
 import { StringInput } from '../types/StringInput';
 import { ContentContainer } from '../common/containers/ContentContainer';
-import { validate, Valdator } from '../../../../shared/lib/validate.js';
 
 function validatePublisher(publisher) {
   const rules = [
@@ -2123,13 +2084,14 @@ export function PublisherForm({
   cta,
   isLoading,
   processing,
+  validationState: initialValidationState,
   error
 }) {
   const [publisher, setPublisher] = useState(
     initialState ?? { name: '' }
   );
 
-  const [validationState, setValidationState] = useState({valid:true, properties:{}});
+  const [validationState, setValidationState] = useState(initialValidationState ?? {valid:true, properties:{}});
 
   useEffect(() => {
     if (initialState) {
@@ -2138,8 +2100,10 @@ export function PublisherForm({
   }, [initialState]);
 
   useEffect(() => {
-    console.log({validationState});
-  }, [validationState]);
+    if (initialValidationState) {
+      setValidationState(initialValidationState);
+    }
+  }, [initialValidationState]);
 
   const handleChange = (field, value) => {
     const updatedPublisher = { ...publisher, [field]: value };
@@ -2226,11 +2190,13 @@ export function PublisherRouter() {
 exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/VideoGame/AddVideoGame.js should match snapshot 1`] = `
 "import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { StatusCodes } from \\"http-status-codes\\";
 import { addVideoGame } from '../../api/videoGame';
 import { VideoGameForm } from './VideoGameForm';
 
 export function AddVideoGame() {
   const [error, setError] = useState(null);
+  const [validationState, setValidationState] = useState({valid:true, properties:{}});
   const [processing, setProcessing] = useState(false);
   const history = useHistory();
 
@@ -2241,6 +2207,14 @@ export function AddVideoGame() {
       setProcessing(false);
       history.push(\`/videoGame/\${id}\`);
     } catch (error) {
+      if(error.status === StatusCodes.BAD_REQUEST)
+      {
+        console.log({validationState: error.body});
+        setValidationState(error.body);
+        setProcessing(false);
+        return;
+      }
+
       setError(error);
       setProcessing(false);
     }
@@ -2251,6 +2225,7 @@ export function AddVideoGame() {
       cta={add}
       processing={processing}
       error={error}
+      validationState={validationState}
     />
 }
 "
@@ -2259,12 +2234,14 @@ export function AddVideoGame() {
 exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/VideoGame/EditVideoGame.js should match snapshot 1`] = `
 "import { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
+import { StatusCodes } from \\"http-status-codes\\";
 import { getVideoGame, updateVideoGame } from '../../api/videoGame';
 import { VideoGameForm } from './VideoGameForm';
 
 export function EditVideoGame() {
   const [videoGame, setVideoGame] = useState(null);
   const [error, setError] = useState(null);
+  const [validationState, setValidationState] = useState({valid:true, properties:{}});
   const [isLoading, setIsLoading] = useState(true);
   const [processing, setProcessing] = useState(false);
 
@@ -2296,6 +2273,14 @@ export function EditVideoGame() {
       setProcessing(false);
       history.push(\`/videoGame/\${id}\`);
     } catch (error) {
+      if(error.status === StatusCodes.BAD_REQUEST)
+      {
+        console.log({validationState: error.body});
+        setValidationState(error.body);
+        setProcessing(false);
+        return;
+      }
+
       setError(error);
       setProcessing(false);
     }
@@ -2309,6 +2294,7 @@ export function EditVideoGame() {
       processing={processing}
       videoGame={videoGame}
       error={error}
+      validationState={validationState}
     />
   );
 }
@@ -2502,13 +2488,13 @@ exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/c
 import {
   Button
 } from '@material-ui/core';
+import { validate, Validator } from 'appily-validate';
 import { StringInput } from '../types/StringInput';
 import { ContentContainer } from '../common/containers/ContentContainer';
-import { validate, Valdator } from '../../../../shared/lib/validate.js';
 
 function validateVideoGame(videoGame) {
   const rules = [
-    { type: Valdator.Required, name: 'title' }
+    { type: Validator.NotEmpty, property: 'title', message: 'required' }
   ];
 
   const state = validate(rules, videoGame);
@@ -2522,13 +2508,14 @@ export function VideoGameForm({
   cta,
   isLoading,
   processing,
+  validationState: initialValidationState,
   error
 }) {
   const [videoGame, setVideoGame] = useState(
     initialState ?? { title: '', yearPublished: '' }
   );
 
-  const [validationState, setValidationState] = useState({valid:true, properties:{}});
+  const [validationState, setValidationState] = useState(initialValidationState ?? {valid:true, properties:{}});
 
   useEffect(() => {
     if (initialState) {
@@ -2537,8 +2524,10 @@ export function VideoGameForm({
   }, [initialState]);
 
   useEffect(() => {
-    console.log({validationState});
-  }, [validationState]);
+    if (initialValidationState) {
+      setValidationState(initialValidationState);
+    }
+  }, [initialValidationState]);
 
   const handleChange = (field, value) => {
     const updatedVideoGame = { ...videoGame, [field]: value };
@@ -3296,65 +3285,5 @@ exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/s
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
-"
-`;
-
-exports[`React template tests/app/testApps/video-game-app-indexedDB/shared/lib/validate.js should match snapshot 1`] = `
-"export const Valdator = { Required: 'Required' };
-const valdatorMap = { [Valdator.Required]: requiredValdator };
-const validState = { valid: true, messages: [] };
-
-function requiredValdator({ property, value }) {
-  if (value !== null && value !== undefined && value !== '') {
-    return validState;
-  }
-
-  return { valid: false, messages: ['required'] };
-}
-
-function getValdator({ type }) {
-  if (valdatorMap.hasOwnProperty(type)) {
-    return valdatorMap[type];
-  }
-
-  return () => validState;
-}
-
-function validateProperty({ rules, property, value, model }) {
-  return rules.reduce((state, rule) => {
-    if (rule.name !== property) {
-      return state;
-    }
-
-    const validator = getValdator(rule);
-    const { valid, messages } = validator({
-      value,
-      property,
-      model,
-      rule
-    });
-
-    return {
-      valid: valid && state.valid,
-      messages: [...state.messages, ...messages]
-    };
-  }, validState);
-}
-
-export function validate(rules, model) {
-  return Object.entries(model).reduce(
-    (state, [property, value]) => {
-      const propertyState = validateProperty({ rules, property, value, model });
-      return {
-        valid: state.valid && propertyState.valid,
-        properties: {
-          ...state.properties,
-          [property]: propertyState
-        }
-      };
-    },
-    { valid: true, properties: {} }
-  );
-}
 "
 `;

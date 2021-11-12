@@ -202,7 +202,7 @@ Aim for progressive development with something useful asap See the [road map](./
   - [x] add to UI
   - [x] rename edit to input
   - [x] make react-app the default template
-  - [ ] add to api
+  - [x] add to api
   - [ ] add to db
   - [ ] add validation on type
   - [ ] add required to Boolean

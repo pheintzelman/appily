@@ -28,13 +28,14 @@ export function {{modelNamePascal}}Form({
   cta,
   isLoading,
   processing,
+  validationState: initialValidationState,
   error
 }) {
   const [{{modelNameCamel}}, set{{modelNamePascal}}] = useState(
     initialState ?? {{{defaultState}}}
   );
 
-  const [validationState, setValidationState] = useState({valid:true, properties:{}});
+  const [validationState, setValidationState] = useState(initialValidationState ?? {valid:true, properties:{}});
 
   useEffect(() => {
     if (initialState) {
@@ -43,8 +44,10 @@ export function {{modelNamePascal}}Form({
   }, [initialState]);
 
   useEffect(() => {
-    console.log({validationState});
-  }, [validationState]);
+    if (initialValidationState) {
+      setValidationState(initialValidationState);
+    }
+  }, [initialValidationState]);
 
   const handleChange = (field, value) => {
     const updated{{modelNamePascal}} = { ...{{modelNameCamel}}, [field]: value };

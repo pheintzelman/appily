@@ -17,7 +17,10 @@ async function processResponse(responsePromise) {
   const body = parseResponseBody(text);
 
   if (!response.ok) {
-    throw new Error(body);
+    const error = new Error();
+    error.body = body;
+    error.status = response.status;
+    throw error;
   }
 
   return body;

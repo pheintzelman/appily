@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
+import { StatusCodes } from "http-status-codes";
 import { get{{modelNamePascal}}, update{{modelNamePascal}} } from '../../api/{{modelNameCamel}}';
 import { {{modelNamePascal}}Form } from './{{modelNamePascal}}Form';
 
 export function Edit{{modelNamePascal}}() {
   const [{{modelNameCamel}}, set{{modelNamePascal}}] = useState(null);
   const [error, setError] = useState(null);
+  const [validationState, setValidationState] = useState({valid:true, properties:{}});
   const [isLoading, setIsLoading] = useState(true);
   const [processing, setProcessing] = useState(false);
 
@@ -37,6 +39,14 @@ export function Edit{{modelNamePascal}}() {
       setProcessing(false);
       history.push(`/{{modelNameCamel}}/${id}`);
     } catch (error) {
+      if(error.status === StatusCodes.BAD_REQUEST)
+      {
+        console.log({validationState: error.body});
+        setValidationState(error.body);
+        setProcessing(false);
+        return;
+      }
+
       setError(error);
       setProcessing(false);
     }
@@ -50,6 +60,7 @@ export function Edit{{modelNamePascal}}() {
       processing={processing}
       {{modelNameCamel}}={{=<% %>=}}{<%modelNameCamel%>}<%={{ }}=%>
       error={error}
+      validationState={validationState}
     />
   );
 }

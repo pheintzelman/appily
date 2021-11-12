@@ -18,6 +18,9 @@
     {{#flags.indexedDB}}
     "idb": "^6.1.2",
     {{/flags.indexedDB}}
+    {{#flags.express}}
+    "http-status-codes": "2.1.4",
+    {{/flags.express}}
     "web-vitals": "^1.1.2"
   },
   "scripts": {

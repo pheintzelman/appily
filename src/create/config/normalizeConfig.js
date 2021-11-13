@@ -2,12 +2,29 @@ import { isObject } from '../../lib/check.js';
 import { setDefaults } from './setDefaults.js';
 import { ConfigIsEmpty } from './../../constants/messages.js';
 
-function normalizeProperty([propertyName, property]) {
-  if (isObject(property) && property.type) {
-    return { ...property, propertyName };
+function isRequired(propertyName) {
+  if (propertyName.trim()[propertyName.length - 1] === '*') {
+    return {
+      propertyName: propertyName.trim().slice(0, propertyName.length - 1),
+      required: true
+    };
   }
 
-  return { type: property, propertyName };
+  return { propertyName, required: false };
+}
+
+function normalizeProperty([propertyNameInit, property]) {
+  const { propertyName, required } = isRequired(propertyNameInit);
+
+  if (isObject(property) && property.type) {
+    return {
+      ...property,
+      propertyName,
+      required: required || Boolean(property.required)
+    };
+  }
+
+  return { type: property, propertyName, required };
 }
 
 function normalizeModel([modelName, model]) {

@@ -17,7 +17,9 @@ describe('normalizeConfig', () => {
           properties: [
             {
               propertyName: 'pepperoni',
-              type: 'Boolean'
+              required: false,
+              type: 'Boolean',
+              defaultValue: false
             }
           ]
         }

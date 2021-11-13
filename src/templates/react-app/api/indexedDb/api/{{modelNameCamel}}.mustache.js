@@ -1,5 +1,5 @@
 import { add, update, get, getAll, remove } from '../db/{{modelNameCamel}}';
-import { NotFoundError } from "../lib/Error";
+import { NotFoundError } from "../lib/error";
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));

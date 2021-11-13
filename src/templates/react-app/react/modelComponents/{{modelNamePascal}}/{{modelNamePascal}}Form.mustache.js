@@ -2,10 +2,25 @@ import { useState, useEffect } from 'react';
 import {
   Button
 } from '@material-ui/core';
+import { validate, Validator } from 'appily-validate';
 {{#componentImports}}
 import { {{component.edit}} } from '../types/{{component.edit}}';
 {{/componentImports}}
-import { ContentContainer } from "../common/containers/ContentContainer";
+import { ContentContainer } from '../common/containers/ContentContainer';
+
+function validate{{modelNamePascal}}({{modelNameCamel}}) {
+  const rules = [
+    {{#properties}}
+    {{#required}}
+    { type: Validator.NotEmpty, property: '{{propertyNameCamel}}', message: 'required' },
+    {{/required}}
+    {{/properties}}
+  ];
+
+  const state = validate(rules, {{modelNameCamel}});
+  console.log(state);
+  return state;
+}
 
 export function {{modelNamePascal}}Form({
   {{modelNameCamel}}: initialState,
@@ -13,17 +28,26 @@ export function {{modelNamePascal}}Form({
   cta,
   isLoading,
   processing,
+  validationState: initialValidationState,
   error
 }) {
   const [{{modelNameCamel}}, set{{modelNamePascal}}] = useState(
     initialState ?? {{{defaultState}}}
   );
 
+  const [validationState, setValidationState] = useState(initialValidationState ?? {valid:true, properties:{}});
+
   useEffect(() => {
     if (initialState) {
       set{{modelNamePascal}}(initialState);
     }
   }, [initialState]);
+
+  useEffect(() => {
+    if (initialValidationState) {
+      setValidationState(initialValidationState);
+    }
+  }, [initialValidationState]);
 
   const handleChange = (field, value) => {
     const updated{{modelNamePascal}} = { ...{{modelNameCamel}}, [field]: value };
@@ -33,7 +57,13 @@ export function {{modelNamePascal}}Form({
 
   function handleCta(cta, {{modelNameCamel}}) {
     return async (event) => {
-      await cta({{modelNameCamel}});
+      const state = validate{{modelNamePascal}}({{modelNameCamel}});
+      if (state.valid) {
+        setValidationState(state);
+        return await cta({{modelNameCamel}});
+      }
+
+      setValidationState(state);
     };
   }
 
@@ -54,8 +84,9 @@ export function {{modelNamePascal}}Form({
             field="{{propertyNameCamel}}"
             onChange={handleChange}
             disabled={processing}
+            validationState={validationState.properties['{{propertyNameCamel}}']}
+            required={{=<% %>=}}{<%required%>}<%={{ }}=%>
           />
-
           {{/properties}}
           <Button
             className="cta"

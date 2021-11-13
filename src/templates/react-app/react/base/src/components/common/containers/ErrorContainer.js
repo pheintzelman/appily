@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { ErrorType } from '../../../lib/Error';
+import { ErrorType } from '../../../lib/error';
 import { MessageContainer } from './MessageContainer';
 
 function getErrorMessage(error) {

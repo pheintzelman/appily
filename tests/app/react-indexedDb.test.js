@@ -15,7 +15,7 @@ const config = {
     'Video Game': {
       plural: 'Video Games',
       properties: {
-        Title: 'String',
+        'Title*': 'String',
         'Year Published': 'String'
       }
     },

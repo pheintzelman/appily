@@ -7,6 +7,9 @@ import {
 
 function getPropertyWithDefaults(property) {
   const type = property.type ?? Type.String;
+  if (type === Type.Boolean) {
+    return { defaultValue: false, ...property, type };
+  }
 
   return { ...property, type };
 }

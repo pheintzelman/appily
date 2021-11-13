@@ -22,11 +22,13 @@ Array [
       \\"properties\\": [
         {
           \\"type\\": \\"String\\",
-          \\"propertyName\\": \\"Title\\"
+          \\"propertyName\\": \\"Title\\",
+          \\"required\\": true
         },
         {
           \\"type\\": \\"String\\",
-          \\"propertyName\\": \\"Year Published\\"
+          \\"propertyName\\": \\"Year Published\\",
+          \\"required\\": false
         }
       ],
       \\"pluralName\\": \\"Video Games\\",
@@ -36,7 +38,8 @@ Array [
       \\"properties\\": [
         {
           \\"type\\": \\"String\\",
-          \\"propertyName\\": \\"Name\\"
+          \\"propertyName\\": \\"Name\\",
+          \\"required\\": false
         }
       ],
       \\"modelName\\": \\"Publisher\\",
@@ -56,7 +59,7 @@ Array [
               Object {
                 "component": Object {
                   "cell": "StringCell",
-                  "edit": "StringEdit",
+                  "edit": "StringInput",
                   "view": "StringView",
                 },
               },
@@ -84,39 +87,47 @@ Array [
               Object {
                 "component": Object {
                   "cell": "StringCell",
-                  "edit": "StringEdit",
+                  "edit": "StringInput",
                   "view": "StringView",
                 },
+                "defaultValue": undefined,
                 "flex": 4,
+                "hasDefaultValue": false,
                 "hide": false,
                 "isBoolean": false,
                 "isPrimary": true,
                 "isString": true,
+                "last": false,
                 "propertyName": "Title",
                 "propertyNameCamel": "title",
                 "propertyNameKebab": "title",
                 "propertyNamePascal": "Title",
                 "propertyNameSentenceCase": "title",
                 "propertyNameSnake": "title",
+                "required": true,
                 "type": "String",
               },
               Object {
                 "component": Object {
                   "cell": "StringCell",
-                  "edit": "StringEdit",
+                  "edit": "StringInput",
                   "view": "StringView",
                 },
+                "defaultValue": undefined,
                 "flex": 4,
+                "hasDefaultValue": false,
                 "hide": false,
                 "isBoolean": false,
                 "isPrimary": false,
                 "isString": true,
+                "last": true,
                 "propertyName": "Year Published",
                 "propertyNameCamel": "yearPublished",
                 "propertyNameKebab": "year-published",
                 "propertyNamePascal": "YearPublished",
                 "propertyNameSentenceCase": "year published",
                 "propertyNameSnake": "year_published",
+                "required": false,
                 "type": "String",
               },
             ],
@@ -126,7 +137,7 @@ Array [
               Object {
                 "component": Object {
                   "cell": "StringCell",
-                  "edit": "StringEdit",
+                  "edit": "StringInput",
                   "view": "StringView",
                 },
               },
@@ -154,20 +165,24 @@ Array [
               Object {
                 "component": Object {
                   "cell": "StringCell",
-                  "edit": "StringEdit",
+                  "edit": "StringInput",
                   "view": "StringView",
                 },
+                "defaultValue": undefined,
                 "flex": 4,
+                "hasDefaultValue": false,
                 "hide": false,
                 "isBoolean": false,
                 "isPrimary": true,
                 "isString": true,
+                "last": true,
                 "propertyName": "Name",
                 "propertyNameCamel": "name",
                 "propertyNameKebab": "name",
                 "propertyNamePascal": "Name",
                 "propertyNameSentenceCase": "name",
                 "propertyNameSnake": "name",
+                "required": false,
                 "type": "String",
               },
             ],
@@ -191,10 +206,12 @@ Array [
             "properties": Array [
               Object {
                 "propertyName": "Title",
+                "required": true,
                 "type": "String",
               },
               Object {
                 "propertyName": "Year Published",
+                "required": false,
                 "type": "String",
               },
             ],
@@ -205,6 +222,7 @@ Array [
             "properties": Array [
               Object {
                 "propertyName": "Name",
+                "required": false,
                 "type": "String",
               },
             ],
@@ -633,11 +651,13 @@ Array [
       \\"properties\\": [
         {
           \\"type\\": \\"String\\",
-          \\"propertyName\\": \\"Title\\"
+          \\"propertyName\\": \\"Title\\",
+          \\"required\\": true
         },
         {
           \\"type\\": \\"String\\",
-          \\"propertyName\\": \\"Year Published\\"
+          \\"propertyName\\": \\"Year Published\\",
+          \\"required\\": false
         }
       ],
       \\"pluralName\\": \\"Video Games\\",
@@ -647,7 +667,8 @@ Array [
       \\"properties\\": [
         {
           \\"type\\": \\"String\\",
-          \\"propertyName\\": \\"Name\\"
+          \\"propertyName\\": \\"Name\\",
+          \\"required\\": false
         }
       ],
       \\"modelName\\": \\"Publisher\\",
@@ -667,7 +688,7 @@ Array [
               Object {
                 "component": Object {
                   "cell": "StringCell",
-                  "edit": "StringEdit",
+                  "edit": "StringInput",
                   "view": "StringView",
                 },
               },
@@ -695,39 +716,47 @@ Array [
               Object {
                 "component": Object {
                   "cell": "StringCell",
-                  "edit": "StringEdit",
+                  "edit": "StringInput",
                   "view": "StringView",
                 },
+                "defaultValue": undefined,
                 "flex": 4,
+                "hasDefaultValue": false,
                 "hide": false,
                 "isBoolean": false,
                 "isPrimary": true,
                 "isString": true,
+                "last": false,
                 "propertyName": "Title",
                 "propertyNameCamel": "title",
                 "propertyNameKebab": "title",
                 "propertyNamePascal": "Title",
                 "propertyNameSentenceCase": "title",
                 "propertyNameSnake": "title",
+                "required": true,
                 "type": "String",
               },
               Object {
                 "component": Object {
                   "cell": "StringCell",
-                  "edit": "StringEdit",
+                  "edit": "StringInput",
                   "view": "StringView",
                 },
+                "defaultValue": undefined,
                 "flex": 4,
+                "hasDefaultValue": false,
                 "hide": false,
                 "isBoolean": false,
                 "isPrimary": false,
                 "isString": true,
+                "last": true,
                 "propertyName": "Year Published",
                 "propertyNameCamel": "yearPublished",
                 "propertyNameKebab": "year-published",
                 "propertyNamePascal": "YearPublished",
                 "propertyNameSentenceCase": "year published",
                 "propertyNameSnake": "year_published",
+                "required": false,
                 "type": "String",
               },
             ],
@@ -737,7 +766,7 @@ Array [
               Object {
                 "component": Object {
                   "cell": "StringCell",
-                  "edit": "StringEdit",
+                  "edit": "StringInput",
                   "view": "StringView",
                 },
               },
@@ -765,20 +794,24 @@ Array [
               Object {
                 "component": Object {
                   "cell": "StringCell",
-                  "edit": "StringEdit",
+                  "edit": "StringInput",
                   "view": "StringView",
                 },
+                "defaultValue": undefined,
                 "flex": 4,
+                "hasDefaultValue": false,
                 "hide": false,
                 "isBoolean": false,
                 "isPrimary": true,
                 "isString": true,
+                "last": true,
                 "propertyName": "Name",
                 "propertyNameCamel": "name",
                 "propertyNameKebab": "name",
                 "propertyNamePascal": "Name",
                 "propertyNameSentenceCase": "name",
                 "propertyNameSnake": "name",
+                "required": false,
                 "type": "String",
               },
             ],
@@ -880,7 +913,7 @@ Array [
     "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/logo.svg",
   },
   Object {
-    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/lib/Error.js",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/lib/error.js",
   },
   Object {
     "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/index.js",
@@ -892,7 +925,7 @@ Array [
     "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/components/types/StringView.js",
   },
   Object {
-    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/components/types/StringEdit.js",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/components/types/StringInput.js",
   },
   Object {
     "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/components/types/StringCell.js",
@@ -901,7 +934,7 @@ Array [
     "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/components/types/BooleanView.js",
   },
   Object {
-    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/components/types/BooleanEdit.js",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/components/types/BooleanInput.js",
   },
   Object {
     "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/components/types/BooleanCell.scss",
@@ -993,11 +1026,13 @@ exports[`React template tests/app/testApps/video-game-app-indexedDB/client/.appi
       \\"properties\\": [
         {
           \\"type\\": \\"String\\",
-          \\"propertyName\\": \\"Title\\"
+          \\"propertyName\\": \\"Title\\",
+          \\"required\\": true
         },
         {
           \\"type\\": \\"String\\",
-          \\"propertyName\\": \\"Year Published\\"
+          \\"propertyName\\": \\"Year Published\\",
+          \\"required\\": false
         }
       ],
       \\"pluralName\\": \\"Video Games\\",
@@ -1007,7 +1042,8 @@ exports[`React template tests/app/testApps/video-game-app-indexedDB/client/.appi
       \\"properties\\": [
         {
           \\"type\\": \\"String\\",
-          \\"propertyName\\": \\"Name\\"
+          \\"propertyName\\": \\"Name\\",
+          \\"required\\": false
         }
       ],
       \\"modelName\\": \\"Publisher\\",
@@ -1103,6 +1139,7 @@ exports[`React template tests/app/testApps/video-game-app-indexedDB/client/packa
   \\"version\\": \\"0.6.0\\",
   \\"private\\": true,
   \\"dependencies\\": {
+    \\"appily-validate\\": \\"0.1.1\\",
     \\"@material-ui/core\\": \\"^4.11.4\\",
     \\"@material-ui/data-grid\\": \\"^4.0.0-alpha.33\\",
     \\"@material-ui/icons\\": \\"^4.11.2\\",
@@ -1458,7 +1495,7 @@ test('renders welcome message', () => {
 
 exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/api/publisher.js should match snapshot 1`] = `
 "import { add, update, get, getAll, remove } from '../db/publisher';
-import { NotFoundError } from \\"../lib/Error\\";
+import { NotFoundError } from \\"../lib/error\\";
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -1509,7 +1546,7 @@ export async function removePublisher(id) {
 
 exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/api/videoGame.js should match snapshot 1`] = `
 "import { add, update, get, getAll, remove } from '../db/videoGame';
-import { NotFoundError } from \\"../lib/Error\\";
+import { NotFoundError } from \\"../lib/error\\";
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -1754,11 +1791,13 @@ export function Home() {
 exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/Publisher/AddPublisher.js should match snapshot 1`] = `
 "import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { StatusCodes } from \\"http-status-codes\\";
 import { addPublisher } from '../../api/publisher';
 import { PublisherForm } from './PublisherForm';
 
 export function AddPublisher() {
   const [error, setError] = useState(null);
+  const [validationState, setValidationState] = useState({valid:true, properties:{}});
   const [processing, setProcessing] = useState(false);
   const history = useHistory();
 
@@ -1769,6 +1808,14 @@ export function AddPublisher() {
       setProcessing(false);
       history.push(\`/publisher/\${id}\`);
     } catch (error) {
+      if(error.status === StatusCodes.BAD_REQUEST)
+      {
+        console.log({validationState: error.body});
+        setValidationState(error.body);
+        setProcessing(false);
+        return;
+      }
+
       setError(error);
       setProcessing(false);
     }
@@ -1779,6 +1826,7 @@ export function AddPublisher() {
       cta={add}
       processing={processing}
       error={error}
+      validationState={validationState}
     />
 }
 "
@@ -1787,12 +1835,14 @@ export function AddPublisher() {
 exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/Publisher/EditPublisher.js should match snapshot 1`] = `
 "import { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
+import { StatusCodes } from \\"http-status-codes\\";
 import { getPublisher, updatePublisher } from '../../api/publisher';
 import { PublisherForm } from './PublisherForm';
 
 export function EditPublisher() {
   const [publisher, setPublisher] = useState(null);
   const [error, setError] = useState(null);
+  const [validationState, setValidationState] = useState({valid:true, properties:{}});
   const [isLoading, setIsLoading] = useState(true);
   const [processing, setProcessing] = useState(false);
 
@@ -1824,6 +1874,14 @@ export function EditPublisher() {
       setProcessing(false);
       history.push(\`/publisher/\${id}\`);
     } catch (error) {
+      if(error.status === StatusCodes.BAD_REQUEST)
+      {
+        console.log({validationState: error.body});
+        setValidationState(error.body);
+        setProcessing(false);
+        return;
+      }
+
       setError(error);
       setProcessing(false);
     }
@@ -1837,6 +1895,7 @@ export function EditPublisher() {
       processing={processing}
       publisher={publisher}
       error={error}
+      validationState={validationState}
     />
   );
 }
@@ -2018,8 +2077,18 @@ exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/c
 import {
   Button
 } from '@material-ui/core';
-import { StringEdit } from '../types/StringEdit';
-import { ContentContainer } from \\"../common/containers/ContentContainer\\";
+import { validate, Validator } from 'appily-validate';
+import { StringInput } from '../types/StringInput';
+import { ContentContainer } from '../common/containers/ContentContainer';
+
+function validatePublisher(publisher) {
+  const rules = [
+  ];
+
+  const state = validate(rules, publisher);
+  console.log(state);
+  return state;
+}
 
 export function PublisherForm({
   publisher: initialState,
@@ -2027,17 +2096,26 @@ export function PublisherForm({
   cta,
   isLoading,
   processing,
+  validationState: initialValidationState,
   error
 }) {
   const [publisher, setPublisher] = useState(
     initialState ?? { name: '' }
   );
 
+  const [validationState, setValidationState] = useState(initialValidationState ?? {valid:true, properties:{}});
+
   useEffect(() => {
     if (initialState) {
       setPublisher(initialState);
     }
   }, [initialState]);
+
+  useEffect(() => {
+    if (initialValidationState) {
+      setValidationState(initialValidationState);
+    }
+  }, [initialValidationState]);
 
   const handleChange = (field, value) => {
     const updatedPublisher = { ...publisher, [field]: value };
@@ -2047,7 +2125,13 @@ export function PublisherForm({
 
   function handleCta(cta, publisher) {
     return async (event) => {
-      await cta(publisher);
+      const state = validatePublisher(publisher);
+      if (state.valid) {
+        setValidationState(state);
+        return await cta(publisher);
+      }
+
+      setValidationState(state);
     };
   }
 
@@ -2060,15 +2144,16 @@ export function PublisherForm({
     >
       <div className=\\"content\\">
         <form noValidate autoComplete=\\"off\\">
-          <StringEdit
+          <StringInput
             id=\\"publisherFormName\\"
             label=\\"Name\\"
             value={publisher.name}
             field=\\"name\\"
             onChange={handleChange}
             disabled={processing}
+            validationState={validationState.properties['name']}
+            required={false}
           />
-
           <Button
             className=\\"cta\\"
             id=\\"publisherFormCta\\"
@@ -2117,11 +2202,13 @@ export function PublisherRouter() {
 exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/VideoGame/AddVideoGame.js should match snapshot 1`] = `
 "import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { StatusCodes } from \\"http-status-codes\\";
 import { addVideoGame } from '../../api/videoGame';
 import { VideoGameForm } from './VideoGameForm';
 
 export function AddVideoGame() {
   const [error, setError] = useState(null);
+  const [validationState, setValidationState] = useState({valid:true, properties:{}});
   const [processing, setProcessing] = useState(false);
   const history = useHistory();
 
@@ -2132,6 +2219,14 @@ export function AddVideoGame() {
       setProcessing(false);
       history.push(\`/videoGame/\${id}\`);
     } catch (error) {
+      if(error.status === StatusCodes.BAD_REQUEST)
+      {
+        console.log({validationState: error.body});
+        setValidationState(error.body);
+        setProcessing(false);
+        return;
+      }
+
       setError(error);
       setProcessing(false);
     }
@@ -2142,6 +2237,7 @@ export function AddVideoGame() {
       cta={add}
       processing={processing}
       error={error}
+      validationState={validationState}
     />
 }
 "
@@ -2150,12 +2246,14 @@ export function AddVideoGame() {
 exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/VideoGame/EditVideoGame.js should match snapshot 1`] = `
 "import { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
+import { StatusCodes } from \\"http-status-codes\\";
 import { getVideoGame, updateVideoGame } from '../../api/videoGame';
 import { VideoGameForm } from './VideoGameForm';
 
 export function EditVideoGame() {
   const [videoGame, setVideoGame] = useState(null);
   const [error, setError] = useState(null);
+  const [validationState, setValidationState] = useState({valid:true, properties:{}});
   const [isLoading, setIsLoading] = useState(true);
   const [processing, setProcessing] = useState(false);
 
@@ -2187,6 +2285,14 @@ export function EditVideoGame() {
       setProcessing(false);
       history.push(\`/videoGame/\${id}\`);
     } catch (error) {
+      if(error.status === StatusCodes.BAD_REQUEST)
+      {
+        console.log({validationState: error.body});
+        setValidationState(error.body);
+        setProcessing(false);
+        return;
+      }
+
       setError(error);
       setProcessing(false);
     }
@@ -2200,6 +2306,7 @@ export function EditVideoGame() {
       processing={processing}
       videoGame={videoGame}
       error={error}
+      validationState={validationState}
     />
   );
 }
@@ -2393,8 +2500,19 @@ exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/c
 import {
   Button
 } from '@material-ui/core';
-import { StringEdit } from '../types/StringEdit';
-import { ContentContainer } from \\"../common/containers/ContentContainer\\";
+import { validate, Validator } from 'appily-validate';
+import { StringInput } from '../types/StringInput';
+import { ContentContainer } from '../common/containers/ContentContainer';
+
+function validateVideoGame(videoGame) {
+  const rules = [
+    { type: Validator.NotEmpty, property: 'title', message: 'required' },
+  ];
+
+  const state = validate(rules, videoGame);
+  console.log(state);
+  return state;
+}
 
 export function VideoGameForm({
   videoGame: initialState,
@@ -2402,17 +2520,26 @@ export function VideoGameForm({
   cta,
   isLoading,
   processing,
+  validationState: initialValidationState,
   error
 }) {
   const [videoGame, setVideoGame] = useState(
     initialState ?? { title: '', yearPublished: '' }
   );
 
+  const [validationState, setValidationState] = useState(initialValidationState ?? {valid:true, properties:{}});
+
   useEffect(() => {
     if (initialState) {
       setVideoGame(initialState);
     }
   }, [initialState]);
+
+  useEffect(() => {
+    if (initialValidationState) {
+      setValidationState(initialValidationState);
+    }
+  }, [initialValidationState]);
 
   const handleChange = (field, value) => {
     const updatedVideoGame = { ...videoGame, [field]: value };
@@ -2422,7 +2549,13 @@ export function VideoGameForm({
 
   function handleCta(cta, videoGame) {
     return async (event) => {
-      await cta(videoGame);
+      const state = validateVideoGame(videoGame);
+      if (state.valid) {
+        setValidationState(state);
+        return await cta(videoGame);
+      }
+
+      setValidationState(state);
     };
   }
 
@@ -2435,24 +2568,26 @@ export function VideoGameForm({
     >
       <div className=\\"content\\">
         <form noValidate autoComplete=\\"off\\">
-          <StringEdit
+          <StringInput
             id=\\"videoGameFormTitle\\"
             label=\\"Title\\"
             value={videoGame.title}
             field=\\"title\\"
             onChange={handleChange}
             disabled={processing}
+            validationState={validationState.properties['title']}
+            required={true}
           />
-
-          <StringEdit
+          <StringInput
             id=\\"videoGameFormYearPublished\\"
             label=\\"Year Published\\"
             value={videoGame.yearPublished}
             field=\\"yearPublished\\"
             onChange={handleChange}
             disabled={processing}
+            validationState={validationState.properties['yearPublished']}
+            required={false}
           />
-
           <Button
             className=\\"cta\\"
             id=\\"videoGameFormCta\\"
@@ -2806,7 +2941,7 @@ exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/c
 
 exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/common/containers/ErrorContainer.js should match snapshot 1`] = `
 "import { useEffect } from 'react';
-import { ErrorType } from '../../../lib/Error';
+import { ErrorType } from '../../../lib/error';
 import { MessageContainer } from './MessageContainer';
 
 function getErrorMessage(error) {
@@ -2899,7 +3034,7 @@ exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/c
 "
 `;
 
-exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/types/BooleanEdit.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/types/BooleanInput.js should match snapshot 1`] = `
 "import { FormControlLabel, Checkbox } from '@material-ui/core';
 
 const handleChange = (field, update) => (event) => {
@@ -2907,7 +3042,7 @@ const handleChange = (field, update) => (event) => {
   return update(field, value);
 };
 
-export function BooleanEdit({ id, label, value, field, onChange, disabled }) {
+export function BooleanInput({ id, label, value, field, onChange, disabled }) {
   return (
     <FormControlLabel
       control={<Checkbox checked={value} color=\\"primary\\" />}
@@ -2953,7 +3088,7 @@ export function StringCell({ value }) {
 "
 `;
 
-exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/types/StringEdit.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/types/StringInput.js should match snapshot 1`] = `
 "import { TextField } from '@material-ui/core';
 
 const handleChange = (field, update) => (event) => {
@@ -2961,9 +3096,27 @@ const handleChange = (field, update) => (event) => {
   return update(field, value);
 };
 
-export function StringEdit({ id, label, value, field, onChange, disabled }) {
+export function StringInput({
+  id,
+  label,
+  value,
+  field,
+  onChange,
+  disabled,
+  validationState,
+  required
+}) {
+  const error = validationState && !validationState.valid;
+  const helperText =
+    validationState &&
+    validationState.messages &&
+    validationState.messages.length > 0
+      ? validationState.messages[0]
+      : null;
+
   return (
     <TextField
+      error={error}
       className=\\"TextField\\"
       id={id}
       label={label}
@@ -2972,6 +3125,8 @@ export function StringEdit({ id, label, value, field, onChange, disabled }) {
       variant=\\"filled\\"
       fullWidth
       disabled={disabled}
+      helperText={helperText}
+      required={required}
     />
   );
 }
@@ -3106,7 +3261,7 @@ reportWebVitals();
 "
 `;
 
-exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/lib/Error.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/lib/error.js should match snapshot 1`] = `
 "export const ErrorType = { NotFound: \\"NotFound\\" };
 
 export function NotFoundError() {

@@ -5,6 +5,7 @@
   "private": true,
   "type": "module",
   "dependencies": {
+    "appily-validate": "0.1.1",
     "express": "4.17.1",
     "http-status-codes": "2.1.4",
     {{#flags.sequelize}}

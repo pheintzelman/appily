@@ -197,15 +197,9 @@ Aim for progressive development with something useful asap See the [road map](./
   - string elipses, wrapping, etc
 - add spinner progress button
 - internationalize app (setup)
-- add required properties
-  - [x] add to viewModel
-  - [x] add to UI
-  - [x] rename edit to input
-  - [x] make react-app the default template
-  - [x] add to api
-  - [ ] add to db
+- improve validation
   - [ ] add validation on type
-  - [ ] add required to Boolean
+  - [ ] Support validation rules
 
 ### Appily
 
@@ -221,6 +215,7 @@ Aim for progressive development with something useful asap See the [road map](./
 - have docker include express server
 - add logger (Pino?)
 - add env support
+- change createdAt, updatedAt to created_at, updated_at
 
 ### Later
 

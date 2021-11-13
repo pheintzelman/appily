@@ -5,13 +5,14 @@ function typeFlags(type) {
 }
 
 function getViewModelProperty(
-  { type, propertyName, required },
+  { type, propertyName, required, defaultValue },
   index,
   properties
 ) {
   const last = index === properties.length - 1;
   const isPrimary = index === 0;
   const hide = index > 4;
+  const hasDefaultValue = defaultValue !== undefined;
 
   return {
     ...getVariations('propertyName', propertyName),
@@ -19,6 +20,8 @@ function getViewModelProperty(
     ...typeFlags(type),
     isPrimary,
     required,
+    hasDefaultValue,
+    defaultValue,
     last,
     hide
   };

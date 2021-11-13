@@ -9,7 +9,7 @@ function validate{{modelNamePascal}}({{modelNameCamel}}) {
   const rules = [
     {{#properties}}
     {{#required}}
-    { type: Validator.NotEmpty, property: '{{propertyNameCamel}}', message: 'required' }{{#last}},{{/last}}
+    { type: Validator.NotEmpty, property: '{{propertyNameCamel}}', message: 'required' }
     {{/required}}
     {{/properties}}
   ];

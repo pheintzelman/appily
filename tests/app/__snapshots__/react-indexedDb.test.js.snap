@@ -90,7 +90,9 @@ Array [
                   "edit": "StringInput",
                   "view": "StringView",
                 },
+                "defaultValue": undefined,
                 "flex": 4,
+                "hasDefaultValue": false,
                 "hide": false,
                 "isBoolean": false,
                 "isPrimary": true,
@@ -111,7 +113,9 @@ Array [
                   "edit": "StringInput",
                   "view": "StringView",
                 },
+                "defaultValue": undefined,
                 "flex": 4,
+                "hasDefaultValue": false,
                 "hide": false,
                 "isBoolean": false,
                 "isPrimary": false,
@@ -164,7 +168,9 @@ Array [
                   "edit": "StringInput",
                   "view": "StringView",
                 },
+                "defaultValue": undefined,
                 "flex": 4,
+                "hasDefaultValue": false,
                 "hide": false,
                 "isBoolean": false,
                 "isPrimary": true,
@@ -713,7 +719,9 @@ Array [
                   "edit": "StringInput",
                   "view": "StringView",
                 },
+                "defaultValue": undefined,
                 "flex": 4,
+                "hasDefaultValue": false,
                 "hide": false,
                 "isBoolean": false,
                 "isPrimary": true,
@@ -734,7 +742,9 @@ Array [
                   "edit": "StringInput",
                   "view": "StringView",
                 },
+                "defaultValue": undefined,
                 "flex": 4,
+                "hasDefaultValue": false,
                 "hide": false,
                 "isBoolean": false,
                 "isPrimary": false,
@@ -787,7 +797,9 @@ Array [
                   "edit": "StringInput",
                   "view": "StringView",
                 },
+                "defaultValue": undefined,
                 "flex": 4,
+                "hasDefaultValue": false,
                 "hide": false,
                 "isBoolean": false,
                 "isPrimary": true,
@@ -2494,7 +2506,7 @@ import { ContentContainer } from '../common/containers/ContentContainer';
 
 function validateVideoGame(videoGame) {
   const rules = [
-    { type: Validator.NotEmpty, property: 'title', message: 'required' }
+    { type: Validator.NotEmpty, property: 'title', message: 'required' },
   ];
 
   const state = validate(rules, videoGame);

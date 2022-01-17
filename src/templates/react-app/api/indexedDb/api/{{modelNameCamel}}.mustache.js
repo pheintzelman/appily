@@ -1,4 +1,5 @@
 import { add, update, get, getAll, remove } from '../db/{{modelNameCamel}}';
+import { NotFoundError } from "../lib/Error";
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -16,7 +17,12 @@ export async function get{{modelNamePascal}}(id) {
     return null;
   }
 
-  return await get(id);
+  const {{modelNameCamel}} = await get(id);
+  if(!{{modelNameCamel}}){
+    throw NotFoundError();
+  }
+
+  return {{modelNameCamel}};
 }
 
 export async function get{{pluralModelNamePascal}}() {
@@ -38,4 +44,12 @@ export async function remove{{modelNamePascal}}(id) {
   }
 
   return await remove(id);
+}
+
+export const api = {
+  add: add{{modelNamePascal}},
+  get: get{{modelNamePascal}},
+  getCollection: get{{modelNamePascal}}Collection,
+  update: update{{modelNamePascal}},
+  remove: remove{{modelNamePascal}}
 }

@@ -1,8 +1,38 @@
+v. 0.3.1-alpha
+
+- Allow directives to be grouped
+
+v. 0.3.0-alpha
+
+- react-app template: postgres support
+- Fixed kebab case name
+- Added snake case
+
+v. 0.2.2-alpha
+
+- react-app template: Express In-Memory header
+- react-app template: In-Memory header session storage setting
+
+v. 0.2.1-alpha
+
+- Added overwrite option
+- Improved test coverage
+- Removed full dir from test logs
+- react-app template: fix home css issue
+
+v. 0.2.0-alpha
+
+- react-app template: Improved error handling
+- react-app template: Component clean-up
+- react-app template: CSS clean-up
+- react-app template: Express support
+- react-app template: Env support
+
 v. 0.1.1-alpha
 
-- set defaults values on config not view model
-- normalize config now converts objects to arrays
-- decouple getViewModel and runDirectives
+- Set defaults values on config not view model
+- Normalize config now converts objects to arrays
+- Decouple getViewModel and runDirectives
 
 v. 0.1.0-alpha
 
@@ -11,9 +41,9 @@ v. 0.1.0-alpha
 
 v. 0.0.14-prealpha
 
-- rebranded from `create-app` to `appily`
-- fixed tabbing in `.appily` config file
-- removed component logic from view model
+- Rebranded from `create-app` to `appily`
+- Fixed tabbing in `.appily` config file
+- Removed component logic from view model
 
 v. 0.0.13-prealpha
 

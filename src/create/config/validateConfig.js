@@ -12,7 +12,14 @@ function validateModelProperties({
   model: { modelName, properties },
   allowedTypes
 }) {
+<<<<<<< HEAD
   properties.forEach(({ propertyName, type }) => {
+=======
+  properties.forEach((property) => {
+    const { propertyName, model } = property;
+    const type = model ? model : property.type;
+
+>>>>>>> 1ed0e9986e2ca816ae367b021f8dcaeffe6a1b1b
     if (type === modelName) {
       logger.warn(TypeSelfReferenced(modelName, propertyName));
     }
@@ -32,7 +39,6 @@ function validateModels(config, manifesto) {
   }
 
   const customTypes = models.map((model) => model.modelName);
-
   models.forEach((model) => {
     validateModelProperties({
       model,

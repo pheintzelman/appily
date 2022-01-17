@@ -1,10 +1,11 @@
 {
-  "name": "{{appNameSnake}}",
+  "name": "{{appNameKebab}}",
   "version": "{{templateVersion}}",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@material-ui/data-grid": "^4.0.0-alpha.33",
+    "@material-ui/lab": "^4.0.0-alpha.57",
     "@material-ui/icons": "^4.11.2",
     "@testing-library/jest-dom": "^5.13.0",
     "@testing-library/react": "^11.2.7",
@@ -14,9 +15,10 @@
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
-    {{#packages}}
-    "{{package}}": "{{version}}",
-    {{/packages}}
+    "react-loading-skeleton": "2.2.0",
+    {{#flags.indexedDB}}
+    "idb": "^6.1.2",
+    {{/flags.indexedDB}}
     "web-vitals": "^1.1.2"
   },
   "scripts": {

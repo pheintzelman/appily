@@ -5,18 +5,26 @@ Array [
   Object {
     "TRACE": Object {
       "viewModel": Object {
+        "animals": Array [
+          "monkey",
+        ],
         "appName": "Test App",
         "appNameCamel": "testApp",
+        "appNameKebab": "test-app",
         "appNamePascal": "TestApp",
         "appNameSentenceCase": "test app",
-        "appNameSnake": "test-app",
+        "appNameSnake": "test_app",
         "configString": " {
-  \\"dir\\": \\"tests/app\\",
+  \\"dir\\": \\"tests/app/testApps\\",
   \\"name\\": \\"Test App\\",
   \\"template\\": \\"test\\",
   \\"models\\": []
  }",
-        "dir": "tests/app/test-app",
+        "dir": "tests/app/testApps/test-app",
+        "flags": Object {
+          "sequelize": false,
+          "vanilla": true,
+        },
         "models": Array [],
         "templateName": "test",
         "templateVersion": "0.0.1",
@@ -26,49 +34,105 @@ Array [
   Object {
     "TRACE": Object {
       "normalizedConfig": Object {
-        "dir": "tests/app",
+        "dir": "tests/app/testApps",
         "models": Array [],
         "name": "Test App",
         "template": "test",
+      },
+      "normalizedManifesto": Object {
+        "directives": Array [
+          Object {
+            "directive": Object {
+              "args": Object {
+                "dest": "",
+                "src": "app",
+              },
+              "command": "copy",
+            },
+            "option": "ui:vanilla",
+          },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "animals": Array [
+                  "monkey",
+                ],
+              },
+              "command": "viewModel",
+            },
+            "option": "ui:vanilla",
+          },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "animals": Array [
+                  "monkey",
+                ],
+              },
+              "command": "viewModel",
+            },
+            "option": "ui:chocolate",
+          },
+        ],
+        "name": "test",
+        "options": Object {
+          "api": Array [],
+          "db": Array [],
+          "ui": Array [
+            "vanilla",
+            "chocolate",
+          ],
+        },
+        "version": "0.0.1",
       },
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/test-app/UI",
+      "dest": "tests/app/testApps/test-app/UI",
       "msg": "mkdir",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/test-app/UI",
+      "dest": "tests/app/testApps/test-app/UI",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/test/app/UI",
+      "src": "appily/src/templates/test/app/UI",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/test-app",
+      "dest": "tests/app/testApps/test-app",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/test/app",
+      "src": "appily/src/templates/test/app",
     },
   },
   Object {
-    "INFO": "Test App created, in dir tests/app/test-app",
+    "TRACE": Object {
+      "msg": "Add to view model",
+      "property": Object {
+        "animals": Array [
+          "monkey",
+        ],
+      },
+    },
   },
   Object {
-    "DEBUG": "File rendered: tests/app/test-app/UI/index.html",
+    "INFO": "Test App created, in dir tests/app/testApps/test-app",
   },
   Object {
-    "DEBUG": "File copied: tests/app/test-app/helloWorld.js",
+    "DEBUG": "File rendered: tests/app/testApps/test-app/UI/index.html",
   },
   Object {
-    "DEBUG": "Dir created: tests/app/test-app",
+    "DEBUG": "File copied: tests/app/testApps/test-app/helloWorld.js",
+  },
+  Object {
+    "DEBUG": "Dir created: tests/app/testApps/test-app",
   },
 ]
 `;
 
-exports[`Test template tests/app/test-app/UI/index.html should match snapshot 1`] = `
+exports[`Test template tests/app/testApps/test-app/UI/index.html should match snapshot 1`] = `
 "<html>
   <body>
     <h1>Welcome to Test App!</h1>
@@ -77,7 +141,7 @@ exports[`Test template tests/app/test-app/UI/index.html should match snapshot 1`
 "
 `;
 
-exports[`Test template tests/app/test-app/helloWorld.js should match snapshot 1`] = `
+exports[`Test template tests/app/testApps/test-app/helloWorld.js should match snapshot 1`] = `
 "function helloWorld() {
   console.log('Hello World');
 }

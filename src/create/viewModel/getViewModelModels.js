@@ -16,7 +16,8 @@ function getDefaultState(properties) {
 
 function getViewModelModel(model, _, models) {
   const { modelName, pluralName } = model;
-  const properties = getViewModelProperties(model.properties);
+  const relationships = getModelRelationships(models, model);
+  const properties = getViewModelProperties(model.properties, relationships);
   const primaryProperty = getPrimaryProperty(model.properties);
   const relationships = getModelRelationships(models, model);
   logger.info({ modelName, relationships });

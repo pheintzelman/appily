@@ -1,32 +1,19 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Container, CircularProgress } from "@material-ui/core";
 import AddIcon from '@material-ui/icons/Add';
-import { Center } from "../common/Center";
 import { get{{pluralModelNamePascal}} } from "../../api/{{modelNameCamel}}";
 import { DataGrid } from "@material-ui/data-grid";
-import { Header } from "../../components/common/Header";
 {{#componentImports}}
+{{#component.cell}}
 import { {{component.cell}} } from '../types/{{component.cell}}';
+{{/component.cell}}
 {{/componentImports}}
-
-function loading() {
-  return (
-    <Container
-      maxWidth="sm"
-      className="Container Collection {{modelNamePascal}}Collection"
-    >
-      <Header title="{{pluralModelName}}"/>
-      <Center className="loading">
-        <CircularProgress />
-      </Center>
-    </Container>
-  );
-}
+import { ContentContainer } from "../common/containers/ContentContainer";
 
 function getColumns() {
   return [
     {{#properties}}
+    {{^isModel}}
     {{#isPrimary}}
     {
       field: "{{propertyNameCamel}}",
@@ -54,12 +41,14 @@ function getColumns() {
       },
     },
     {{/isPrimary}}
+    {{/isModel}}
     {{/properties}}
   ];
 }
 
 export function {{modelNamePascal}}Collection() {
   const [{{pluralModelNameCamel}}, set{{pluralModelNamePascal}}] = useState([]);
+  const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -67,25 +56,27 @@ export function {{modelNamePascal}}Collection() {
   }, []);
 
   async function getAll() {
-    setIsLoading(true);
-    const {{pluralModelNameCamel}} = await get{{pluralModelNamePascal}}();
-    console.log({{=<% %>=}}{<%pluralModelNameCamel%>}<%={{ }}=%>);
-    set{{pluralModelNamePascal}}({{pluralModelNameCamel}});
+    try {
+      setIsLoading(true);
+      const {{pluralModelNameCamel}} = await get{{pluralModelNamePascal}}();
+      console.log({{=<% %>=}}{<%pluralModelNameCamel%>}<%={{ }}=%>);
+      set{{pluralModelNamePascal}}({{pluralModelNameCamel}});
+    } catch (error) {
+      setError(error);
+    }
+    
     setIsLoading(false);
-  }
-
-  if (isLoading) {
-    return loading();
   }
 
   const actions = [{ Icon: AddIcon, to: "{{modelNamePascal}}", label: "Add" }];
 
   return (
-    <Container
-      maxWidth="sm"
-      className="Container Collection {{modelNamePascal}}Collection"
+    <ContentContainer
+      title="{{pluralModelName}}"
+      error={error}
+      loading={isLoading}
+      actions={actions}
     >
-      <Header title="{{pluralModelName}}" actions={actions}/>
       <div style={{=<% %>=}}{{ display: "flex", height: "100%" }}<%={{ }}=%>>
         <div className="test" style={{=<% %>=}}{{ flexGrow: 1 }}<%={{ }}=%>>
           <DataGrid
@@ -96,6 +87,6 @@ export function {{modelNamePascal}}Collection() {
           />
         </div>
       </div>
-    </Container>
+    </ContentContainer>
   );
 }

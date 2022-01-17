@@ -1,6 +1,6 @@
 export const DefaultAppName = 'app';
 export const DefaultTemplate = 'react-app';
-export const TemplateExt = '.mustache';
+export const TemplateExt = 'mustache.';
 export const ManifestoFileName = 'manifesto.json';
 export const DefaultPluralSuffix = 'Collection';
 export const Directive = {
@@ -20,7 +20,14 @@ export const AllowedConfigProperties = [
 ];
 export const Type = {
   Boolean: 'Boolean',
-  String: 'String'
+  String: 'String',
+  Model: 'Model'
+};
+export const Relationship = {
+  OneToOne: 'OneToOne',
+  ManyToOne: 'ManyToOne',
+  OneToMany: 'OneToMany',
+  ManyToMany: 'ManyToMany'
 };
 export const Relationship = {
   OneToOne: 'OneToOne',

@@ -1,0 +1,29 @@
+{
+  "name": "{{appNameKebab}}-api",
+  "version": "{{templateVersion}}",
+  "main": "src/api.js",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "express": "4.17.1",
+    "http-status-codes": "2.1.4",
+    {{#flags.sequelize}}
+    "sequelize": "6.6.5",
+    {{/flags.sequelize}}
+    {{#flags.postgres}}
+    "pg": "8.7.1",
+    "pg-hstore": "2.3.4"
+    {{/flags.postgres}}
+  },
+  "scripts": {
+    "start": "node src/api.js",
+    {{#flags.postgres}}
+    "db:up": "docker-compose -f docker/docker-compose.yml up",
+    {{/flags.postgres}}
+    {{#flags.sequelize}}
+    "db:reset": "node scripts/dbReset.js",
+    "db:sync": "node scripts/dbSync.js",
+    {{/flags.sequelize}}
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

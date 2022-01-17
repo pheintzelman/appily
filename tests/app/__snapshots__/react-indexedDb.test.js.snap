@@ -7,11 +7,12 @@ Array [
       "viewModel": Object {
         "appName": "Video Game App IndexedDB",
         "appNameCamel": "videoGameAppIndexeddb",
+        "appNameKebab": "video-game-app-indexeddb",
         "appNamePascal": "VideoGameAppIndexeddb",
         "appNameSentenceCase": "video game app indexeddb",
-        "appNameSnake": "video-game-app-indexeddb",
+        "appNameSnake": "video_game_app_indexeddb",
         "configString": " {
-  \\"dir\\": \\"tests/app\\",
+  \\"dir\\": \\"tests/app/testApps\\",
   \\"name\\": \\"Video Game App IndexedDB\\",
   \\"template\\": \\"react-app\\",
   \\"api\\": \\"indexedDB\\",
@@ -43,7 +44,12 @@ Array [
     }
   ]
  }",
-        "dir": "tests/app/video-game-app-indexeddb",
+        "dir": "tests/app/testApps/video-game-app-indexeddb",
+        "flags": Object {
+          "indexedDB": true,
+          "react": true,
+          "sequelize": false,
+        },
         "models": Array [
           Object {
             "componentImports": Array [
@@ -58,16 +64,19 @@ Array [
             "defaultState": "{ title: '', yearPublished: '' }",
             "modelName": "Video Game",
             "modelNameCamel": "videoGame",
+            "modelNameKebab": "video-game",
             "modelNamePascal": "VideoGame",
             "modelNameSentenceCase": "video game",
-            "modelNameSnake": "video-game",
+            "modelNameSnake": "video_game",
             "pluralModelName": "Video Games",
             "pluralModelNameCamel": "videoGames",
+            "pluralModelNameKebab": "video-games",
             "pluralModelNamePascal": "VideoGames",
             "pluralModelNameSentenceCase": "video games",
-            "pluralModelNameSnake": "video-games",
+            "pluralModelNameSnake": "video_games",
             "primaryProperty": "Title",
             "primaryPropertyCamel": "title",
+            "primaryPropertyKebab": "title",
             "primaryPropertyPascal": "Title",
             "primaryPropertySentenceCase": "title",
             "primaryPropertySnake": "title",
@@ -85,6 +94,7 @@ Array [
                 "isString": true,
                 "propertyName": "Title",
                 "propertyNameCamel": "title",
+                "propertyNameKebab": "title",
                 "propertyNamePascal": "Title",
                 "propertyNameSentenceCase": "title",
                 "propertyNameSnake": "title",
@@ -103,9 +113,10 @@ Array [
                 "isString": true,
                 "propertyName": "Year Published",
                 "propertyNameCamel": "yearPublished",
+                "propertyNameKebab": "year-published",
                 "propertyNamePascal": "YearPublished",
                 "propertyNameSentenceCase": "year published",
-                "propertyNameSnake": "year-published",
+                "propertyNameSnake": "year_published",
                 "type": "String",
               },
             ],
@@ -123,16 +134,19 @@ Array [
             "defaultState": "{ name: '' }",
             "modelName": "Publisher",
             "modelNameCamel": "publisher",
+            "modelNameKebab": "publisher",
             "modelNamePascal": "Publisher",
             "modelNameSentenceCase": "publisher",
             "modelNameSnake": "publisher",
             "pluralModelName": "Publisher Collection",
             "pluralModelNameCamel": "publisherCollection",
+            "pluralModelNameKebab": "publisher-collection",
             "pluralModelNamePascal": "PublisherCollection",
             "pluralModelNameSentenceCase": "publisher collection",
-            "pluralModelNameSnake": "publisher-collection",
+            "pluralModelNameSnake": "publisher_collection",
             "primaryProperty": "Name",
             "primaryPropertyCamel": "name",
+            "primaryPropertyKebab": "name",
             "primaryPropertyPascal": "Name",
             "primaryPropertySentenceCase": "name",
             "primaryPropertySnake": "name",
@@ -150,6 +164,7 @@ Array [
                 "isString": true,
                 "propertyName": "Name",
                 "propertyNameCamel": "name",
+                "propertyNameKebab": "name",
                 "propertyNamePascal": "Name",
                 "propertyNameSentenceCase": "name",
                 "propertyNameSnake": "name",
@@ -158,14 +173,8 @@ Array [
             ],
           },
         ],
-        "packages": Array [
-          Object {
-            "package": "idb",
-            "version": "^6.1.2",
-          },
-        ],
         "templateName": "react-app",
-        "templateVersion": "0.4.0",
+        "templateVersion": "0.6.0",
       },
     },
   },
@@ -174,7 +183,7 @@ Array [
       "normalizedConfig": Object {
         "api": "indexedDB",
         "db": "indexedDB",
-        "dir": "tests/app",
+        "dir": "tests/app/testApps",
         "models": Array [
           Object {
             "modelName": "Video Game",
@@ -204,178 +213,403 @@ Array [
         "name": "Video Game App IndexedDB",
         "template": "react-app",
       },
+      "normalizedManifesto": Object {
+        "allowedTypes": Array [
+          "String",
+          "Boolean",
+        ],
+        "directives": Array [
+          Object {
+            "directive": Object {
+              "args": Object {
+                "dest": "client",
+                "src": "react/base",
+              },
+              "command": "copy",
+            },
+            "option": "ui:react",
+          },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "dest": "client/src/components",
+                "property": "models",
+                "src": "react/modelComponents",
+              },
+              "command": "loop",
+            },
+            "option": "ui:react",
+          },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "method": "addComponents",
+                "path": "./react/viewModelTransform/addComponents.js",
+              },
+              "command": "viewModelTransform",
+            },
+            "option": "ui:react",
+          },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "dest": "client/src/api",
+                "property": "models",
+                "src": "api/stub/api",
+              },
+              "command": "loop",
+            },
+            "option": "api:stub",
+          },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "dest": "client/src/api",
+                "property": "models",
+                "src": "api/indexedDb/api",
+              },
+              "command": "loop",
+            },
+            "option": "api:indexedDB",
+          },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "dest": "server",
+                "src": "api/express/base",
+              },
+              "command": "copy",
+            },
+            "option": "api:express",
+          },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "dest": "server/src/rest/endpoints",
+                "property": "models",
+                "src": "api/express/endpoints",
+              },
+              "command": "loop",
+            },
+            "option": "api:express",
+          },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "dest": "client/src/api",
+                "src": "api/express/client/api",
+              },
+              "command": "copy",
+            },
+            "option": "api:express",
+          },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "dest": "client/src/api/",
+                "property": "models",
+                "src": "api/express/client/models",
+              },
+              "command": "loop",
+            },
+            "option": "api:express",
+          },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "dest": "client/src/db",
+                "src": "db/indexedDb/db",
+              },
+              "command": "copy",
+            },
+            "option": "db:indexedDB",
+          },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "dest": "client/src/db",
+                "property": "models",
+                "src": "db/indexedDb/loop",
+              },
+              "command": "loop",
+            },
+            "option": "db:indexedDB",
+          },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "dest": "server/docker",
+                "src": "db/postgres/docker",
+              },
+              "command": "copy",
+            },
+            "option": "db:postgres",
+          },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "dest": "server/src/db",
+                "src": "db/sequelize/db",
+              },
+              "command": "copy",
+            },
+            "option": "db:postgres",
+          },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "dest": "server/src/db/models",
+                "property": "models",
+                "src": "db/sequelize/models",
+              },
+              "command": "loop",
+            },
+            "option": "db:postgres",
+          },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "method": "transform",
+                "path": "./db/sequelize/viewModelTransform/transform.js",
+              },
+              "command": "viewModelTransform",
+            },
+            "option": "db:postgres",
+          },
+          Object {
+            "directive": Object {
+              "args": Object {
+                "dest": "server/scripts",
+                "src": "db/sequelize/scripts",
+              },
+              "command": "copy",
+            },
+            "option": "db:postgres",
+          },
+        ],
+        "name": "react-app",
+        "options": Object {
+          "api": Array [
+            "express",
+            "indexedDB",
+            "stub",
+            "none",
+          ],
+          "db": Array [
+            "postgres",
+            "indexedDB",
+            "none",
+          ],
+          "ui": Array [
+            "react",
+          ],
+        },
+        "version": "0.6.0",
+      },
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app-indexeddb/src/db",
+      "dest": "tests/app/testApps/video-game-app-indexeddb/client/src/lib",
       "msg": "mkdir",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app-indexeddb/src/components/types",
+      "dest": "tests/app/testApps/video-game-app-indexeddb/client/src/db",
       "msg": "mkdir",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app-indexeddb/src/components/common",
+      "dest": "tests/app/testApps/video-game-app-indexeddb/client/src/components/types",
       "msg": "mkdir",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app-indexeddb/src/components/VideoGame",
+      "dest": "tests/app/testApps/video-game-app-indexeddb/client/src/components/common/containers",
       "msg": "mkdir",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app-indexeddb/src/components/Publisher",
+      "dest": "tests/app/testApps/video-game-app-indexeddb/client/src/components/common",
       "msg": "mkdir",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app-indexeddb/src/components/App",
+      "dest": "tests/app/testApps/video-game-app-indexeddb/client/src/components/VideoGame",
       "msg": "mkdir",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app-indexeddb/src/components",
+      "dest": "tests/app/testApps/video-game-app-indexeddb/client/src/components/Publisher",
       "msg": "mkdir",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app-indexeddb/src/api",
+      "dest": "tests/app/testApps/video-game-app-indexeddb/client/src/components/App",
       "msg": "mkdir",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app-indexeddb/src",
+      "dest": "tests/app/testApps/video-game-app-indexeddb/client/src/components",
       "msg": "mkdir",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app-indexeddb/public",
+      "dest": "tests/app/testApps/video-game-app-indexeddb/client/src/api",
       "msg": "mkdir",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app-indexeddb/src/components/VideoGame",
-      "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/react/modelComponents/{{modelNamePascal}}",
+      "dest": "tests/app/testApps/video-game-app-indexeddb/client/src",
+      "msg": "mkdir",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app-indexeddb/src/components/Publisher",
-      "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/react/modelComponents/{{modelNamePascal}}",
+      "dest": "tests/app/testApps/video-game-app-indexeddb/client/public",
+      "msg": "mkdir",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app-indexeddb/src/components",
-      "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/react/modelComponents",
+      "dest": "tests/app/testApps/video-game-app-indexeddb/client",
+      "msg": "mkdir",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app-indexeddb/src/components",
+      "dest": "tests/app/testApps/video-game-app-indexeddb/client/src/components/VideoGame",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/react/modelComponents",
+      "src": "appily/src/templates/react-app/react/modelComponents/{{modelNamePascal}}",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app-indexeddb/src/components/types",
+      "dest": "tests/app/testApps/video-game-app-indexeddb/client/src/components/Publisher",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/react/base/src/components/types",
+      "src": "appily/src/templates/react-app/react/modelComponents/{{modelNamePascal}}",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app-indexeddb/src/components/common",
+      "dest": "tests/app/testApps/video-game-app-indexeddb/client/src/components",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/react/base/src/components/common",
+      "src": "appily/src/templates/react-app/react/modelComponents",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app-indexeddb/src/components/App",
+      "dest": "tests/app/testApps/video-game-app-indexeddb/client/src/components",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/react/base/src/components/App",
+      "src": "appily/src/templates/react-app/react/modelComponents",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app-indexeddb/src/components",
+      "dest": "tests/app/testApps/video-game-app-indexeddb/client/src/lib",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/react/base/src/components",
+      "src": "appily/src/templates/react-app/react/base/src/lib",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app-indexeddb/src",
+      "dest": "tests/app/testApps/video-game-app-indexeddb/client/src/components/types",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/react/base/src",
+      "src": "appily/src/templates/react-app/react/base/src/components/types",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app-indexeddb/public",
+      "dest": "tests/app/testApps/video-game-app-indexeddb/client/src/components/common/containers",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/react/base/public",
+      "src": "appily/src/templates/react-app/react/base/src/components/common/containers",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app-indexeddb",
+      "dest": "tests/app/testApps/video-game-app-indexeddb/client/src/components/common",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/react/base",
+      "src": "appily/src/templates/react-app/react/base/src/components/common",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app-indexeddb/src/db",
+      "dest": "tests/app/testApps/video-game-app-indexeddb/client/src/components/App",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/db/indexedDb/loop",
+      "src": "appily/src/templates/react-app/react/base/src/components/App",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app-indexeddb/src/db",
+      "dest": "tests/app/testApps/video-game-app-indexeddb/client/src/components",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/db/indexedDb/loop",
+      "src": "appily/src/templates/react-app/react/base/src/components",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app-indexeddb/src/db",
+      "dest": "tests/app/testApps/video-game-app-indexeddb/client/src",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/db/indexedDb/db",
+      "src": "appily/src/templates/react-app/react/base/src",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app-indexeddb/src/api",
+      "dest": "tests/app/testApps/video-game-app-indexeddb/client/public",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/api/indexedDb/api",
+      "src": "appily/src/templates/react-app/react/base/public",
     },
   },
   Object {
     "TRACE": Object {
-      "dest": "tests/app/video-game-app-indexeddb/src/api",
+      "dest": "tests/app/testApps/video-game-app-indexeddb/client",
       "msg": "copyDir",
-      "src": "/Users/paulheintzelman/Documents/projects/appily/src/templates/react-app/api/indexedDb/api",
+      "src": "appily/src/templates/react-app/react/base",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/testApps/video-game-app-indexeddb/client/src/db",
+      "msg": "copyDir",
+      "src": "appily/src/templates/react-app/db/indexedDb/loop",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/testApps/video-game-app-indexeddb/client/src/db",
+      "msg": "copyDir",
+      "src": "appily/src/templates/react-app/db/indexedDb/loop",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/testApps/video-game-app-indexeddb/client/src/db",
+      "msg": "copyDir",
+      "src": "appily/src/templates/react-app/db/indexedDb/db",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/testApps/video-game-app-indexeddb/client/src/api",
+      "msg": "copyDir",
+      "src": "appily/src/templates/react-app/api/indexedDb/api",
+    },
+  },
+  Object {
+    "TRACE": Object {
+      "dest": "tests/app/testApps/video-game-app-indexeddb/client/src/api",
+      "msg": "copyDir",
+      "src": "appily/src/templates/react-app/api/indexedDb/api",
     },
   },
   Object {
@@ -384,11 +618,12 @@ Array [
       "transformedViewModel": Object {
         "appName": "Video Game App IndexedDB",
         "appNameCamel": "videoGameAppIndexeddb",
+        "appNameKebab": "video-game-app-indexeddb",
         "appNamePascal": "VideoGameAppIndexeddb",
         "appNameSentenceCase": "video game app indexeddb",
-        "appNameSnake": "video-game-app-indexeddb",
+        "appNameSnake": "video_game_app_indexeddb",
         "configString": " {
-  \\"dir\\": \\"tests/app\\",
+  \\"dir\\": \\"tests/app/testApps\\",
   \\"name\\": \\"Video Game App IndexedDB\\",
   \\"template\\": \\"react-app\\",
   \\"api\\": \\"indexedDB\\",
@@ -420,7 +655,12 @@ Array [
     }
   ]
  }",
-        "dir": "tests/app/video-game-app-indexeddb",
+        "dir": "tests/app/testApps/video-game-app-indexeddb",
+        "flags": Object {
+          "indexedDB": true,
+          "react": true,
+          "sequelize": false,
+        },
         "models": Array [
           Object {
             "componentImports": Array [
@@ -435,16 +675,19 @@ Array [
             "defaultState": "{ title: '', yearPublished: '' }",
             "modelName": "Video Game",
             "modelNameCamel": "videoGame",
+            "modelNameKebab": "video-game",
             "modelNamePascal": "VideoGame",
             "modelNameSentenceCase": "video game",
-            "modelNameSnake": "video-game",
+            "modelNameSnake": "video_game",
             "pluralModelName": "Video Games",
             "pluralModelNameCamel": "videoGames",
+            "pluralModelNameKebab": "video-games",
             "pluralModelNamePascal": "VideoGames",
             "pluralModelNameSentenceCase": "video games",
-            "pluralModelNameSnake": "video-games",
+            "pluralModelNameSnake": "video_games",
             "primaryProperty": "Title",
             "primaryPropertyCamel": "title",
+            "primaryPropertyKebab": "title",
             "primaryPropertyPascal": "Title",
             "primaryPropertySentenceCase": "title",
             "primaryPropertySnake": "title",
@@ -462,6 +705,7 @@ Array [
                 "isString": true,
                 "propertyName": "Title",
                 "propertyNameCamel": "title",
+                "propertyNameKebab": "title",
                 "propertyNamePascal": "Title",
                 "propertyNameSentenceCase": "title",
                 "propertyNameSnake": "title",
@@ -480,9 +724,10 @@ Array [
                 "isString": true,
                 "propertyName": "Year Published",
                 "propertyNameCamel": "yearPublished",
+                "propertyNameKebab": "year-published",
                 "propertyNamePascal": "YearPublished",
                 "propertyNameSentenceCase": "year published",
-                "propertyNameSnake": "year-published",
+                "propertyNameSnake": "year_published",
                 "type": "String",
               },
             ],
@@ -500,16 +745,19 @@ Array [
             "defaultState": "{ name: '' }",
             "modelName": "Publisher",
             "modelNameCamel": "publisher",
+            "modelNameKebab": "publisher",
             "modelNamePascal": "Publisher",
             "modelNameSentenceCase": "publisher",
             "modelNameSnake": "publisher",
             "pluralModelName": "Publisher Collection",
             "pluralModelNameCamel": "publisherCollection",
+            "pluralModelNameKebab": "publisher-collection",
             "pluralModelNamePascal": "PublisherCollection",
             "pluralModelNameSentenceCase": "publisher collection",
-            "pluralModelNameSnake": "publisher-collection",
+            "pluralModelNameSnake": "publisher_collection",
             "primaryProperty": "Name",
             "primaryPropertyCamel": "name",
+            "primaryPropertyKebab": "name",
             "primaryPropertyPascal": "Name",
             "primaryPropertySentenceCase": "name",
             "primaryPropertySnake": "name",
@@ -527,6 +775,7 @@ Array [
                 "isString": true,
                 "propertyName": "Name",
                 "propertyNameCamel": "name",
+                "propertyNameKebab": "name",
                 "propertyNamePascal": "Name",
                 "propertyNameSentenceCase": "name",
                 "propertyNameSnake": "name",
@@ -536,197 +785,205 @@ Array [
           },
         ],
         "templateName": "react-app",
-        "templateVersion": "0.4.0",
+        "templateVersion": "0.6.0",
       },
     },
   },
   Object {
-    "TRACE": Object {
-      "msg": "Add to view model",
-      "property": Object {
-        "packages": Array [
-          Object {
-            "package": "idb",
-            "version": "^6.1.2",
-          },
-        ],
-      },
+    "INFO": Object {
+      "dir": "tests/app/testApps/video-game-app-indexeddb",
+      "mode": "overwrite",
     },
   },
   Object {
-    "INFO": "Video Game App IndexedDB created, in dir tests/app/video-game-app-indexeddb",
+    "INFO": "Video Game App IndexedDB created, in dir tests/app/testApps/video-game-app-indexeddb",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/db/videoGame.js",
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app-indexeddb/client/src/db/videoGame.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/db/publisher.js",
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app-indexeddb/client/src/db/publisher.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/db/db.js",
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app-indexeddb/client/src/db/db.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/components/VideoGame/VideoGameRouter.js",
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app-indexeddb/client/src/components/VideoGame/VideoGameRouter.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/components/VideoGame/VideoGameForm.js",
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app-indexeddb/client/src/components/VideoGame/VideoGameForm.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/components/VideoGame/VideoGameCollection.js",
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app-indexeddb/client/src/components/VideoGame/VideoGameCollection.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/components/VideoGame/VideoGame.js",
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app-indexeddb/client/src/components/VideoGame/VideoGame.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/components/VideoGame/EditVideoGame.js",
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app-indexeddb/client/src/components/VideoGame/EditVideoGame.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/components/VideoGame/AddVideoGame.js",
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app-indexeddb/client/src/components/VideoGame/AddVideoGame.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/components/Publisher/PublisherRouter.js",
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app-indexeddb/client/src/components/Publisher/PublisherRouter.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/components/Publisher/PublisherForm.js",
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app-indexeddb/client/src/components/Publisher/PublisherForm.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/components/Publisher/PublisherCollection.js",
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app-indexeddb/client/src/components/Publisher/PublisherCollection.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/components/Publisher/Publisher.js",
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app-indexeddb/client/src/components/Publisher/Publisher.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/components/Publisher/EditPublisher.js",
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app-indexeddb/client/src/components/Publisher/EditPublisher.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/components/Publisher/AddPublisher.js",
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app-indexeddb/client/src/components/Publisher/AddPublisher.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/components/Home.js",
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app-indexeddb/client/src/components/Home.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/components/App/Drawer.js",
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app-indexeddb/client/src/components/App/Drawer.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/components/App/AppHeader.js",
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app-indexeddb/client/src/components/App/AppHeader.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/api/videoGame.js",
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app-indexeddb/client/src/api/videoGame.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/api/publisher.js",
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app-indexeddb/client/src/api/publisher.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/App.test.js",
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app-indexeddb/client/src/App.test.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/src/App.js",
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app-indexeddb/client/src/App.js",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/package.json",
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app-indexeddb/client/package.json",
   },
   Object {
-    "DEBUG": "File rendered: tests/app/video-game-app-indexeddb/.appily",
+    "DEBUG": "File rendered: tests/app/testApps/video-game-app-indexeddb/client/.appily",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/setupTests.js",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/setupTests.js",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/reportWebVitals.js",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/reportWebVitals.js",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/logo.svg",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/logo.svg",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/index.js",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/lib/Error.js",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/index.css",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/index.js",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/components/types/StringView.js",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/index.css",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/components/types/StringEdit.js",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/components/types/StringView.js",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/components/types/StringCell.js",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/components/types/StringEdit.js",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/components/types/BooleanView.js",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/components/types/StringCell.js",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/components/types/BooleanEdit.js",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/components/types/BooleanView.js",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/components/types/BooleanCell.scss",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/components/types/BooleanEdit.js",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/components/types/BooleanCell.js",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/components/types/BooleanCell.scss",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/components/common/HeaderMenu.js",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/components/types/BooleanCell.js",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/components/common/Header.scss",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/components/common/containers/MessageContainer.js",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/components/common/Header.js",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/components/common/containers/LoadingContainer.js",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/components/common/ConfirmDialog.js",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/components/common/containers/ErrorContainer.js",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/components/common/Center.scss",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/components/common/containers/ContentContainer.scss",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/components/common/Center.js",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/components/common/containers/ContentContainer.js",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/components/App/Drawer.scss",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/components/common/HeaderMenu.js",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/components/App/AppHeader.scss",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/components/common/Header.scss",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/src/App.scss",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/components/common/Header.js",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/public/robots.txt",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/components/common/ConfirmDialog.js",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/public/manifest.json",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/components/common/Center.scss",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/public/logo512.png",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/components/common/Center.js",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/public/logo192.png",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/components/App/Drawer.scss",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/public/index.html",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/components/App/AppHeader.scss",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/public/favicon.ico",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/src/App.scss",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/README.md",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/public/robots.txt",
   },
   Object {
-    "DEBUG": "File copied: tests/app/video-game-app-indexeddb/.gitignore",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/public/manifest.json",
   },
   Object {
-    "DEBUG": "Dir created: tests/app/video-game-app-indexeddb",
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/public/logo512.png",
+  },
+  Object {
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/public/logo192.png",
+  },
+  Object {
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/public/index.html",
+  },
+  Object {
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/public/favicon.ico",
+  },
+  Object {
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/README.md",
+  },
+  Object {
+    "DEBUG": "File copied: tests/app/testApps/video-game-app-indexeddb/client/.gitignore",
   },
 ]
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/.appily should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/.appily should match snapshot 1`] = `
 "{
   template: \\"react-app\\",
-  version: \\"0.4.0\\",
+  version: \\"0.6.0\\",
   config:  {
-  \\"dir\\": \\"tests/app\\",
+  \\"dir\\": \\"tests/app/testApps\\",
   \\"name\\": \\"Video Game App IndexedDB\\",
   \\"template\\": \\"react-app\\",
   \\"api\\": \\"indexedDB\\",
@@ -761,12 +1018,12 @@ exports[`React template tests/app/video-game-app-indexedDB/.appily should match 
 }"
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/.gitignore should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/.gitignore should match snapshot 1`] = `
 "node_modules
 .DS_Store"
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/README.md should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/README.md should match snapshot 1`] = `
 "# Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -840,10 +1097,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/package.json should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/package.json should match snapshot 1`] = `
 "{
   \\"name\\": \\"video-game-app-indexeddb\\",
-  \\"version\\": \\"0.4.0\\",
+  \\"version\\": \\"0.6.0\\",
   \\"private\\": true,
   \\"dependencies\\": {
     \\"@material-ui/core\\": \\"^4.11.4\\",
@@ -888,7 +1145,7 @@ exports[`React template tests/app/video-game-app-indexedDB/package.json should m
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/public/favicon.ico should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/public/favicon.ico should match snapshot 1`] = `
 "         �  F          )         9  5  @@     �  n  �PNG
 
    
@@ -917,7 +1174,7 @@ eiy��P����򒧡���,S]U��V��֔��Z��o���x
 -�>ۋ���Xբ�}ߨ���;��N��v���θ�1 ����O@&v/��_��\\\\��\\\\�.��+0�;!f����%� JY�O�'/�]_�;��'\\"&N�n	aQ�^ �cx�A��    IEND�B\`�"
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/public/index.html should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/public/index.html should match snapshot 1`] = `
 "<!DOCTYPE html>
 <html lang=\\"en\\">
   <head>
@@ -964,7 +1221,7 @@ exports[`React template tests/app/video-game-app-indexedDB/public/index.html sho
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/public/logo192.png should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/public/logo192.png should match snapshot 1`] = `
 "�PNG
 
    
@@ -1007,7 +1264,7 @@ B8�0�=֑)C�z�@�G *�,��<��H���]������
 w�����(3?}�N��S��<�)Oy�S�k�	��2�$��    IEND�B\`�"
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/public/logo512.png should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/public/logo512.png should match snapshot 1`] = `
 "�PNG
 
    
@@ -1094,7 +1351,7 @@ v��Rt(h���v'9�BX�,~��t��؃/%Y�bX���o�
 ��4+\\"L#��^׉��%�0rx�>��yd�'�frN��$���e4�P0;��4p��Kyё涼z�[�:��0J�0��Y̄#�絉 �7��qWd5&}����8W���ɁnM��l����w�I4uͻ���u�����o�;7N<���6ˋ�F��?=ũyWG�0���h�'�����/n�ub��OI��w�OG��>b�4^-A��jq�������n�sY�e�ğ�����K{pH     ��k_�                  n]������    IEND�B\`�"
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/public/manifest.json should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/public/manifest.json should match snapshot 1`] = `
 "{
   \\"short_name\\": \\"React App\\",
   \\"name\\": \\"Create React App Sample\\",
@@ -1123,14 +1380,14 @@ exports[`React template tests/app/video-game-app-indexedDB/public/manifest.json 
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/public/robots.txt should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/public/robots.txt should match snapshot 1`] = `
 "# https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Disallow:
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/App.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/App.js should match snapshot 1`] = `
 "import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Home } from './components/Home';
 import { VideoGameRouter } from './components/VideoGame/VideoGameRouter';
@@ -1163,7 +1420,7 @@ export default App;
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/App.scss should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/App.scss should match snapshot 1`] = `
 ".App {
   .TextField {
     margin-bottom: 20px;
@@ -1178,34 +1435,6 @@ exports[`React template tests/app/video-game-app-indexedDB/src/App.scss should m
     height: 150px;
   }
 
-  .Container {
-    background-color: white;
-    margin-top: 40px;
-    min-height: 350px;
-    border-radius: 5px;
-    border: solid 1px #ccc;
-    padding: 0;
-
-    .header {
-      display: flex;
-      justify-content: space-between;
-      padding: 1.5rem;
-
-      .headerIcon {
-        height: 48px;
-        margin-top: 18px;
-      }
-    }
-
-    .containerContent {
-      padding: 0px 2rem 2rem 2rem;
-    }
-
-    .datagrid {
-      min-height: 400px;
-    }
-  }
-
   .View {
     .body {
       font-size: 1.4rem;
@@ -1215,7 +1444,7 @@ exports[`React template tests/app/video-game-app-indexedDB/src/App.scss should m
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/App.test.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/App.test.js should match snapshot 1`] = `
 "import { render, screen } from '@testing-library/react';
 import App from './App';
 
@@ -1227,8 +1456,9 @@ test('renders welcome message', () => {
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/api/publisher.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/api/publisher.js should match snapshot 1`] = `
 "import { add, update, get, getAll, remove } from '../db/publisher';
+import { NotFoundError } from \\"../lib/Error\\";
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -1246,7 +1476,12 @@ export async function getPublisher(id) {
     return null;
   }
 
-  return await get(id);
+  const publisher = await get(id);
+  if(!publisher){
+    throw NotFoundError();
+  }
+
+  return publisher;
 }
 
 export async function getPublisherCollection() {
@@ -1272,8 +1507,9 @@ export async function removePublisher(id) {
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/api/videoGame.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/api/videoGame.js should match snapshot 1`] = `
 "import { add, update, get, getAll, remove } from '../db/videoGame';
+import { NotFoundError } from \\"../lib/Error\\";
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -1291,7 +1527,12 @@ export async function getVideoGame(id) {
     return null;
   }
 
-  return await get(id);
+  const videoGame = await get(id);
+  if(!videoGame){
+    throw NotFoundError();
+  }
+
+  return videoGame;
 }
 
 export async function getVideoGames() {
@@ -1317,7 +1558,7 @@ export async function removeVideoGame(id) {
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/components/App/AppHeader.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/App/AppHeader.js should match snapshot 1`] = `
 "import React from 'react';
 import clsx from 'clsx';
 import {
@@ -1373,7 +1614,7 @@ export function AppHeader() {
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/components/App/AppHeader.scss should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/App/AppHeader.scss should match snapshot 1`] = `
 "$drawerWidth: 240px;
 $appBarHeight: 64px;
 
@@ -1404,7 +1645,7 @@ $appBarHeight: 64px;
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/components/App/Drawer.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/App/Drawer.js should match snapshot 1`] = `
 "import { Link } from 'react-router-dom';
 import {
   Drawer as MaterialDrawer,
@@ -1462,7 +1703,7 @@ export function Drawer(props) {
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/components/App/Drawer.scss should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/App/Drawer.scss should match snapshot 1`] = `
 "$drawerWidth: 240px;
 
 .Drawer {
@@ -1486,16 +1727,15 @@ exports[`React template tests/app/video-game-app-indexedDB/src/components/App/Dr
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/components/Home.js should match snapshot 1`] = `
-"import { Container, List, ListItem, ListItemText } from '@material-ui/core';
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/Home.js should match snapshot 1`] = `
+"import { List, ListItem, ListItemText } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import { Header } from \\"./common/Header\\";
+import { ContentContainer } from \\"./common/containers/ContentContainer\\";
 
 export function Home() {
   return (
-    <Container maxWidth=\\"sm\\" className=\\"Container Home\\">
-       <Header title=\\"Welcome to Video Game App IndexedDB!\\"/>
-       <div className=\\"containerContent\\">
+    <ContentContainer title=\\"Welcome to Video Game App IndexedDB!\\">
+      <div className=\\"content\\">
         <List component=\\"nav\\">
           <ListItem button component={Link} to=\\"/VideoGames\\">
             <ListItemText primary=\\"Video Games\\" />
@@ -1505,35 +1745,46 @@ export function Home() {
           </ListItem>
         </List>
       </div>
-    </Container>
+    </ContentContainer>
   );
 }
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/components/Publisher/AddPublisher.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/Publisher/AddPublisher.js should match snapshot 1`] = `
 "import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { addPublisher } from '../../api/publisher';
 import { PublisherForm } from './PublisherForm';
 
 export function AddPublisher() {
+  const [error, setError] = useState(null);
   const [processing, setProcessing] = useState(false);
   const history = useHistory();
 
   async function add(publisher) {
-    setProcessing(true);
-    const id = await addPublisher(publisher);
-    setProcessing(false);
-    history.push(\`/publisher/\${id}\`);
+    try {
+      setProcessing(true);
+      const { id } = await addPublisher(publisher);
+      setProcessing(false);
+      history.push(\`/publisher/\${id}\`);
+    } catch (error) {
+      setError(error);
+      setProcessing(false);
+    }
   }
 
-  return <PublisherForm ctaLabel=\\"Add\\" cta={add} processing={processing} />;
+  return <PublisherForm
+      ctaLabel=\\"Add\\"
+      cta={add}
+      processing={processing}
+      error={error}
+    />
 }
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/components/Publisher/EditPublisher.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/Publisher/EditPublisher.js should match snapshot 1`] = `
 "import { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { getPublisher, updatePublisher } from '../../api/publisher';
@@ -1541,6 +1792,7 @@ import { PublisherForm } from './PublisherForm';
 
 export function EditPublisher() {
   const [publisher, setPublisher] = useState(null);
+  const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [processing, setProcessing] = useState(false);
 
@@ -1553,18 +1805,28 @@ export function EditPublisher() {
   }, [id]);
 
   async function get(id) {
-    setIsLoading(true);
-    const publisher = await getPublisher(id);
-    console.log({ publisher });
-    setPublisher(publisher);
+    try {
+      setIsLoading(true);
+      const publisher = await getPublisher(id);
+      console.log({ publisher });
+      setPublisher(publisher);  
+    } catch (error) {
+      setError(error);
+    }
+    
     setIsLoading(false);
   }
 
   async function save(publisher) {
-    setProcessing(true);
-    await updatePublisher(publisher);
-    setProcessing(false);
-    history.push(\`/publisher/\${id}\`);
+    try {
+      setProcessing(true);
+      await updatePublisher(publisher);
+      setProcessing(false);
+      history.push(\`/publisher/\${id}\`);
+    } catch (error) {
+      setError(error);
+      setProcessing(false);
+    }
   }
 
   return (
@@ -1574,73 +1836,33 @@ export function EditPublisher() {
       isLoading={isLoading}
       processing={processing}
       publisher={publisher}
+      error={error}
     />
   );
 }
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/components/Publisher/Publisher.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/Publisher/Publisher.js should match snapshot 1`] = `
 "import { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-import { Container, CircularProgress } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { Center } from '../common/Center';
 import { getPublisher, removePublisher } from '../../api/publisher';
 import { StringView } from '../types/StringView';
-import { Header } from '../common/Header';
 import { ConfirmDialog } from '../common/ConfirmDialog';
+import { ContentContainer } from \\"../common/containers/ContentContainer\\";
 
-function loading() {
-  return (
-    <Container maxWidth=\\"sm\\" className=\\"Container Publisher\\">
-      <Header title=\\"Publisher\\"/>
-      <Center className=\\"loading\\">
-        <CircularProgress />
-      </Center>
-    </Container>
-  );
-}
-
-function publisherNotFound() {
-  return (
-    <Container maxWidth=\\"sm\\" className=\\"Container Publisher\\">
-      <Header title=\\"Publisher\\"/>
-      <div className=\\"containerContent\\">
-        <h2>Not found</h2>
-      </div>
-    </Container>
-  );
-}
-
-function handleRemovePublisher({ id, setIsLoading, history }) {
+function handleRemovePublisher({ id, setIsLoading, setError, history }) {
   return async () => {
-    setIsLoading(true);
-    await removePublisher(id);
-    history.push(\`/publisherCollection\`);
-  };
-}
-
-function handleConfirmDialogConfrim(setConfirmDialogOpen, onConfirm) {
-  return () => {
-    if (onConfirm) {
-      onConfirm();
+    try {
+      setIsLoading(true);
+      await removePublisher(id);
+      history.push(\`/publisherCollection\`); 
+    } catch (error) {
+      setError(error);
+      setIsLoading(false);
     }
-
-    setConfirmDialogOpen(false);
-  };
-}
-
-function handleConfirmDialogCancel(setConfirmDialogOpen) {
-  return () => {
-    setConfirmDialogOpen(false);
-  };
-}
-
-function openConfirmDialog(setConfirmDialogOpen) {
-  return () => {
-    setConfirmDialogOpen(true);
   };
 }
 
@@ -1657,7 +1879,8 @@ function getDialogText(publisher) {
 export function Publisher() {
   const [publisher, setPublisher] = useState({ name: '' });
   const [isLoading, setIsLoading] = useState(true);
-  const [confirmDialogOpen, setConfirmDialogOpen] = useState(false);
+  const [error, setError] = useState(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
   const history = useHistory();
   const { id: stringId } = useParams();
   const id = parseInt(stringId);
@@ -1667,76 +1890,64 @@ export function Publisher() {
   }, [id]);
 
   async function get(id) {
-    setIsLoading(true);
-    const publisher = await getPublisher(id);
-    console.log({ publisher });
-    setPublisher(publisher);
+    try {
+      setIsLoading(true);
+      const publisher = await getPublisher(id);
+      console.log({ publisher });
+      setPublisher(publisher);
+    } catch (error){
+      setError(error);
+    }
+
     setIsLoading(false);
   }
 
-  if (isLoading) {
-    return loading();
-  }
-
-  if (!publisher) {
-    return publisherNotFound();
-  }
-
-  const headerActions = [
+  const actions = [
     { Icon: EditIcon, to: \`edit/\${id}\`, label: 'Edit' },
     {
       Icon: DeleteIcon,
-      onClick: openConfirmDialog(setConfirmDialogOpen),
+      onClick: () => setDialogOpen(true),
       label: 'Delete'
     }
   ];
 
   return (
-    <Container maxWidth=\\"sm\\" className=\\"Container Publisher\\">
-      <Header title=\\"Publisher\\" actions={headerActions}/>
-      <div className=\\"containerContent\\">
+    <ContentContainer
+      title=\\"Publisher\\"
+      error={error}
+      loading={isLoading}
+      actions={actions}
+      className=\\"Publisher\\"
+    >
+      <div className=\\"content\\">
         <StringView label=\\"Name\\" value={publisher.name} />
       </div>
       <ConfirmDialog
         text={getDialogText(publisher)}
         title=\\"Confirm Delete\\"
-        open={confirmDialogOpen}
-        onCancel={handleConfirmDialogCancel(setConfirmDialogOpen)}
-        onConfirm={handleConfirmDialogConfrim(
-          setConfirmDialogOpen,
-          handleRemovePublisher({ id, setIsLoading, history })
-        )}
+        open={dialogOpen}
+        setOpen={setDialogOpen}
+        onConfirm={handleRemovePublisher({ 
+          id, 
+          setIsLoading, 
+          history, 
+          setError 
+        })}
       />
-    </Container>
+    </ContentContainer>
   );
 }
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/components/Publisher/PublisherCollection.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/Publisher/PublisherCollection.js should match snapshot 1`] = `
 "import { useState, useEffect } from \\"react\\";
 import { Link } from \\"react-router-dom\\";
-import { Container, CircularProgress } from \\"@material-ui/core\\";
 import AddIcon from '@material-ui/icons/Add';
-import { Center } from \\"../common/Center\\";
 import { getPublisherCollection } from \\"../../api/publisher\\";
 import { DataGrid } from \\"@material-ui/data-grid\\";
-import { Header } from \\"../../components/common/Header\\";
 import { StringCell } from '../types/StringCell';
-
-function loading() {
-  return (
-    <Container
-      maxWidth=\\"sm\\"
-      className=\\"Container Collection PublisherCollection\\"
-    >
-      <Header title=\\"Publisher Collection\\"/>
-      <Center className=\\"loading\\">
-        <CircularProgress />
-      </Center>
-    </Container>
-  );
-}
+import { ContentContainer } from \\"../common/containers/ContentContainer\\";
 
 function getColumns() {
   return [
@@ -1757,6 +1968,7 @@ function getColumns() {
 
 export function PublisherCollection() {
   const [publisherCollection, setPublisherCollection] = useState([]);
+  const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -1764,25 +1976,27 @@ export function PublisherCollection() {
   }, []);
 
   async function getAll() {
-    setIsLoading(true);
-    const publisherCollection = await getPublisherCollection();
-    console.log({publisherCollection});
-    setPublisherCollection(publisherCollection);
+    try {
+      setIsLoading(true);
+      const publisherCollection = await getPublisherCollection();
+      console.log({publisherCollection});
+      setPublisherCollection(publisherCollection);
+    } catch (error) {
+      setError(error);
+    }
+    
     setIsLoading(false);
-  }
-
-  if (isLoading) {
-    return loading();
   }
 
   const actions = [{ Icon: AddIcon, to: \\"Publisher\\", label: \\"Add\\" }];
 
   return (
-    <Container
-      maxWidth=\\"sm\\"
-      className=\\"Container Collection PublisherCollection\\"
+    <ContentContainer
+      title=\\"Publisher Collection\\"
+      error={error}
+      loading={isLoading}
+      actions={actions}
     >
-      <Header title=\\"Publisher Collection\\" actions={actions}/>
       <div style={{ display: \\"flex\\", height: \\"100%\\" }}>
         <div className=\\"test\\" style={{ flexGrow: 1 }}>
           <DataGrid
@@ -1793,40 +2007,27 @@ export function PublisherCollection() {
           />
         </div>
       </div>
-    </Container>
+    </ContentContainer>
   );
 }
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/components/Publisher/PublisherForm.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/Publisher/PublisherForm.js should match snapshot 1`] = `
 "import { useState, useEffect } from 'react';
 import {
-  Button,
-  Container,
-  CircularProgress
+  Button
 } from '@material-ui/core';
-import { Center } from '../common/Center';
 import { StringEdit } from '../types/StringEdit';
-import { Header } from \\"../../components/common/Header\\";
-
-function loading() {
-  return (
-    <Container maxWidth=\\"sm\\" className=\\"Container Publisher\\">
-      <Header title=\\"Publisher\\" />
-      <Center className=\\"loading\\">
-        <CircularProgress />
-      </Center>
-    </Container>
-  );
-}
+import { ContentContainer } from \\"../common/containers/ContentContainer\\";
 
 export function PublisherForm({
   publisher: initialState,
   ctaLabel,
   cta,
   isLoading,
-  processing
+  processing,
+  error
 }) {
   const [publisher, setPublisher] = useState(
     initialState ?? { name: '' }
@@ -1850,15 +2051,14 @@ export function PublisherForm({
     };
   }
 
-
-  if (isLoading) {
-    return loading();
-  }
-
   return (
-    <Container maxWidth=\\"sm\\" className=\\"Container PublisherForm\\">
-      <Header title=\\"Publisher\\" />
-      <div className=\\"containerContent\\">
+    <ContentContainer 
+      title=\\"Publisher\\"
+      error={error}
+      loading={isLoading}
+      className=\\"PublisherForm\\"
+    >
+      <div className=\\"content\\">
         <form noValidate autoComplete=\\"off\\">
           <StringEdit
             id=\\"publisherFormName\\"
@@ -1880,13 +2080,13 @@ export function PublisherForm({
           </Button>
         </form>
       </div>
-    </Container>
+    </ContentContainer>
   );
 }
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/components/Publisher/PublisherRouter.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/Publisher/PublisherRouter.js should match snapshot 1`] = `
 "import { Switch, Route } from 'react-router-dom';
 import { EditPublisher } from './EditPublisher';
 import { Publisher } from './Publisher';
@@ -1914,29 +2114,40 @@ export function PublisherRouter() {
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/components/VideoGame/AddVideoGame.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/VideoGame/AddVideoGame.js should match snapshot 1`] = `
 "import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { addVideoGame } from '../../api/videoGame';
 import { VideoGameForm } from './VideoGameForm';
 
 export function AddVideoGame() {
+  const [error, setError] = useState(null);
   const [processing, setProcessing] = useState(false);
   const history = useHistory();
 
   async function add(videoGame) {
-    setProcessing(true);
-    const id = await addVideoGame(videoGame);
-    setProcessing(false);
-    history.push(\`/videoGame/\${id}\`);
+    try {
+      setProcessing(true);
+      const { id } = await addVideoGame(videoGame);
+      setProcessing(false);
+      history.push(\`/videoGame/\${id}\`);
+    } catch (error) {
+      setError(error);
+      setProcessing(false);
+    }
   }
 
-  return <VideoGameForm ctaLabel=\\"Add\\" cta={add} processing={processing} />;
+  return <VideoGameForm
+      ctaLabel=\\"Add\\"
+      cta={add}
+      processing={processing}
+      error={error}
+    />
 }
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/components/VideoGame/EditVideoGame.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/VideoGame/EditVideoGame.js should match snapshot 1`] = `
 "import { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { getVideoGame, updateVideoGame } from '../../api/videoGame';
@@ -1944,6 +2155,7 @@ import { VideoGameForm } from './VideoGameForm';
 
 export function EditVideoGame() {
   const [videoGame, setVideoGame] = useState(null);
+  const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [processing, setProcessing] = useState(false);
 
@@ -1956,18 +2168,28 @@ export function EditVideoGame() {
   }, [id]);
 
   async function get(id) {
-    setIsLoading(true);
-    const videoGame = await getVideoGame(id);
-    console.log({ videoGame });
-    setVideoGame(videoGame);
+    try {
+      setIsLoading(true);
+      const videoGame = await getVideoGame(id);
+      console.log({ videoGame });
+      setVideoGame(videoGame);  
+    } catch (error) {
+      setError(error);
+    }
+    
     setIsLoading(false);
   }
 
   async function save(videoGame) {
-    setProcessing(true);
-    await updateVideoGame(videoGame);
-    setProcessing(false);
-    history.push(\`/videoGame/\${id}\`);
+    try {
+      setProcessing(true);
+      await updateVideoGame(videoGame);
+      setProcessing(false);
+      history.push(\`/videoGame/\${id}\`);
+    } catch (error) {
+      setError(error);
+      setProcessing(false);
+    }
   }
 
   return (
@@ -1977,73 +2199,33 @@ export function EditVideoGame() {
       isLoading={isLoading}
       processing={processing}
       videoGame={videoGame}
+      error={error}
     />
   );
 }
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/components/VideoGame/VideoGame.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/VideoGame/VideoGame.js should match snapshot 1`] = `
 "import { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-import { Container, CircularProgress } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { Center } from '../common/Center';
 import { getVideoGame, removeVideoGame } from '../../api/videoGame';
 import { StringView } from '../types/StringView';
-import { Header } from '../common/Header';
 import { ConfirmDialog } from '../common/ConfirmDialog';
+import { ContentContainer } from \\"../common/containers/ContentContainer\\";
 
-function loading() {
-  return (
-    <Container maxWidth=\\"sm\\" className=\\"Container VideoGame\\">
-      <Header title=\\"Video Game\\"/>
-      <Center className=\\"loading\\">
-        <CircularProgress />
-      </Center>
-    </Container>
-  );
-}
-
-function videoGameNotFound() {
-  return (
-    <Container maxWidth=\\"sm\\" className=\\"Container VideoGame\\">
-      <Header title=\\"Video Game\\"/>
-      <div className=\\"containerContent\\">
-        <h2>Not found</h2>
-      </div>
-    </Container>
-  );
-}
-
-function handleRemoveVideoGame({ id, setIsLoading, history }) {
+function handleRemoveVideoGame({ id, setIsLoading, setError, history }) {
   return async () => {
-    setIsLoading(true);
-    await removeVideoGame(id);
-    history.push(\`/videoGames\`);
-  };
-}
-
-function handleConfirmDialogConfrim(setConfirmDialogOpen, onConfirm) {
-  return () => {
-    if (onConfirm) {
-      onConfirm();
+    try {
+      setIsLoading(true);
+      await removeVideoGame(id);
+      history.push(\`/videoGames\`); 
+    } catch (error) {
+      setError(error);
+      setIsLoading(false);
     }
-
-    setConfirmDialogOpen(false);
-  };
-}
-
-function handleConfirmDialogCancel(setConfirmDialogOpen) {
-  return () => {
-    setConfirmDialogOpen(false);
-  };
-}
-
-function openConfirmDialog(setConfirmDialogOpen) {
-  return () => {
-    setConfirmDialogOpen(true);
   };
 }
 
@@ -2060,7 +2242,8 @@ function getDialogText(videoGame) {
 export function VideoGame() {
   const [videoGame, setVideoGame] = useState({ title: '', yearPublished: '' });
   const [isLoading, setIsLoading] = useState(true);
-  const [confirmDialogOpen, setConfirmDialogOpen] = useState(false);
+  const [error, setError] = useState(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
   const history = useHistory();
   const { id: stringId } = useParams();
   const id = parseInt(stringId);
@@ -2070,77 +2253,65 @@ export function VideoGame() {
   }, [id]);
 
   async function get(id) {
-    setIsLoading(true);
-    const videoGame = await getVideoGame(id);
-    console.log({ videoGame });
-    setVideoGame(videoGame);
+    try {
+      setIsLoading(true);
+      const videoGame = await getVideoGame(id);
+      console.log({ videoGame });
+      setVideoGame(videoGame);
+    } catch (error){
+      setError(error);
+    }
+
     setIsLoading(false);
   }
 
-  if (isLoading) {
-    return loading();
-  }
-
-  if (!videoGame) {
-    return videoGameNotFound();
-  }
-
-  const headerActions = [
+  const actions = [
     { Icon: EditIcon, to: \`edit/\${id}\`, label: 'Edit' },
     {
       Icon: DeleteIcon,
-      onClick: openConfirmDialog(setConfirmDialogOpen),
+      onClick: () => setDialogOpen(true),
       label: 'Delete'
     }
   ];
 
   return (
-    <Container maxWidth=\\"sm\\" className=\\"Container VideoGame\\">
-      <Header title=\\"Video Game\\" actions={headerActions}/>
-      <div className=\\"containerContent\\">
+    <ContentContainer
+      title=\\"Video Game\\"
+      error={error}
+      loading={isLoading}
+      actions={actions}
+      className=\\"VideoGame\\"
+    >
+      <div className=\\"content\\">
         <StringView label=\\"Title\\" value={videoGame.title} />
         <StringView label=\\"Year Published\\" value={videoGame.yearPublished} />
       </div>
       <ConfirmDialog
         text={getDialogText(videoGame)}
         title=\\"Confirm Delete\\"
-        open={confirmDialogOpen}
-        onCancel={handleConfirmDialogCancel(setConfirmDialogOpen)}
-        onConfirm={handleConfirmDialogConfrim(
-          setConfirmDialogOpen,
-          handleRemoveVideoGame({ id, setIsLoading, history })
-        )}
+        open={dialogOpen}
+        setOpen={setDialogOpen}
+        onConfirm={handleRemoveVideoGame({ 
+          id, 
+          setIsLoading, 
+          history, 
+          setError 
+        })}
       />
-    </Container>
+    </ContentContainer>
   );
 }
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/components/VideoGame/VideoGameCollection.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/VideoGame/VideoGameCollection.js should match snapshot 1`] = `
 "import { useState, useEffect } from \\"react\\";
 import { Link } from \\"react-router-dom\\";
-import { Container, CircularProgress } from \\"@material-ui/core\\";
 import AddIcon from '@material-ui/icons/Add';
-import { Center } from \\"../common/Center\\";
 import { getVideoGames } from \\"../../api/videoGame\\";
 import { DataGrid } from \\"@material-ui/data-grid\\";
-import { Header } from \\"../../components/common/Header\\";
 import { StringCell } from '../types/StringCell';
-
-function loading() {
-  return (
-    <Container
-      maxWidth=\\"sm\\"
-      className=\\"Container Collection VideoGameCollection\\"
-    >
-      <Header title=\\"Video Games\\"/>
-      <Center className=\\"loading\\">
-        <CircularProgress />
-      </Center>
-    </Container>
-  );
-}
+import { ContentContainer } from \\"../common/containers/ContentContainer\\";
 
 function getColumns() {
   return [
@@ -2172,6 +2343,7 @@ function getColumns() {
 
 export function VideoGameCollection() {
   const [videoGames, setVideoGames] = useState([]);
+  const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -2179,25 +2351,27 @@ export function VideoGameCollection() {
   }, []);
 
   async function getAll() {
-    setIsLoading(true);
-    const videoGames = await getVideoGames();
-    console.log({videoGames});
-    setVideoGames(videoGames);
+    try {
+      setIsLoading(true);
+      const videoGames = await getVideoGames();
+      console.log({videoGames});
+      setVideoGames(videoGames);
+    } catch (error) {
+      setError(error);
+    }
+    
     setIsLoading(false);
-  }
-
-  if (isLoading) {
-    return loading();
   }
 
   const actions = [{ Icon: AddIcon, to: \\"VideoGame\\", label: \\"Add\\" }];
 
   return (
-    <Container
-      maxWidth=\\"sm\\"
-      className=\\"Container Collection VideoGameCollection\\"
+    <ContentContainer
+      title=\\"Video Games\\"
+      error={error}
+      loading={isLoading}
+      actions={actions}
     >
-      <Header title=\\"Video Games\\" actions={actions}/>
       <div style={{ display: \\"flex\\", height: \\"100%\\" }}>
         <div className=\\"test\\" style={{ flexGrow: 1 }}>
           <DataGrid
@@ -2208,40 +2382,27 @@ export function VideoGameCollection() {
           />
         </div>
       </div>
-    </Container>
+    </ContentContainer>
   );
 }
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/components/VideoGame/VideoGameForm.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/VideoGame/VideoGameForm.js should match snapshot 1`] = `
 "import { useState, useEffect } from 'react';
 import {
-  Button,
-  Container,
-  CircularProgress
+  Button
 } from '@material-ui/core';
-import { Center } from '../common/Center';
 import { StringEdit } from '../types/StringEdit';
-import { Header } from \\"../../components/common/Header\\";
-
-function loading() {
-  return (
-    <Container maxWidth=\\"sm\\" className=\\"Container VideoGame\\">
-      <Header title=\\"Video Game\\" />
-      <Center className=\\"loading\\">
-        <CircularProgress />
-      </Center>
-    </Container>
-  );
-}
+import { ContentContainer } from \\"../common/containers/ContentContainer\\";
 
 export function VideoGameForm({
   videoGame: initialState,
   ctaLabel,
   cta,
   isLoading,
-  processing
+  processing,
+  error
 }) {
   const [videoGame, setVideoGame] = useState(
     initialState ?? { title: '', yearPublished: '' }
@@ -2265,15 +2426,14 @@ export function VideoGameForm({
     };
   }
 
-
-  if (isLoading) {
-    return loading();
-  }
-
   return (
-    <Container maxWidth=\\"sm\\" className=\\"Container VideoGameForm\\">
-      <Header title=\\"Video Game\\" />
-      <div className=\\"containerContent\\">
+    <ContentContainer 
+      title=\\"Video Game\\"
+      error={error}
+      loading={isLoading}
+      className=\\"VideoGameForm\\"
+    >
+      <div className=\\"content\\">
         <form noValidate autoComplete=\\"off\\">
           <StringEdit
             id=\\"videoGameFormTitle\\"
@@ -2304,13 +2464,13 @@ export function VideoGameForm({
           </Button>
         </form>
       </div>
-    </Container>
+    </ContentContainer>
   );
 }
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/components/VideoGame/VideoGameRouter.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/VideoGame/VideoGameRouter.js should match snapshot 1`] = `
 "import { Switch, Route } from 'react-router-dom';
 import { EditVideoGame } from './EditVideoGame';
 import { VideoGame } from './VideoGame';
@@ -2338,7 +2498,7 @@ export function VideoGameRouter() {
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/components/common/Center.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/common/Center.js should match snapshot 1`] = `
 "import \\"./Center.scss\\";
 
 export function Center(props) {
@@ -2349,7 +2509,7 @@ export function Center(props) {
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/components/common/Center.scss should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/common/Center.scss should match snapshot 1`] = `
 ".Center {
   align-items: center;
   display: flex;
@@ -2358,27 +2518,53 @@ exports[`React template tests/app/video-game-app-indexedDB/src/components/common
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/components/common/ConfirmDialog.js should match snapshot 1`] = `
-"import { forwardRef } from 'react';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import Slide from '@material-ui/core/Slide';
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/common/ConfirmDialog.js should match snapshot 1`] = `
+"import { forwardRef } from \\"react\\";
+import Button from \\"@material-ui/core/Button\\";
+import Dialog from \\"@material-ui/core/Dialog\\";
+import DialogActions from \\"@material-ui/core/DialogActions\\";
+import DialogContent from \\"@material-ui/core/DialogContent\\";
+import DialogContentText from \\"@material-ui/core/DialogContentText\\";
+import DialogTitle from \\"@material-ui/core/DialogTitle\\";
+import Slide from \\"@material-ui/core/Slide\\";
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction=\\"up\\" ref={ref} {...props} />;
 });
 
-export function ConfirmDialog({ open, onConfirm, onCancel, text, title }) {
+function handleConfirm(setOpen, onConfirm) {
+  return () => {
+    if (onConfirm) {
+      onConfirm();
+    }
+
+    setOpen(false);
+  };
+}
+
+function handleCancel(setOpen, onCancel) {
+  return () => {
+    setOpen(false);
+    if (onCancel) {
+      onCancel();
+    }
+  };
+}
+
+export function ConfirmDialog({
+  open,
+  setOpen,
+  onConfirm,
+  onCancel,
+  text,
+  title,
+}) {
   return (
     <Dialog
       open={open}
       TransitionComponent={Transition}
       keepMounted
-      onClose={onCancel}
+      onClose={handleCancel(setOpen, onCancel)}
       aria-labelledby=\\"alert-dialog-slide-title\\"
       aria-describedby=\\"alert-dialog-slide-description\\"
     >
@@ -2389,11 +2575,11 @@ export function ConfirmDialog({ open, onConfirm, onCancel, text, title }) {
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={onCancel} color=\\"primary\\">
+        <Button onClick={handleCancel(setOpen, onCancel)} color=\\"primary\\">
           Cancel
         </Button>
-        <Button onClick={onConfirm} color=\\"primary\\">
-          Yes
+        <Button onClick={handleConfirm(setOpen, onConfirm)} color=\\"primary\\">
+          Delete
         </Button>
       </DialogActions>
     </Dialog>
@@ -2402,7 +2588,7 @@ export function ConfirmDialog({ open, onConfirm, onCancel, text, title }) {
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/components/common/Header.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/common/Header.js should match snapshot 1`] = `
 "import { Link as RouterLink } from 'react-router-dom';
 import { IconButton } from '@material-ui/core';
 import HeaderMenu from './HeaderMenu';
@@ -2458,7 +2644,7 @@ export function Header({ title, actions }) {
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/components/common/Header.scss should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/common/Header.scss should match snapshot 1`] = `
 ".Header {
   display: flex;
   justify-content: space-between;
@@ -2473,7 +2659,7 @@ exports[`React template tests/app/video-game-app-indexedDB/src/components/common
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/components/common/HeaderMenu.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/common/HeaderMenu.js should match snapshot 1`] = `
 "import { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import {
@@ -2549,7 +2735,145 @@ export default function HeaderMenu({ actions }) {
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/components/types/BooleanCell.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/common/containers/ContentContainer.js should match snapshot 1`] = `
+"import { Container } from \\"@material-ui/core\\";
+import { Header } from \\"../Header\\";
+import { LoadingContainer } from \\"./LoadingContainer\\";
+import { ErrorContainer } from \\"./ErrorContainer\\";
+import \\"./ContentContainer.scss\\";
+
+export function ContentContainer({
+  title,
+  children,
+  className,
+  loading,
+  error,
+  actions,
+}) {
+  const classes = [\\"Container\\", \\"ContentContainer\\", className].join(\\" \\");
+
+  if (error) {
+    return <ErrorContainer title={title} error={error} className={classes} />;
+  }
+
+  if (loading) {
+    return <LoadingContainer title={title} className={classes} />;
+  }
+
+  return (
+    <Container maxWidth=\\"sm\\" className={classes}>
+      <Header title={title} actions={actions} />
+      {children}
+    </Container>
+  );
+}
+"
+`;
+
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/common/containers/ContentContainer.scss should match snapshot 1`] = `
+".ContentContainer {
+  background-color: white;
+  margin-top: 40px;
+  min-height: 350px;
+  border-radius: 5px;
+  border: solid 1px #ccc;
+
+  &.Container {
+    padding: 0;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+
+    .headerIcon {
+      height: 48px;
+      margin-top: 18px;
+    }
+  }
+
+  .content {
+    padding: 0px 2rem 2rem 2rem;
+  }
+
+  .datagrid {
+    min-height: 400px;
+  }
+}
+"
+`;
+
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/common/containers/ErrorContainer.js should match snapshot 1`] = `
+"import { useEffect } from 'react';
+import { ErrorType } from '../../../lib/Error';
+import { MessageContainer } from './MessageContainer';
+
+function getErrorMessage(error) {
+  switch (error.type) {
+    case ErrorType.NotFound:
+      return 'Not Found';
+    default:
+      return 'Something went wrong.';
+  }
+}
+
+export function ErrorContainer({ title, error, className }) {
+  useEffect(() => {
+    console.error(error);
+  }, [error]);
+
+  return (
+    <MessageContainer
+      title={title}
+      message={getErrorMessage(error)}
+      className={className}
+    />
+  );
+}
+"
+`;
+
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/common/containers/LoadingContainer.js should match snapshot 1`] = `
+"import { Container, CircularProgress } from '@material-ui/core';
+import { Header } from '../Header';
+import { Center } from '../Center';
+
+export function LoadingContainer({ title, className }) {
+  const classes = ['Container', className].join(' ');
+
+  return (
+    <Container maxWidth=\\"sm\\" className={classes}>
+      <Header title={title} />
+      <Center className=\\"loading\\">
+        <CircularProgress />
+      </Center>
+    </Container>
+  );
+}
+"
+`;
+
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/common/containers/MessageContainer.js should match snapshot 1`] = `
+"import { Container } from '@material-ui/core';
+import { Header } from '../Header';
+
+export function MessageContainer({ title, message, className }) {
+  const classes = ['Container', className].join(' ');
+
+  return (
+    <Container maxWidth=\\"sm\\" className={classes}>
+      <Header title={title} />
+      <div className=\\"content\\">
+        <h2>{message}</h2>
+      </div>
+    </Container>
+  );
+}
+"
+`;
+
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/types/BooleanCell.js should match snapshot 1`] = `
 "import CheckIcon from '@material-ui/icons/Check';
 import './BooleanCell.scss';
 
@@ -2567,7 +2891,7 @@ export function BooleanCell({ value }) {
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/components/types/BooleanCell.scss should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/types/BooleanCell.scss should match snapshot 1`] = `
 ".BooleanCell {
   width: 100%;
   text-align: center;
@@ -2575,7 +2899,7 @@ exports[`React template tests/app/video-game-app-indexedDB/src/components/types/
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/components/types/BooleanEdit.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/types/BooleanEdit.js should match snapshot 1`] = `
 "import { FormControlLabel, Checkbox } from '@material-ui/core';
 
 const handleChange = (field, update) => (event) => {
@@ -2597,7 +2921,7 @@ export function BooleanEdit({ id, label, value, field, onChange, disabled }) {
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/components/types/BooleanView.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/types/BooleanView.js should match snapshot 1`] = `
 "import CheckIcon from \\"@material-ui/icons/Check\\";
 
 function getIcon(value) {
@@ -2618,7 +2942,7 @@ export function BooleanView({ label, value }) {
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/components/types/StringCell.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/types/StringCell.js should match snapshot 1`] = `
 "function renderValue(value) {
   return !value || value === '' ? '--' : value;
 }
@@ -2629,7 +2953,7 @@ export function StringCell({ value }) {
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/components/types/StringEdit.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/types/StringEdit.js should match snapshot 1`] = `
 "import { TextField } from '@material-ui/core';
 
 const handleChange = (field, update) => (event) => {
@@ -2654,7 +2978,7 @@ export function StringEdit({ id, label, value, field, onChange, disabled }) {
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/components/types/StringView.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/components/types/StringView.js should match snapshot 1`] = `
 "export function StringView({ label, value }) {
   return (
     <div>
@@ -2665,7 +2989,7 @@ exports[`React template tests/app/video-game-app-indexedDB/src/components/types/
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/db/db.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/db/db.js should match snapshot 1`] = `
 "import { openDB } from \\"idb\\";
 
 export async function connect() {
@@ -2687,7 +3011,8 @@ export async function connect() {
 
 export async function add(store, value) {
   const db = await connect();
-  return db.add(store, value);
+  const id = await db.add(store, value);
+  return db.get(store, id);
 }
 
 export async function get(store, key) {
@@ -2726,7 +3051,7 @@ export function withStore(store) {
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/db/publisher.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/db/publisher.js should match snapshot 1`] = `
 "import { withStore } from './db';
 const { add, get, getAll, update, remove } = withStore('Publisher');
 
@@ -2734,7 +3059,7 @@ export { add, get, getAll, update, remove };
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/db/videoGame.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/db/videoGame.js should match snapshot 1`] = `
 "import { withStore } from './db';
 const { add, get, getAll, update, remove } = withStore('VideoGame');
 
@@ -2742,7 +3067,7 @@ export { add, get, getAll, update, remove };
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/index.css should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/index.css should match snapshot 1`] = `
 "body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -2760,7 +3085,7 @@ code {
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/index.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/index.js should match snapshot 1`] = `
 "import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -2781,9 +3106,20 @@ reportWebVitals();
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/logo.svg should match snapshot 1`] = `"<svg xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 841.9 595.3\\"><g fill=\\"#61DAFB\\"><path d=\\"M666.3 296.5c0-32.5-40.7-63.3-103.1-82.4 14.4-63.6 8-114.2-20.2-130.4-6.5-3.8-14.1-5.6-22.4-5.6v22.3c4.6 0 8.3.9 11.4 2.6 13.6 7.8 19.5 37.5 14.9 75.7-1.1 9.4-2.9 19.3-5.1 29.4-19.6-4.8-41-8.5-63.5-10.9-13.5-18.5-27.5-35.3-41.6-50 32.6-30.3 63.2-46.9 84-46.9V78c-27.5 0-63.5 19.6-99.9 53.6-36.4-33.8-72.4-53.2-99.9-53.2v22.3c20.7 0 51.4 16.5 84 46.6-14 14.7-28 31.4-41.3 49.9-22.6 2.4-44 6.1-63.6 11-2.3-10-4-19.7-5.2-29-4.7-38.2 1.1-67.9 14.6-75.8 3-1.8 6.9-2.6 11.5-2.6V78.5c-8.4 0-16 1.8-22.6 5.6-28.1 16.2-34.4 66.7-19.9 130.1-62.2 19.2-102.7 49.9-102.7 82.3 0 32.5 40.7 63.3 103.1 82.4-14.4 63.6-8 114.2 20.2 130.4 6.5 3.8 14.1 5.6 22.5 5.6 27.5 0 63.5-19.6 99.9-53.6 36.4 33.8 72.4 53.2 99.9 53.2 8.4 0 16-1.8 22.6-5.6 28.1-16.2 34.4-66.7 19.9-130.1 62-19.1 102.5-49.9 102.5-82.3zm-130.2-66.7c-3.7 12.9-8.3 26.2-13.5 39.5-4.1-8-8.4-16-13.1-24-4.6-8-9.5-15.8-14.4-23.4 14.2 2.1 27.9 4.7 41 7.9zm-45.8 106.5c-7.8 13.5-15.8 26.3-24.1 38.2-14.9 1.3-30 2-45.2 2-15.1 0-30.2-.7-45-1.9-8.3-11.9-16.4-24.6-24.2-38-7.6-13.1-14.5-26.4-20.8-39.8 6.2-13.4 13.2-26.8 20.7-39.9 7.8-13.5 15.8-26.3 24.1-38.2 14.9-1.3 30-2 45.2-2 15.1 0 30.2.7 45 1.9 8.3 11.9 16.4 24.6 24.2 38 7.6 13.1 14.5 26.4 20.8 39.8-6.3 13.4-13.2 26.8-20.7 39.9zm32.3-13c5.4 13.4 10 26.8 13.8 39.8-13.1 3.2-26.9 5.9-41.2 8 4.9-7.7 9.8-15.6 14.4-23.7 4.6-8 8.9-16.1 13-24.1zM421.2 430c-9.3-9.6-18.6-20.3-27.8-32 9 .4 18.2.7 27.5.7 9.4 0 18.7-.2 27.8-.7-9 11.7-18.3 22.4-27.5 32zm-74.4-58.9c-14.2-2.1-27.9-4.7-41-7.9 3.7-12.9 8.3-26.2 13.5-39.5 4.1 8 8.4 16 13.1 24 4.7 8 9.5 15.8 14.4 23.4zM420.7 163c9.3 9.6 18.6 20.3 27.8 32-9-.4-18.2-.7-27.5-.7-9.4 0-18.7.2-27.8.7 9-11.7 18.3-22.4 27.5-32zm-74 58.9c-4.9 7.7-9.8 15.6-14.4 23.7-4.6 8-8.9 16-13 24-5.4-13.4-10-26.8-13.8-39.8 13.1-3.1 26.9-5.8 41.2-7.9zm-90.5 125.2c-35.4-15.1-58.3-34.9-58.3-50.6 0-15.7 22.9-35.6 58.3-50.6 8.6-3.7 18-7 27.7-10.1 5.7 19.6 13.2 40 22.5 60.9-9.2 20.8-16.6 41.1-22.2 60.6-9.9-3.1-19.3-6.5-28-10.2zM310 490c-13.6-7.8-19.5-37.5-14.9-75.7 1.1-9.4 2.9-19.3 5.1-29.4 19.6 4.8 41 8.5 63.5 10.9 13.5 18.5 27.5 35.3 41.6 50-32.6 30.3-63.2 46.9-84 46.9-4.5-.1-8.3-1-11.3-2.7zm237.2-76.2c4.7 38.2-1.1 67.9-14.6 75.8-3 1.8-6.9 2.6-11.5 2.6-20.7 0-51.4-16.5-84-46.6 14-14.7 28-31.4 41.3-49.9 22.6-2.4 44-6.1 63.6-11 2.3 10.1 4.1 19.8 5.2 29.1zm38.5-66.7c-8.6 3.7-18 7-27.7 10.1-5.7-19.6-13.2-40-22.5-60.9 9.2-20.8 16.6-41.1 22.2-60.6 9.9 3.1 19.3 6.5 28.1 10.2 35.4 15.1 58.3 34.9 58.3 50.6-.1 15.7-23 35.6-58.4 50.6zM320.8 78.4z\\"/><circle cx=\\"420.9\\" cy=\\"296.5\\" r=\\"45.7\\"/><path d=\\"M520.5 78.1z\\"/></g></svg>"`;
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/lib/Error.js should match snapshot 1`] = `
+"export const ErrorType = { NotFound: \\"NotFound\\" };
 
-exports[`React template tests/app/video-game-app-indexedDB/src/reportWebVitals.js should match snapshot 1`] = `
+export function NotFoundError() {
+  const error = new Error(\\"Record Not Found\\");
+  error.type = ErrorType.NotFound;
+  return error;
+}
+"
+`;
+
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/logo.svg should match snapshot 1`] = `"<svg xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 841.9 595.3\\"><g fill=\\"#61DAFB\\"><path d=\\"M666.3 296.5c0-32.5-40.7-63.3-103.1-82.4 14.4-63.6 8-114.2-20.2-130.4-6.5-3.8-14.1-5.6-22.4-5.6v22.3c4.6 0 8.3.9 11.4 2.6 13.6 7.8 19.5 37.5 14.9 75.7-1.1 9.4-2.9 19.3-5.1 29.4-19.6-4.8-41-8.5-63.5-10.9-13.5-18.5-27.5-35.3-41.6-50 32.6-30.3 63.2-46.9 84-46.9V78c-27.5 0-63.5 19.6-99.9 53.6-36.4-33.8-72.4-53.2-99.9-53.2v22.3c20.7 0 51.4 16.5 84 46.6-14 14.7-28 31.4-41.3 49.9-22.6 2.4-44 6.1-63.6 11-2.3-10-4-19.7-5.2-29-4.7-38.2 1.1-67.9 14.6-75.8 3-1.8 6.9-2.6 11.5-2.6V78.5c-8.4 0-16 1.8-22.6 5.6-28.1 16.2-34.4 66.7-19.9 130.1-62.2 19.2-102.7 49.9-102.7 82.3 0 32.5 40.7 63.3 103.1 82.4-14.4 63.6-8 114.2 20.2 130.4 6.5 3.8 14.1 5.6 22.5 5.6 27.5 0 63.5-19.6 99.9-53.6 36.4 33.8 72.4 53.2 99.9 53.2 8.4 0 16-1.8 22.6-5.6 28.1-16.2 34.4-66.7 19.9-130.1 62-19.1 102.5-49.9 102.5-82.3zm-130.2-66.7c-3.7 12.9-8.3 26.2-13.5 39.5-4.1-8-8.4-16-13.1-24-4.6-8-9.5-15.8-14.4-23.4 14.2 2.1 27.9 4.7 41 7.9zm-45.8 106.5c-7.8 13.5-15.8 26.3-24.1 38.2-14.9 1.3-30 2-45.2 2-15.1 0-30.2-.7-45-1.9-8.3-11.9-16.4-24.6-24.2-38-7.6-13.1-14.5-26.4-20.8-39.8 6.2-13.4 13.2-26.8 20.7-39.9 7.8-13.5 15.8-26.3 24.1-38.2 14.9-1.3 30-2 45.2-2 15.1 0 30.2.7 45 1.9 8.3 11.9 16.4 24.6 24.2 38 7.6 13.1 14.5 26.4 20.8 39.8-6.3 13.4-13.2 26.8-20.7 39.9zm32.3-13c5.4 13.4 10 26.8 13.8 39.8-13.1 3.2-26.9 5.9-41.2 8 4.9-7.7 9.8-15.6 14.4-23.7 4.6-8 8.9-16.1 13-24.1zM421.2 430c-9.3-9.6-18.6-20.3-27.8-32 9 .4 18.2.7 27.5.7 9.4 0 18.7-.2 27.8-.7-9 11.7-18.3 22.4-27.5 32zm-74.4-58.9c-14.2-2.1-27.9-4.7-41-7.9 3.7-12.9 8.3-26.2 13.5-39.5 4.1 8 8.4 16 13.1 24 4.7 8 9.5 15.8 14.4 23.4zM420.7 163c9.3 9.6 18.6 20.3 27.8 32-9-.4-18.2-.7-27.5-.7-9.4 0-18.7.2-27.8.7 9-11.7 18.3-22.4 27.5-32zm-74 58.9c-4.9 7.7-9.8 15.6-14.4 23.7-4.6 8-8.9 16-13 24-5.4-13.4-10-26.8-13.8-39.8 13.1-3.1 26.9-5.8 41.2-7.9zm-90.5 125.2c-35.4-15.1-58.3-34.9-58.3-50.6 0-15.7 22.9-35.6 58.3-50.6 8.6-3.7 18-7 27.7-10.1 5.7 19.6 13.2 40 22.5 60.9-9.2 20.8-16.6 41.1-22.2 60.6-9.9-3.1-19.3-6.5-28-10.2zM310 490c-13.6-7.8-19.5-37.5-14.9-75.7 1.1-9.4 2.9-19.3 5.1-29.4 19.6 4.8 41 8.5 63.5 10.9 13.5 18.5 27.5 35.3 41.6 50-32.6 30.3-63.2 46.9-84 46.9-4.5-.1-8.3-1-11.3-2.7zm237.2-76.2c4.7 38.2-1.1 67.9-14.6 75.8-3 1.8-6.9 2.6-11.5 2.6-20.7 0-51.4-16.5-84-46.6 14-14.7 28-31.4 41.3-49.9 22.6-2.4 44-6.1 63.6-11 2.3 10.1 4.1 19.8 5.2 29.1zm38.5-66.7c-8.6 3.7-18 7-27.7 10.1-5.7-19.6-13.2-40-22.5-60.9 9.2-20.8 16.6-41.1 22.2-60.6 9.9 3.1 19.3 6.5 28.1 10.2 35.4 15.1 58.3 34.9 58.3 50.6-.1 15.7-23 35.6-58.4 50.6zM320.8 78.4z\\"/><circle cx=\\"420.9\\" cy=\\"296.5\\" r=\\"45.7\\"/><path d=\\"M520.5 78.1z\\"/></g></svg>"`;
+
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/reportWebVitals.js should match snapshot 1`] = `
 "const reportWebVitals = onPerfEntry => {
   if (onPerfEntry && onPerfEntry instanceof Function) {
     import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
@@ -2800,7 +3136,7 @@ export default reportWebVitals;
 "
 `;
 
-exports[`React template tests/app/video-game-app-indexedDB/src/setupTests.js should match snapshot 1`] = `
+exports[`React template tests/app/testApps/video-game-app-indexedDB/client/src/setupTests.js should match snapshot 1`] = `
 "// jest-dom adds custom jest matchers for asserting on DOM nodes.
 // allows you to do things like:
 // expect(element).toHaveTextContent(/react/i)
